@@ -3,741 +3,2132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rashifal.online — आज का राशिफल | Daily Horoscope, Kundli, Compatibility & More</title>
-<meta name="description" content="आज का राशिफल, साप्ताहिक, मासिक, वार्षिक भविष्यफल। Free kundli, compatibility, career, love, health & finance horoscope for all 12 zodiac signs.">
-<meta name="keywords" content="rashifal, राशिफल, aaj ka rashifal, kundli, janampatri, horoscope today, compatibility, love horoscope, career horoscope, zodiac signs">
-<meta property="og:title" content="Rashifal.online — Your Complete Astrology Destination">
+<title>Rashifal.online — आज का राशिफल | Daily Horoscope, Kundli, Compatibility</title>
+<meta name="description" content="आज का राशिफल, साप्ताहिक, मासिक, वार्षिक भविष्यफल। Free kundli, compatibility, career, love, health & finance horoscope.">
 <link rel="canonical" href="https://rashifal.online">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Outfit:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --gold:#e8a838;--gold-light:#f5cc6a;--gold-dim:rgba(232,168,56,0.15);--saffron:#f47c20;
-  --text-primary:#f0ebe3;--text-secondary:rgba(240,235,227,0.6);--text-dim:rgba(240,235,227,0.35);
-  --border:rgba(232,168,56,0.12);--border-hover:rgba(232,168,56,0.35);
-  --bg-card:rgba(15,15,30,0.65);--bg-card-hover:rgba(20,20,40,0.75);
-  --accent-love:#e84393;--accent-career:#0984e3;--accent-health:#00b894;--accent-money:#fdcb6e;
+/* ═══════════════════════════════════════════════════════
+   RASHIFAL.ONLINE — DESIGN SYSTEM
+   Step 1: Visual Identity & Typography Architecture
+   Step 2: Celestial Atmosphere & Background Logic
+   ═══════════════════════════════════════════════════════
+   Font Pair: Cormorant Garamond (Serif) + Inter (Sans)
+   Scale: Perfect Fourth (1.333)
+   Palette: Deep Space — Midnight Navy / Charcoal / Champagne Gold
+   Rule: 60-30-10
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* ── 60% Primary Neutrals (Deep Space) ── */
+  --midnight:    #0A0E1A;
+  --void:        #070B14;
+  --charcoal:    #131825;
+  --slate:       #1C2233;
+  --surface:     rgba(19, 24, 37, 0.6);
+  --surface-h:   rgba(28, 34, 51, 0.7);
+
+  /* ── 30% Secondary (Muted Metals) ── */
+  --silver:      rgba(200, 205, 220, 0.9);
+  --silver-dim:  rgba(200, 205, 220, 0.5);
+  --silver-faint:rgba(200, 205, 220, 0.2);
+  --ash:         rgba(200, 205, 220, 0.08);
+
+  /* ── 10% Accent (Champagne Gold) ── */
+  --gold:        #D4AF37;
+  --gold-light:  #E8CC6E;
+  --gold-muted:  rgba(212, 175, 55, 0.12);
+  --gold-glow:   rgba(212, 175, 55, 0.06);
+  --gold-faint:  rgba(212, 175, 55, 0.03);
+
+  /* ── Text ── */
+  --t-heading:   rgba(232, 228, 218, 0.95);
+  --t-body:      rgba(200, 205, 220, 0.82);
+  --t-muted:     rgba(200, 205, 220, 0.48);
+  --t-faint:     rgba(200, 205, 220, 0.24);
+
+  /* ── Borders ── */
+  --b-subtle:    rgba(212, 175, 55, 0.06);
+  --b-default:   rgba(212, 175, 55, 0.1);
+  --b-hover:     rgba(212, 175, 55, 0.22);
+
+  /* ── Typography — Perfect Fourth (1.333) ── */
+  --f-serif:     'Cormorant Garamond', 'Tiro Devanagari Hindi', Georgia, serif;
+  --f-sans:      'Inter', system-ui, -apple-system, sans-serif;
+  --f-hindi:     'Tiro Devanagari Hindi', serif;
+
+  --fs-xs:   0.75rem;     /* 12px */
+  --fs-sm:   0.875rem;    /* 14px */
+  --fs-base: 1rem;        /* 16px */
+  --fs-md:   1.333rem;    /* 21px */
+  --fs-lg:   1.777rem;    /* 28px */
+  --fs-xl:   2.369rem;    /* 38px */
+  --fs-2xl:  3.157rem;    /* 50px */
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.7;
+  --lh-relaxed: 1.85;
+
+  /* ── Spacing (8px base) ── */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.25rem; --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem;
+  --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem; --sp-24: 6rem;
+
+  /* ── Motion ── */
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:   cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 0.2s;
+  --dur-med:  0.35s;
+  --dur-slow: 0.6s;
+
+  /* ── Glass ── */
+  --glass-blur:   blur(16px);
+  --glass-bg:     rgba(14, 18, 30, 0.55);
+  --glass-bg-h:   rgba(20, 25, 40, 0.65);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.04);
+  --glass-radius: 14px;
 }
-html{scroll-behavior:smooth}
-body{color:var(--text-primary);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.6;background:#050510}
-#skyCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-.container{max-width:1140px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
-.top-nav{position:sticky;top:0;z-index:50;background:rgba(10,10,26,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:56px;gap:8px}
-.nav-logo{font-family:'Yatra One',cursive;font-size:20px;color:var(--gold-light);text-decoration:none;white-space:nowrap;margin-right:auto}
-.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
-.nav-links::-webkit-scrollbar{display:none}
-.nav-link{padding:8px 14px;font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;border-radius:8px;white-space:nowrap;transition:all .25s}
-.nav-link:hover,.nav-link.active{color:var(--gold-light);background:var(--gold-dim)}
-.nav-hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:24px;cursor:pointer;padding:4px}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:49;background:rgba(10,10,26,0.97);backdrop-filter:blur(20px);padding:80px 30px 30px}
-.mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:16px 0;font-size:18px;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border)}
-header{text-align:center;padding:45px 0 25px}
-.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--saffron));margin-bottom:16px;position:relative;box-shadow:0 0 60px rgba(232,168,56,0.25)}
-.logo-mark::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(232,168,56,0.3)}
-.logo-inner{font-size:40px;line-height:1}
-.site-title{font-family:'Yatra One',cursive;font-size:clamp(1.8rem,5vw,3rem);background:linear-gradient(135deg,var(--gold-light),var(--saffron));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.site-subtitle{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(0.95rem,2.5vw,1.2rem);color:var(--text-secondary);margin-top:4px}
-.controls-row{display:flex;justify-content:center;align-items:center;gap:20px;margin:22px 0 8px;flex-wrap:wrap}
-.lang-toggle{display:flex;border:1px solid var(--border);border-radius:30px;overflow:hidden;background:rgba(0,0,0,0.3)}
-.lang-btn{padding:8px 24px;font-size:14px;font-weight:500;background:none;border:none;color:var(--text-secondary);cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif}
-.lang-btn.active{background:var(--gold-dim);color:var(--gold-light)}
-.date-strip{font-size:14px;color:var(--text-secondary)}.date-strip .day-name{color:var(--gold);font-weight:600}
-.period-tabs{display:flex;justify-content:center;gap:6px;margin:18px 0 25px;flex-wrap:wrap}
-.period-tab{padding:9px 22px;font-size:13px;font-weight:500;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:25px;color:var(--text-secondary);cursor:pointer;transition:all .3s}
-.period-tab:hover{border-color:var(--border-hover);color:var(--text-primary)}
-.period-tab.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}
-.ad-slot{border:1px dashed var(--border);border-radius:12px;padding:14px;text-align:center;margin:20px 0;color:var(--text-dim);font-size:12px;min-height:90px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2)}
-.section-header{margin:40px 0 20px;text-align:center}
-.section-header h2{font-family:'Yatra One',cursive;font-size:clamp(1.3rem,3vw,1.8rem);color:var(--gold-light)}
-.section-header p{font-size:14px;color:var(--text-secondary);margin-top:4px}
-.section-divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto 0}
-/* Dharmic Decorations */
-.toran{width:100%;max-width:700px;margin:0 auto;display:block;overflow:visible;opacity:0.7}
-.rangoli-divider{width:100%;max-width:500px;margin:0 auto;display:block;opacity:0.5}
-.diya-pair{display:flex;justify-content:center;gap:30px;margin:8px 0}
-.diya-svg{width:28px;height:28px;opacity:0.6}
-.diya-svg .flame{animation:flicker 1.5s ease-in-out infinite alternate}
-@keyframes flicker{0%{opacity:0.7;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}100%{opacity:0.8;transform:scaleY(0.95)}}
-.kalash-logo{width:50px;height:50px;margin:0 auto 10px;display:block;opacity:0.6}
-.om-watermark{position:absolute;font-size:200px;opacity:0.015;color:var(--gold);font-family:serif;pointer-events:none;z-index:0;user-select:none}
-.bandanwar-nav{height:8px;background:repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(232,168,56,0.15) 18px,rgba(232,168,56,0.15) 20px);position:relative}
-.bandanwar-nav::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(232,168,56,0.2) 20%,rgba(232,168,56,0.2) 80%,transparent 100%)}
-.lotus-accent{width:40px;height:40px;margin:0 8px;opacity:0.5;vertical-align:middle}
-.dharmic-border{border-image:repeating-linear-gradient(90deg,rgba(232,168,56,0.08),rgba(232,168,56,0.2) 4px,rgba(232,168,56,0.08) 8px) 1;border-width:1px 0;border-style:solid;padding:8px 0;margin:12px 0}
-.rashi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:10px 0 30px}
-.rashi-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px 18px;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
-.rashi-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(232,168,56,0.06) 0%,transparent 70%);opacity:0;transition:opacity .35s}
-.rashi-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.4)}
-.rashi-card:hover::before{opacity:1}
-.rashi-top{display:flex;align-items:center;gap:12px}
-.rashi-symbol{font-size:36px;line-height:1;filter:drop-shadow(0 0 8px rgba(232,168,56,0.3))}
-.rashi-name-hi{font-family:'Tiro Devanagari Hindi',serif;font-size:20px;color:var(--text-primary)}
-.rashi-name-en{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:2px}
-.rashi-dates{font-size:11px;color:var(--text-dim);margin-top:2px}
-.rashi-preview{font-size:13px;color:var(--text-secondary);margin-top:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.rashi-meta{display:flex;gap:14px;margin-top:12px;font-size:12px;color:var(--text-dim)}
-.rating-stars{color:var(--gold);letter-spacing:1px}
-.category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:10px 0 30px}
-.category-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all .3s;text-decoration:none;color:inherit;display:block}
-.category-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-2px)}
-.cat-icon{font-size:32px;margin-bottom:10px}.cat-title{font-size:17px;font-weight:600;margin-bottom:4px}
-.cat-title-hi{font-family:'Tiro Devanagari Hindi',serif;font-size:14px;color:var(--text-secondary)}
-.cat-desc{font-size:13px;color:var(--text-secondary);margin-top:8px;line-height:1.5}
-.cat-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;margin-top:10px}
-.tag-love{background:rgba(232,67,147,0.15);color:#e84393}.tag-career{background:rgba(9,132,227,0.15);color:#74b9ff}
-.tag-health{background:rgba(0,184,148,0.15);color:#55efc4}.tag-money{background:rgba(253,203,110,0.15);color:#fdcb6e}
-.tag-new{background:rgba(232,168,56,0.15);color:var(--gold)}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin:10px 0 30px}
-.tool-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;transition:all .3s;cursor:pointer}
-.tool-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-.tool-card .coming{position:absolute;top:14px;right:14px;padding:4px 12px;border-radius:20px;background:rgba(232,168,56,0.15);color:var(--gold);font-size:11px;font-weight:600}
-.tool-icon{font-size:38px;margin-bottom:12px}.tool-title{font-size:18px;font-weight:600;margin-bottom:4px}
-.tool-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
-.compat-form{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:18px;padding:30px 28px;max-width:500px;margin:20px auto 30px;text-align:center}
-.compat-form h3{font-family:'Yatra One',cursive;font-size:20px;color:var(--gold-light);margin-bottom:16px}
-.compat-row{display:flex;gap:12px;margin-bottom:16px;align-items:center;justify-content:center;flex-wrap:wrap}
-.compat-select{padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,0.4);color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:15px;min-width:140px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e8a838' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
-.compat-select option{background:#1a1a2e;color:#f0ebe3}
-.compat-heart{font-size:24px}.compat-btn{padding:12px 36px;border-radius:30px;border:none;background:linear-gradient(135deg,var(--gold),var(--saffron));color:#0a0a1a;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}
-.compat-btn:hover{transform:scale(1.03);box-shadow:0 4px 20px rgba(232,168,56,0.3)}
-.compat-result{margin-top:20px;padding:20px;border-radius:14px;background:rgba(232,168,56,0.08);display:none}
-.compat-score{font-size:48px;font-weight:700;color:var(--gold-light)}.compat-verdict{font-size:15px;color:var(--text-secondary);margin-top:6px}
-.overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(5,5,15,0.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px}
-.overlay.active{display:flex}
-.detail-panel{background:rgba(12,12,30,0.95);backdrop-filter:blur(20px);border:1px solid var(--border-hover);border-radius:20px;max-width:660px;width:100%;padding:36px 32px;position:relative;max-height:90vh;overflow-y:auto}
-.close-btn{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--text-secondary);font-size:28px;cursor:pointer}.close-btn:hover{color:var(--gold)}
-.detail-symbol{font-size:52px;margin-bottom:10px}
-.detail-name{font-family:'Yatra One',cursive;font-size:26px;color:var(--gold-light)}
-.detail-name-sub{font-size:13px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:3px;margin-top:2px}
-.detail-tabs{display:flex;gap:4px;margin:20px 0 16px;flex-wrap:wrap}
-.detail-tab{padding:7px 16px;font-size:12px;font-weight:500;border-radius:20px;background:rgba(0,0,0,0.3);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all .25s}
-.detail-tab.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}
-.detail-prediction{font-family:'Tiro Devanagari Hindi',serif;font-size:16px;line-height:1.9;color:var(--text-primary);margin:16px 0;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.detail-meta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
-.meta-box{background:rgba(255,255,255,0.04);border-radius:12px;padding:14px;text-align:center}
-.meta-box .label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px}
-.meta-box .value{font-size:18px;font-weight:600;color:var(--gold);margin-top:4px}
-.detail-categories{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.detail-cat{background:rgba(255,255,255,0.03);border-radius:12px;padding:14px 16px}
-.detail-cat-icon{font-size:18px;margin-bottom:4px}
-.detail-cat-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.detail-cat-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
-.lbl-love{color:var(--accent-love)}.lbl-career{color:var(--accent-career)}.lbl-health{color:var(--accent-health)}.lbl-money{color:var(--accent-money)}
-.zodiac-info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:10px 0 30px}
-.zodiac-info-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px 20px;transition:all .3s}
-.zodiac-info-card:hover{border-color:var(--border-hover)}
-.zi-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.zi-symbol{font-size:30px}.zi-name{font-size:17px;font-weight:600}
-.zi-table{width:100%;font-size:13px}.zi-table td{padding:5px 0}.zi-table td:first-child{color:var(--text-dim);width:40%}.zi-table td:last-child{color:var(--text-secondary)}
-footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);color:var(--text-dim);font-size:13px;margin-top:30px}
-footer a{color:var(--gold);text-decoration:none}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:10px}
-.footer-seo{max-width:700px;margin:20px auto 0;font-size:12px;color:var(--text-dim);line-height:1.7;text-align:left}
-@media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:block}.rashi-grid{grid-template-columns:repeat(2,1fr);gap:10px}.rashi-card{padding:16px 12px}.rashi-preview,.rashi-meta{display:none}.category-grid,.tools-grid{grid-template-columns:1fr}.detail-panel{padding:28px 20px}.detail-categories{grid-template-columns:1fr}.compat-row{flex-direction:column}.compat-select{width:100%}.zodiac-info-grid{grid-template-columns:1fr}header{padding:30px 0 15px}.logo-mark{width:70px;height:70px}.logo-inner{font-size:32px}}
+
+/* ── BASE ── */
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--void);
+  color: var(--t-body);
+  font-family: var(--f-sans);
+  font-weight: 400;
+  line-height: var(--lh-normal);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* All headings use serif */
+h1, h2, h3, h4 {
+  font-family: var(--f-serif);
+  color: var(--t-heading);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.01em;
+}
+
+/* Hindi text */
+.hi-text {
+  font-family: var(--f-hindi);
+  line-height: var(--lh-relaxed);
+}
+
+/* ── LAYOUT ── */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════
+   STEP 2: CELESTIAL ATMOSPHERE
+   Dynamic skybox canvas + CSS gradient overlay
+   ═══════════════════════════════════════════ */
+
+#skyCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Atmospheric gradient overlay that shifts with time */
+.sky-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 120s ease-in-out;
+}
+
+/* Horizon glow bar */
+.horizon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 40;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(212, 175, 55, 0.08) 20%,
+    rgba(212, 175, 55, 0.08) 80%,
+    transparent
+  );
+}
+.horizon-dot {
+  position: fixed;
+  bottom: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 41;
+  pointer-events: none;
+  transition: left 30s linear;
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7, 11, 20, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--b-subtle);
+}
+
+.nav-toran {
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold-muted) 15%,
+    rgba(212, 175, 55, 0.08) 50%,
+    var(--gold-muted) 85%,
+    transparent 100%
+  );
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: var(--sp-2);
+}
+
+.nav-brand {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  margin-right: auto;
+  letter-spacing: 0.02em;
+  transition: color var(--dur-fast) var(--ease);
+}
+.nav-brand:hover { color: var(--gold-light); }
+
+.nav-links {
+  display: flex;
+  gap: var(--sp-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  padding: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--t-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--dur-fast) var(--ease);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: all var(--dur-med) var(--ease);
+  transform: translateX(-50%);
+}
+.nav-link:hover { color: var(--silver); }
+.nav-link:hover::after,
+.nav-link.active::after { width: 50%; }
+.nav-link.active { color: var(--gold); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--sp-2);
+  color: var(--silver-dim);
+}
+.nav-toggle svg { width: 22px; height: 22px; }
+
+/* Mobile overlay menu — fallback for non-bottom-nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: rgba(7, 11, 20, 0.97);
+  backdrop-filter: var(--glass-blur);
+  padding: 100px var(--sp-8) var(--sp-8);
+  flex-direction: column;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  padding: var(--sp-5) 0;
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--t-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--b-subtle);
+  transition: color var(--dur-fast) var(--ease);
+}
+.mobile-nav a:hover { color: var(--gold); }
+
+/* ── MOBILE BOTTOM NAV (App-like) ── */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 48;
+  background: rgba(7, 11, 20, 0.92);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--b-subtle);
+  padding: var(--sp-2) 0 calc(var(--sp-2) + env(safe-area-inset-bottom, 0px));
+}
+
+.bottom-nav-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.bnav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: var(--sp-2) var(--sp-3);
+  min-width: 56px;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--t-faint);
+  transition: color var(--dur-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.bnav-item:active { transform: scale(0.92); }
+.bnav-item.active { color: var(--gold); }
+.bnav-item:hover { color: var(--silver-dim); }
+
+.bnav-item svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.bnav-label {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  padding: var(--sp-20) 0 var(--sp-12);
+  position: relative;
+}
+
+/* Kalash SVG Logo */
+.logo-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--sp-8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 175, 55, 0.15);
+  animation: ringPulse 5s ease-in-out infinite;
+}
+.logo-ring-outer {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.06);
+}
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.logo-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+h1.title {
+  font-size: clamp(var(--fs-lg), 5vw, var(--fs-xl));
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--sp-3);
+}
+
+.subtitle {
+  font-family: var(--f-hindi);
+  font-size: var(--fs-base);
+  color: var(--t-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ── CONTROLS ── */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-6);
+  margin: var(--sp-6) 0;
+  flex-wrap: wrap;
+}
+
+.lang-switch {
+  display: flex;
+  border: 1px solid var(--b-default);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  padding: var(--sp-2) var(--sp-5);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--t-muted);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.lang-btn:hover { color: var(--silver); }
+.lang-btn.active {
+  background: var(--gold-muted);
+  color: var(--gold);
+}
+
+.date-display {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  letter-spacing: 0.04em;
+}
+.date-display strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ── CELESTIAL INFO STRIP ── */
+.celestial-strip {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-10);
+  flex-wrap: wrap;
+  padding: var(--sp-4) 0;
+  margin: var(--sp-2) 0 var(--sp-8);
+  border-top: 1px solid var(--b-subtle);
+  border-bottom: 1px solid var(--b-subtle);
+}
+
+.cel-datum {
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+}
+.cel-datum em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 500;
+  margin-left: var(--sp-2);
+}
+
+/* ── PERIOD TABS ── */
+.periods {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-10);
+  flex-wrap: wrap;
+}
+
+.period {
+  padding: var(--sp-2) var(--sp-6);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--t-muted);
+  background: none;
+  border: 1px solid var(--b-subtle);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--dur-med) var(--ease);
+}
+.period:hover {
+  border-color: var(--b-hover);
+  color: var(--silver);
+  background: var(--gold-faint);
+}
+.period:active { transform: scale(0.96); }
+.period:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.period.active {
+  border-color: rgba(212, 175, 55, 0.25);
+  color: var(--gold);
+  background: var(--gold-muted);
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.06);
+}
+
+/* ── SECTION ── */
+.section {
+  padding: var(--sp-16) 0 var(--sp-10);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+
+.section-header h2 {
+  font-size: clamp(var(--fs-md), 3vw, var(--fs-lg));
+  margin-bottom: var(--sp-2);
+}
+
+.section-header p {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: var(--lh-normal);
+}
+
+/* Ornamental line */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+
+.ornament-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--b-hover), transparent);
+}
+
+.ornament-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* ── AD SLOT ── */
+.ad-slot {
+  border: 1px dashed var(--b-subtle);
+  border-radius: var(--glass-radius);
+  padding: var(--sp-5);
+  text-align: center;
+  margin: var(--sp-10) 0;
+  color: var(--t-faint);
+  font-size: var(--fs-xs);
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── GLASS CARD ── */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--dur-med) var(--ease);
+}
+/* Top-edge gold glow on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, rgba(212,175,55,0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease);
+  pointer-events: none;
+}
+/* Shine streak that sweeps on hover */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 55%, transparent 60%);
+  transition: left var(--dur-slow) var(--ease);
+  pointer-events: none;
+}
+.card:hover {
+  background: var(--glass-bg-h);
+  border-color: rgba(212, 175, 55, 0.08);
+  transform: translateY(-4px) scale(1.005);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25),
+    0 0 1px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+.card:hover::before { opacity: 1; }
+.card:hover::after { left: 140%; }
+.card:active { transform: translateY(-1px) scale(0.995); }
+/* Keyboard focus — accessibility */
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+/* Ensure links inside cards have focus states */
+a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ── RASHI GRID ── */
+.rashi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--sp-4);
+}
+
+.rashi-card {
+  padding: var(--sp-6) var(--sp-5);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.rashi-top {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+/* Zodiac glyph — SVG line-art icons */
+.rashi-glyph {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  flex-shrink: 0;
+  transition: all var(--dur-med) var(--ease-spring);
+}
+.rashi-glyph svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.rashi-card:hover .rashi-glyph {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.08), inset 0 0 12px rgba(212, 175, 55, 0.04);
+  transform: scale(1.08);
+}
+.rashi-card:hover .rashi-glyph svg {
+  stroke: var(--gold-light);
+  filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.3));
+}
+
+.rashi-name {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--t-heading);
+  line-height: var(--lh-tight);
+}
+
+.rashi-name-sub {
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+.rashi-dates {
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  margin-top: var(--sp-3);
+  letter-spacing: 0.5px;
+}
+
+.rashi-excerpt {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin-top: var(--sp-3);
+  line-height: var(--lh-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rashi-rating {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+/* ── CATEGORY GRID ── */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--sp-4);
+}
+
+.cat-card {
+  padding: var(--sp-6) var(--sp-5);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Category icon container — will hold SVG in Step 3 */
+.cat-icon-wrap {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+  color: var(--gold);
+}
+.cat-icon-wrap svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.cat-title {
+  font-family: var(--f-serif);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--t-heading);
+  line-height: var(--lh-tight);
+}
+
+.cat-subtitle {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  color: var(--t-faint);
+  margin-top: 2px;
+}
+
+.cat-desc {
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin-top: var(--sp-3);
+  line-height: var(--lh-normal);
+}
+
+.cat-label {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: var(--sp-3);
+  border: 1px solid;
+}
+.label-love    { color: #c07090; border-color: rgba(192, 112, 144, 0.2); }
+.label-career  { color: #7090c0; border-color: rgba(112, 144, 192, 0.2); }
+.label-health  { color: #70b090; border-color: rgba(112, 176, 144, 0.2); }
+.label-money   { color: #c0a860; border-color: rgba(192, 168, 96, 0.2); }
+.label-accent  { color: var(--gold); border-color: var(--b-default); }
+
+/* ── COMPATIBILITY ── */
+.compat-wrap { max-width: 460px; margin: 0 auto; }
+.compat-inner { padding: var(--sp-10) var(--sp-6); text-align: center; }
+
+.compat-inner h3 {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--t-heading);
+  margin-bottom: var(--sp-6);
+}
+
+.compat-row {
+  display: flex;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.compat-select {
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: 6px;
+  border: 1px solid var(--b-default);
+  background: var(--surface);
+  color: var(--t-body);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  min-width: 150px;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.compat-select:focus { outline: none; border-color: var(--gold); }
+.compat-select option { background: var(--charcoal); color: var(--t-body); }
+
+.compat-divider {
+  width: 20px;
+  height: 1px;
+  background: var(--b-hover);
+}
+
+/* Buttons */
+.btn-primary {
+  padding: var(--sp-3) var(--sp-8);
+  border-radius: 6px;
+  border: none;
+  background: var(--gold);
+  color: var(--midnight);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all var(--dur-med) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.5s var(--ease);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+.compat-result {
+  margin-top: var(--sp-6);
+  padding: var(--sp-6);
+  border-radius: var(--glass-radius);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  display: none;
+}
+.compat-score {
+  font-family: var(--f-serif);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--gold);
+}
+.compat-verdict {
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin-top: var(--sp-2);
+}
+
+/* ── TOOLS ── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-4);
+}
+
+.tool-card { padding: var(--sp-8) var(--sp-6); position: relative; }
+
+.tool-badge {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--b-default);
+}
+
+.tool-icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+  border-radius: 10px;
+  border: 1px solid var(--b-subtle);
+  color: var(--gold);
+}
+.tool-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.tool-title {
+  font-family: var(--f-serif);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--t-heading);
+  margin-bottom: var(--sp-2);
+}
+
+.tool-desc {
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  line-height: var(--lh-normal);
+}
+
+/* ── ZODIAC INFO ── */
+.zi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--sp-4);
+}
+
+.zi-card { padding: var(--sp-5); }
+
+.zi-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.zi-glyph {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.12);
+}
+.zi-glyph svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.zi-name {
+  font-family: var(--f-serif);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--t-heading);
+}
+.zi-name span {
+  font-family: var(--f-sans);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin-left: var(--sp-2);
+}
+
+.zi-table {
+  width: 100%;
+  font-size: var(--fs-sm);
+  border-collapse: collapse;
+}
+.zi-table td {
+  padding: var(--sp-1) 0;
+  vertical-align: top;
+}
+.zi-table td:first-child {
+  color: var(--t-faint);
+  width: 36%;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.zi-table td:last-child {
+  color: var(--t-muted);
+}
+
+/* ── DETAIL OVERLAY ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 5, 10, 0.82);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-6);
+}
+.overlay.active { display: flex; }
+
+.detail {
+  background: rgba(10, 14, 26, 0.95);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--b-hover);
+  border-radius: 16px;
+  max-width: 620px;
+  width: 100%;
+  padding: var(--sp-10) var(--sp-8);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.detail-close {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--b-subtle);
+  color: var(--t-faint);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.detail-close:hover {
+  color: var(--gold);
+  border-color: var(--b-hover);
+}
+
+.detail-glyph {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  margin-bottom: var(--sp-4);
+}
+.detail-glyph svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.detail-name {
+  font-family: var(--f-serif);
+  font-size: var(--fs-lg);
+  color: var(--gold);
+}
+
+.detail-sub {
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 3px;
+}
+
+.detail-text {
+  font-family: var(--f-hindi);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--t-body);
+  margin: var(--sp-6) 0;
+  padding: var(--sp-5) 0;
+  border-top: 1px solid var(--b-subtle);
+  border-bottom: 1px solid var(--b-subtle);
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.meta-item {
+  background: var(--ash);
+  border-radius: 8px;
+  padding: var(--sp-4);
+  text-align: center;
+}
+
+.meta-label {
+  font-size: 10px;
+  color: var(--t-faint);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.meta-value {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--gold);
+  margin-top: var(--sp-1);
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: var(--sp-16) var(--sp-6) var(--sp-10);
+  border-top: 1px solid var(--b-subtle);
+  margin-top: var(--sp-10);
+}
+
+.footer-mark {
+  font-family: var(--f-serif);
+  font-size: var(--fs-sm);
+  color: var(--t-faint);
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+  margin-top: var(--sp-4);
+}
+
+.footer-links a {
+  font-size: var(--fs-sm);
+  color: var(--t-faint);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+.footer-links a:hover { color: var(--gold); }
+
+.footer-seo {
+  max-width: 640px;
+  margin: var(--sp-6) auto 0;
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  line-height: var(--lh-normal);
+  text-align: left;
+  opacity: 0.6;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Show bottom nav, hide overlay toggle */
+  .bottom-nav { display: block; }
+  .nav-toggle { display: none; }
+
+  /* Body padding for bottom nav */
+  body { padding-bottom: 72px; }
+
+  /* Increased breathing room */
+  .container { padding: 0 var(--sp-5); }
+  header { padding: var(--sp-12) 0 var(--sp-8); }
+  .section { padding: var(--sp-12) 0 var(--sp-8); }
+  .section-header { margin-bottom: var(--sp-8); }
+
+  /* Grid */
+  .rashi-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
+  .rashi-card { padding: var(--sp-5) var(--sp-4); }
+  .rashi-glyph { width: 38px; height: 38px; }
+  .rashi-glyph svg { width: 18px; height: 18px; }
+  .rashi-name { font-size: var(--fs-base); }
+  .rashi-excerpt, .rashi-dates, .rashi-rating { display: none; }
+
+  .cat-grid, .tools-grid { grid-template-columns: 1fr; }
+
+  /* Detail */
+  .detail { padding: var(--sp-8) var(--sp-5); border-radius: 14px; }
+
+  /* Compat */
+  .compat-row { flex-direction: column; }
+  .compat-select { width: 100%; }
+  .compat-divider { width: 1px; height: 16px; }
+
+  /* Zodiac info */
+  .zi-grid { grid-template-columns: 1fr; }
+
+  /* Touch targets — minimum 44px */
+  .lang-btn { min-height: 44px; }
+  .period { min-height: 44px; display: inline-flex; align-items: center; }
+  .nav-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .detail-close { width: 44px; height: 44px; }
+
+  /* Logo */
+  .logo-container { width: 80px; height: 80px; }
+
+  /* Celestial strip */
+  .celestial-strip { gap: var(--sp-4); padding: var(--sp-3) 0; }
+  .cel-datum { font-size: 10px; letter-spacing: 1.2px; }
+
+  /* Ad slots */
+  .ad-slot { margin: var(--sp-6) 0; min-height: 60px; }
+
+  /* Footer */
+  footer { padding-bottom: calc(var(--sp-10) + 72px); }
+}
+
+@media (max-width: 380px) {
+  .rashi-grid { gap: var(--sp-2); }
+  .rashi-card { padding: var(--sp-3); }
+  .rashi-name { font-size: var(--fs-sm); }
+  .rashi-name-sub { display: none; }
+  .period { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-xs); }
+  .controls { gap: var(--sp-3); }
+  h1.title { font-size: var(--fs-lg); }
+  .subtitle { font-size: var(--fs-sm); }
+}
 </style>
 </head>
 <body>
 
 <canvas id="skyCanvas"></canvas>
+<div class="sky-overlay" id="skyOverlay"></div>
+<div class="horizon"></div>
+<div class="horizon-dot" id="hDot"></div>
 
-<nav class="top-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo">🙏 Rashifal</a>
-  <div class="nav-links">
-    <a href="#rashifal" class="nav-link active">राशिफल</a>
-    <a href="#categories" class="nav-link">Horoscopes</a>
-    <a href="#compatibility" class="nav-link">Compatibility</a>
-    <a href="#tools" class="nav-link">Kundli & Tools</a>
-    <a href="#zodiac" class="nav-link">Zodiac Signs</a>
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav">
+  <div class="nav-toran"></div>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Rashifal</a>
+    <div class="nav-links">
+      <a href="#rashifal" class="nav-link active">Rashifal</a>
+      <a href="#horoscopes" class="nav-link">Horoscopes</a>
+      <a href="#compatibility" class="nav-link">Compatibility</a>
+      <a href="#tools" class="nav-link">Kundli &amp; Tools</a>
+      <a href="#zodiac" class="nav-link">Zodiac</a>
+    </div>
+    <button class="nav-toggle" onclick="document.getElementById('mNav').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
   </div>
-  <button class="nav-hamburger" onclick="toggleMobileMenu()">☰</button>
-</div></nav>
-<div class="bandanwar-nav"></div>
-<!-- Toran / Bandanwar -->
-<svg class="toran" viewBox="0 0 700 45" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="toranG" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#e8a838" stop-opacity="0"/>
-      <stop offset="15%" stop-color="#e8a838" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#f5cc6a" stop-opacity="0.8"/>
-      <stop offset="85%" stop-color="#e8a838" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#e8a838" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <!-- Main garland curve -->
-  <path d="M0,5 Q87,40 175,5 Q262,40 350,5 Q437,40 525,5 Q612,40 700,5" fill="none" stroke="url(#toranG)" stroke-width="1.5"/>
-  <path d="M0,8 Q87,43 175,8 Q262,43 350,8 Q437,43 525,8 Q612,43 700,8" fill="none" stroke="url(#toranG)" stroke-width="0.8" opacity="0.5"/>
-  <!-- Marigold dots along the curve -->
-  <g fill="#e8a838" opacity="0.6">
-    <circle cx="87" cy="24" r="3"/><circle cx="175" cy="5" r="2.5"/><circle cx="262" cy="24" r="3"/>
-    <circle cx="350" cy="5" r="2.5"/><circle cx="437" cy="24" r="3"/><circle cx="525" cy="5" r="2.5"/>
-    <circle cx="612" cy="24" r="3"/>
-  </g>
-  <!-- Small mango leaf shapes hanging -->
-  <g fill="none" stroke="#e8a838" stroke-width="0.8" opacity="0.4">
-    <path d="M85,27 Q87,38 89,27"/><path d="M83,26 Q87,40 91,26"/>
-    <path d="M260,27 Q262,38 264,27"/><path d="M258,26 Q262,40 266,26"/>
-    <path d="M435,27 Q437,38 439,27"/><path d="M433,26 Q437,40 441,26"/>
-    <path d="M610,27 Q612,38 614,27"/><path d="M608,26 Q612,40 616,26"/>
-  </g>
-  <!-- Tiny bells -->
-  <g fill="#f5cc6a" opacity="0.35">
-    <ellipse cx="87" cy="35" rx="2.5" ry="3.5"/><line x1="87" y1="38" x2="87" y2="40" stroke="#f5cc6a" stroke-width="0.5"/>
-    <ellipse cx="262" cy="35" rx="2.5" ry="3.5"/><line x1="262" y1="38" x2="262" y2="40" stroke="#f5cc6a" stroke-width="0.5"/>
-    <ellipse cx="437" cy="35" rx="2.5" ry="3.5"/><line x1="437" y1="38" x2="437" y2="40" stroke="#f5cc6a" stroke-width="0.5"/>
-    <ellipse cx="612" cy="35" rx="2.5" ry="3.5"/><line x1="612" y1="38" x2="612" y2="40" stroke="#f5cc6a" stroke-width="0.5"/>
-  </g>
-</svg>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#rashifal" onclick="toggleMobileMenu()">🔮 राशिफल</a>
-  <a href="#categories" onclick="toggleMobileMenu()">💫 Horoscopes</a>
-  <a href="#compatibility" onclick="toggleMobileMenu()">💕 Compatibility</a>
-  <a href="#tools" onclick="toggleMobileMenu()">📋 Kundli & Tools</a>
-  <a href="#zodiac" onclick="toggleMobileMenu()">♈ Zodiac Signs</a>
+</nav>
+
+<div class="mobile-nav" id="mNav">
+  <a href="#rashifal" onclick="document.getElementById('mNav').classList.remove('open')">Rashifal</a>
+  <a href="#horoscopes" onclick="document.getElementById('mNav').classList.remove('open')">Horoscopes</a>
+  <a href="#compatibility" onclick="document.getElementById('mNav').classList.remove('open')">Compatibility</a>
+  <a href="#tools" onclick="document.getElementById('mNav').classList.remove('open')">Kundli &amp; Tools</a>
+  <a href="#zodiac" onclick="document.getElementById('mNav').classList.remove('open')">Zodiac</a>
 </div>
+
+<!-- ═══ CONTENT ═══ -->
 <div class="container">
+
   <header>
-    <!-- Om watermark -->
-    <div class="om-watermark" style="top:0;left:5%">ॐ</div>
-    <div class="om-watermark" style="top:400px;right:5%">ॐ</div>
-    <!-- Kalash SVG Logo -->
-    <div class="logo-mark">
-      <svg viewBox="0 0 80 80" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-        <!-- Kalash pot -->
-        <ellipse cx="40" cy="56" rx="18" ry="8" fill="#1a0f05" opacity="0.5"/>
-        <path d="M24,54 Q22,40 28,30 L52,30 Q58,40 56,54 Z" fill="none" stroke="#1a0f05" stroke-width="2.5"/>
-        <ellipse cx="40" cy="30" rx="12" ry="4" fill="none" stroke="#1a0f05" stroke-width="2"/>
-        <!-- Coconut on top -->
-        <circle cx="40" cy="23" r="6" fill="#1a0f05" opacity="0.6"/>
-        <!-- Mango leaves -->
-        <path d="M34,23 Q28,10 32,5" fill="none" stroke="#1a0f05" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M46,23 Q52,10 48,5" fill="none" stroke="#1a0f05" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M40,18 Q40,8 40,3" fill="none" stroke="#1a0f05" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- Decorative dots on pot -->
-        <circle cx="35" cy="42" r="1.2" fill="#1a0f05" opacity="0.4"/>
-        <circle cx="40" cy="40" r="1.2" fill="#1a0f05" opacity="0.4"/>
-        <circle cx="45" cy="42" r="1.2" fill="#1a0f05" opacity="0.4"/>
+    <div class="logo-container">
+      <div class="logo-glow"></div>
+      <div class="logo-ring-outer"></div>
+      <div class="logo-ring"></div>
+      <!-- Kalash SVG — professional, no emoji -->
+      <svg viewBox="0 0 80 80" width="44" height="44" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="40" cy="60" rx="16" ry="5" opacity="0.25"/>
+        <path d="M26,56 Q24,44 30,34 L50,34 Q56,44 54,56 Z"/>
+        <ellipse cx="40" cy="34" rx="10" ry="3.5"/>
+        <circle cx="40" cy="27" r="5"/>
+        <path d="M36,25 Q30,14 34,6"/>
+        <path d="M44,25 Q50,14 46,6"/>
+        <path d="M40,22 L40,4"/>
       </svg>
     </div>
-    <h1 class="site-title">Rashifal.online</h1>
-    <p class="site-subtitle">आपका सम्पूर्ण ज्योतिष मार्गदर्शक — Your Complete Astrology Guide</p>
+
+    <h1 class="title">Rashifal.online</h1>
+    <p class="subtitle">ग्रहों की भाषा में पढ़ें अपना भविष्य — Your Celestial Guide to Life</p>
   </header>
-  <div class="controls-row">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="hi" onclick="setLang('hi')">हिंदी</button>
+
+  <div class="controls">
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="hi" onclick="setLang('hi')">हिन्दी</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
     </div>
-    <div class="date-strip" id="dateStrip"></div>
+    <div class="date-display" id="dateEl"></div>
   </div>
-  <div class="ad-slot">Ad Space — Top Banner</div>
-  <div id="rashifal">
-    <div class="section-header"><h2 data-hi="आज का राशिफल" data-en="Today's Rashifal">आज का राशिफल</h2><p data-hi="सभी 12 राशियों का दैनिक भविष्यफल" data-en="Daily predictions for all 12 zodiac signs">सभी 12 राशियों का दैनिक भविष्यफल</p>
-      <!-- Rangoli divider -->
-      <svg class="rangoli-divider" viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#e8a838" fill="none" opacity="0.6">
-          <line x1="0" y1="15" x2="130" y2="15" stroke-width="0.5"/>
-          <line x1="270" y1="15" x2="400" y2="15" stroke-width="0.5"/>
-          <!-- Center rangoli -->
-          <circle cx="200" cy="15" r="8" stroke-width="1"/>
-          <circle cx="200" cy="15" r="4" stroke-width="0.8"/>
-          <circle cx="200" cy="15" r="1.5" fill="#e8a838"/>
-          <!-- Petals -->
-          <ellipse cx="200" cy="4" rx="2.5" ry="5" stroke-width="0.6"/><ellipse cx="200" cy="26" rx="2.5" ry="5" stroke-width="0.6"/>
-          <ellipse cx="189" cy="15" rx="5" ry="2.5" stroke-width="0.6"/><ellipse cx="211" cy="15" rx="5" ry="2.5" stroke-width="0.6"/>
-          <!-- Diagonal petals -->
-          <ellipse cx="192" cy="7.5" rx="2" ry="4.5" transform="rotate(45,192,7.5)" stroke-width="0.5"/>
-          <ellipse cx="208" cy="7.5" rx="2" ry="4.5" transform="rotate(-45,208,7.5)" stroke-width="0.5"/>
-          <ellipse cx="192" cy="22.5" rx="2" ry="4.5" transform="rotate(-45,192,22.5)" stroke-width="0.5"/>
-          <ellipse cx="208" cy="22.5" rx="2" ry="4.5" transform="rotate(45,208,22.5)" stroke-width="0.5"/>
-          <!-- Small dots -->
-          <circle cx="140" cy="15" r="2" fill="#e8a838" opacity="0.4"/><circle cx="155" cy="15" r="1.2" fill="#e8a838" opacity="0.3"/>
-          <circle cx="260" cy="15" r="2" fill="#e8a838" opacity="0.4"/><circle cx="245" cy="15" r="1.2" fill="#e8a838" opacity="0.3"/>
-        </g>
-      </svg>
-      <!-- Diya pair -->
-      <div class="diya-pair">
-        <svg class="diya-svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><ellipse cx="15" cy="22" rx="10" ry="4" fill="#c87830" opacity="0.6"/><path d="M8,20 Q7,16 10,14 L20,14 Q23,16 22,20 Z" fill="#d4893a" opacity="0.5"/><ellipse cx="15" cy="14" rx="5" ry="2" fill="#e8a838" opacity="0.4"/><g class="flame"><ellipse cx="15" cy="8" rx="2.5" ry="5" fill="#f5cc6a" opacity="0.7"/><ellipse cx="15" cy="7" rx="1.5" ry="3.5" fill="#fff5d0" opacity="0.8"/></g></svg>
-        <svg class="diya-svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><ellipse cx="15" cy="22" rx="10" ry="4" fill="#c87830" opacity="0.6"/><path d="M8,20 Q7,16 10,14 L20,14 Q23,16 22,20 Z" fill="#d4893a" opacity="0.5"/><ellipse cx="15" cy="14" rx="5" ry="2" fill="#e8a838" opacity="0.4"/><g class="flame"><ellipse cx="15" cy="8" rx="2.5" ry="5" fill="#f5cc6a" opacity="0.7"/><ellipse cx="15" cy="7" rx="1.5" ry="3.5" fill="#fff5d0" opacity="0.8"/></g></svg>
+
+  <div class="celestial-strip" id="celStrip">
+    <div class="cel-datum" id="celSun"></div>
+    <div class="cel-datum" id="celMoon"></div>
+    <div class="cel-datum" id="celPhase"></div>
+    <div class="cel-datum" id="celMuhurta"></div>
+  </div>
+
+  <div class="ad-slot">Ad Placement &mdash; Top Banner</div>
+
+  <!-- ═══ RASHIFAL ═══ -->
+  <section class="section reveal" id="rashifal">
+    <div class="section-header">
+      <h2 data-hi="आज का राशिफल" data-en="Daily Rashifal">आज का राशिफल</h2>
+      <p data-hi="जानिए सभी 12 राशियों के लिए आज ग्रहों का क्या संदेश है" data-en="Discover what the planets have in store for all 12 zodiac signs today">जानिए सभी 12 राशियों के लिए आज ग्रहों का क्या संदेश है</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+
+    <div class="periods">
+      <button class="period" data-p="yesterday" onclick="setP(this)" data-hi="कल का" data-en="Yesterday">कल का</button>
+      <button class="period active" data-p="daily" onclick="setP(this)" data-hi="आज का" data-en="Today">आज का</button>
+      <button class="period" data-p="weekly" onclick="setP(this)" data-hi="साप्ताहिक" data-en="Weekly">साप्ताहिक</button>
+      <button class="period" data-p="monthly" onclick="setP(this)" data-hi="मासिक" data-en="Monthly">मासिक</button>
+      <button class="period" data-p="yearly" onclick="setP(this)" data-hi="वार्षिक" data-en="Yearly">वार्षिक</button>
+    </div>
+
+    <div class="rashi-grid" id="rGrid"></div>
+  </section>
+
+  <div class="ad-slot">Ad Placement &mdash; Mid Content</div>
+
+  <!-- ═══ HOROSCOPES ═══ -->
+  <section class="section reveal" id="horoscopes">
+    <div class="section-header">
+      <h2 data-hi="विशेष राशिफल" data-en="Specialized Horoscopes">विशेष राशिफल</h2>
+      <p data-hi="जीवन के हर पहलू के लिए अलग भविष्यवाणी — प्रेम, करियर, सेहत, धन" data-en="Dedicated predictions for every facet of life — love, career, health, wealth">जीवन के हर पहलू के लिए अलग भविष्यवाणी — प्रेम, करियर, सेहत, धन</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+  <!-- ═══ COMPATIBILITY ═══ -->
+  <section class="section reveal" id="compatibility">
+    <div class="section-header">
+      <h2 data-hi="राशि अनुकूलता" data-en="Zodiac Compatibility">राशि अनुकूलता</h2>
+      <p data-hi="दो राशियों के बीच कितनी अनुकूलता है? ज्योतिषीय गणना से जानें" data-en="How well do two zodiac signs align? Find out through astrological analysis">दो राशियों के बीच कितनी अनुकूलता है? ज्योतिषीय गणना से जानें</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="compat-wrap">
+      <div class="card compat-inner">
+        <h3 data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</h3>
+        <div class="compat-row">
+          <select class="compat-select" id="s1"><option value="" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</option></select>
+          <div class="compat-divider"></div>
+          <select class="compat-select" id="s2"><option value="" data-hi="पार्टनर की राशि" data-en="Partner's sign">पार्टनर की राशि</option></select>
+        </div>
+        <button class="btn-primary" onclick="checkC()"><span data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</span></button>
+        <div class="compat-result" id="cRes"><div class="compat-score" id="cScore"></div><div class="compat-verdict" id="cVerdict"></div></div>
       </div>
     </div>
-    <div class="period-tabs">
-      <div class="period-tab" data-period="yesterday" onclick="setPeriod('yesterday')" data-hi="कल का" data-en="Yesterday">कल का</div>
-      <div class="period-tab active" data-period="daily" onclick="setPeriod('daily')" data-hi="आज का" data-en="Today">आज का</div>
-      <div class="period-tab" data-period="weekly" onclick="setPeriod('weekly')" data-hi="साप्ताहिक" data-en="Weekly">साप्ताहिक</div>
-      <div class="period-tab" data-period="monthly" onclick="setPeriod('monthly')" data-hi="मासिक" data-en="Monthly">मासिक</div>
-      <div class="period-tab" data-period="yearly" onclick="setPeriod('yearly')" data-hi="वार्षिक" data-en="Yearly">वार्षिक</div>
+  </section>
+
+  <div class="ad-slot">Ad Placement &mdash; Mid 2</div>
+
+  <!-- ═══ TOOLS ═══ -->
+  <section class="section reveal" id="tools">
+    <div class="section-header">
+      <h2 data-hi="ज्योतिष उपकरण" data-en="Astrology Tools">ज्योतिष उपकरण</h2>
+      <p data-hi="कुंडली निर्माण, मिलान और पंचांग — सब निःशुल्क" data-en="Kundli generation, matching and Panchang — all free of charge">कुंडली निर्माण, मिलान और पंचांग — सब निःशुल्क</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
     </div>
-    <div class="rashi-grid" id="rashiGrid"></div>
-  </div>
-  <div class="ad-slot">Ad Space — Mid Content</div>
-  <div id="categories">
-    <div class="section-header"><h2 data-hi="विशेष राशिफल" data-en="Specialized Horoscopes">विशेष राशिफल</h2><p data-hi="प्रेम, करियर, स्वास्थ्य, धन — हर पहलू का भविष्यफल" data-en="Love, Career, Health, Money — every aspect">प्रेम, करियर, स्वास्थ्य, धन — हर पहलू का भविष्यफल</p>
-      <svg class="rangoli-divider" viewBox="0 0 400 24" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#e8a838" fill="none" opacity="0.5">
-          <line x1="0" y1="12" x2="150" y2="12" stroke-width="0.5" stroke-dasharray="4,4"/>
-          <line x1="250" y1="12" x2="400" y2="12" stroke-width="0.5" stroke-dasharray="4,4"/>
-          <!-- Lotus center -->
-          <circle cx="200" cy="12" r="6" stroke-width="0.8"/>
-          <path d="M200,4 Q204,8 200,12 Q196,8 200,4Z" fill="#e8a838" opacity="0.3"/>
-          <path d="M192,12 Q196,8 200,12 Q196,16 192,12Z" fill="#e8a838" opacity="0.3"/>
-          <path d="M208,12 Q204,8 200,12 Q204,16 208,12Z" fill="#e8a838" opacity="0.3"/>
-          <path d="M200,20 Q204,16 200,12 Q196,16 200,20Z" fill="#e8a838" opacity="0.3"/>
-          <circle cx="200" cy="12" r="2" fill="#e8a838" opacity="0.5"/>
-          <circle cx="160" cy="12" r="1.5" fill="#e8a838" opacity="0.3"/>
-          <circle cx="240" cy="12" r="1.5" fill="#e8a838" opacity="0.3"/>
-        </g>
-      </svg>
+    <div class="tools-grid" id="toolsGrid"></div>
+  </section>
+
+  <!-- ═══ ZODIAC ═══ -->
+  <section class="section reveal" id="zodiac">
+    <div class="section-header">
+      <h2 data-hi="राशि परिचय" data-en="Know Your Zodiac">राशि परिचय</h2>
+      <p data-hi="प्रत्येक राशि का स्वभाव, तत्व, स्वामी ग्रह और मूल गुण जानें" data-en="Explore the nature, element, ruling planet and core traits of every sign">प्रत्येक राशि का स्वभाव, तत्व, स्वामी ग्रह और मूल गुण जानें</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
     </div>
-    <div class="category-grid">
-      <a class="category-card" href="#"><div class="cat-icon">💕</div><div class="cat-title" data-hi="प्रेम और रिश्ते" data-en="Love & Relationships">प्रेम और रिश्ते</div><div class="cat-title-hi" data-hi="Love & Relationships" data-en="प्रेम और रिश्ते">Love & Relationships</div><div class="cat-desc" data-hi="रोमांस, विवाह और रिश्तों का भविष्यफल" data-en="Romance, marriage & relationship predictions">रोमांस, विवाह और रिश्तों का भविष्यफल</div><span class="cat-tag tag-love">LOVE</span></a>
-      <a class="category-card" href="#"><div class="cat-icon">💼</div><div class="cat-title" data-hi="करियर और व्यवसाय" data-en="Career & Business">करियर और व्यवसाय</div><div class="cat-title-hi" data-hi="Career & Business" data-en="करियर और व्यवसाय">Career & Business</div><div class="cat-desc" data-hi="नौकरी, प्रमोशन, व्यापार की संभावनाएं" data-en="Job, promotion, business opportunities">नौकरी, प्रमोशन, व्यापार की संभावनाएं</div><span class="cat-tag tag-career">CAREER</span></a>
-      <a class="category-card" href="#"><div class="cat-icon">🏥</div><div class="cat-title" data-hi="स्वास्थ्य राशिफल" data-en="Health Horoscope">स्वास्थ्य राशिफल</div><div class="cat-title-hi" data-hi="Health Horoscope" data-en="स्वास्थ्य राशिफल">Health Horoscope</div><div class="cat-desc" data-hi="शारीरिक और मानसिक स्वास्थ्य का भविष्यफल" data-en="Physical & mental wellness predictions">शारीरिक और मानसिक स्वास्थ्य का भविष्यफल</div><span class="cat-tag tag-health">HEALTH</span></a>
-      <a class="category-card" href="#"><div class="cat-icon">💰</div><div class="cat-title" data-hi="धन और वित्त" data-en="Money & Finance">धन और वित्त</div><div class="cat-title-hi" data-hi="Money & Finance" data-en="धन और वित्त">Money & Finance</div><div class="cat-desc" data-hi="निवेश, बचत, खर्च — आर्थिक भविष्यफल" data-en="Investment, savings — financial outlook">निवेश, बचत, खर्च — आर्थिक भविष्यफल</div><span class="cat-tag tag-money">FINANCE</span></a>
-      <a class="category-card" href="#"><div class="cat-icon">☀️</div><div class="cat-title" data-hi="सन साइन भविष्यफल" data-en="Sun Sign Predictions">सन साइन भविष्यफल</div><div class="cat-title-hi" data-hi="Sun Sign Predictions" data-en="सन साइन भविष्यफल">Sun Sign Predictions</div><div class="cat-desc" data-hi="पश्चिमी ज्योतिष अनुसार सन साइन भविष्यफल" data-en="Western sun sign astrology predictions">पश्चिमी ज्योतिष अनुसार सन साइन भविष्यफल</div><span class="cat-tag tag-new">SUN SIGN</span></a>
-      <a class="category-card" href="#"><div class="cat-icon">🎯</div><div class="cat-title" data-hi="राशि अनुसार करियर गाइड" data-en="Zodiac Career Guide">राशि अनुसार करियर गाइड</div><div class="cat-title-hi" data-hi="Zodiac Career Guide" data-en="राशि अनुसार करियर गाइड">Zodiac Career Guide</div><div class="cat-desc" data-hi="आपकी राशि के अनुसार सर्वोत्तम करियर" data-en="Best career for your zodiac sign">आपकी राशि के अनुसार सर्वोत्तम करियर</div><span class="cat-tag tag-career">GUIDE</span></a>
-    </div>
-  </div>
-  <div id="compatibility">
-    <div class="section-header"><h2 data-hi="राशि अनुकूलता" data-en="Zodiac Compatibility">राशि अनुकूलता</h2><p data-hi="जानें आपकी राशि किसके साथ अनुकूल है" data-en="Find your most compatible match">जानें आपकी राशि किसके साथ अनुकूल है</p>
-      <svg class="rangoli-divider" viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#e8a838" fill="none" opacity="0.5">
-          <line x1="30" y1="10" x2="170" y2="10" stroke-width="0.5"/>
-          <line x1="230" y1="10" x2="370" y2="10" stroke-width="0.5"/>
-          <path d="M185,10 Q192,2 200,10 Q208,2 215,10" stroke-width="1" fill="none"/>
-          <path d="M185,10 Q192,18 200,10 Q208,18 215,10" stroke-width="1" fill="none"/>
-          <circle cx="200" cy="10" r="2" fill="#e8a838" opacity="0.5"/>
-        </g>
-      </svg>
-    </div>
-    <div class="compat-form">
-      <h3 data-hi="💕 अनुकूलता जांचें" data-en="💕 Check Compatibility">💕 अनुकूलता जांचें</h3>
-      <div class="compat-row">
-        <select class="compat-select" id="sign1"><option value="">आपकी राशि</option><option value="mesh">♈ मेष</option><option value="vrishabh">♉ वृषभ</option><option value="mithun">♊ मिथुन</option><option value="kark">♋ कर्क</option><option value="singh">♌ सिंह</option><option value="kanya">♍ कन्या</option><option value="tula">♎ तुला</option><option value="vrishchik">♏ वृश्चिक</option><option value="dhanu">♐ धनु</option><option value="makar">♑ मकर</option><option value="kumbh">♒ कुम्भ</option><option value="meen">♓ मीन</option></select>
-        <div class="compat-heart">❤️</div>
-        <select class="compat-select" id="sign2"><option value="">पार्टनर की राशि</option><option value="mesh">♈ मेष</option><option value="vrishabh">♉ वृषभ</option><option value="mithun">♊ मिथुन</option><option value="kark">♋ कर्क</option><option value="singh">♌ सिंह</option><option value="kanya">♍ कन्या</option><option value="tula">♎ तुला</option><option value="vrishchik">♏ वृश्चिक</option><option value="dhanu">♐ धनु</option><option value="makar">♑ मकर</option><option value="kumbh">♒ कुम्भ</option><option value="meen">♓ मीन</option></select>
-      </div>
-      <button class="compat-btn" onclick="checkCompat()"><span data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</span> →</button>
-      <div class="compat-result" id="compatResult"><div class="compat-score" id="compatScore"></div><div class="compat-verdict" id="compatVerdict"></div></div>
-    </div>
-  </div>
-  <div class="ad-slot">Ad Space — Mid 2</div>
-  <div id="tools">
-    <div class="section-header"><h2 data-hi="ज्योतिष उपकरण" data-en="Astrology Tools">ज्योतिष उपकरण</h2><p data-hi="निःशुल्क कुंडली, जन्मपत्री और अधिक" data-en="Free Kundli, Janampatri & more">निःशुल्क कुंडली, जन्मपत्री और अधिक</p>
-      <svg class="rangoli-divider" viewBox="0 0 400 24" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#e8a838" fill="none" opacity="0.5">
-          <line x1="20" y1="12" x2="165" y2="12" stroke-width="0.5"/>
-          <line x1="235" y1="12" x2="380" y2="12" stroke-width="0.5"/>
-          <!-- Shubh swastik -->
-          <line x1="193" y1="5" x2="193" y2="19" stroke-width="1.2"/><line x1="207" y1="5" x2="207" y2="19" stroke-width="1.2"/>
-          <line x1="186" y1="9" x2="214" y2="9" stroke-width="1.2"/><line x1="186" y1="15" x2="214" y2="15" stroke-width="1.2"/>
-          <line x1="193" y1="5" x2="186" y2="5" stroke-width="1"/><line x1="207" y1="5" x2="207" y2="2" stroke-width="1" transform="rotate(0)"/>
-          <line x1="214" y1="9" x2="214" y2="5" stroke-width="1"/><line x1="214" y1="15" x2="218" y2="15" stroke-width="1"/>
-          <line x1="207" y1="19" x2="214" y2="19" stroke-width="1"/><line x1="193" y1="19" x2="193" y2="22" stroke-width="1"/>
-          <line x1="186" y1="15" x2="186" y2="19" stroke-width="1"/><line x1="186" y1="9" x2="182" y2="9" stroke-width="1"/>
-          <circle cx="172" cy="12" r="1.5" fill="#e8a838" opacity="0.4"/>
-          <circle cx="228" cy="12" r="1.5" fill="#e8a838" opacity="0.4"/>
-        </g>
-      </svg>
-    </div>
-    <div class="tools-grid">
-      <div class="tool-card"><span class="coming" data-hi="जल्द" data-en="Soon">जल्द</span><div class="tool-icon">📋</div><div class="tool-title" data-hi="निःशुल्क कुंडली" data-en="Free Kundli">निःशुल्क कुंडली</div><div class="tool-desc" data-hi="जन्म विवरण दर्ज करें — तुरंत कुंडली प्राप्त करें" data-en="Enter birth details — get kundli instantly">जन्म विवरण दर्ज करें — तुरंत कुंडली प्राप्त करें</div></div>
-      <div class="tool-card"><span class="coming" data-hi="जल्द" data-en="Soon">जल्द</span><div class="tool-icon">📜</div><div class="tool-title" data-hi="जन्मपत्री" data-en="Janampatri">जन्मपत्री</div><div class="tool-desc" data-hi="महादशा, योग और दोष विश्लेषण" data-en="Mahadasha, Yogas & Doshas analysis">महादशा, योग और दोष विश्लेषण</div></div>
-      <div class="tool-card"><div class="tool-icon">💑</div><div class="tool-title" data-hi="कुंडली मिलान" data-en="Kundli Matching">कुंडली मिलान</div><div class="tool-desc" data-hi="36 गुण अष्टकूट मिलान" data-en="36 Guna Ashtakoot matching">36 गुण अष्टकूट मिलान</div></div>
-      <div class="tool-card"><span class="coming" data-hi="जल्द" data-en="Soon">जल्द</span><div class="tool-icon">🗓️</div><div class="tool-title" data-hi="आज का पंचांग" data-en="Today's Panchang">आज का पंचांग</div><div class="tool-desc" data-hi="तिथि, नक्षत्र, राहु काल, शुभ मुहूर्त" data-en="Tithi, Nakshatra, Rahu Kaal, Shubh Muhurat">तिथि, नक्षत्र, राहु काल, शुभ मुहूर्त</div></div>
-    </div>
-  </div>
-  <div id="zodiac">
-    <div class="section-header"><h2 data-hi="राशि परिचय" data-en="Know Your Zodiac">राशि परिचय</h2><p data-hi="सभी 12 राशियों की विशेषताएं" data-en="Traits of all 12 signs">सभी 12 राशियों की विशेषताएं</p>
-      <svg class="rangoli-divider" viewBox="0 0 400 26" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#e8a838" fill="none" opacity="0.5">
-          <line x1="20" y1="13" x2="160" y2="13" stroke-width="0.5"/>
-          <line x1="240" y1="13" x2="380" y2="13" stroke-width="0.5"/>
-          <!-- Chakra wheel -->
-          <circle cx="200" cy="13" r="10" stroke-width="1"/>
-          <circle cx="200" cy="13" r="6" stroke-width="0.6"/>
-          <circle cx="200" cy="13" r="2" fill="#e8a838" opacity="0.4"/>
-          <g stroke-width="0.5"><line x1="200" y1="3" x2="200" y2="7"/><line x1="200" y1="19" x2="200" y2="23"/>
-          <line x1="190" y1="13" x2="194" y2="13"/><line x1="206" y1="13" x2="210" y2="13"/>
-          <line x1="193" y1="6" x2="195.5" y2="8.5"/><line x1="207" y1="6" x2="204.5" y2="8.5"/>
-          <line x1="193" y1="20" x2="195.5" y2="17.5"/><line x1="207" y1="20" x2="204.5" y2="17.5"/></g>
-          <circle cx="168" cy="13" r="1.5" fill="#e8a838" opacity="0.35"/>
-          <circle cx="232" cy="13" r="1.5" fill="#e8a838" opacity="0.35"/>
-        </g>
-      </svg>
-    </div>
-    <div class="zodiac-info-grid" id="zodiacInfoGrid"></div>
-  </div>
-  <div class="ad-slot">Ad Space — Bottom</div>
-  <!-- Decorative footer border -->
-  <svg class="rangoli-divider" viewBox="0 0 400 16" xmlns="http://www.w3.org/2000/svg" style="margin:30px auto 0">
-    <g stroke="#e8a838" fill="none" opacity="0.35">
-      <line x1="0" y1="8" x2="400" y2="8" stroke-width="0.3"/>
-      <circle cx="80" cy="8" r="3" stroke-width="0.6"/><circle cx="80" cy="8" r="1" fill="#e8a838"/>
-      <circle cx="200" cy="8" r="4" stroke-width="0.8"/><circle cx="200" cy="8" r="1.5" fill="#e8a838"/>
-      <circle cx="320" cy="8" r="3" stroke-width="0.6"/><circle cx="320" cy="8" r="1" fill="#e8a838"/>
-    </g>
-  </svg>
+    <div class="zi-grid" id="ziGrid"></div>
+  </section>
+
+  <div class="ad-slot">Ad Placement &mdash; Bottom</div>
+
   <footer>
-    <p>🙏 &copy; 2026 Rashifal.online — सर्वे भवन्तु सुखिनः</p>
-    <div class="footer-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/about">About</a><a href="/contact">Contact</a></div>
-    <div class="footer-seo"><p data-hi="Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल।" data-en="Rashifal.online — India's complete astrology portal. Daily, weekly, monthly, yearly horoscope. Kundli, janampatri, compatibility. Love, career, health, finance horoscope.">Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल।</p></div>
+    <p class="footer-mark">Rashifal.online &middot; 2026 &middot; सर्वे भवन्तु सुखिनः</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-seo"><p data-hi="Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल। मेष, वृषभ, मिथुन, कर्क, सिंह, कन्या, तुला, वृश्चिक, धनु, मकर, कुम्भ, मीन।" data-en="Rashifal.online — India's complete astrology portal. Daily, weekly, monthly, yearly horoscope. Kundli, janampatri, kundli matching, compatibility. Love, career, health, finance horoscope. Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces.">Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल।</p></div>
   </footer>
+
 </div>
 
-<!-- DETAIL OVERLAY -->
-<div class="overlay" id="detailOverlay" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow=''}">
-  <div class="detail-panel">
-    <button class="close-btn" onclick="document.getElementById('detailOverlay').classList.remove('active');document.body.style.overflow=''">&times;</button>
-    <div class="detail-symbol" id="dSym"></div><div class="detail-name" id="dName"></div><div class="detail-name-sub" id="dNameSub"></div>
-    <div class="detail-tabs"><div class="detail-tab active">General</div><div class="detail-tab">💕</div><div class="detail-tab">💼</div><div class="detail-tab">🏥</div><div class="detail-tab">💰</div></div>
-    <div class="detail-prediction" id="dPred"></div>
-    <div class="detail-meta-grid">
-      <div class="meta-box"><div class="label">Lucky #</div><div class="value" id="dLucky"></div></div>
-      <div class="meta-box"><div class="label">Color</div><div class="value" id="dColor" style="font-size:14px"></div></div>
-      <div class="meta-box"><div class="label">Rating</div><div class="value rating-stars" id="dRating"></div></div>
-    </div>
-    <div class="detail-categories">
-      <div class="detail-cat"><div class="detail-cat-icon">💕</div><div class="detail-cat-label lbl-love">LOVE</div><div class="detail-cat-text" id="dcLove">Coming soon</div></div>
-      <div class="detail-cat"><div class="detail-cat-icon">💼</div><div class="detail-cat-label lbl-career">CAREER</div><div class="detail-cat-text" id="dcCareer">Coming soon</div></div>
-      <div class="detail-cat"><div class="detail-cat-icon">🏥</div><div class="detail-cat-label lbl-health">HEALTH</div><div class="detail-cat-text" id="dcHealth">Coming soon</div></div>
-      <div class="detail-cat"><div class="detail-cat-icon">💰</div><div class="detail-cat-label lbl-money">FINANCE</div><div class="detail-cat-text" id="dcMoney">Coming soon</div></div>
+<!-- ═══ MOBILE BOTTOM NAV ═══ -->
+<nav class="bottom-nav" aria-label="Mobile navigation">
+  <div class="bottom-nav-inner">
+    <a href="#rashifal" class="bnav-item active">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21"/><line x1="3" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21" y2="12"/></svg>
+      <span class="bnav-label">Rashifal</span>
+    </a>
+    <a href="#horoscopes" class="bnav-item">
+      <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/></svg>
+      <span class="bnav-label">Horoscope</span>
+    </a>
+    <a href="#compatibility" class="bnav-item">
+      <svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9 3c1.7 0 3 1.2 3 1.2S13.3 3 15 3c2.5 0 5 2.5 5 5.5C20 13.5 12 21 12 21z"/></svg>
+      <span class="bnav-label">Match</span>
+    </a>
+    <a href="#tools" class="bnav-item">
+      <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
+      <span class="bnav-label">Tools</span>
+    </a>
+    <a href="#zodiac" class="bnav-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" opacity="0.3"/><circle cx="12" cy="6" r="1.5"/><circle cx="17" cy="9" r="1.5"/><circle cx="7" cy="15" r="1.5"/><circle cx="15" cy="17" r="1.5"/></svg>
+      <span class="bnav-label">Zodiac</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ DETAIL OVERLAY ═══ -->
+<div class="overlay" id="ov" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow=''}">
+  <div class="detail">
+    <button class="detail-close" onclick="document.getElementById('ov').classList.remove('active');document.body.style.overflow=''" aria-label="Close">&times;</button>
+    <div class="detail-glyph" id="dGlyph"></div>
+    <div class="detail-name" id="dName"></div>
+    <div class="detail-sub" id="dSub"></div>
+    <div class="detail-text hi-text" id="dText"></div>
+    <div class="detail-meta">
+      <div class="meta-item"><div class="meta-label" data-hi="शुभ अंक" data-en="Lucky Number">शुभ अंक</div><div class="meta-value" id="dNum"></div></div>
+      <div class="meta-item"><div class="meta-label" data-hi="शुभ रंग" data-en="Lucky Color">शुभ रंग</div><div class="meta-value" id="dCol" style="font-size:var(--fs-sm)"></div></div>
+      <div class="meta-item"><div class="meta-label" data-hi="दिन की रेटिंग" data-en="Day Rating">दिन की रेटिंग</div><div class="meta-value" id="dRate"></div></div>
     </div>
   </div>
 </div>
 
 <script>
-// ============================================================
-//  DYNAMIC SKY ENGINE — Sun, Moon, Stars, Planets, Time-of-Day
-// ============================================================
+/* ═══════════════════════════════════════════════════════
+   CELESTIAL ENGINE v3 — Senior-grade atmospheric renderer
+   Nebulae, Milky Way, diffraction stars, solar corona,
+   lunar maria, aurora, atmospheric scattering
+   ═══════════════════════════════════════════════════════ */
 (function(){
 const cv=document.getElementById('skyCanvas'),cx=cv.getContext('2d');
 let W,H;
+let starsA=[],starsB=[],starsC=[];
+let nebulae=[];
 
-// Stars data
-let stars=[];
-function initStars(){stars=[];for(let i=0;i<300;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.5+0.4,tw:Math.random()*Math.PI*2,ts:Math.random()*0.003+0.001,base:Math.random()*0.4+0.4})}
-
-// Planet orbits (decorative)
-const planets=[
-  {dist:0.12,speed:0.00015,size:3,color:'#c4a882',name:'Mercury'},
-  {dist:0.18,speed:0.0001,size:4.5,color:'#e8c97a',name:'Venus'},
-  {dist:0.28,speed:0.00007,size:4,color:'#c1440e',name:'Mars'},
-  {dist:0.38,speed:0.00003,size:7,color:'#c88b3a',name:'Jupiter'},
-  {dist:0.46,speed:0.00002,size:6,color:'#d4b896',name:'Saturn'},
-];
-let planetAngles=planets.map(()=>Math.random()*Math.PI*2);
-
-function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;initStars()}
-
-// Get fractional hour (0-24) in IST
-function getISThour(){
-  const now=new Date();
-  const utcH=now.getUTCHours()+now.getUTCMinutes()/60+now.getUTCSeconds()/3600;
-  return (utcH+5.5)%24;
+function resize(){
+  W=cv.width=innerWidth;H=cv.height=innerHeight;
+  initStars();initNebulae();
 }
 
-// Interpolate between colors
-function lerpColor(a,b,t){
+/* Three star layers: dim background, medium, bright with spikes */
+function initStars(){
+  starsA=[];starsB=[];starsC=[];
+  for(let i=0;i<500;i++)starsA.push({x:Math.random(),y:Math.random(),r:Math.random()*0.8+0.2,a:Math.random()*0.3+0.1,ph:Math.random()*6.28,sp:Math.random()*0.001+0.0003});
+  for(let i=0;i<120;i++)starsB.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.5,a:Math.random()*0.35+0.2,ph:Math.random()*6.28,sp:Math.random()*0.0015+0.0005,warm:Math.random()>0.7});
+  for(let i=0;i<25;i++)starsC.push({x:Math.random()*0.9+0.05,y:Math.random()*0.5+0.03,r:Math.random()*1.5+1,a:Math.random()*0.3+0.4,ph:Math.random()*6.28,sp:Math.random()*0.002+0.0008,warm:Math.random()>0.5});
+}
+
+/* Nebula clouds — large colored patches in the night sky */
+function initNebulae(){
+  nebulae=[
+    {x:0.15,y:0.18,rx:0.18,ry:0.12,r:40,g:20,b:80,a:0.025},
+    {x:0.75,y:0.10,rx:0.14,ry:0.10,r:20,g:30,b:70,a:0.02},
+    {x:0.45,y:0.25,rx:0.20,ry:0.08,r:60,g:25,b:45,a:0.018},
+    {x:0.85,y:0.30,rx:0.10,ry:0.15,r:30,g:50,b:60,a:0.015},
+    {x:0.25,y:0.40,rx:0.12,ry:0.10,r:50,g:15,b:55,a:0.012},
+  ];
+}
+
+function getIST(){const n=new Date();return(n.getUTCHours()+n.getUTCMinutes()/60+n.getUTCSeconds()/3600+5.5)%24}
+function lerp(a,b,t){return a+(b-a)*t}
+function lerpC(a,b,t){
   const pa=parseInt(a.slice(1),16),pb=parseInt(b.slice(1),16);
-  const ra=(pa>>16)&255,ga=(pa>>8)&255,ba2=pa&255;
-  const rb=(pb>>16)&255,gb=(pb>>8)&255,bb=pb&255;
-  const r=Math.round(ra+(rb-ra)*t),g=Math.round(ga+(gb-ga)*t),bl=Math.round(ba2+(bb-ba2)*t);
-  return `rgb(${r},${g},${bl})`;
+  return`rgb(${Math.round(lerp((pa>>16)&255,(pb>>16)&255,t))},${Math.round(lerp((pa>>8)&255,(pb>>8)&255,t))},${Math.round(lerp(pa&255,pb&255,t))})`;
 }
 
-// Sky color stops by hour
-const skyStops=[
-  {h:0,  top:'#050510',bot:'#0a0a20'},     // midnight
-  {h:4,  top:'#050515',bot:'#0c0c25'},     // pre-dawn
-  {h:5,  top:'#0d1030',bot:'#1a1040'},     // first light
-  {h:5.5,top:'#1a1545',bot:'#3d1850'},     // dawn start
-  {h:6,  top:'#2d2060',bot:'#8b3050'},     // sunrise begin
-  {h:6.5,top:'#4a3080',bot:'#d45030'},     // sunrise peak
-  {h:7,  top:'#6a4090',bot:'#e87040'},     // golden hour
-  {h:8,  top:'#a06848',bot:'#f0a050'},     // warm morning
-  {h:9,  top:'#5080c0',bot:'#90b8e0'},     // morning blue
-  {h:12, top:'#3070b8',bot:'#70a8d8'},     // noon
-  {h:15, top:'#4080c0',bot:'#80b0d0'},     // afternoon
-  {h:17, top:'#6a6090',bot:'#d08040'},     // golden hour pm
-  {h:18, top:'#503060',bot:'#c05030'},     // sunset
-  {h:18.5,top:'#351845',bot:'#902030'},    // dusk
-  {h:19, top:'#1a1035',bot:'#401525'},     // twilight
-  {h:20, top:'#0c0820',bot:'#150c20'},     // evening
-  {h:22, top:'#060512',bot:'#0a0818'},     // night
-  {h:24, top:'#050510',bot:'#0a0a20'},     // midnight wrap
+const SKY=[
+  {h:0,  t:'#030308',b:'#050510'},{h:4.5,t:'#04060E',b:'#070B18'},
+  {h:5.5,t:'#0E0820',b:'#1C0E34'},{h:6,  t:'#1C1040',b:'#502030'},
+  {h:6.5,t:'#2C1850',b:'#803020'},{h:7,  t:'#4A2860',b:'#A85028'},
+  {h:7.5,t:'#6A4048',b:'#C07838'},{h:8.5,t:'#4070A0',b:'#80A4C8'},
+  {h:10, t:'#2860A0',b:'#6090C0'},{h:13, t:'#2058A0',b:'#5080B8'},
+  {h:16, t:'#3868A0',b:'#6890A8'},{h:17.5,t:'#584868',b:'#A06030'},
+  {h:18.2,t:'#382448',b:'#882820'},{h:19, t:'#180E30',b:'#480E14'},
+  {h:19.8,t:'#0A0818',b:'#180A10'},{h:21, t:'#050510',b:'#080812'},
+  {h:24, t:'#030308',b:'#050510'}
 ];
 
-function getSkyColors(hour){
-  for(let i=0;i<skyStops.length-1;i++){
-    if(hour>=skyStops[i].h&&hour<skyStops[i+1].h){
-      const t=(hour-skyStops[i].h)/(skyStops[i+1].h-skyStops[i].h);
-      return{top:lerpColor(skyStops[i].top,skyStops[i+1].top,t),bot:lerpColor(skyStops[i].bot,skyStops[i+1].bot,t)};
-    }
+function skyAt(h){for(let i=0;i<SKY.length-1;i++){if(h>=SKY[i].h&&h<SKY[i+1].h){const t=(h-SKY[i].h)/(SKY[i+1].h-SKY[i].h);return{t:lerpC(SKY[i].t,SKY[i+1].t,t),b:lerpC(SKY[i].b,SKY[i+1].b,t)}}}return{t:'#030308',b:'#050510'}}
+
+function nightAlpha(h){
+  if(h>=21||h<4.5)return 1;if(h>=4.5&&h<6)return 1-(h-4.5)/1.5;
+  if(h>=6&&h<8)return Math.max(0,1-(h-6)/2);
+  if(h>=17.5&&h<19)return(h-17.5)/1.5;if(h>=19&&h<21)return 0.5+(h-19)/4;return 0;
+}
+
+function sunPos(h){
+  if(h<5.7||h>18.3)return null;
+  const t=(h-5.7)/(18.3-5.7),a=Math.PI*(1-t);
+  return{x:W*0.5+W*0.44*Math.cos(a),y:H*0.85-H*0.72*Math.sin(a),t};
+}
+function moonPos(h){
+  let t;if(h>=18)t=(h-18)/12;else if(h<6)t=(h+6)/12;else return null;
+  const a=Math.PI*(1-t);
+  return{x:W*0.5+W*0.40*Math.cos(a),y:H*0.85-H*0.65*Math.sin(a),t};
+}
+function getMoonPhase(){
+  const d=new Date(),y=d.getFullYear(),m=d.getMonth()+1,day=d.getDate();
+  const jd=367*y-Math.floor(7*(y+Math.floor((m+9)/12))/4)+Math.floor(275*m/9)+day+1721013.5;
+  const p=((jd-2451550.1)%29.53)/29.53;return p<0?p+1:p;
+}
+
+/* ── DRAW: NEBULAE ── */
+function drawNebulae(alpha){
+  if(alpha<0.05)return;
+  nebulae.forEach(n=>{
+    const grd=cx.createRadialGradient(n.x*W,n.y*H,0,n.x*W,n.y*H,Math.max(n.rx*W,n.ry*H));
+    grd.addColorStop(0,`rgba(${n.r},${n.g},${n.b},${n.a*alpha})`);
+    grd.addColorStop(0.4,`rgba(${n.r},${n.g},${n.b},${n.a*0.5*alpha})`);
+    grd.addColorStop(1,`rgba(${n.r},${n.g},${n.b},0)`);
+    cx.fillStyle=grd;cx.fillRect(0,0,W,H);
+  });
+}
+
+/* ── DRAW: MILKY WAY ── */
+function drawMilkyWay(alpha){
+  if(alpha<0.08)return;
+  cx.save();cx.translate(W*0.5,H*0.5);cx.rotate(-0.5);
+  const mw=cx.createLinearGradient(-W*0.6,-H*0.05,W*0.6,H*0.05);
+  mw.addColorStop(0,'rgba(180,170,200,0)');
+  mw.addColorStop(0.2,`rgba(160,150,190,${0.012*alpha})`);
+  mw.addColorStop(0.35,`rgba(180,170,210,${0.025*alpha})`);
+  mw.addColorStop(0.5,`rgba(200,190,220,${0.035*alpha})`);
+  mw.addColorStop(0.65,`rgba(180,170,210,${0.025*alpha})`);
+  mw.addColorStop(0.8,`rgba(160,150,190,${0.012*alpha})`);
+  mw.addColorStop(1,'rgba(180,170,200,0)');
+  cx.fillStyle=mw;cx.fillRect(-W*0.7,-H*0.12,W*1.4,H*0.24);
+  /* Dust lane — dark band through center */
+  const dl=cx.createLinearGradient(-W*0.6,-H*0.01,W*0.6,H*0.01);
+  dl.addColorStop(0,'rgba(0,0,0,0)');dl.addColorStop(0.4,`rgba(5,5,15,${0.015*alpha})`);
+  dl.addColorStop(0.5,`rgba(5,5,15,${0.02*alpha})`);dl.addColorStop(0.6,`rgba(5,5,15,${0.015*alpha})`);
+  dl.addColorStop(1,'rgba(0,0,0,0)');
+  cx.fillStyle=dl;cx.fillRect(-W*0.7,-H*0.03,W*1.4,H*0.06);
+  cx.restore();
+}
+
+/* ── DRAW: STARS (3 layers) ── */
+function drawStars(alpha){
+  if(alpha<0.01)return;
+  /* Layer A — dim dust */
+  for(const s of starsA){s.ph+=s.sp;const a=s.a*(0.6+0.4*Math.sin(s.ph))*alpha;if(a<0.008)continue;cx.fillStyle=`rgba(200,205,220,${a})`;cx.beginPath();cx.arc(s.x*W,s.y*H,s.r,0,6.28);cx.fill()}
+  /* Layer B — medium with color */
+  for(const s of starsB){s.ph+=s.sp;const tw=0.5+0.5*Math.sin(s.ph);const a=s.a*tw*alpha;if(a<0.01)continue;
+    const col=s.warm?`rgba(255,225,190,${a})`:`rgba(200,210,240,${a})`;
+    cx.fillStyle=col;cx.beginPath();cx.arc(s.x*W,s.y*H,s.r,0,6.28);cx.fill();
+    /* Soft glow around medium stars */
+    cx.fillStyle=s.warm?`rgba(255,225,190,${a*0.15})`:`rgba(200,210,240,${a*0.15})`;
+    cx.beginPath();cx.arc(s.x*W,s.y*H,s.r*3,0,6.28);cx.fill();
   }
-  return{top:'#050510',bot:'#0a0a20'};
+  /* Layer C — bright with diffraction spikes */
+  for(const s of starsC){s.ph+=s.sp;const tw=0.5+0.5*Math.sin(s.ph);const a=s.a*tw*alpha;if(a<0.05)continue;
+    const px=s.x*W,py=s.y*H;
+    const col=s.warm?[255,230,200]:[210,220,250];
+    /* Core */
+    cx.fillStyle=`rgba(${col[0]},${col[1]},${col[2]},${a})`;
+    cx.beginPath();cx.arc(px,py,s.r,0,6.28);cx.fill();
+    /* Glow */
+    const gg=cx.createRadialGradient(px,py,s.r*0.5,px,py,s.r*5);
+    gg.addColorStop(0,`rgba(${col[0]},${col[1]},${col[2]},${a*0.2})`);
+    gg.addColorStop(1,`rgba(${col[0]},${col[1]},${col[2]},0)`);
+    cx.fillStyle=gg;cx.beginPath();cx.arc(px,py,s.r*5,0,6.28);cx.fill();
+    /* Diffraction cross — 4 spikes */
+    cx.strokeStyle=`rgba(${col[0]},${col[1]},${col[2]},${a*0.25})`;
+    cx.lineWidth=0.5;
+    const spikeLen=s.r*6+Math.sin(s.ph*0.5)*s.r;
+    cx.beginPath();cx.moveTo(px-spikeLen,py);cx.lineTo(px+spikeLen,py);cx.stroke();
+    cx.beginPath();cx.moveTo(px,py-spikeLen);cx.lineTo(px,py+spikeLen);cx.stroke();
+  }
 }
 
-// Sun position on arc (rises ~6, sets ~18)
-function getSunPos(hour){
-  const sunrise=6,sunset=18;
-  if(hour<sunrise||hour>sunset)return null;
-  const t=(hour-sunrise)/(sunset-sunrise);
-  const angle=Math.PI*(1-t); // left to right arc
-  const cx2=W*0.5,cy=H*0.85;
-  const rx=W*0.45,ry=H*0.7;
-  return{x:cx2+rx*Math.cos(angle),y:cy-ry*Math.sin(angle),t};
-}
+/* ── DRAW: SUN with corona ── */
+function drawSun(x,y,h){
+  const t=(h-5.7)/(18.3-5.7),I=Math.sin(t*Math.PI),R=24+I*12,time=Date.now()*0.0003;
 
-// Moon position (rises ~18, sets ~6 next day)
-function getMoonPos(hour){
-  let t;
-  if(hour>=18)t=(hour-18)/12;
-  else if(hour<6)t=(hour+6)/12;
-  else return null;
-  const angle=Math.PI*(1-t);
-  const cx2=W*0.5,cy=H*0.85;
-  const rx=W*0.4,ry=H*0.65;
-  return{x:cx2+rx*Math.cos(angle),y:cy-ry*Math.sin(angle),t};
-}
+  /* Atmospheric tint — entire sky */
+  const atm=cx.createRadialGradient(x,y,R*2,x,y,Math.max(W,H)*0.8);
+  atm.addColorStop(0,`rgba(212,175,55,${0.03*I})`);
+  atm.addColorStop(0.3,`rgba(200,140,40,${0.012*I})`);
+  atm.addColorStop(1,'rgba(200,140,40,0)');
+  cx.fillStyle=atm;cx.fillRect(0,0,W,H);
 
-// Star visibility
-function getStarAlpha(hour){
-  if(hour>=21||hour<4.5)return 1;
-  if(hour>=4.5&&hour<6)return 1-(hour-4.5)/1.5;
-  if(hour>=6&&hour<7)return Math.max(0,1-(hour-6));
-  if(hour>=18&&hour<19)return(hour-18);
-  if(hour>=19&&hour<21)return 0.5+(hour-19)/4;
-  return 0;
-}
+  /* Outer corona — irregular glow */
+  const c3=cx.createRadialGradient(x,y,R*1.5,x,y,R*8);
+  c3.addColorStop(0,`rgba(212,180,80,${0.04*I})`);
+  c3.addColorStop(0.3,`rgba(200,150,50,${0.015*I})`);
+  c3.addColorStop(1,'rgba(200,150,50,0)');
+  cx.fillStyle=c3;cx.beginPath();cx.arc(x,y,R*8,0,6.28);cx.fill();
 
-function drawSun(x,y,hour){
-  const t=(hour-6)/12;
-  const intensity=Math.sin(t*Math.PI);
-  const baseR=30+intensity*15;
+  /* Lens flare streak */
+  cx.save();cx.globalCompositeOperation='screen';
+  const fl=cx.createLinearGradient(x-R*10,y,x+R*10,y);
+  fl.addColorStop(0,'rgba(212,175,55,0)');
+  fl.addColorStop(0.38,`rgba(212,180,80,${0.015*I})`);
+  fl.addColorStop(0.5,`rgba(230,210,140,${0.035*I})`);
+  fl.addColorStop(0.62,`rgba(212,180,80,${0.015*I})`);
+  fl.addColorStop(1,'rgba(212,175,55,0)');
+  cx.fillStyle=fl;cx.fillRect(x-R*10,y-R*0.25,R*20,R*0.5);
+  /* Vertical flare (fainter) */
+  const fv=cx.createLinearGradient(x,y-R*6,x,y+R*6);
+  fv.addColorStop(0,'rgba(212,175,55,0)');
+  fv.addColorStop(0.45,`rgba(220,200,120,${0.01*I})`);
+  fv.addColorStop(0.55,`rgba(220,200,120,${0.01*I})`);
+  fv.addColorStop(1,'rgba(212,175,55,0)');
+  cx.fillStyle=fv;cx.fillRect(x-R*0.15,y-R*6,R*0.3,R*12);
+  cx.restore();
 
-  // Outer glow
-  const g3=cx.createRadialGradient(x,y,baseR*0.5,x,y,baseR*8);
-  g3.addColorStop(0,`rgba(255,200,80,${0.08*intensity})`);
-  g3.addColorStop(0.3,`rgba(255,160,40,${0.04*intensity})`);
-  g3.addColorStop(1,'rgba(255,160,40,0)');
-  cx.fillStyle=g3;cx.fillRect(0,0,W,H);
+  /* Inner corona */
+  const c2=cx.createRadialGradient(x,y,R*0.8,x,y,R*3.5);
+  c2.addColorStop(0,`rgba(240,220,150,${0.15*I})`);
+  c2.addColorStop(0.4,`rgba(212,175,55,${0.05*I})`);
+  c2.addColorStop(1,'rgba(212,175,55,0)');
+  cx.fillStyle=c2;cx.beginPath();cx.arc(x,y,R*3.5,0,6.28);cx.fill();
 
-  // Mid glow
-  const g2=cx.createRadialGradient(x,y,baseR*0.3,x,y,baseR*3);
-  g2.addColorStop(0,`rgba(255,220,120,${0.25*intensity})`);
-  g2.addColorStop(0.5,`rgba(255,180,60,${0.1*intensity})`);
-  g2.addColorStop(1,'rgba(255,160,40,0)');
-  cx.fillStyle=g2;cx.beginPath();cx.arc(x,y,baseR*3,0,Math.PI*2);cx.fill();
-
-  // Sun rays
+  /* Streamer rays — irregular corona spikes */
   cx.save();cx.translate(x,y);
-  const rayCount=12;
-  const time=Date.now()*0.0005;
-  for(let i=0;i<rayCount;i++){
-    const a=(i/rayCount)*Math.PI*2+time;
-    const len=baseR*1.8+Math.sin(time*2+i)*baseR*0.4;
+  for(let i=0;i<18;i++){
+    const a=(i/18)*6.28+time*0.5;
+    const len=R*2.2+Math.sin(time*1.3+i*1.1)*R*0.8+Math.sin(time*0.7+i*2.3)*R*0.4;
+    const w=0.025+Math.sin(i*1.7)*0.012;
     cx.beginPath();cx.moveTo(0,0);
-    cx.lineTo(Math.cos(a-0.06)*len,Math.sin(a-0.06)*len);
-    cx.lineTo(Math.cos(a+0.06)*len,Math.sin(a+0.06)*len);
+    cx.lineTo(Math.cos(a-w)*len,Math.sin(a-w)*len);
+    cx.lineTo(Math.cos(a+w)*len,Math.sin(a+w)*len);
     cx.closePath();
-    cx.fillStyle=`rgba(255,220,100,${0.06*intensity})`;cx.fill();
+    cx.fillStyle=`rgba(220,200,120,${0.018*I*(0.6+0.4*Math.sin(time+i))})`;cx.fill();
   }
   cx.restore();
 
-  // Core
-  const g1=cx.createRadialGradient(x-baseR*0.2,y-baseR*0.2,baseR*0.1,x,y,baseR);
-  g1.addColorStop(0,'#fffbe8');g1.addColorStop(0.3,'#ffe484');g1.addColorStop(0.7,'#f0a030');g1.addColorStop(1,'rgba(240,140,30,0.3)');
-  cx.fillStyle=g1;cx.beginPath();cx.arc(x,y,baseR,0,Math.PI*2);cx.fill();
+  /* Chromosphere ring */
+  cx.strokeStyle=`rgba(240,180,80,${0.08*I})`;cx.lineWidth=1.5;
+  cx.beginPath();cx.arc(x,y,R*1.08,0,6.28);cx.stroke();
 
-  // Horizon light scatter
-  if(y>H*0.5){
-    const hg=cx.createRadialGradient(x,H,0,x,H,W*0.5);
-    const warmth=hour<9?0.12:hour>16?0.12:0.06;
-    hg.addColorStop(0,`rgba(255,180,80,${warmth})`);
-    hg.addColorStop(1,'rgba(255,180,80,0)');
-    cx.fillStyle=hg;cx.fillRect(0,0,W,H);
+  /* Photosphere disc */
+  const core=cx.createRadialGradient(x-R*0.2,y-R*0.2,R*0.05,x,y,R);
+  core.addColorStop(0,'#FFFAE8');core.addColorStop(0.15,'#F5E080');
+  core.addColorStop(0.4,'#D4AF37');core.addColorStop(0.8,'#B88820');
+  core.addColorStop(1,'rgba(160,110,15,0.2)');
+  cx.fillStyle=core;cx.beginPath();cx.arc(x,y,R,0,6.28);cx.fill();
+
+  /* Ground illumination */
+  if(y>H*0.4){
+    const gg=cx.createRadialGradient(x,H,0,x,H,W*0.45);
+    const gI=(h<8||h>17)?0.07:0.025;
+    gg.addColorStop(0,`rgba(212,175,55,${gI*I})`);gg.addColorStop(1,'rgba(212,175,55,0)');
+    cx.fillStyle=gg;cx.fillRect(0,0,W,H);
   }
 }
 
-function drawMoon(x,y,hour){
-  const moonR=22;
+/* ── DRAW: MOON with maria ── */
+function drawMoon(x,y){
+  const R=18,phase=getMoonPhase();
 
-  // Moon glow
-  const g2=cx.createRadialGradient(x,y,moonR,x,y,moonR*6);
-  g2.addColorStop(0,'rgba(180,200,255,0.12)');
-  g2.addColorStop(0.4,'rgba(140,160,220,0.04)');
-  g2.addColorStop(1,'rgba(140,160,220,0)');
-  cx.fillStyle=g2;cx.beginPath();cx.arc(x,y,moonR*6,0,Math.PI*2);cx.fill();
+  /* Outer atmospheric glow */
+  const g1=cx.createRadialGradient(x,y,R,x,y,R*9);
+  g1.addColorStop(0,'rgba(170,180,210,0.05)');
+  g1.addColorStop(0.2,'rgba(150,160,195,0.02)');
+  g1.addColorStop(1,'rgba(150,160,195,0)');
+  cx.fillStyle=g1;cx.beginPath();cx.arc(x,y,R*9,0,6.28);cx.fill();
 
-  // Moon body
-  const g1=cx.createRadialGradient(x-moonR*0.3,y-moonR*0.3,moonR*0.1,x,y,moonR);
-  g1.addColorStop(0,'#f0f0ff');g1.addColorStop(0.6,'#d0d5e8');g1.addColorStop(1,'#a0a8c0');
-  cx.fillStyle=g1;cx.beginPath();cx.arc(x,y,moonR,0,Math.PI*2);cx.fill();
+  /* Body */
+  const mg=cx.createRadialGradient(x-R*0.25,y-R*0.25,R*0.05,x,y,R);
+  mg.addColorStop(0,'#E2E4F0');mg.addColorStop(0.4,'#C8CCD8');mg.addColorStop(0.8,'#A0A4B8');mg.addColorStop(1,'#808898');
+  cx.fillStyle=mg;cx.beginPath();cx.arc(x,y,R,0,6.28);cx.fill();
 
-  // Craters
-  cx.fillStyle='rgba(140,145,170,0.3)';
-  [[0.25,-0.3,3.5],[-0.15,0.2,2.5],[0.3,0.15,2],[-0.3,-0.2,1.8]].forEach(([dx,dy,r])=>{
-    cx.beginPath();cx.arc(x+dx*moonR,y+dy*moonR,r,0,Math.PI*2);cx.fill();
-  });
+  /* Maria — dark patches (Sea of Tranquility, etc.) */
+  cx.save();cx.beginPath();cx.arc(x,y,R,0,6.28);cx.clip();
+  cx.fillStyle='rgba(80,84,100,0.15)';
+  [[0.2,-0.3,4.5],[-.1,0.15,3.5],[0.3,0.1,3],[-0.25,-0.1,2.5],[0.05,-0.15,5],[-0.15,0.3,2.8]].forEach(([dx,dy,r])=>{cx.beginPath();cx.arc(x+dx*R,y+dy*R,r,0,6.28);cx.fill()});
+  /* Highlands — lighter spots */
+  cx.fillStyle='rgba(220,222,235,0.06)';
+  [[0.15,0.25,2],[-0.2,-0.25,1.5],[0.3,-0.2,1.8]].forEach(([dx,dy,r])=>{cx.beginPath();cx.arc(x+dx*R,y+dy*R,r,0,6.28);cx.fill()});
 
-  // Moonlight on page
-  const mg=cx.createRadialGradient(x,y,moonR*2,x,y,W*0.35);
-  mg.addColorStop(0,'rgba(180,200,255,0.03)');
-  mg.addColorStop(1,'rgba(180,200,255,0)');
-  cx.fillStyle=mg;cx.fillRect(0,0,W,H);
-}
+  /* Phase shadow */
+  const sx=x+R*2.2*(phase<0.5?phase*2-0.5:phase*2-1.5);
+  cx.fillStyle='rgba(5,5,14,0.78)';cx.beginPath();cx.arc(sx,y,R*1.15,0,6.28);cx.fill();
 
-function drawStars(alpha,time){
-  if(alpha<0.01)return;
-  for(const s of stars){
-    s.tw+=s.ts;
-    const twinkle=0.5+0.5*Math.sin(s.tw);
-    const a=s.base*twinkle*alpha;
-    if(a<0.02)continue;
-    cx.fillStyle=`rgba(255,240,220,${a})`;
-    cx.beginPath();cx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);cx.fill();
+  /* Earthshine on dark side — very faint illumination */
+  if(phase>0.1&&phase<0.4){
+    const esx=x+R*0.8;
+    cx.fillStyle='rgba(100,110,140,0.03)';cx.beginPath();cx.arc(esx,y,R*0.9,0,6.28);cx.fill();
   }
+  cx.restore();
+
+  /* Ambient moonlight cast on page */
+  const ml=cx.createRadialGradient(x,y,R*4,x,y,W*0.3);
+  ml.addColorStop(0,'rgba(170,180,210,0.012)');ml.addColorStop(1,'rgba(170,180,210,0)');
+  cx.fillStyle=ml;cx.fillRect(0,0,W,H);
 }
 
-function drawPlanets(hour,time){
-  const alpha=getStarAlpha(hour);
+/* ── DRAW: AURORA (subtle, near horizon at night) ── */
+function drawAurora(alpha){
   if(alpha<0.3)return;
-  const centerX=W*0.5,centerY=H*0.35;
-  planets.forEach((p,i)=>{
-    planetAngles[i]+=p.speed;
-    const px=centerX+p.dist*W*Math.cos(planetAngles[i]);
-    const py=centerY+p.dist*W*0.4*Math.sin(planetAngles[i]);
-    if(py>H*0.85)return;
-    // Orbit line (very subtle)
-    cx.strokeStyle=`rgba(255,255,255,${0.015*alpha})`;
-    cx.lineWidth=0.5;cx.beginPath();
-    cx.ellipse(centerX,centerY,p.dist*W,p.dist*W*0.4,0,0,Math.PI*2);
-    cx.stroke();
-    // Planet glow
-    cx.fillStyle=`rgba(${hexToRgb(p.color)},${0.2*alpha})`;
-    cx.beginPath();cx.arc(px,py,p.size*2.5,0,Math.PI*2);cx.fill();
-    // Planet body
-    cx.fillStyle=p.color;cx.globalAlpha=alpha;
-    cx.beginPath();cx.arc(px,py,p.size,0,Math.PI*2);cx.fill();
-    cx.globalAlpha=1;
-  });
+  const time=Date.now()*0.00008;
+  cx.save();
+  for(let i=0;i<5;i++){
+    const baseX=W*(0.1+i*0.2+Math.sin(time+i)*0.05);
+    const baseY=H*0.72;
+    const h2=H*0.15+Math.sin(time*1.3+i*1.5)*H*0.05;
+    const g=cx.createLinearGradient(baseX,baseY,baseX,baseY-h2);
+    g.addColorStop(0,`rgba(40,120,80,${0.015*alpha})`);
+    g.addColorStop(0.3,`rgba(60,160,100,${0.008*alpha})`);
+    g.addColorStop(0.6,`rgba(80,100,180,${0.004*alpha})`);
+    g.addColorStop(1,'rgba(80,100,180,0)');
+    cx.fillStyle=g;
+    cx.beginPath();
+    cx.moveTo(baseX-40,baseY);
+    cx.quadraticCurveTo(baseX+Math.sin(time*2+i)*20,baseY-h2,baseX+40,baseY);
+    cx.fill();
+  }
+  cx.restore();
 }
 
-function hexToRgb(hex){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`${r},${g},${b}`}
-
-// Shooting star
-let shootingStar=null;let lastShoot=0;
-function updateShootingStar(time){
-  if(!shootingStar&&time-lastShoot>8000+Math.random()*15000){
-    const hour=getISThour();if(getStarAlpha(hour)<0.5)return;
-    shootingStar={x:Math.random()*W*0.6+W*0.1,y:Math.random()*H*0.3,
-      dx:3+Math.random()*4,dy:2+Math.random()*2,life:1,len:60+Math.random()*40};
-    lastShoot=time;
+/* ── DRAW: HORIZON HAZE ── */
+function drawHorizon(h){
+  /* Sunrise/sunset color bands */
+  if(h>=5.5&&h<8.5){
+    const t2=(h-5.5)/3;
+    const g=cx.createLinearGradient(0,H*0.65,0,H);
+    g.addColorStop(0,'rgba(0,0,0,0)');
+    g.addColorStop(0.4,`rgba(180,100,50,${0.06*Math.sin(t2*3.14)})`);
+    g.addColorStop(0.7,`rgba(200,80,40,${0.08*Math.sin(t2*3.14)})`);
+    g.addColorStop(1,`rgba(140,50,30,${0.1*Math.sin(t2*3.14)})`);
+    cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  }else if(h>=16.5&&h<19.5){
+    const t2=(h-16.5)/3;
+    const g=cx.createLinearGradient(0,H*0.65,0,H);
+    g.addColorStop(0,'rgba(0,0,0,0)');
+    g.addColorStop(0.4,`rgba(160,60,40,${0.07*Math.sin(t2*3.14)})`);
+    g.addColorStop(0.7,`rgba(140,40,30,${0.1*Math.sin(t2*3.14)})`);
+    g.addColorStop(1,`rgba(100,20,20,${0.12*Math.sin(t2*3.14)})`);
+    cx.fillStyle=g;cx.fillRect(0,0,W,H);
   }
-  if(shootingStar){
-    shootingStar.x+=shootingStar.dx;shootingStar.y+=shootingStar.dy;shootingStar.life-=0.015;
-    if(shootingStar.life<=0){shootingStar=null;return}
-    const a=shootingStar.life;
-    cx.strokeStyle=`rgba(255,255,240,${a*0.8})`;cx.lineWidth=1.5;
-    cx.beginPath();cx.moveTo(shootingStar.x,shootingStar.y);
-    cx.lineTo(shootingStar.x-shootingStar.dx*shootingStar.len*0.15,shootingStar.y-shootingStar.dy*shootingStar.len*0.15);
-    cx.stroke();
-    // Head glow
-    cx.fillStyle=`rgba(255,255,220,${a*0.6})`;
-    cx.beginPath();cx.arc(shootingStar.x,shootingStar.y,2,0,Math.PI*2);cx.fill();
+  /* Base atmospheric haze */
+  const gh=cx.createLinearGradient(0,H*0.85,0,H);
+  gh.addColorStop(0,'rgba(0,0,0,0)');gh.addColorStop(1,`rgba(8,8,16,0.15)`);
+  cx.fillStyle=gh;cx.fillRect(0,0,W,H);
+}
+
+/* ── SHOOTING STARS ── */
+let shoot=null,lastSh=0;
+function doShoot(time,alpha){
+  if(!shoot&&alpha>0.35&&time-lastSh>10000+Math.random()*18000){
+    shoot={x:Math.random()*W*0.6+W*0.15,y:Math.random()*H*0.2+H*0.03,
+      dx:2.5+Math.random()*3.5,dy:1.2+Math.random()*1.8,life:1,len:40+Math.random()*30};
+    lastSh=time;
+  }
+  if(shoot){
+    shoot.x+=shoot.dx;shoot.y+=shoot.dy;shoot.life-=0.01;
+    if(shoot.life<=0){shoot=null;return}
+    /* Trail gradient */
+    const tg=cx.createLinearGradient(shoot.x,shoot.y,shoot.x-shoot.dx*shoot.len*0.4,shoot.y-shoot.dy*shoot.len*0.4);
+    tg.addColorStop(0,`rgba(220,225,240,${shoot.life*0.6})`);
+    tg.addColorStop(1,'rgba(220,225,240,0)');
+    cx.strokeStyle=tg;cx.lineWidth=1.2;
+    cx.beginPath();cx.moveTo(shoot.x,shoot.y);
+    cx.lineTo(shoot.x-shoot.dx*shoot.len*0.4,shoot.y-shoot.dy*shoot.len*0.4);cx.stroke();
+    /* Head */
+    cx.fillStyle=`rgba(240,240,255,${shoot.life*0.5})`;
+    cx.beginPath();cx.arc(shoot.x,shoot.y,1.2,0,6.28);cx.fill();
   }
 }
 
-// Horizon haze
-function drawHorizon(hour){
-  const hg=cx.createLinearGradient(0,H*0.7,0,H);
-  if(hour>=5&&hour<8){
-    hg.addColorStop(0,'rgba(0,0,0,0)');
-    hg.addColorStop(0.5,`rgba(180,100,60,${0.08})`);
-    hg.addColorStop(1,`rgba(120,60,40,${0.15})`);
-  }else if(hour>=17&&hour<19.5){
-    hg.addColorStop(0,'rgba(0,0,0,0)');
-    hg.addColorStop(0.5,`rgba(160,60,40,${0.1})`);
-    hg.addColorStop(1,`rgba(100,30,30,${0.18})`);
-  }else{
-    hg.addColorStop(0,'rgba(0,0,0,0)');
-    hg.addColorStop(1,`rgba(10,10,20,${0.15})`);
-  }
-  cx.fillStyle=hg;cx.fillRect(0,0,W,H);
+/* ── HORIZON INDICATOR ── */
+function updateHorizon(h){
+  const el=document.getElementById('hDot');
+  const sun=sunPos(h),moon=moonPos(h);
+  if(sun){el.style.left=(sun.x/W*100)+'%';el.style.background='radial-gradient(circle,#F0D870,#D4AF37)';el.style.boxShadow='0 0 10px rgba(212,175,55,0.3)';el.style.display='block'}
+  else if(moon){el.style.left=(moon.x/W*100)+'%';el.style.background='radial-gradient(circle,#D0D4E8,#8890A8)';el.style.boxShadow='0 0 10px rgba(170,180,210,0.2)';el.style.display='block'}
+  else{el.style.display='none'}
 }
 
-function draw(){
-  const hour=getISThour();
-  const time=Date.now();
-  const sky=getSkyColors(hour);
+/* ── MAIN RENDER LOOP ── */
+function frame(){
+  const h=getIST(),time=Date.now(),na=nightAlpha(h),sky=skyAt(h);
 
-  // Sky gradient
+  /* Sky gradient */
   const bg=cx.createLinearGradient(0,0,0,H);
-  bg.addColorStop(0,sky.top);bg.addColorStop(1,sky.bot);
+  bg.addColorStop(0,sky.t);bg.addColorStop(1,sky.b);
   cx.fillStyle=bg;cx.fillRect(0,0,W,H);
 
-  // Stars
-  drawStars(getStarAlpha(hour),time);
+  /* Night layers */
+  drawNebulae(na);
+  drawMilkyWay(na);
+  drawStars(na);
+  drawAurora(na);
 
-  // Planets (night only)
-  drawPlanets(hour,time);
+  /* Celestial bodies */
+  const mp=moonPos(h);if(mp)drawMoon(mp.x,mp.y);
+  const sp=sunPos(h);if(sp)drawSun(sp.x,sp.y,h);
 
-  // Moon
-  const moonPos=getMoonPos(hour);
-  if(moonPos)drawMoon(moonPos.x,moonPos.y,hour);
+  /* Atmosphere */
+  drawHorizon(h);
+  doShoot(time,na);
+  updateHorizon(h);
 
-  // Sun
-  const sunPos=getSunPos(hour);
-  if(sunPos)drawSun(sunPos.x,sunPos.y,hour);
-
-  // Horizon atmospheric haze
-  drawHorizon(hour);
-
-  // Shooting star
-  updateShootingStar(time);
-
-  requestAnimationFrame(draw);
+  requestAnimationFrame(frame);
 }
 
-addEventListener('resize',resize);
-resize();draw();
+addEventListener('resize',resize);resize();frame();
 })();
 
-// ============================================================
-//  APP LOGIC
-// ============================================================
-const R=[
-{id:"mesh",hi:"मेष",en:"Aries",symbol:"♈",dates:"21 मार्च – 19 अप्रैल",dates_en:"Mar 21 – Apr 19",el_hi:"अग्नि",el_en:"Fire",ru_hi:"मंगल",ru_en:"Mars",q_hi:"चर",q_en:"Cardinal",tr_hi:"साहसी, ऊर्जावान",tr_en:"Courageous, energetic"},
-{id:"vrishabh",hi:"वृषभ",en:"Taurus",symbol:"♉",dates:"20 अप्रैल – 20 मई",dates_en:"Apr 20 – May 20",el_hi:"पृथ्वी",el_en:"Earth",ru_hi:"शुक्र",ru_en:"Venus",q_hi:"स्थिर",q_en:"Fixed",tr_hi:"धैर्यवान, व्यावहारिक",tr_en:"Patient, practical"},
-{id:"mithun",hi:"मिथुन",en:"Gemini",symbol:"♊",dates:"21 मई – 20 जून",dates_en:"May 21 – Jun 20",el_hi:"वायु",el_en:"Air",ru_hi:"बुध",ru_en:"Mercury",q_hi:"द्विस्वभाव",q_en:"Mutable",tr_hi:"बुद्धिमान, जिज्ञासु",tr_en:"Intelligent, curious"},
-{id:"kark",hi:"कर्क",en:"Cancer",symbol:"♋",dates:"21 जून – 22 जुलाई",dates_en:"Jun 21 – Jul 22",el_hi:"जल",el_en:"Water",ru_hi:"चंद्र",ru_en:"Moon",q_hi:"चर",q_en:"Cardinal",tr_hi:"भावुक, सहज",tr_en:"Emotional, intuitive"},
-{id:"singh",hi:"सिंह",en:"Leo",symbol:"♌",dates:"23 जुलाई – 22 अगस्त",dates_en:"Jul 23 – Aug 22",el_hi:"अग्नि",el_en:"Fire",ru_hi:"सूर्य",ru_en:"Sun",q_hi:"स्थिर",q_en:"Fixed",tr_hi:"आत्मविश्वासी, नेता",tr_en:"Confident, leader"},
-{id:"kanya",hi:"कन्या",en:"Virgo",symbol:"♍",dates:"23 अगस्त – 22 सितम्बर",dates_en:"Aug 23 – Sep 22",el_hi:"पृथ्वी",el_en:"Earth",ru_hi:"बुध",ru_en:"Mercury",q_hi:"द्विस्वभाव",q_en:"Mutable",tr_hi:"विश्लेषक, व्यवस्थित",tr_en:"Analytical, organized"},
-{id:"tula",hi:"तुला",en:"Libra",symbol:"♎",dates:"23 सितम्बर – 22 अक्टूबर",dates_en:"Sep 23 – Oct 22",el_hi:"वायु",el_en:"Air",ru_hi:"शुक्र",ru_en:"Venus",q_hi:"चर",q_en:"Cardinal",tr_hi:"संतुलित, कलाप्रेमी",tr_en:"Balanced, artistic"},
-{id:"vrishchik",hi:"वृश्चिक",en:"Scorpio",symbol:"♏",dates:"23 अक्टूबर – 21 नवम्बर",dates_en:"Oct 23 – Nov 21",el_hi:"जल",el_en:"Water",ru_hi:"मंगल",ru_en:"Mars",q_hi:"स्थिर",q_en:"Fixed",tr_hi:"दृढ़, रहस्यमयी",tr_en:"Determined, mysterious"},
-{id:"dhanu",hi:"धनु",en:"Sagittarius",symbol:"♐",dates:"22 नवम्बर – 21 दिसम्बर",dates_en:"Nov 22 – Dec 21",el_hi:"अग्नि",el_en:"Fire",ru_hi:"गुरु",ru_en:"Jupiter",q_hi:"द्विस्वभाव",q_en:"Mutable",tr_hi:"आशावादी, साहसी",tr_en:"Optimistic, adventurous"},
-{id:"makar",hi:"मकर",en:"Capricorn",symbol:"♑",dates:"22 दिसम्बर – 19 जनवरी",dates_en:"Dec 22 – Jan 19",el_hi:"पृथ्वी",el_en:"Earth",ru_hi:"शनि",ru_en:"Saturn",q_hi:"चर",q_en:"Cardinal",tr_hi:"महत्वाकांक्षी, अनुशासित",tr_en:"Ambitious, disciplined"},
-{id:"kumbh",hi:"कुम्भ",en:"Aquarius",symbol:"♒",dates:"20 जनवरी – 18 फरवरी",dates_en:"Jan 20 – Feb 18",el_hi:"वायु",el_en:"Air",ru_hi:"शनि",ru_en:"Saturn",q_hi:"स्थिर",q_en:"Fixed",tr_hi:"नवीन, स्वतंत्र",tr_en:"Innovative, independent"},
-{id:"meen",hi:"मीन",en:"Pisces",symbol:"♓",dates:"19 फरवरी – 20 मार्च",dates_en:"Feb 19 – Mar 20",el_hi:"जल",el_en:"Water",ru_hi:"गुरु",ru_en:"Jupiter",q_hi:"द्विस्वभाव",q_en:"Mutable",tr_hi:"कल्पनाशील, दयालु",tr_en:"Imaginative, compassionate"},
+
+/* ═══════════════════════════════════════════
+   APPLICATION LOGIC — Zero emojis
+   ═══════════════════════════════════════════ */
+
+/* ── Zodiac SVG Glyphs ── All 12 signs, consistent 1.5px stroke ── */
+const ZODIAC_SVG = {
+  mesh: '<svg viewBox="0 0 24 24"><path d="M4 20 C4 12, 8 4, 12 4 C16 4, 20 12, 20 20"/><path d="M12 4 L12 20"/></svg>',
+  vrishabh: '<svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M6 9 C6 5, 9 3, 12 5 C15 3, 18 5, 18 9"/></svg>',
+  mithun: '<svg viewBox="0 0 24 24"><path d="M6 4 C9 6, 15 6, 18 4"/><path d="M6 20 C9 18, 15 18, 18 20"/><line x1="8" y1="5" x2="8" y2="19"/><line x1="16" y1="5" x2="16" y2="19"/></svg>',
+  kark: '<svg viewBox="0 0 24 24"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="14" r="3"/><path d="M11 10 C14 6, 20 8, 19 14"/><path d="M13 14 C10 18, 4 16, 5 10"/></svg>',
+  singh: '<svg viewBox="0 0 24 24"><circle cx="9" cy="16" r="4"/><path d="M13 16 C13 10, 18 6, 18 10 C18 14, 14 14, 14 10 C14 6, 8 4, 6 8"/></svg>',
+  kanya: '<svg viewBox="0 0 24 24"><path d="M4 4 L4 18 C4 20, 6 20, 6 18 L6 4"/><path d="M6 4 L6 18 C6 20, 8 20, 8 18 L8 4"/><path d="M8 4 L8 14 C8 18, 12 20, 14 16"/><path d="M14 16 C16 12, 20 14, 18 18"/></svg>',
+  tula: '<svg viewBox="0 0 24 24"><line x1="4" y1="18" x2="20" y2="18"/><line x1="4" y1="14" x2="20" y2="14"/><path d="M7 14 C7 8, 12 5, 17 14"/></svg>',
+  vrishchik: '<svg viewBox="0 0 24 24"><path d="M4 4 L4 18 C4 20, 6 20, 6 18 L6 4"/><path d="M6 4 L6 18 C6 20, 8 20, 8 18 L8 4"/><path d="M8 4 L8 18 C8 20, 10 20, 12 18 L16 14"/><path d="M14 12 L16 14 L14 16"/></svg>',
+  dhanu: '<svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4"/><path d="M14 4 L20 4 L20 10"/><line x1="8" y1="12" x2="16" y2="12" transform="rotate(-45 12 12)"/></svg>',
+  makar: '<svg viewBox="0 0 24 24"><path d="M4 4 L4 14 C4 18, 8 20, 10 16 L10 10"/><path d="M10 10 C10 14, 14 18, 18 18 C20 18, 20 14, 18 12 C16 10, 18 8, 20 8"/></svg>',
+  kumbh: '<svg viewBox="0 0 24 24"><path d="M4 10 C6 8, 8 12, 10 10 C12 8, 14 12, 16 10 C18 8, 20 12, 20 10"/><path d="M4 16 C6 14, 8 18, 10 16 C12 14, 14 18, 16 16 C18 14, 20 18, 20 16"/></svg>',
+  meen: '<svg viewBox="0 0 24 24"><path d="M4 6 C10 10, 10 14, 4 18"/><path d="M20 6 C14 10, 14 14, 20 18"/><line x1="4" y1="12" x2="20" y2="12"/></svg>'
+};
+
+const RASHIS=[
+  {id:"mesh",hi:"मेष",en:"Aries",dt:"21 मार्च – 19 अप्रैल",dte:"Mar 21 – Apr 19",el:"अग्नि/Fire",ru:"मंगल/Mars",q:"चर/Cardinal",trH:"साहसी, ऊर्जावान",trE:"Courageous, energetic"},
+  {id:"vrishabh",hi:"वृषभ",en:"Taurus",dt:"20 अप्रैल – 20 मई",dte:"Apr 20 – May 20",el:"पृथ्वी/Earth",ru:"शुक्र/Venus",q:"स्थिर/Fixed",trH:"धैर्यवान, व्यावहारिक",trE:"Patient, practical"},
+  {id:"mithun",hi:"मिथुन",en:"Gemini",dt:"21 मई – 20 जून",dte:"May 21 – Jun 20",el:"वायु/Air",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"बुद्धिमान, जिज्ञासु",trE:"Intelligent, curious"},
+  {id:"kark",hi:"कर्क",en:"Cancer",dt:"21 जून – 22 जुलाई",dte:"Jun 21 – Jul 22",el:"जल/Water",ru:"चंद्र/Moon",q:"चर/Cardinal",trH:"भावुक, सहज",trE:"Emotional, intuitive"},
+  {id:"singh",hi:"सिंह",en:"Leo",dt:"23 जुलाई – 22 अगस्त",dte:"Jul 23 – Aug 22",el:"अग्नि/Fire",ru:"सूर्य/Sun",q:"स्थिर/Fixed",trH:"आत्मविश्वासी, नेता",trE:"Confident, leader"},
+  {id:"kanya",hi:"कन्या",en:"Virgo",dt:"23 अगस्त – 22 सितम्बर",dte:"Aug 23 – Sep 22",el:"पृथ्वी/Earth",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"विश्लेषक, व्यवस्थित",trE:"Analytical, organized"},
+  {id:"tula",hi:"तुला",en:"Libra",dt:"23 सितम्बर – 22 अक्टूबर",dte:"Sep 23 – Oct 22",el:"वायु/Air",ru:"शुक्र/Venus",q:"चर/Cardinal",trH:"संतुलित, कलाप्रेमी",trE:"Balanced, artistic"},
+  {id:"vrishchik",hi:"वृश्चिक",en:"Scorpio",dt:"23 अक्टूबर – 21 नवम्बर",dte:"Oct 23 – Nov 21",el:"जल/Water",ru:"मंगल/Mars",q:"स्थिर/Fixed",trH:"दृढ़, रहस्यमयी",trE:"Determined, mysterious"},
+  {id:"dhanu",hi:"धनु",en:"Sagittarius",dt:"22 नवम्बर – 21 दिसम्बर",dte:"Nov 22 – Dec 21",el:"अग्नि/Fire",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"आशावादी, साहसी",trE:"Optimistic, adventurous"},
+  {id:"makar",hi:"मकर",en:"Capricorn",dt:"22 दिसम्बर – 19 जनवरी",dte:"Dec 22 – Jan 19",el:"पृथ्वी/Earth",ru:"शनि/Saturn",q:"चर/Cardinal",trH:"महत्वाकांक्षी, अनुशासित",trE:"Ambitious, disciplined"},
+  {id:"kumbh",hi:"कुम्भ",en:"Aquarius",dt:"20 जनवरी – 18 फरवरी",dte:"Jan 20 – Feb 18",el:"वायु/Air",ru:"शनि/Saturn",q:"स्थिर/Fixed",trH:"नवीन, स्वतंत्र",trE:"Innovative, independent"},
+  {id:"meen",hi:"मीन",en:"Pisces",dt:"19 फरवरी – 20 मार्च",dte:"Feb 19 – Mar 20",el:"जल/Water",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"कल्पनाशील, दयालु",trE:"Imaginative, compassionate"},
 ];
+
+const CATEGORIES=[
+  {id:'love',titleH:'प्रेम एवं रिश्ते',titleE:'Love & Relationships',subH:'Love & Relationships',subE:'प्रेम एवं रिश्ते',descH:'आपके प्रेम जीवन में आज क्या लिखा है? विवाह, रोमांस और रिश्तों की विस्तृत भविष्यवाणी पढ़ें।',descE:'What does the cosmos hold for your love life? Read detailed predictions on romance, marriage and relationships.',label:'Love',labelClass:'label-love',
+   icon:'<svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9 3c1.7 0 3 1.2 3 1.2S13.3 3 15 3c2.5 0 5 2.5 5 5.5C20 13.5 12 21 12 21z"/></svg>'},
+  {id:'career',titleH:'करियर एवं व्यवसाय',titleE:'Career & Business',subH:'Career & Business',subE:'करियर एवं व्यवसाय',descH:'आज नौकरी में तरक्की होगी या व्यापार में लाभ? जानिए ग्रहों की चाल का आपके करियर पर प्रभाव।',descE:'Will today bring a promotion or business breakthrough? Discover how planetary alignments affect your career.',label:'Career',labelClass:'label-career',
+   icon:'<svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.5"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>'},
+  {id:'health',titleH:'स्वास्थ्य राशिफल',titleE:'Health Horoscope',subH:'Health Horoscope',subE:'स्वास्थ्य राशिफल',descH:'तन और मन दोनों का ध्यान रखें। आज किन बातों से सावधान रहें और कैसे स्वस्थ रहें, जानिए।',descE:'Nurture body and mind. Learn what to watch out for today and how to maintain optimal wellness.',label:'Health',labelClass:'label-health',
+   icon:'<svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>'},
+  {id:'money',titleH:'धन एवं वित्त',titleE:'Money & Finance',subH:'Money & Finance',subE:'धन एवं वित्त',descH:'क्या आज निवेश का सही समय है? बचत, खर्च और आर्थिक निर्णयों के लिए ज्योतिषीय मार्गदर्शन।',descE:'Is today the right time to invest? Astrological guidance for savings, spending and financial decisions.',label:'Finance',labelClass:'label-money',
+   icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v12M9 9.5c0-1 1.3-2 3-2s3 1 3 2-1.3 2-3 2-3 1-3 2 1.3 2 3 2"/></svg>'},
+  {id:'sunsign',titleH:'सन साइन भविष्यफल',titleE:'Sun Sign Predictions',subH:'Sun Sign Predictions',subE:'सन साइन भविष्यफल',descH:'पश्चिमी ज्योतिष पद्धति के अनुसार आपके सूर्य चिन्ह का आज का सम्पूर्ण भविष्यफल।',descE:'Your complete daily forecast according to Western tropical astrology and your sun sign.',label:'Sun Sign',labelClass:'label-accent',
+   icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1"/></svg>'},
+  {id:'career-guide',titleH:'राशि अनुसार करियर मार्गदर्शन',titleE:'Zodiac Career Guide',subH:'Zodiac Career Guide',subE:'राशि अनुसार करियर मार्गदर्शन',descH:'आपकी राशि के अनुसार कौन सा क्षेत्र आपके लिए सर्वोत्तम है? स्थायी करियर मार्गदर्शिका।',descE:'Which field suits you best according to your zodiac? A comprehensive career guide for every sign.',label:'Guide',labelClass:'label-career',
+   icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>'},
+];
+
+const TOOLS=[
+  {titleH:'निःशुल्क कुंडली',titleE:'Free Kundli',descH:'अपनी जन्म तिथि, समय और स्थान दर्ज करें — विस्तृत ग्रह स्थिति, भाव चक्र और दशा विश्लेषण तुरंत प्राप्त करें।',descE:'Enter your birth date, time and place to receive a detailed chart with planetary positions, house analysis and dasha periods.',badge:true,
+   icon:'<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>'},
+  {titleH:'जन्मपत्री',titleE:'Janampatri',descH:'विस्तृत जन्म कुंडली — महादशा, अंतर्दशा, ग्रह योग, मांगलिक दोष और जीवन के प्रत्येक पहलू का विश्लेषण।',descE:'Complete birth chart analysis — Mahadasha, Antardasha, planetary Yogas, Manglik Dosha and predictions for every life aspect.',badge:true,
+   icon:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l16 16M20 4L4 20"/></svg>'},
+  {titleH:'कुंडली मिलान',titleE:'Kundli Matching',descH:'विवाह से पहले 36 गुणों के आधार पर अष्टकूट मिलान करें। नाड़ी, भकूट, गण और अन्य कूटों का विश्लेषण।',descE:'Match horoscopes before marriage using 36 Guna Ashtakoot method. Analysis of Nadi, Bhakoot, Gana and all Kootas.',badge:false,
+   icon:'<svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>'},
+  {titleH:'आज का पंचांग',titleE:"Today's Panchang",descH:'सम्पूर्ण दैनिक पंचांग — तिथि, नक्षत्र, योग, करण, राहुकाल, शुभ मुहूर्त और चौघड़िया।',descE:'Complete daily Panchang — Tithi, Nakshatra, Yoga, Karana, Rahu Kaal, Shubh Muhurat and Choghadiya.',badge:true,
+   icon:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>'},
+];
+
 const COMPAT={mesh:{mesh:70,vrishabh:55,mithun:80,kark:50,singh:90,kanya:45,tula:65,vrishchik:60,dhanu:92,makar:48,kumbh:75,meen:55},vrishabh:{mesh:55,vrishabh:75,mithun:40,kark:88,singh:60,kanya:92,tula:65,vrishchik:85,dhanu:42,makar:90,kumbh:45,meen:82},mithun:{mesh:80,vrishabh:40,mithun:65,kark:50,singh:78,kanya:60,tula:88,vrishchik:42,dhanu:75,makar:45,kumbh:90,meen:48},kark:{mesh:50,vrishabh:88,mithun:50,kark:72,singh:55,kanya:78,tula:48,vrishchik:90,dhanu:40,makar:60,kumbh:42,meen:92},singh:{mesh:90,vrishabh:60,mithun:78,kark:55,singh:68,kanya:50,tula:82,vrishchik:65,dhanu:88,makar:48,kumbh:55,meen:50},kanya:{mesh:45,vrishabh:92,mithun:60,kark:78,singh:50,kanya:70,tula:55,vrishchik:80,dhanu:48,makar:88,kumbh:50,meen:65},tula:{mesh:65,vrishabh:65,mithun:88,kark:48,singh:82,kanya:55,tula:68,vrishchik:60,dhanu:78,makar:50,kumbh:85,meen:52},vrishchik:{mesh:60,vrishabh:85,mithun:42,kark:90,singh:65,kanya:80,tula:60,vrishchik:72,dhanu:55,makar:78,kumbh:48,meen:88},dhanu:{mesh:92,vrishabh:42,mithun:75,kark:40,singh:88,kanya:48,tula:78,vrishchik:55,dhanu:70,makar:52,kumbh:80,meen:50},makar:{mesh:48,vrishabh:90,mithun:45,kark:60,singh:48,kanya:88,tula:50,vrishchik:78,dhanu:52,makar:72,kumbh:55,meen:65},kumbh:{mesh:75,vrishabh:45,mithun:90,kark:42,singh:55,kanya:50,tula:85,vrishchik:48,dhanu:80,makar:55,kumbh:68,meen:52},meen:{mesh:55,vrishabh:82,mithun:48,kark:92,singh:50,kanya:65,tula:52,vrishchik:88,dhanu:50,makar:65,kumbh:52,meen:70}};
 
-let cL='hi',dailyData=null;
-function updateDate(){const d=new Date();const dH=['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];const dE=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const mH=['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितम्बर','अक्टूबर','नवम्बर','दिसम्बर'];const mE=['January','February','March','April','May','June','July','August','September','October','November','December'];document.getElementById('dateStrip').innerHTML=cL==='hi'?`<span class="day-name">${dH[d.getDay()]}</span>, ${d.getDate()} ${mH[d.getMonth()]} ${d.getFullYear()}`:`<span class="day-name">${dE[d.getDay()]}</span>, ${mE[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`}
-function sr(r){let s='';for(let i=1;i<=5;i++)s+=i<=Math.floor(r)?'★':i-0.5<=r?'★':'☆';return s}
-function renderGrid(){const g=document.getElementById('rashiGrid');g.innerHTML='';R.forEach((r,i)=>{const rd=dailyData?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;const c=document.createElement('a');c.className='rashi-card';c.href='javascript:void(0)';c.onclick=()=>showDetail(i);c.innerHTML=`<div class="rashi-top"><div class="rashi-symbol">${r.symbol}</div><div><div class="rashi-name-hi">${cL==='hi'?r.hi:r.en}</div><div class="rashi-name-en">${cL==='hi'?r.en:r.hi}</div></div></div><div class="rashi-dates">${cL==='hi'?r.dates:r.dates_en}</div>${ld?`<div class="rashi-preview">${ld.prediction}</div><div class="rashi-meta"><span class="rating-stars">${sr(ld.rating)}</span></div>`:``}`;g.appendChild(c)})}
-function renderZI(){const g=document.getElementById('zodiacInfoGrid');g.innerHTML='';R.forEach(r=>{const c=document.createElement('div');c.className='zodiac-info-card';c.innerHTML=`<div class="zi-header"><span class="zi-symbol">${r.symbol}</span><span class="zi-name">${cL==='hi'?r.hi:r.en}</span></div><table class="zi-table"><tr><td>${cL==='hi'?'तत्व':'Element'}</td><td>${cL==='hi'?r.el_hi:r.el_en}</td></tr><tr><td>${cL==='hi'?'स्वामी':'Ruler'}</td><td>${cL==='hi'?r.ru_hi:r.ru_en}</td></tr><tr><td>${cL==='hi'?'गुण':'Quality'}</td><td>${cL==='hi'?r.q_hi:r.q_en}</td></tr><tr><td>${cL==='hi'?'विशेषता':'Traits'}</td><td>${cL==='hi'?r.tr_hi:r.tr_en}</td></tr></table>`;g.appendChild(c)})}
-function showDetail(i){const r=R[i],rd=dailyData?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;document.getElementById('dSym').textContent=r.symbol;document.getElementById('dName').textContent=cL==='hi'?r.hi:r.en;document.getElementById('dNameSub').textContent=cL==='hi'?r.en:r.hi;document.getElementById('dPred').textContent=ld?.prediction||(cL==='hi'?'जल्द उपलब्ध होगा':'Coming soon');document.getElementById('dLucky').textContent=ld?.lucky_number||'—';document.getElementById('dColor').textContent=ld?.lucky_color||'—';document.getElementById('dRating').textContent=ld?sr(ld.rating):'—';document.getElementById('detailOverlay').classList.add('active');document.body.style.overflow='hidden'}
-function checkCompat(){const s1=document.getElementById('sign1').value,s2=document.getElementById('sign2').value;if(!s1||!s2)return alert('Select both signs');const sc=COMPAT[s1]?.[s2]||50;document.getElementById('compatResult').style.display='block';document.getElementById('compatScore').textContent=sc+'%';const v=cL==='hi'?['बहुत कम','कम','मध्यम','अच्छी','उत्कृष्ट!']:['Very low','Low','Moderate','Good','Excellent!'];document.getElementById('compatVerdict').textContent=v[sc<30?0:sc<50?1:sc<70?2:sc<85?3:4]}
-function setLang(l){cL=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});updateDate();renderGrid();renderZI()}
-function setPeriod(p){document.querySelectorAll('.period-tab').forEach(t=>t.classList.toggle('active',t.dataset.period===p))}
-function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
-async function loadDaily(){const t=new Date().toISOString().slice(0,10);try{const r=await fetch(`/content/${t}.json`);if(r.ok)dailyData=await r.json()}catch(e){}renderGrid()}
-updateDate();renderZI();loadDaily();
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('detailOverlay').classList.remove('active');document.body.style.overflow='';document.getElementById('mobileMenu').classList.remove('open')}});
+let cL='hi',dd=null;
+
+function upDate(){
+  const d=new Date();
+  const dH=['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+  const dE=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const mH=['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितम्बर','अक्टूबर','नवम्बर','दिसम्बर'];
+  const mE=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('dateEl').innerHTML=cL==='hi'
+    ?`<strong>${dH[d.getDay()]}</strong>, ${d.getDate()} ${mH[d.getMonth()]} ${d.getFullYear()}`
+    :`<strong>${dE[d.getDay()]}</strong>, ${mE[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
+function upCel(){
+  const signs=['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
+  const signsH=['मेष','वृषभ','मिथुन','कर्क','सिंह','कन्या','तुला','वृश्चिक','धनु','मकर','कुम्भ','मीन'];
+  const d=new Date(),m=d.getMonth();
+  document.getElementById('celSun').innerHTML=cL==='hi'?`सूर्य<em>${signsH[m]}</em>`:`Sun<em>${signs[m]}</em>`;
+  const ph=((367*d.getFullYear()-Math.floor(7*(d.getFullYear()+Math.floor((m+10)/12))/4)+Math.floor(275*(m+1)/9)+d.getDate()+1721013.5)-2451550.1)%29.53/29.53;
+  const p=ph<0?ph+1:ph;
+  const namesE=['New Moon','Waxing Crescent','First Quarter','Waxing Gibbous','Full Moon','Waning Gibbous','Last Quarter','Waning Crescent'];
+  const namesH=['अमावस्या','शुक्ल द्वितीया','शुक्ल अष्टमी','शुक्ल एकादशी','पूर्णिमा','कृष्ण तृतीया','कृष्ण अष्टमी','कृष्ण एकादशी'];
+  const shortH=['अमावस्या','शुक्ल','प्रथम','शुक्ल','पूर्णिमा','कृष्ण','तृतीय','कृष्ण'];
+  const shortE=['New','Wax Cr','1st Q','Wax Gi','Full','Wan Gi','3rd Q','Wan Cr'];
+  const pi=Math.floor(p*8)%8;
+  document.getElementById('celPhase').innerHTML=cL==='hi'?`चन्द्र कला<em>${namesH[pi]}</em>`:`Phase<em>${namesE[pi]}</em>`;
+  document.getElementById('celMoon').innerHTML=cL==='hi'?`चन्द्रमा<em>${shortH[pi]}</em>`:`Moon<em>${shortE[pi]}</em>`;
+  const h=(d.getUTCHours()+5.5)%24;
+  const muhurtasE=['Brahma','Rudra','Indra','Vishnu','Abhijit','Rahu','Yama','Kaal'];
+  const muhurtasH=['ब्रह्म','रुद्र','इन्द्र','विष्णु','अभिजीत','राहु','यम','काल'];
+  const mi=Math.floor(h/3)%8;
+  document.getElementById('celMuhurta').innerHTML=cL==='hi'?`मुहूर्त<em>${muhurtasH[mi]}</em>`:`Muhurta<em>${muhurtasE[mi]}</em>`;
+}
+
+function sr(r){
+  let html='';
+  for(let i=1;i<=5;i++){
+    const filled=i<=Math.floor(r)||(i-0.5<=r);
+    html+=`<svg width="12" height="12" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:1px"><polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" fill="${filled?'#D4AF37':'none'}" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+  }
+  return html;
+}
+
+/* Star rating container */
+
+// Populate compatibility selects
+function fillSelects(){
+  ['s1','s2'].forEach(id=>{
+    const sel=document.getElementById(id);
+    RASHIS.forEach(r=>{
+      const o=document.createElement('option');
+      o.value=r.id;o.textContent=cL==='hi'?r.hi:r.en;
+      sel.appendChild(o);
+    });
+  });
+}
+
+function renderGrid(){
+  const g=document.getElementById('rGrid');g.innerHTML='';
+  RASHIS.forEach((r,i)=>{
+    const rd=dd?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+    const c=document.createElement('a');c.className='card rashi-card';c.href='javascript:void(0)';
+    c.onclick=()=>showD(i);
+    c.innerHTML=`
+      <div class="rashi-top">
+        <div class="rashi-glyph">${ZODIAC_SVG[r.id]}</div>
+        <div>
+          <div class="rashi-name">${cL==='hi'?r.hi:r.en}</div>
+          <div class="rashi-name-sub">${cL==='hi'?r.en:r.hi}</div>
+        </div>
+      </div>
+      <div class="rashi-dates">${cL==='hi'?r.dt:r.dte}</div>
+      ${ld?`<div class="rashi-excerpt">${ld.prediction}</div><div class="rashi-rating">${sr(ld.rating)}</div>`:''}`;
+    g.appendChild(c);
+  });
+}
+
+function renderCats(){
+  const g=document.getElementById('catGrid');g.innerHTML='';
+  CATEGORIES.forEach(c=>{
+    const el=document.createElement('a');el.className='card cat-card';el.href='#';
+    el.innerHTML=`
+      <div class="cat-icon-wrap">${c.icon}</div>
+      <div class="cat-title">${cL==='hi'?c.titleH:c.titleE}</div>
+      <div class="cat-subtitle">${cL==='hi'?c.subH:c.subE}</div>
+      <div class="cat-desc">${cL==='hi'?c.descH:c.descE}</div>
+      <span class="cat-label ${c.labelClass}">${c.label}</span>`;
+    g.appendChild(el);
+  });
+}
+
+function renderTools(){
+  const g=document.getElementById('toolsGrid');g.innerHTML='';
+  TOOLS.forEach(t=>{
+    const el=document.createElement('div');el.className='card tool-card';
+    el.innerHTML=`
+      ${t.badge?`<span class="tool-badge">${cL==='hi'?'जल्द':'Soon'}</span>`:''}
+      <div class="tool-icon-wrap">${t.icon}</div>
+      <div class="tool-title">${cL==='hi'?t.titleH:t.titleE}</div>
+      <div class="tool-desc">${cL==='hi'?t.descH:t.descE}</div>`;
+    g.appendChild(el);
+  });
+}
+
+function renderZI(){
+  const g=document.getElementById('ziGrid');g.innerHTML='';
+  RASHIS.forEach(r=>{
+    const[elH,elE]=r.el.split('/');const[ruH,ruE]=r.ru.split('/');const[qH,qE]=r.q.split('/');
+    const c=document.createElement('div');c.className='card zi-card';
+    c.innerHTML=`
+      <div class="zi-header">
+        <div class="zi-glyph">${ZODIAC_SVG[r.id]}</div>
+        <div class="zi-name">${cL==='hi'?r.hi:r.en}<span>${cL==='hi'?r.en:r.hi}</span></div>
+      </div>
+      <table class="zi-table">
+        <tr><td>${cL==='hi'?'तत्व':'Element'}</td><td>${cL==='hi'?elH:elE}</td></tr>
+        <tr><td>${cL==='hi'?'स्वामी':'Ruler'}</td><td>${cL==='hi'?ruH:ruE}</td></tr>
+        <tr><td>${cL==='hi'?'गुण':'Quality'}</td><td>${cL==='hi'?qH:qE}</td></tr>
+        <tr><td>${cL==='hi'?'विशेषता':'Traits'}</td><td>${cL==='hi'?r.trH:r.trE}</td></tr>
+      </table>`;
+    g.appendChild(c);
+  });
+}
+
+function showD(i){
+  const r=RASHIS[i],rd=dd?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+  document.getElementById('dGlyph').innerHTML=ZODIAC_SVG[r.id];
+  document.getElementById('dName').textContent=cL==='hi'?r.hi:r.en;
+  document.getElementById('dSub').textContent=cL==='hi'?r.en:r.hi;
+  document.getElementById('dText').textContent=ld?.prediction||(cL==='hi'?'आज का विस्तृत राशिफल शीघ्र ही उपलब्ध होगा। कृपया कुछ समय बाद पुनः देखें।':'Today\'s detailed prediction will be available shortly. Please check back soon.');
+  document.getElementById('dNum').textContent=ld?.lucky_number||'\u2014';
+  document.getElementById('dCol').textContent=ld?.lucky_color||'\u2014';
+  document.getElementById('dRate').textContent=ld?sr(ld.rating):'\u2014';
+  document.getElementById('ov').classList.add('active');document.body.style.overflow='hidden';
+}
+
+function checkC(){
+  const a=document.getElementById('s1').value,b=document.getElementById('s2').value;
+  if(!a||!b)return;
+  const sc=COMPAT[a]?.[b]||50;
+  document.getElementById('cRes').style.display='block';
+  document.getElementById('cScore').textContent=sc+'%';
+  const v=cL==='hi'?['अनुकूलता बहुत कम है','अनुकूलता कम है','ठीक-ठाक अनुकूलता','अच्छी अनुकूलता','अत्युत्तम जोड़ी']:['Very low compatibility','Low compatibility','Moderate compatibility','Good compatibility','Excellent match'];
+  document.getElementById('cVerdict').textContent=v[sc<30?0:sc<50?1:sc<70?2:sc<85?3:4];
+}
+
+function setLang(l){
+  cL=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
+  upDate();upCel();renderGrid();renderCats();renderTools();renderZI();
+}
+
+function setP(el){document.querySelectorAll('.period').forEach(t=>t.classList.remove('active'));el.classList.add('active')}
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+async function loadDD(){
+  const t=new Date().toISOString().slice(0,10);
+  try{const r=await fetch(`/content/${t}.json`);if(r.ok)dd=await r.json()}catch(e){}
+  renderGrid();
+}
+
+// Initialize
+fillSelects();upDate();upCel();renderGrid();renderCats();renderTools();renderZI();loadDD();
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.getElementById('ov').classList.remove('active');
+    document.body.style.overflow='';
+    document.getElementById('mNav').classList.remove('open');
+  }
+});
+
+/* Bottom nav active state — scroll spy */
+(function(){
+  const sections=['rashifal','horoscopes','compatibility','tools','zodiac'];
+  const bnavItems=document.querySelectorAll('.bnav-item');
+  if(!bnavItems.length)return;
+  let ticking=false;
+  function updateActive(){
+    const scrollY=window.scrollY+200;
+    let current='rashifal';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&el.offsetTop<=scrollY)current=id;
+    });
+    bnavItems.forEach(item=>{
+      const href=item.getAttribute('href');
+      item.classList.toggle('active',href==='#'+current);
+    });
+    ticking=false;
+  }
+  window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateActive);ticking=true}});
+  /* Also update desktop nav */
+  const dnavLinks=document.querySelectorAll('.nav-link');
+  const origUpdate=updateActive;
+  window.addEventListener('scroll',()=>{
+    if(ticking)return;
+    requestAnimationFrame(()=>{
+      const scrollY2=window.scrollY+200;let cur='rashifal';
+      sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=scrollY2)cur=id});
+      dnavLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
+    });
+  });
+})();
 </script>
 </body>
 </html>
