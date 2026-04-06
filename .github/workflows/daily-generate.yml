@@ -1,0 +1,33 @@
+name: Daily Rashifal Generator
+
+on:
+  schedule:
+    # Run at 11:30 PM UTC = 5:00 AM IST next day
+    - cron: '30 23 * * *'
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate tomorrow's rashifal
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Generate for tomorrow (since this runs at 11:30 PM UTC)
+          TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d 2>/dev/null || date -u -v+1d +%Y-%m-%d)
+          python scripts/generate_content.py "$TOMORROW"
+
+      - name: Commit and push
+        run: |
+          git config user.name "Rashifal Bot"
+          git config user.email "bot@rashifal.online"
+          git add content/
+          git diff --staged --quiet || git commit -m "🔮 Daily rashifal: $(date -u -d '+1 day' +%Y-%m-%d 2>/dev/null || date -u -v+1d +%Y-%m-%d)"
+          git push
