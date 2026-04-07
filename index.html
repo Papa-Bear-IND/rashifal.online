@@ -2375,7 +2375,7 @@ function renderCats(){
   if(!gd||!gg)return;
   gd.innerHTML='';gg.innerHTML='';
   CATEGORIES.forEach(c=>{
-    const el=document.createElement('a');el.className='card cat-card';el.href='#';
+    const el=document.createElement('a');el.className='card cat-card';el.href='javascript:void(0)';el.setAttribute('role','button');
     el.innerHTML=`
       <div class="cat-icon-wrap">${c.icon}</div>
       <div class="cat-title">${cL==='hi'?c.titleH:c.titleE}</div>
