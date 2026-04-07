@@ -37,7 +37,7 @@ def call_claude(prompt: str) -> str:
     """Call Claude API and return text response."""
     body = json.dumps({
         "model": MODEL,
-        "max_tokens": 2000,
+        "max_tokens": 2500,
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
 
@@ -85,6 +85,11 @@ Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
     "career": "2-3 sentences in Hindi about career, work and business for today.",
     "health": "2-3 sentences in Hindi about physical and mental health for today.",
     "finance": "2-3 sentences in Hindi about money, savings and financial decisions for today.",
+    "remedy": "One simple, specific astrological remedy for today in Hindi (e.g. 'आज लाल वस्त्र पहनें' or 'हनुमान चालीसा का पाठ करें').",
+    "mantra": {{
+      "sanskrit": "A short Sanskrit mantra (Devanagari) relevant to today's planetary ruler.",
+      "meaning": "Brief Hindi meaning of the mantra in one sentence."
+    }},
     "lucky_number": 7,
     "lucky_color": "लाल",
     "rating": 3.5
@@ -95,6 +100,11 @@ Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
     "career": "2-3 sentences in English about career, work and business for today.",
     "health": "2-3 sentences in English about physical and mental health for today.",
     "finance": "2-3 sentences in English about money, savings and financial decisions for today.",
+    "remedy": "One simple, specific astrological remedy for today in English (e.g. 'Wear red today' or 'Chant the Hanuman Chalisa this evening').",
+    "mantra": {{
+      "sanskrit": "The same short Sanskrit mantra in Devanagari, relevant to today's planetary ruler.",
+      "meaning": "Brief English meaning of the mantra in one sentence."
+    }},
     "lucky_number": 7,
     "lucky_color": "Red",
     "rating": 3.5

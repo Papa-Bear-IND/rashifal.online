@@ -988,6 +988,65 @@ h1.title {
   padding-top: var(--sp-3);
   border-top: 1px solid var(--silver-faint);
 }
+.remedy-card {
+  margin-top: var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--silver-faint);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+.remedy-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.remedy-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.remedy-text {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+}
+.mantra-card {
+  margin-top: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--gold-muted);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+}
+.mantra-head {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.mantra-sanskrit {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-2);
+}
+.mantra-meaning {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  line-height: var(--lh-relaxed);
+}
 
 /* ── CONTROLS ── */
 .controls {
@@ -2505,6 +2564,21 @@ footer {
         <div class="sub-text hi-text" id="dFinance"></div>
       </div>
     </div>
+    <div class="remedy-card" id="dRemedyWrap">
+      <div class="remedy-head">
+        <svg class="remedy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2C8 6 5 9 5 13a7 7 0 0 0 14 0c0-4-3-7-7-11z"/>
+          <path d="M12 22V11"/>
+        </svg>
+        <span data-hi="आज का उपाय" data-en="Today's Remedy">आज का उपाय</span>
+      </div>
+      <div class="remedy-text hi-text" id="dRemedy"></div>
+    </div>
+    <blockquote class="mantra-card" id="dMantraWrap">
+      <div class="mantra-head" data-hi="आज का मंत्र" data-en="Mantra of the Day">आज का मंत्र</div>
+      <div class="mantra-sanskrit" id="dMantraSans"></div>
+      <div class="mantra-meaning" id="dMantraMean"></div>
+    </blockquote>
     <div class="detail-updated" id="dUpdated"></div>
   </div>
 </div>
@@ -3243,6 +3317,16 @@ function showD(i){
   document.getElementById('dCareer').textContent=ld?.career||fallback;
   document.getElementById('dHealth').textContent=ld?.health||fallback;
   document.getElementById('dFinance').textContent=ld?.finance||fallback;
+  const remedyWrap=document.getElementById('dRemedyWrap');
+  if(ld?.remedy){remedyWrap.style.display='';document.getElementById('dRemedy').textContent=ld.remedy;}
+  else remedyWrap.style.display='none';
+  const mantraWrap=document.getElementById('dMantraWrap');
+  const mantra=ld?.mantra;
+  if(mantra&&(mantra.sanskrit||mantra.meaning)){
+    mantraWrap.style.display='';
+    document.getElementById('dMantraSans').textContent=mantra.sanskrit||'';
+    document.getElementById('dMantraMean').textContent=mantra.meaning||'';
+  }else mantraWrap.style.display='none';
   document.getElementById('dUpdated').textContent=fmtUpdated(dd?.generated_at);
   openD();
 }
