@@ -1434,6 +1434,131 @@ h1.title {
   vertical-align: middle;
 }
 
+/* ── PREFS GEAR + PANEL ── */
+.prefs-toggle {
+  position: fixed;
+  top: 14px;
+  right: 62px;
+  z-index: 200;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--b-default);
+  border-radius: 50%;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.prefs-toggle:hover { transform: rotate(30deg); border-color: var(--gold); background: var(--gold-muted); }
+.prefs-toggle svg { width: 18px; height: 18px; }
+@media (max-width: 768px) { .prefs-toggle { top: 10px; right: 54px; width: 34px; height: 34px; } .prefs-toggle svg { width: 16px; height: 16px; } }
+.prefs-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  z-index: 998; opacity: 0; transition: opacity 0.3s ease;
+}
+.prefs-backdrop.active { opacity: 1; }
+.prefs-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 360px; max-width: 90vw;
+  background: var(--surface); backdrop-filter: blur(14px);
+  border-left: 1px solid var(--silver-faint); z-index: 999;
+  transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.prefs-panel.active { transform: translateX(0); }
+.prefs-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--sp-5) var(--sp-5);
+  border-bottom: 1px solid var(--silver-faint);
+}
+.prefs-title { font-family: 'Cormorant Garamond', serif; font-size: var(--fs-lg); color: var(--gold); font-weight: 600; margin: 0; }
+.prefs-close {
+  width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+.prefs-close:hover { background: var(--gold-muted); }
+.prefs-body { padding: var(--sp-5); overflow-y: auto; flex: 1; }
+.prefs-group { margin-bottom: var(--sp-5); }
+.prefs-label {
+  display: block; font-family: 'Inter', sans-serif; font-size: var(--fs-xs);
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.prefs-help { font-family: 'Inter', sans-serif; font-size: var(--fs-xs); color: var(--t-muted); margin-bottom: var(--sp-2); }
+.prefs-rashi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.prefs-rashi-grid label {
+  display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+  background: var(--surface-h); border: 1px solid var(--silver-faint); border-radius: 8px;
+  font-family: 'Inter', sans-serif; font-size: var(--fs-sm); color: var(--silver); cursor: pointer;
+}
+.prefs-rashi-grid label:hover { border-color: var(--gold); }
+.prefs-rashi-grid input[type=checkbox] { accent-color: var(--gold); }
+.prefs-check, .prefs-radio {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: var(--fs-sm); color: var(--silver); cursor: pointer;
+}
+.prefs-check input, .prefs-radio input { accent-color: var(--gold); }
+.prefs-langs { display: flex; gap: var(--sp-4); }
+.prefs-save { width: 100%; margin-top: var(--sp-3); }
+
+/* ── GREETING + STREAK ── */
+.greeting-bar {
+  max-width: 720px; margin: 0 auto var(--sp-4);
+  display: flex; align-items: center; gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--gold-muted); border-radius: 14px;
+  border: 1px solid var(--silver-faint);
+}
+.greeting-glyph { width: 42px; height: 42px; color: var(--gold); flex-shrink: 0; }
+.greeting-glyph svg { width: 100%; height: 100%; }
+.greeting-line { font-family: 'Cormorant Garamond', serif; font-size: var(--fs-lg); color: var(--gold); font-weight: 600; line-height: 1.1; }
+.streak-pill {
+  display: inline-block; margin-top: 4px;
+  font-family: 'Inter', sans-serif; font-size: var(--fs-xs);
+  color: var(--t-muted); padding: 2px 10px;
+  background: var(--surface-h); border: 1px solid var(--silver-faint); border-radius: 999px;
+}
+.streak-pill.milestone { color: var(--gold); border-color: var(--gold); }
+
+/* ── FAMILY BLOCK ── */
+.family-block, .recent-block { max-width: 720px; margin: var(--sp-6) auto 0; }
+.family-head, .recent-head {
+  font-family: 'Cormorant Garamond', serif; font-size: var(--fs-md);
+  color: var(--gold); font-weight: 600; margin-bottom: var(--sp-3); text-align: center;
+}
+.family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-3); }
+.family-card {
+  background: var(--surface); border: 1px solid var(--silver-faint); border-radius: 12px;
+  padding: var(--sp-3) var(--sp-4); cursor: pointer; transition: all 0.25s ease;
+  display: flex; gap: var(--sp-3); align-items: flex-start;
+}
+.family-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.family-glyph { width: 32px; height: 32px; color: var(--gold); flex-shrink: 0; }
+.family-glyph svg { width: 100%; height: 100%; }
+.family-name { font-family: 'Cormorant Garamond', serif; font-size: var(--fs-md); color: var(--gold); font-weight: 600; }
+.family-text { font-family: 'Inter', sans-serif; font-size: var(--fs-xs); color: var(--t-muted); line-height: 1.4; margin-top: 2px; }
+
+/* ── RECENT VIEWED ── */
+.recent-row { display: flex; gap: var(--sp-3); flex-wrap: wrap; justify-content: center; }
+.recent-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 12px; background: var(--surface); border: 1px solid var(--silver-faint);
+  border-radius: 10px; cursor: pointer; transition: all 0.2s ease; min-width: 64px;
+}
+.recent-item:hover { border-color: var(--gold); }
+.recent-item .recent-glyph { width: 26px; height: 26px; color: var(--gold); }
+.recent-item .recent-glyph svg { width: 100%; height: 100%; }
+.recent-item .recent-name { font-family: 'Inter', sans-serif; font-size: var(--fs-xs); color: var(--silver); }
+
+/* Detail modal share button — center it */
+.detail-share { margin: var(--sp-4) auto 0; display: flex; }
+
 /* ── CONTROLS ── */
 .controls {
   display: flex;
@@ -3815,6 +3940,7 @@ function showZI(i){
 }
 
 function showD(i){
+  _currentDetailIdx=i;trackRecent(i);
   const r=RASHIS[i],rd=dd?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
   document.getElementById('dGlyph').innerHTML=ZODIAC_SVG[r.id];
   document.getElementById('dName').textContent=cL==='hi'?r.hi:r.en;
@@ -4472,6 +4598,180 @@ function checkC(){
   document.getElementById('cRes').classList.add('show');
 }
 
+/* ── PREFS / GREETING / STREAK / RECENT / SHARE ── */
+const PREFS_KEY='rashifal_prefs';
+function loadPrefs(){
+  try{return JSON.parse(localStorage.getItem(PREFS_KEY))||{};}catch(_){return{};}
+}
+function writePrefs(p){
+  try{localStorage.setItem(PREFS_KEY,JSON.stringify(p));}catch(_){}
+}
+function openPrefs(){
+  const p=loadPrefs();
+  const grid=document.getElementById('prefsRashiGrid');
+  grid.innerHTML=RASHIS.map((r,i)=>`<label><input type="checkbox" value="${r.id}"${(p.favs||[]).includes(r.id)?' checked':''}> ${cL==='hi'?r.hi:r.en}</label>`).join('');
+  document.getElementById('prefsDob').value=p.dob||personalDob()||'';
+  document.getElementById('prefsNotify').checked=!!p.notify;
+  document.querySelectorAll('input[name=prefsLang]').forEach(r=>{r.checked=(r.value===(p.lang||cL));});
+  document.getElementById('prefsBackdrop').hidden=false;
+  requestAnimationFrame(()=>{
+    document.getElementById('prefsBackdrop').classList.add('active');
+    document.getElementById('prefsPanel').classList.add('active');
+    document.getElementById('prefsPanel').setAttribute('aria-hidden','false');
+  });
+}
+function closePrefs(){
+  const bd=document.getElementById('prefsBackdrop');
+  const pn=document.getElementById('prefsPanel');
+  bd.classList.remove('active');pn.classList.remove('active');
+  pn.setAttribute('aria-hidden','true');
+  setTimeout(()=>{bd.hidden=true;},300);
+}
+function savePrefs(){
+  const favs=Array.from(document.querySelectorAll('#prefsRashiGrid input:checked')).map(c=>c.value).slice(0,6);
+  const dob=document.getElementById('prefsDob').value;
+  const notify=document.getElementById('prefsNotify').checked;
+  const langInp=document.querySelector('input[name=prefsLang]:checked');
+  const lang=langInp?langInp.value:cL;
+  const next={favs,dob,notify,lang};
+  writePrefs(next);
+  if(dob){savePersonalDob(dob);showPersonal(dob);}
+  if(lang!==cL)setLang(lang);
+  renderFamily();
+  renderGrid();
+  closePrefs();
+  showToast(cL==='hi'?'सहेजा गया':'Saved');
+}
+
+/* Greeting + streak */
+function greetingFor(h,lang){
+  if(h>=5&&h<12)return lang==='hi'?'शुभ प्रभात':'Good Morning';
+  if(h>=12&&h<17)return lang==='hi'?'नमस्कार':'Good Afternoon';
+  if(h>=17&&h<21)return lang==='hi'?'शुभ संध्या':'Good Evening';
+  return lang==='hi'?'शुभ रात्रि':'Good Night';
+}
+const STREAK_KEY='rashifal_streak';
+function bumpStreak(){
+  const today=new Date();today.setHours(0,0,0,0);
+  const todayStr=today.toISOString().slice(0,10);
+  let s={last:'',count:0};
+  try{s=JSON.parse(localStorage.getItem(STREAK_KEY))||s;}catch(_){}
+  if(s.last===todayStr)return s.count;
+  if(s.last){
+    const last=new Date(s.last+'T00:00:00');
+    const diff=Math.round((today-last)/86400000);
+    s.count=diff===1?(s.count+1):1;
+  }else s.count=1;
+  s.last=todayStr;
+  try{localStorage.setItem(STREAK_KEY,JSON.stringify(s));}catch(_){}
+  return s.count;
+}
+function renderGreeting(){
+  const bar=document.getElementById('greetingBar');
+  if(!bar)return;
+  if(_personalIdx==null){bar.hidden=true;return;}
+  const r=RASHIS[_personalIdx];
+  const now=new Date();
+  document.getElementById('greetingGlyph').innerHTML=ZODIAC_SVG[r.id]||'';
+  document.getElementById('greetingLine').textContent=greetingFor(now.getHours(),cL);
+  const streak=_streakCount;
+  const pill=document.getElementById('streakPill');
+  if(streak>0){
+    let txt=cL==='hi'?`आपका ${streak}वाँ लगातार दिन`:`Your ${streak}-day streak`;
+    if(streak===7||streak===30||streak===100){
+      txt+=cL==='hi'?` — बधाई!`:` — congrats!`;
+      pill.classList.add('milestone');
+    }else pill.classList.remove('milestone');
+    pill.textContent=txt;
+    pill.hidden=false;
+  }else pill.hidden=true;
+  bar.hidden=false;
+}
+let _streakCount=0;
+
+/* Family */
+function renderFamily(){
+  const block=document.getElementById('familyBlock');
+  const grid=document.getElementById('familyGrid');
+  if(!block||!grid)return;
+  const p=loadPrefs();
+  const favs=(p.favs||[]).filter(id=>id!==(RASHIS[_personalIdx]?.id));
+  if(!favs.length){block.hidden=true;return;}
+  const fb=cL==='hi'?'जल्द उपलब्ध':'Coming soon';
+  grid.innerHTML=favs.map(id=>{
+    const i=RASHIS.findIndex(r=>r.id===id);
+    if(i<0)return'';
+    const r=RASHIS[i];
+    const rd=dd?.rashis?.[i];
+    const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+    const text=ld?.prediction?ld.prediction.split(/[।.]/)[0]+(cL==='hi'?'।':'.'):fb;
+    return`<div class="family-card" onclick="showD(${i})" role="button" tabindex="0">
+      <div class="family-glyph">${ZODIAC_SVG[r.id]||''}</div>
+      <div><div class="family-name">${cL==='hi'?r.hi:r.en}</div><div class="family-text">${text}</div></div>
+    </div>`;
+  }).join('');
+  block.hidden=false;
+}
+
+/* Recently viewed (resets daily) */
+const RECENT_KEY='rashifal_recent';
+function loadRecent(){
+  try{const o=JSON.parse(localStorage.getItem(RECENT_KEY));
+    const today=new Date().toISOString().slice(0,10);
+    if(o&&o.date===today)return o.ids||[];
+  }catch(_){}
+  return[];
+}
+function saveRecent(ids){
+  try{localStorage.setItem(RECENT_KEY,JSON.stringify({date:new Date().toISOString().slice(0,10),ids}));}catch(_){}
+}
+function trackRecent(idx){
+  const r=RASHIS[idx];if(!r)return;
+  let ids=loadRecent().filter(x=>x!==r.id);
+  ids.unshift(r.id);ids=ids.slice(0,8);
+  saveRecent(ids);
+  renderRecent();
+}
+function renderRecent(){
+  const block=document.getElementById('recentBlock');
+  const row=document.getElementById('recentRow');
+  if(!block||!row)return;
+  const ids=loadRecent();
+  if(!ids.length){block.hidden=true;return;}
+  row.innerHTML=ids.map(id=>{
+    const i=RASHIS.findIndex(r=>r.id===id);
+    if(i<0)return'';
+    const r=RASHIS[i];
+    return`<div class="recent-item" onclick="showD(${i})" role="button" tabindex="0">
+      <div class="recent-glyph">${ZODIAC_SVG[r.id]||''}</div>
+      <div class="recent-name">${cL==='hi'?r.hi:r.en}</div>
+    </div>`;
+  }).join('');
+  block.hidden=false;
+}
+
+/* Share — for currently open detail modal */
+let _currentDetailIdx=null;
+function shareRashi(){
+  if(_currentDetailIdx==null)return;
+  const i=_currentDetailIdx;
+  const r=RASHIS[i];
+  const rd=dd?.rashis?.[i];
+  const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+  const dateStr=cL==='hi'?(dd?.date_hi||''):(dd?.date||'');
+  const pred=ld?.prediction||'';
+  const sentences=pred.split(/(?<=[।.!?])\s+/).slice(0,2).join(' ');
+  const name=cL==='hi'?r.hi:r.en;
+  const label=cL==='hi'?'राशिफल':'rashifal';
+  const more=cL==='hi'?'और पढ़ें — rashifal.online':'Read more at rashifal.online';
+  const text=`${name} ${label} ${dateStr?'('+dateStr+')':''}: ${sentences} — ${more}`;
+  if(navigator.share){
+    navigator.share({title:`${name} ${label}`,text}).catch(()=>{});
+  }else if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>showToast(cL==='hi'?'कॉपी हो गया!':'Copied!')).catch(()=>{});
+  }
+}
+
 /* ── PERSONAL RASHIFAL ── */
 const PERSONAL_RANGES=[
   {id:'mesh',     start:[4,14], end:[5,14]},
@@ -4791,6 +5091,7 @@ function setLang(l){
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
   upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
+  renderGreeting();renderFamily();renderRecent();
   if(_rendered.tools)renderTools();
   if(_rendered.zi)renderZI();
 }
@@ -4817,6 +5118,7 @@ async function loadDD(){
   renderPanchang();
   renderStory();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
+  renderFamily();
 }
 
 // Track which deferred sections have been rendered
@@ -4842,7 +5144,19 @@ function toggleTheme(){
 setInterval(()=>{upDate();upCel();},60*60*1000);
 
 // Initialize (Tools + Zodiac are lazy — rendered on viewport approach)
-fillSelects();upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();(function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();loadDD();
+(function bootPrefs(){
+  const p=loadPrefs();
+  if(p.lang&&p.lang!==cL)cL=p.lang;
+  if(p.dob&&!personalDob())savePersonalDob(p.dob);
+  _streakCount=bumpStreak();
+})();
+fillSelects();
+document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===cL));
+document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=cL==='hi'?e.dataset.hi:e.dataset.en});
+upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
+(function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();
+renderGreeting();renderFamily();renderRecent();
+loadDD();
 
 (function lazySections(){
   const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
@@ -4862,6 +5176,7 @@ document.addEventListener('keydown',e=>{
     if(document.getElementById('catOv').classList.contains('active'))closeCatOv();
     if(document.getElementById('toolOv').classList.contains('active'))closeToolOv();
     if(document.getElementById('ziOv')?.classList.contains('active'))closeZI();
+    if(document.getElementById('prefsPanel')?.classList.contains('active'))closePrefs();
     document.getElementById('mNav').classList.remove('open');
   }
 });
