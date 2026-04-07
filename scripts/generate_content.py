@@ -8,6 +8,12 @@ in both Hindi and English. Outputs JSON files consumed by the site builder.
 import json, os, sys, datetime, pathlib, time
 import urllib.request, urllib.error
 
+# Force UTF-8 stdout on Windows so emoji/Devanagari prints don't crash
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 MODEL = "claude-sonnet-4-20250514"
 CONTENT_DIR = pathlib.Path(__file__).parent.parent / "content"
