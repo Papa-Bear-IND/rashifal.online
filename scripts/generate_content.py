@@ -55,6 +55,64 @@ def call_claude(prompt: str) -> str:
     return data["content"][0]["text"]
 
 
+def _parse_json(raw: str):
+    clean = raw.strip()
+    if clean.startswith("```"):
+        clean = clean.split("\n", 1)[1]
+    if clean.endswith("```"):
+        clean = clean.rsplit("```", 1)[0]
+    return json.loads(clean.strip())
+
+
+def generate_panchang(date_str: str) -> dict:
+    """Call Claude once to produce traditional panchang for the given date."""
+    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    weekday_en = dt.strftime("%A")
+    prompt = f"""You are a traditional Vedic astrologer producing the Hindu panchang for {date_str} ({weekday_en}) for Bhopal, India (IST).
+
+Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
+{{
+  "tithi": {{"hi": "तिथि नाम (पक्ष सहित)", "en": "Tithi name with paksha"}},
+  "nakshatra": {{"hi": "नक्षत्र नाम", "en": "Nakshatra name"}},
+  "yoga": {{"hi": "योग नाम", "en": "Yoga name"}},
+  "karana": {{"hi": "करण नाम", "en": "Karana name"}},
+  "special": {{"hi": "कोई विशेष पर्व/व्रत/योग, अन्यथा खाली", "en": "Any special vrat/observance, else empty"}}
+}}
+
+Rules:
+- Use authentic, traditional Hindu panchang values for that exact date.
+- Be concise — names only, no explanations."""
+    raw = call_claude(prompt)
+    try:
+        return _parse_json(raw)
+    except Exception:
+        time.sleep(2)
+        return _parse_json(call_claude(prompt))
+
+
+def generate_story(date_str: str) -> dict:
+    """Call Claude to produce a short dharmic story for the day."""
+    prompt = f"""You are a teacher of dharmic literature. Compose a short story (150-200 words) for {date_str}, drawn from the Ramayan, Mahabharat, Puranas, or other Hindu scriptures.
+
+Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
+{{
+  "title": {{"hi": "कथा का शीर्षक हिंदी में", "en": "Story title in English"}},
+  "text": {{"hi": "150-200 शब्दों की कथा हिंदी में, सरल और भावपूर्ण।", "en": "150-200 word story in English, simple and evocative."}},
+  "moral": {{"hi": "1-2 वाक्यों में नैतिक शिक्षा।", "en": "1-2 sentence moral teaching."}}
+}}
+
+Rules:
+- Pick a different story each day; avoid the most cliché ones.
+- Keep tone reverent, warm, and accessible.
+- Story text length: 150-200 words in each language."""
+    raw = call_claude(prompt)
+    try:
+        return _parse_json(raw)
+    except Exception:
+        time.sleep(2)
+        return _parse_json(call_claude(prompt))
+
+
 def generate_daily(date_str: str):
     """Generate horoscope for all 12 rashis for a given date."""
     CONTENT_DIR.mkdir(parents=True, exist_ok=True)
@@ -142,6 +200,21 @@ Rules:
         all_rashis.append(entry)
         time.sleep(1)  # Rate limit courtesy
 
+    print("  Generating: Panchang...")
+    try:
+        panchang = generate_panchang(date_str)
+    except Exception as e:
+        print(f"    ⚠ Panchang failed: {e}")
+        panchang = None
+    time.sleep(1)
+
+    print("  Generating: Story of the day...")
+    try:
+        story = generate_story(date_str)
+    except Exception as e:
+        print(f"    ⚠ Story failed: {e}")
+        story = None
+
     # Save daily content
     output = {
         "date": date_str,
@@ -149,6 +222,8 @@ Rules:
         "weekday_en": weekday_en,
         "weekday_hi": weekday_hi,
         "rashis": all_rashis,
+        "panchang": panchang,
+        "story": story,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
 

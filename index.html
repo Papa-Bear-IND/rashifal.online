@@ -1048,6 +1048,202 @@ h1.title {
   line-height: var(--lh-relaxed);
 }
 
+/* ── PANCHANG ── */
+.panchang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-4);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.panchang-card {
+  background: var(--surface);
+  border: 1px solid var(--silver-faint);
+  border-radius: 12px;
+  padding: var(--sp-4) var(--sp-5);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.panchang-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.panchang-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.panchang-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+}
+.panchang-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  margin-top: var(--sp-1);
+}
+
+/* ── FESTIVALS ── */
+.festival-scroll {
+  display: flex;
+  gap: var(--sp-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: var(--sp-2) var(--sp-2) var(--sp-4);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.festival-scroll::-webkit-scrollbar { height: 6px; }
+.festival-scroll::-webkit-scrollbar-thumb { background: var(--silver-faint); border-radius: 3px; }
+.festival-card {
+  flex: 0 0 260px;
+  background: var(--surface);
+  border: 1px solid var(--silver-faint);
+  border-radius: 14px;
+  padding: var(--sp-5);
+  backdrop-filter: blur(8px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.festival-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.festival-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.festival-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  font-weight: 600;
+}
+.festival-name-en {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  letter-spacing: 0.05em;
+}
+.festival-date {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--silver);
+  margin-top: var(--sp-1);
+}
+.festival-countdown {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  padding: 4px 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  background: var(--gold-muted);
+  color: var(--gold);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+.festival-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  line-height: var(--lh-relaxed);
+  margin-top: var(--sp-2);
+}
+
+/* ── STORY OF THE DAY ── */
+.story-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--silver-faint);
+  border-radius: 16px;
+  padding: var(--sp-7) var(--sp-7);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+.story-header {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: var(--sp-3);
+}
+.story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: var(--sp-5);
+  line-height: 1.2;
+}
+.story-text {
+  font-family: var(--f-hindi);
+  font-size: var(--fs-base);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-5);
+}
+.story-text.lang-en {
+  font-family: 'Inter', sans-serif;
+}
+.story-moral {
+  border: 1px solid var(--gold-muted);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--gold-muted);
+  margin-bottom: var(--sp-5);
+}
+.story-moral-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: var(--sp-1);
+}
+.story-moral-text {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+}
+.story-share {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.story-share:hover { background: var(--gold-muted); }
+.story-share svg { width: 16px; height: 16px; }
+@media (max-width: 600px) {
+  .story-card { padding: var(--sp-5) var(--sp-4); }
+  .panchang-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .festival-card { flex-basis: 230px; }
+}
+
 /* ── CONTROLS ── */
 .controls {
   display: flex;
@@ -2303,6 +2499,8 @@ footer {
     <a href="/" class="nav-brand">Rashifal</a>
     <div class="nav-links">
       <a href="#rashifal" class="nav-link active">Rashifal</a>
+      <a href="#panchang" class="nav-link">Panchang</a>
+      <a href="#festivals" class="nav-link">Festivals</a>
       <a href="#horoscopes" class="nav-link">Horoscopes</a>
       <a href="#compatibility" class="nav-link">Compatibility</a>
       <a href="#tools" class="nav-link">Kundli &amp; Tools</a>
@@ -2391,6 +2589,51 @@ footer {
     </div>
 
     <div class="rashi-grid" id="rGrid"></div>
+  </section>
+
+  <!-- ═══ PANCHANG ═══ -->
+  <section class="section reveal" id="panchang">
+    <div class="section-header">
+      <h2 data-hi="आज का पंचांग" data-en="Today's Panchang">आज का पंचांग</h2>
+      <p data-hi="तिथि, नक्षत्र, योग, करण और शुभ-अशुभ काल" data-en="Tithi, nakshatra, yoga, karana and auspicious timings">तिथि, नक्षत्र, योग, करण और शुभ-अशुभ काल</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="panchang-grid" id="panchangGrid"></div>
+  </section>
+
+  <!-- ═══ FESTIVALS ═══ -->
+  <section class="section reveal" id="festivals">
+    <div class="section-header">
+      <h2 data-hi="आगामी त्योहार" data-en="Upcoming Festivals">आगामी त्योहार</h2>
+      <p data-hi="आने वाले प्रमुख हिन्दू पर्व और उनकी तिथियाँ" data-en="The next major Hindu festivals and their dates">आने वाले प्रमुख हिन्दू पर्व और उनकी तिथियाँ</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="festival-scroll" id="festScroll"></div>
+  </section>
+
+  <!-- ═══ STORY OF THE DAY ═══ -->
+  <section class="section reveal" id="story">
+    <div class="section-header">
+      <h2 data-hi="आज की धार्मिक कथा" data-en="Story of the Day">आज की धार्मिक कथा</h2>
+      <p data-hi="शास्त्रों से एक छोटी कथा और उसकी शिक्षा" data-en="A short story from the scriptures and its teaching">शास्त्रों से एक छोटी कथा और उसकी शिक्षा</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <article class="story-card" id="storyCard">
+      <div class="story-header" data-hi="आज की कथा" data-en="Story of the Day">आज की कथा</div>
+      <h3 class="story-title" id="storyTitle"></h3>
+      <div class="story-text" id="storyText"></div>
+      <div class="story-moral">
+        <div class="story-moral-label" data-hi="शिक्षा" data-en="Moral">शिक्षा</div>
+        <div class="story-moral-text" id="storyMoral"></div>
+      </div>
+      <button type="button" class="story-share" id="storyShareBtn" onclick="shareStory()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
+        </svg>
+        <span data-hi="साझा करें" data-en="Share">साझा करें</span>
+      </button>
+    </article>
   </section>
 
   <div class="ad-slot">Ad Placement &mdash; Mid Content</div>
@@ -2513,6 +2756,14 @@ footer {
     <a href="#rashifal" class="bnav-item active">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21"/><line x1="3" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21" y2="12"/></svg>
       <span class="bnav-label">Rashifal</span>
+    </a>
+    <a href="#panchang" class="bnav-item">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+      <span class="bnav-label">Panchang</span>
+    </a>
+    <a href="#festivals" class="bnav-item">
+      <svg viewBox="0 0 24 24"><path d="M12 3c-1.5 2.5-3 4-3 6.5a3 3 0 0 0 6 0C15 7 13.5 5.5 12 3z"/><path d="M8 14h8l-1 7H9z"/></svg>
+      <span class="bnav-label">Festivals</span>
     </a>
     <a href="#horoscopes" class="bnav-item">
       <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/></svg>
@@ -3961,6 +4212,163 @@ function checkC(){
   document.getElementById('cRes').classList.add('show');
 }
 
+/* ── PANCHANG ── */
+const RAHU_KAAL={ // 0=Sun .. 6=Sat (JS getDay)
+  0:'4:30 PM – 6:00 PM',
+  1:'7:30 AM – 9:00 AM',
+  2:'3:00 PM – 4:30 PM',
+  3:'12:00 PM – 1:30 PM',
+  4:'1:30 PM – 3:00 PM',
+  5:'10:30 AM – 12:00 PM',
+  6:'9:00 AM – 10:30 AM'
+};
+// Approx Bhopal sunrise/sunset by month (24h hours)
+const SUN_TIMES=[
+  [6.95,17.78],[6.78,18.05],[6.43,18.22],[6.00,18.33],[5.68,18.45],[5.55,18.62],
+  [5.65,18.65],[5.85,18.43],[6.03,18.05],[6.20,17.65],[6.45,17.45],[6.78,17.55]
+];
+function fmtTime12(h){
+  const hh=Math.floor(h),mm=Math.round((h-hh)*60);
+  const ampm=hh>=12?'PM':'AM';
+  const h12=((hh+11)%12)+1;
+  return`${h12}:${String(mm).padStart(2,'0')} ${ampm}`;
+}
+function renderPanchang(){
+  const grid=document.getElementById('panchangGrid');
+  if(!grid)return;
+  const p=dd?.panchang;
+  const now=new Date();
+  const ist=new Date(now.getTime()+(now.getTimezoneOffset()+330)*60000);
+  const wd=ist.getDay();
+  const month=ist.getMonth();
+  const [sr,ss]=SUN_TIMES[month];
+  const noon=(sr+ss)/2;
+  const abhijit=`${fmtTime12(noon-0.4)} – ${fmtTime12(noon+0.4)}`;
+  const dash=cL==='hi'?'जल्द उपलब्ध':'Coming soon';
+  const val=(o)=>o?(cL==='hi'?o.hi:o.en)||dash:dash;
+  const items=[
+    {label:{hi:'तिथि',en:'Tithi'},value:val(p?.tithi)},
+    {label:{hi:'नक्षत्र',en:'Nakshatra'},value:val(p?.nakshatra)},
+    {label:{hi:'योग',en:'Yoga'},value:val(p?.yoga)},
+    {label:{hi:'करण',en:'Karana'},value:val(p?.karana)},
+    {label:{hi:'राहुकाल',en:'Rahu Kaal'},value:RAHU_KAAL[wd],sub:cL==='hi'?'अशुभ काल — टालें':'Inauspicious — avoid'},
+    {label:{hi:'शुभ मुहूर्त',en:'Shubh Muhurat'},value:abhijit,sub:cL==='hi'?'अभिजीत मुहूर्त':'Abhijit Muhurat'},
+    {label:{hi:'सूर्योदय',en:'Sunrise'},value:fmtTime12(sr),sub:cL==='hi'?'भोपाल':'Bhopal'},
+    {label:{hi:'सूर्यास्त',en:'Sunset'},value:fmtTime12(ss),sub:cL==='hi'?'भोपाल':'Bhopal'}
+  ];
+  if(p?.special&&(p.special.hi||p.special.en)){
+    items.push({label:{hi:'विशेष',en:'Special'},value:val(p.special)});
+  }
+  grid.innerHTML=items.map(it=>`
+    <div class="panchang-card">
+      <div class="panchang-label">${it.label[cL]}</div>
+      <div class="panchang-value">${it.value}</div>
+      ${it.sub?`<div class="panchang-sub">${it.sub}</div>`:''}
+    </div>`).join('');
+}
+
+/* ── FESTIVALS ── */
+const FESTIVALS=[
+  {date:'2026-03-19',nameHi:'चैत्र नवरात्रि',nameEn:'Chaitra Navratri',descHi:'देवी दुर्गा की नौ रातों की उपासना का पावन पर्व।',descEn:'Nine sacred nights dedicated to Goddess Durga.',icon:'flame'},
+  {date:'2026-03-28',nameHi:'राम नवमी',nameEn:'Ram Navami',descHi:'भगवान श्रीराम का जन्मोत्सव।',descEn:'The birth celebration of Lord Rama.',icon:'bow'},
+  {date:'2026-04-12',nameHi:'हनुमान जयंती',nameEn:'Hanuman Jayanti',descHi:'पवनपुत्र हनुमान जी का प्राकट्य दिवस।',descEn:'The appearance day of Lord Hanuman.',icon:'mace'},
+  {date:'2026-05-03',nameHi:'अक्षय तृतीया',nameEn:'Akshaya Tritiya',descHi:'अक्षय शुभता और समृद्धि का दिन।',descEn:'A day of unending auspiciousness and prosperity.',icon:'pot'},
+  {date:'2026-07-21',nameHi:'गुरु पूर्णिमा',nameEn:'Guru Purnima',descHi:'गुरुओं के प्रति कृतज्ञता का पर्व।',descEn:'A day to honour and thank one\u2019s gurus.',icon:'lotus'},
+  {date:'2026-08-12',nameHi:'रक्षा बंधन',nameEn:'Raksha Bandhan',descHi:'भाई-बहन के पवित्र स्नेह का त्यौहार।',descEn:'The festival of the sacred bond between siblings.',icon:'thread'},
+  {date:'2026-08-22',nameHi:'जन्माष्टमी',nameEn:'Janmashtami',descHi:'भगवान श्रीकृष्ण का जन्मोत्सव।',descEn:'The birth celebration of Lord Krishna.',icon:'flute'},
+  {date:'2026-10-03',nameHi:'नवरात्रि',nameEn:'Navratri',descHi:'शक्ति की नौ रातें — आरम्भ।',descEn:'The beginning of the nine nights of Shakti.',icon:'flame'},
+  {date:'2026-10-12',nameHi:'दशहरा',nameEn:'Dussehra',descHi:'असत्य पर सत्य की विजय का उत्सव।',descEn:'The victory of truth over falsehood.',icon:'bow'},
+  {date:'2026-10-23',nameHi:'करवा चौथ',nameEn:'Karwa Chauth',descHi:'पतियों की दीर्घायु के लिए सुहागिनों का व्रत।',descEn:'A fast observed by wives for their husbands\u2019 long life.',icon:'moon'},
+  {date:'2026-11-08',nameHi:'दीवाली',nameEn:'Diwali',descHi:'प्रकाश और लक्ष्मी पूजन का महान पर्व।',descEn:'The grand festival of light and Lakshmi puja.',icon:'lamp'},
+  {date:'2026-11-10',nameHi:'छठ पूजा',nameEn:'Chhath Puja',descHi:'सूर्य देव और छठी मैया की उपासना।',descEn:'A devotion to Surya Dev and Chhathi Maiya.',icon:'sun'},
+  {date:'2026-11-22',nameHi:'देव दीवाली',nameEn:'Dev Diwali',descHi:'देवताओं की दीवाली — काशी का पर्व।',descEn:'The Diwali of the gods, celebrated in Kashi.',icon:'lamp'},
+  {date:'2027-01-14',nameHi:'मकर संक्रांति',nameEn:'Makar Sankranti',descHi:'सूर्य के मकर राशि में प्रवेश का पर्व।',descEn:'The Sun\u2019s transit into Capricorn.',icon:'sun'},
+  {date:'2027-02-01',nameHi:'बसंत पंचमी',nameEn:'Basant Panchami',descHi:'देवी सरस्वती की वंदना और वसंत का स्वागत।',descEn:'Honouring Goddess Saraswati and welcoming spring.',icon:'lotus'},
+  {date:'2027-02-14',nameHi:'महाशिवरात्रि',nameEn:'Maha Shivaratri',descHi:'भगवान शिव की महान रात्रि।',descEn:'The great night of Lord Shiva.',icon:'trident'},
+  {date:'2027-03-14',nameHi:'होली',nameEn:'Holi',descHi:'रंगों और प्रेम का उल्लासमय पर्व।',descEn:'The joyous festival of colours and love.',icon:'colors'}
+];
+const FEST_ICONS={
+  flame:'<path d="M12 3c-1 4-5 5-5 9a5 5 0 0 0 10 0c0-2-1-3-2-4 0 2-1 3-2 3 1-3-1-5-1-8z"/>',
+  bow:'<path d="M5 4c8 2 12 8 14 16"/><path d="M5 4l14 16"/><circle cx="5" cy="4" r="1.2"/><circle cx="19" cy="20" r="1.2"/>',
+  mace:'<line x1="6" y1="20" x2="14" y2="12"/><circle cx="16" cy="10" r="4"/><circle cx="16" cy="10" r="1.4"/>',
+  pot:'<path d="M7 10h10l-1 9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/><path d="M9 10c0-2 1-4 3-4s3 2 3 4"/>',
+  lotus:'<path d="M12 19c-4 0-7-2-7-5 1 1 3 1 4 0-1-2 0-4 3-6 3 2 4 4 3 6 1 1 3 1 4 0 0 3-3 5-7 5z"/>',
+  thread:'<path d="M4 12c4-4 12-4 16 0"/><circle cx="12" cy="12" r="2"/><line x1="10" y1="14" x2="8" y2="20"/><line x1="14" y1="14" x2="16" y2="20"/>',
+  flute:'<line x1="4" y1="20" x2="20" y2="4"/><circle cx="9" cy="15" r="0.8"/><circle cx="12" cy="12" r="0.8"/><circle cx="15" cy="9" r="0.8"/>',
+  moon:'<path d="M19 14a8 8 0 1 1-9-9 6 6 0 0 0 9 9z"/>',
+  lamp:'<path d="M5 14h14l-2 4H7z"/><path d="M9 14c0-3 1-5 3-7 2 2 3 4 3 7"/><path d="M12 5V3"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/><line x1="5.6" y1="5.6" x2="7.7" y2="7.7"/><line x1="16.3" y1="16.3" x2="18.4" y2="18.4"/><line x1="5.6" y1="18.4" x2="7.7" y2="16.3"/><line x1="16.3" y1="7.7" x2="18.4" y2="5.6"/>',
+  trident:'<line x1="12" y1="22" x2="12" y2="8"/><path d="M6 10V4"/><path d="M18 10V4"/><path d="M12 8V2"/><path d="M5 10h14"/>',
+  colors:'<circle cx="8" cy="14" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="12" cy="8" r="3"/>'
+};
+function renderFestivals(){
+  const wrap=document.getElementById('festScroll');
+  if(!wrap)return;
+  const today=new Date();today.setHours(0,0,0,0);
+  const upcoming=FESTIVALS
+    .map(f=>({...f,d:new Date(f.date+'T00:00:00')}))
+    .filter(f=>f.d>=today)
+    .sort((a,b)=>a.d-b.d)
+    .slice(0,5);
+  if(!upcoming.length){wrap.innerHTML='';return;}
+  const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  const monthsEn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  wrap.innerHTML=upcoming.map(f=>{
+    const days=Math.round((f.d-today)/86400000);
+    const dateStr=cL==='hi'
+      ?`${f.d.getDate()} ${monthsHi[f.d.getMonth()]} ${f.d.getFullYear()}`
+      :`${monthsEn[f.d.getMonth()]} ${f.d.getDate()}, ${f.d.getFullYear()}`;
+    const cd=days===0
+      ?(cL==='hi'?'आज':'Today')
+      :(cL==='hi'?`${days} दिन शेष`:`${days} day${days===1?'':'s'} away`);
+    return`
+      <div class="festival-card">
+        <svg class="festival-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FEST_ICONS[f.icon]||FEST_ICONS.lamp}</svg>
+        <div class="festival-name">${cL==='hi'?f.nameHi:f.nameEn}</div>
+        <div class="festival-name-en">${cL==='hi'?f.nameEn:f.nameHi}</div>
+        <div class="festival-date">${dateStr}</div>
+        <div class="festival-countdown">${cd}</div>
+        <div class="festival-desc">${cL==='hi'?f.descHi:f.descEn}</div>
+      </div>`;
+  }).join('');
+}
+
+/* ── STORY OF THE DAY ── */
+function renderStory(){
+  const card=document.getElementById('storyCard');
+  if(!card)return;
+  const s=dd?.story;
+  const titleEl=document.getElementById('storyTitle');
+  const textEl=document.getElementById('storyText');
+  const moralEl=document.getElementById('storyMoral');
+  if(!s){
+    titleEl.textContent=cL==='hi'?'आज की कथा शीघ्र उपलब्ध होगी':'Today\u2019s story will be available shortly';
+    textEl.textContent='';
+    moralEl.textContent='';
+    textEl.classList.toggle('lang-en',cL==='en');
+    return;
+  }
+  titleEl.textContent=(cL==='hi'?s.title?.hi:s.title?.en)||'';
+  textEl.textContent=(cL==='hi'?s.text?.hi:s.text?.en)||'';
+  moralEl.textContent=(cL==='hi'?s.moral?.hi:s.moral?.en)||'';
+  textEl.classList.toggle('lang-en',cL==='en');
+}
+function shareStory(){
+  const s=dd?.story;
+  if(!s)return;
+  const title=(cL==='hi'?s.title?.hi:s.title?.en)||'';
+  const text=(cL==='hi'?s.text?.hi:s.text?.en)||'';
+  const moral=(cL==='hi'?s.moral?.hi:s.moral?.en)||'';
+  const payload=`${title}\n\n${text}\n\n${cL==='hi'?'शिक्षा':'Moral'}: ${moral}\n\n— Rashifal.online`;
+  const done=()=>showToast(cL==='hi'?'कथा कॉपी हो गई':'Story copied to clipboard');
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(payload).then(done).catch(()=>{
+      const ta=document.createElement('textarea');ta.value=payload;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done();}catch(_){}finally{document.body.removeChild(ta);}
+    });
+  }
+}
+
 function fmtUpdated(iso){
   if(!iso)return'';
   const d=new Date(iso);
@@ -3984,7 +4392,7 @@ function setLang(l){
   cL=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
-  upDate();upCel();renderGrid();renderCats();
+  upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
   if(_rendered.tools)renderTools();
   if(_rendered.zi)renderZI();
 }
@@ -4008,6 +4416,8 @@ async function loadDD(){
     if(r.ok)dd=await r.json();
   }catch(e){}
   renderGrid();
+  renderPanchang();
+  renderStory();
 }
 
 // Track which deferred sections have been rendered
@@ -4033,7 +4443,7 @@ function toggleTheme(){
 setInterval(()=>{upDate();upCel();},60*60*1000);
 
 // Initialize (Tools + Zodiac are lazy — rendered on viewport approach)
-fillSelects();upDate();upCel();renderGrid();renderCats();loadDD();
+fillSelects();upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();loadDD();
 
 (function lazySections(){
   const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
@@ -4059,9 +4469,12 @@ document.addEventListener('keydown',e=>{
 
 /* Bottom nav active state — scroll spy */
 (function(){
-  const sections=['rashifal','horoscopes','compatibility','tools','zodiac'];
+  const sections=['rashifal','panchang','festivals','story','horoscopes','compatibility','tools','zodiac'];
   const SEC_NAMES={
     rashifal:{hi:'राशिफल',en:'Rashifal'},
+    panchang:{hi:'पंचांग',en:'Panchang'},
+    festivals:{hi:'त्योहार',en:'Festivals'},
+    story:{hi:'कथा',en:'Story'},
     horoscopes:{hi:'विशेष राशिफल',en:'Horoscopes'},
     compatibility:{hi:'अनुकूलता',en:'Compatibility'},
     tools:{hi:'उपकरण',en:'Tools'},
