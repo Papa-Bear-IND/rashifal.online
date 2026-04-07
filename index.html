@@ -279,6 +279,161 @@ html { scroll-behavior: smooth; font-size: 16px; }
   .section-indicator-pill { padding: 5px 12px; font-size: 11px; }
 }
 
+/* ── Tool modal ── */
+.tool-card { cursor: pointer; }
+.tool-card:hover { border-color: var(--b-hover); }
+.tool-modal-lead {
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+  margin: var(--sp-4) 0 var(--sp-5);
+  text-align: left;
+}
+.tool-modal-section {
+  margin-top: var(--sp-5);
+  text-align: left;
+}
+.tool-modal-section h4 {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: var(--sp-3);
+}
+.tool-modal-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tool-modal-bullets li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-normal);
+}
+.tool-modal-bullets li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.tool-modal-needs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--sp-3);
+}
+.tool-modal-need {
+  padding: 6px 14px;
+  background: var(--gold-muted);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  font-weight: 500;
+}
+.tool-modal-notify {
+  margin-top: var(--sp-6);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 10px;
+}
+.tool-modal-notify-label {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.tool-modal-notify form {
+  display: flex;
+  gap: 6px;
+}
+.tool-modal-notify input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--b-default);
+  border-radius: 6px;
+  color: var(--t-body);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  outline: none;
+}
+:root[data-theme="light"] .tool-modal-notify input { background: #FFFCF4; }
+.tool-modal-notify input:focus { border-color: var(--gold); }
+.tool-modal-notify button {
+  padding: 10px 18px;
+  background: var(--gold);
+  color: var(--void);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.tool-modal-notify button:hover { background: var(--gold-light); }
+.tool-modal-notify .notify-msg {
+  display: none;
+  margin-top: 10px;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  text-align: center;
+  font-style: italic;
+}
+.tool-modal-notify .notify-msg.show { display: block; }
+
+/* Panchang grid inside tool modal */
+.panchang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.panchang-item {
+  padding: var(--sp-4);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 10px;
+  text-align: left;
+}
+.panchang-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.panchang-value {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--t-heading);
+  font-weight: 600;
+}
+.panchang-note {
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  margin-top: 2px;
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  .panchang-grid { grid-template-columns: 1fr; }
+  .tool-modal-notify form { flex-direction: column; }
+}
+
 /* ── Detail modal: sub-prediction blocks (love/career/health/finance) ── */
 .detail-subs {
   margin-top: var(--sp-6);
@@ -2336,6 +2491,17 @@ footer {
   </div>
 </div>
 
+<!-- ═══ TOOL MODAL ═══ -->
+<div class="overlay" id="toolOv" role="dialog" aria-modal="true" aria-labelledby="toolOvTitle" aria-hidden="true" onclick="if(event.target===this)closeToolOv()">
+  <div class="detail" role="document">
+    <button class="detail-close" type="button" onclick="closeToolOv()" aria-label="Close">&times;</button>
+    <div class="detail-glyph" id="toolOvIcon" aria-hidden="true"></div>
+    <div class="detail-name" id="toolOvTitle"></div>
+    <div class="detail-sub" id="toolOvSub"></div>
+    <div id="toolOvBody"></div>
+  </div>
+</div>
+
 <script>
 /* ═══════════════════════════════════════════════════════
    CELESTIAL ENGINE v3 — Senior-grade atmospheric renderer
@@ -2804,19 +2970,19 @@ const CATEGORIES=[
 ];
 
 const TOOLS=[
-  {titleH:'निःशुल्क कुंडली',titleE:'Free Kundli',descH:'अपनी जन्म तिथि, समय और स्थान दर्ज करें — विस्तृत ग्रह स्थिति, भाव चक्र और दशा विश्लेषण तुरंत प्राप्त करें।',descE:'Enter your birth date, time and place to receive a detailed chart with planetary positions, house analysis and dasha periods.',badge:true,
+  {key:'kundli',titleH:'निःशुल्क कुंडली',titleE:'Free Kundli',descH:'अपनी जन्म तिथि, समय और स्थान दर्ज करें — विस्तृत ग्रह स्थिति, भाव चक्र और दशा विश्लेषण तुरंत प्राप्त करें।',descE:'Enter your birth date, time and place to receive a detailed chart with planetary positions, house analysis and dasha periods.',badge:true,
    glossH:'कुंडली एक ज्योतिषीय चार्ट है जो आपके जन्म के समय आकाश में ग्रहों की स्थिति को दर्शाता है। इसे जन्म कुंडली या birth chart भी कहते हैं।',
    glossE:'A Kundli is an astrological chart that shows the position of planets in the sky at the moment of your birth — also known as a birth chart or natal chart.',
    icon:'<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>'},
-  {titleH:'जन्मपत्री',titleE:'Janampatri',descH:'विस्तृत जन्म कुंडली — महादशा, अंतर्दशा, ग्रह योग, मांगलिक दोष और जीवन के प्रत्येक पहलू का विश्लेषण।',descE:'Complete birth chart analysis — Mahadasha, Antardasha, planetary Yogas, Manglik Dosha and predictions for every life aspect.',badge:true,
+  {key:'janampatri',titleH:'जन्मपत्री',titleE:'Janampatri',descH:'विस्तृत जन्म कुंडली — महादशा, अंतर्दशा, ग्रह योग, मांगलिक दोष और जीवन के प्रत्येक पहलू का विश्लेषण।',descE:'Complete birth chart analysis — Mahadasha, Antardasha, planetary Yogas, Manglik Dosha and predictions for every life aspect.',badge:true,
    glossH:'जन्मपत्री कुंडली का विस्तृत रूप है जिसमें दशा (समयचक्र), योग (ग्रह संयोजन) और जीवन के विभिन्न पहलुओं की भविष्यवाणी शामिल होती है।',
    glossE:'Janampatri is an in-depth horoscope that goes beyond a basic Kundli — it includes Dashas (planetary time periods), Yogas (planetary combinations), and detailed life predictions.',
    icon:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l16 16M20 4L4 20"/></svg>'},
-  {titleH:'कुंडली मिलान',titleE:'Kundli Matching',descH:'विवाह से पहले 36 गुणों के आधार पर अष्टकूट मिलान करें। नाड़ी, भकूट, गण और अन्य कूटों का विश्लेषण।',descE:'Match horoscopes before marriage using 36 Guna Ashtakoot method. Analysis of Nadi, Bhakoot, Gana and all Kootas.',badge:false,
+  {key:'matching',titleH:'कुंडली मिलान',titleE:'Kundli Matching',descH:'विवाह से पहले 36 गुणों के आधार पर अष्टकूट मिलान करें। नाड़ी, भकूट, गण और अन्य कूटों का विश्लेषण।',descE:'Match horoscopes before marriage using 36 Guna Ashtakoot method. Analysis of Nadi, Bhakoot, Gana and all Kootas.',badge:false,
    glossH:'अष्टकूट विवाह के लिए कुंडली मिलान की वैदिक पद्धति है। दूल्हा-दुल्हन की कुंडलियों को 8 कूटों (कुल 36 गुण) पर परखा जाता है — जितने अधिक गुण मिलें, उतनी अनुकूलता मानी जाती है।',
    glossE:'Ashtakoot is the Vedic method of matching horoscopes for marriage. The bride and groom\'s charts are compared across 8 Kootas (36 points total) — the more points that align, the better the compatibility.',
    icon:'<svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>'},
-  {titleH:'आज का पंचांग',titleE:"Today's Panchang",descH:'सम्पूर्ण दैनिक पंचांग — तिथि, नक्षत्र, योग, करण, राहुकाल, शुभ मुहूर्त और चौघड़िया।',descE:'Complete daily Panchang — Tithi, Nakshatra, Yoga, Karana, Rahu Kaal, Shubh Muhurat and Choghadiya.',badge:true,
+  {key:'panchang',titleH:'आज का पंचांग',titleE:"Today's Panchang",descH:'सम्पूर्ण दैनिक पंचांग — तिथि, नक्षत्र, योग, करण, राहुकाल, शुभ मुहूर्त और चौघड़िया।',descE:'Complete daily Panchang — Tithi, Nakshatra, Yoga, Karana, Rahu Kaal, Shubh Muhurat and Choghadiya.',badge:true,
    glossH:'पंचांग हिन्दू पंचांगिक कैलेंडर है जो दिन के पाँच अंग — तिथि, वार, नक्षत्र, योग और करण — दर्शाता है। इससे शुभ-अशुभ समय और मुहूर्त निर्धारित किए जाते हैं।',
    glossE:'Panchang is the Hindu almanac that tracks five elements of a day — Tithi (lunar day), Vara (weekday), Nakshatra (lunar mansion), Yoga, and Karana — used to determine auspicious times and muhuratas.',
    icon:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>'},
@@ -2926,26 +3092,16 @@ function renderTools(){
   const g=document.getElementById('toolsGrid');g.innerHTML='';
   TOOLS.forEach((t,i)=>{
     const el=document.createElement('div');el.className='card tool-card';
-    const pid=`gloss-${i}`;
-    const helpLabel=cL==='hi'?'यह क्या है? जानें':'What is this? Learn more';
+    el.setAttribute('role','button');
+    el.setAttribute('tabindex','0');
+    el.setAttribute('aria-label',(cL==='hi'?t.titleH:t.titleE)+' — '+(cL==='hi'?'विवरण देखें':'Learn more'));
+    el.onclick=()=>openToolModal(t.key);
+    el.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openToolModal(t.key);}};
     el.innerHTML=`
       ${t.badge?`<span class="tool-badge">${cL==='hi'?'जल्द':'Soon'}</span>`:''}
       <div class="tool-icon-wrap">${t.icon}</div>
-      <div class="tool-title-row">
-        <div class="tool-title">${cL==='hi'?t.titleH:t.titleE}</div>
-        <button type="button" class="glossary-btn" aria-label="${helpLabel}" aria-expanded="false" aria-controls="${pid}" onclick="toggleGloss(this,'${pid}')">?</button>
-      </div>
-      <div class="tool-desc">${cL==='hi'?t.descH:t.descE}</div>
-      <div class="glossary-panel" id="${pid}" role="region">${cL==='hi'?t.glossH:t.glossE}</div>
-      ${t.badge?`
-      <div class="notify-wrap">
-        <form class="notify-form" onsubmit="return notifyMe(event,this,${i})">
-          <label class="sr-only" for="notify-${i}">${cL==='hi'?'ईमेल':'Email'}</label>
-          <input class="notify-input" id="notify-${i}" type="email" required placeholder="${cL==='hi'?'आपका ईमेल पता':'your@email.com'}" />
-          <button class="notify-btn" type="submit">${cL==='hi'?'सूचित करें':'Notify me'}</button>
-        </form>
-        <div class="notify-msg" id="notify-msg-${i}" role="status" aria-live="polite"></div>
-      </div>`:''}`;
+      <div class="tool-title">${cL==='hi'?t.titleH:t.titleE}</div>
+      <div class="tool-desc">${cL==='hi'?t.descH:t.descE}</div>`;
     g.appendChild(el);
   });
 }
@@ -3161,12 +3317,12 @@ function closeZI(){
 // Focus trap: keep Tab cycling inside whichever dialog is open
 document.addEventListener('keydown',e=>{
   if(e.key!=='Tab')return;
-  const ov=document.getElementById('ov').classList.contains('active')
-    ?document.getElementById('ov')
-    :document.getElementById('catOv').classList.contains('active')
-      ?document.getElementById('catOv')
-      :document.getElementById('ziOv').classList.contains('active')
-        ?document.getElementById('ziOv'):null;
+  const candidates=['ov','catOv','toolOv','ziOv'];
+  let ov=null;
+  for(const id of candidates){
+    const el=document.getElementById(id);
+    if(el&&el.classList.contains('active')){ov=el;break;}
+  }
   if(!ov)return;
   const f=ov.querySelectorAll('button,[href],select,input,textarea,[tabindex]:not([tabindex="-1"])');
   if(!f.length)return;
@@ -3198,6 +3354,264 @@ function notifyMe(e,form,idx){
   input.value='';
   input.disabled=true;
   form.querySelector('button').disabled=true;
+  return false;
+}
+
+/* ── TOOL MODALS ── */
+const TOOL_MODAL_DATA={
+  kundli:{
+    icon:'<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>',
+    en:{
+      title:'Free Kundli',
+      sub:'Vedic Birth Chart',
+      lead:'A Kundli is your personal cosmic blueprint — a snapshot of where every planet was at the exact moment you were born. In Vedic astrology, this chart is the foundation for every prediction, every match, every life decision. Our free Kundli tool will let you generate yours in seconds.',
+      bullets:[
+        'Lagna (Ascendant) and accurate planetary positions in all 12 houses',
+        'Rashi (Moon Sign) and Nakshatra (lunar mansion) with pada',
+        'Vimshottari Mahadasha and Antardasha periods up to 100 years',
+        'Manglik Dosha analysis and remedial suggestions',
+        'Yoga combinations (Raja Yoga, Dhana Yoga, etc.) influencing your life',
+        'Downloadable PDF chart in North or South Indian style'
+      ],
+      needsHead:'What we will need from you',
+      needs:['Date of birth','Time of birth','Place of birth']
+    },
+    hi:{
+      title:'निःशुल्क कुंडली',
+      sub:'वैदिक जन्म कुंडली',
+      lead:'कुंडली आपका व्यक्तिगत ब्रह्मांडीय खाका है — एक चित्र जो आपके जन्म के सटीक क्षण में हर ग्रह की स्थिति दिखाता है। वैदिक ज्योतिष में यह चार्ट हर भविष्यवाणी, हर मिलान, हर जीवन निर्णय की नींव है। हमारा निःशुल्क कुंडली टूल आपको कुछ ही सेकंड में अपनी कुंडली बनाने देगा।',
+      bullets:[
+        'लग्न (Ascendant) और सभी 12 भावों में ग्रहों की सटीक स्थिति',
+        'राशि (चंद्र राशि) और नक्षत्र पाद सहित',
+        'विंशोत्तरी महादशा और अंतर्दशा — 100 वर्षों तक',
+        'मांगलिक दोष विश्लेषण और उपाय',
+        'राजयोग, धनयोग और अन्य ग्रह योगों का प्रभाव',
+        'उत्तर भारतीय या दक्षिण भारतीय शैली में डाउनलोड योग्य PDF चार्ट'
+      ],
+      needsHead:'हमें आपसे क्या चाहिए होगा',
+      needs:['जन्म तिथि','जन्म समय','जन्म स्थान']
+    },
+    notify:true
+  },
+  janampatri:{
+    icon:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l16 16M20 4L4 20"/></svg>',
+    en:{
+      title:'Janampatri',
+      sub:'In-Depth Life Analysis',
+      lead:'Where a Kundli is the chart, the Janampatri is the book. It takes the same planetary positions and reads them across every dimension of your life — career, marriage, finances, health, spirituality — using the time-tested principles of Parashari astrology. Think of it as a 50-page personalised reading of your stars.',
+      bullets:[
+        'Detailed Mahadasha and Antardasha period predictions',
+        'Career, marriage, family, finance and health analysis',
+        'Planetary Yogas: Raja Yoga, Dhana Yoga, Pancha Mahapurusha and more',
+        'Manglik Dosha, Kaal Sarp Dosha, Sade Sati and remedies',
+        'Favorable gemstones, mantras, fasts and rituals for you',
+        'Annual (Varshphal) predictions for the year ahead'
+      ],
+      needsHead:'What we will need from you',
+      needs:['Date of birth','Exact time of birth','Place of birth','Full name (optional)']
+    },
+    hi:{
+      title:'जन्मपत्री',
+      sub:'गहन जीवन विश्लेषण',
+      lead:'जहाँ कुंडली एक चार्ट है, वहीं जन्मपत्री एक पूरी पुस्तक है। यह उन्हीं ग्रह स्थितियों को आपके जीवन के हर पहलू पर पढ़ती है — करियर, विवाह, धन, स्वास्थ्य, आध्यात्म — पराशरी ज्योतिष के सिद्धांतों के आधार पर। इसे अपनी राशि की 50-पृष्ठीय व्यक्तिगत रीडिंग समझें।',
+      bullets:[
+        'विस्तृत महादशा और अंतर्दशा भविष्यवाणी',
+        'करियर, विवाह, परिवार, धन और स्वास्थ्य का विश्लेषण',
+        'राजयोग, धनयोग, पंच महापुरुष योग आदि की पहचान',
+        'मांगलिक दोष, काल सर्प दोष, साढ़े साती और उपाय',
+        'अनुकूल रत्न, मंत्र, व्रत और अनुष्ठान',
+        'वर्षफल — आने वाले वर्ष की भविष्यवाणी'
+      ],
+      needsHead:'हमें आपसे क्या चाहिए होगा',
+      needs:['जन्म तिथि','सटीक जन्म समय','जन्म स्थान','पूरा नाम (वैकल्पिक)']
+    },
+    notify:true
+  },
+  matching:{
+    redirect:'compatibility'
+  },
+  panchang:{
+    icon:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>',
+    en:{
+      title:"Today's Panchang",
+      sub:'Hindu Almanac for Today',
+      lead:'Panchang means "five limbs" — the five astronomical elements that traditional Hindu calendars use to map every day. Together they tell you whether the day favours new beginnings, weddings, journeys or quiet reflection. Below is what we can compute right now from the sky; the full Panchang tool with Tithi, Yoga, Karana, Rahu Kaal and Choghadiya is on its way.',
+      bullets:[
+        'Tithi — the lunar day from new moon to full moon',
+        'Vara — the weekday and its ruling planet',
+        'Nakshatra — the constellation the moon is currently in',
+        'Yoga — the sun-moon angular relationship',
+        'Karana — half of a Tithi, used for muhurat selection',
+        'Rahu Kaal, Yamaganda, Gulika Kaal and daily Choghadiya'
+      ],
+      needsHead:null,
+      needs:[]
+    },
+    hi:{
+      title:'आज का पंचांग',
+      sub:'आज के लिए हिन्दू पंचांग',
+      lead:'पंचांग का अर्थ है "पाँच अंग" — वे पाँच खगोलीय तत्व जिन्हें पारंपरिक हिन्दू कैलेंडर हर दिन के लिए दर्ज करते हैं। मिलकर ये बताते हैं कि दिन नए कार्यों, विवाह, यात्रा या शांत चिंतन के लिए कैसा है। नीचे वह है जो हम अभी आकाश से गणना कर सकते हैं; तिथि, योग, करण, राहुकाल और चौघड़िया सहित पूर्ण पंचांग टूल जल्द ही आ रहा है।',
+      bullets:[
+        'तिथि — अमावस्या से पूर्णिमा तक चंद्र दिवस',
+        'वार — सप्ताह का दिन और उसका स्वामी ग्रह',
+        'नक्षत्र — चंद्रमा वर्तमान में जिस तारामंडल में है',
+        'योग — सूर्य-चंद्र कोणीय संबंध',
+        'करण — आधी तिथि, मुहूर्त चयन के लिए',
+        'राहु काल, यमगंड, गुलिक काल और दैनिक चौघड़िया'
+      ],
+      needsHead:null,
+      needs:[]
+    },
+    notify:true,
+    showLive:true
+  }
+};
+
+const NAKSHATRA_HI=['अश्विनी','भरणी','कृत्तिका','रोहिणी','मृगशिरा','आर्द्रा','पुनर्वसु','पुष्य','आश्लेषा','मघा','पूर्व फाल्गुनी','उत्तर फाल्गुनी','हस्त','चित्रा','स्वाति','विशाखा','अनुराधा','ज्येष्ठा','मूल','पूर्वाषाढ़ा','उत्तराषाढ़ा','श्रवण','धनिष्ठा','शतभिषा','पूर्व भाद्रपद','उत्तर भाद्रपद','रेवती'];
+const NAKSHATRA_EN=['Ashwini','Bharani','Krittika','Rohini','Mrigashirsha','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishta','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
+const TITHI_HI=['प्रतिपदा','द्वितीया','तृतीया','चतुर्थी','पंचमी','षष्ठी','सप्तमी','अष्टमी','नवमी','दशमी','एकादशी','द्वादशी','त्रयोदशी','चतुर्दशी','पूर्णिमा/अमावस्या'];
+const TITHI_EN=['Pratipada','Dwitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima/Amavasya'];
+const VARA_HI=['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+const VARA_EN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const VARA_LORD_HI=['सूर्य','चंद्र','मंगल','बुध','गुरु','शुक्र','शनि'];
+const VARA_LORD_EN=['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn'];
+
+function computePanchang(){
+  const d=new Date();
+  const dayIdx=d.getDay();
+  // Approximate moon-phase based tithi via Conway algorithm
+  const y=d.getFullYear(),m=d.getMonth()+1,day=d.getDate();
+  let r=y%100;r%=19;if(r>9)r-=19;r=((r*11)%30)+m+day;
+  if(m<3)r+=2;r-=((y<2000)?4:8.3);r=Math.floor(r+0.5)%30;if(r<0)r+=30;
+  // r is age of moon in days (0..29). Tithi index 0..14 (paksha-agnostic).
+  const tithiIdx=Math.min(14,Math.floor(r/2));
+  const paksha=r<15?(cL==='hi'?'शुक्ल पक्ष':'Shukla Paksha'):(cL==='hi'?'कृष्ण पक्ष':'Krishna Paksha');
+  // Approximate moon longitude → nakshatra (one nakshatra = 13°20')
+  const moonLon=(r/29.53)*360;
+  const nakIdx=Math.floor((moonLon%360)/(360/27))%27;
+  return {
+    vara:cL==='hi'?VARA_HI[dayIdx]:VARA_EN[dayIdx],
+    varaLord:cL==='hi'?VARA_LORD_HI[dayIdx]:VARA_LORD_EN[dayIdx],
+    tithi:cL==='hi'?TITHI_HI[tithiIdx]:TITHI_EN[tithiIdx],
+    paksha,
+    nakshatra:cL==='hi'?NAKSHATRA_HI[nakIdx]:NAKSHATRA_EN[nakIdx]
+  };
+}
+
+function openToolModal(key){
+  const td=TOOL_MODAL_DATA[key];
+  if(!td)return;
+  // Special: matching → scroll to compatibility section
+  if(td.redirect==='compatibility'){
+    const sec=document.getElementById('compatibility');
+    if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
+    showToast(cL==='hi'?'अनुकूलता जाँचकर्ता नीचे है — दो राशियाँ चुनें':'Scroll down to compare two zodiac signs');
+    return;
+  }
+  const t=td[cL]||td.en;
+  document.getElementById('toolOvIcon').innerHTML=td.icon||'';
+  document.getElementById('toolOvTitle').textContent=t.title;
+  document.getElementById('toolOvSub').textContent=t.sub;
+
+  let html=`<p class="tool-modal-lead">${t.lead}</p>`;
+
+  // Live panchang block
+  if(td.showLive){
+    const p=computePanchang();
+    const labelLive=cL==='hi'?'आज का पंचांग (अनुमानित)':"Today's Panchang (approximate)";
+    const noteLive=cL==='hi'?'यह सरलीकृत गणना है। पूर्ण सटीक पंचांग शीघ्र आएगा।':'These are simplified calculations. Full astronomical Panchang coming soon.';
+    html+=`
+      <div class="tool-modal-section">
+        <h4>${labelLive}</h4>
+        <div class="panchang-grid">
+          <div class="panchang-item">
+            <div class="panchang-label">${cL==='hi'?'वार':'Vara (Day)'}</div>
+            <div class="panchang-value">${p.vara}</div>
+            <div class="panchang-note">${cL==='hi'?'स्वामी ग्रह':'Ruled by'}: ${p.varaLord}</div>
+          </div>
+          <div class="panchang-item">
+            <div class="panchang-label">${cL==='hi'?'तिथि':'Tithi'}</div>
+            <div class="panchang-value">${p.tithi}</div>
+            <div class="panchang-note">${p.paksha}</div>
+          </div>
+          <div class="panchang-item" style="grid-column:1/-1;">
+            <div class="panchang-label">${cL==='hi'?'नक्षत्र':'Nakshatra'}</div>
+            <div class="panchang-value">${p.nakshatra}</div>
+            <div class="panchang-note">${noteLive}</div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  // Bullet list of features
+  if(t.bullets&&t.bullets.length){
+    const bulletHead=cL==='hi'?'इस उपकरण में क्या होगा':"What this tool will offer";
+    html+=`<div class="tool-modal-section"><h4>${bulletHead}</h4><ul class="tool-modal-bullets">`;
+    t.bullets.forEach(b=>{html+=`<li>${b}</li>`;});
+    html+='</ul></div>';
+  }
+
+  // Needs chips
+  if(t.needs&&t.needs.length){
+    html+=`<div class="tool-modal-section"><h4>${t.needsHead}</h4><div class="tool-modal-needs">`;
+    t.needs.forEach(n=>{html+=`<div class="tool-modal-need">${n}</div>`;});
+    html+='</div></div>';
+  }
+
+  // Notify-me form
+  if(td.notify){
+    const labelNotify=cL==='hi'?'लॉन्च होते ही मुझे सूचित करें':'Notify me when this launches';
+    const placeholder=cL==='hi'?'आपका ईमेल पता':'your@email.com';
+    const btnLabel=cL==='hi'?'सूचित करें':'Notify me';
+    html+=`
+      <div class="tool-modal-notify">
+        <label class="tool-modal-notify-label" for="toolNotifyInput">${labelNotify}</label>
+        <form onsubmit="return toolNotify(event,'${key}')">
+          <input id="toolNotifyInput" type="email" required placeholder="${placeholder}" />
+          <button type="submit">${btnLabel}</button>
+        </form>
+        <div class="notify-msg" id="toolNotifyMsg" role="status" aria-live="polite"></div>
+      </div>`;
+  }
+
+  document.getElementById('toolOvBody').innerHTML=html;
+
+  const ov=document.getElementById('toolOv');
+  _lastFocus=document.activeElement;
+  ov.classList.add('active');
+  ov.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>ov.querySelector('.detail-close')?.focus(),50);
+}
+function closeToolOv(){
+  const ov=document.getElementById('toolOv');
+  ov.classList.remove('active');
+  ov.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
+}
+function toolNotify(e,toolKey){
+  e.preventDefault();
+  const input=document.getElementById('toolNotifyInput');
+  const msg=document.getElementById('toolNotifyMsg');
+  const email=(input.value||'').trim();
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msg.textContent=cL==='hi'?'कृपया वैध ईमेल दर्ज करें':'Please enter a valid email';
+    msg.style.color='#ff8a8a';
+    msg.classList.add('show');
+    return false;
+  }
+  try{
+    const list=JSON.parse(localStorage.getItem('notifySubs')||'[]');
+    list.push({tool:toolKey,email,t:Date.now()});
+    localStorage.setItem('notifySubs',JSON.stringify(list));
+  }catch(_){}
+  msg.textContent=cL==='hi'?'धन्यवाद! लॉन्च होते ही आपको सूचित किया जाएगा।':'Thank you! We\'ll notify you when this launches.';
+  msg.style.color='';
+  msg.classList.add('show');
+  input.value='';
+  input.disabled=true;
+  e.target.querySelector('button').disabled=true;
   return false;
 }
 
@@ -3494,7 +3908,8 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
     if(document.getElementById('ov').classList.contains('active'))closeD();
     if(document.getElementById('catOv').classList.contains('active'))closeCatOv();
-    if(document.getElementById('ziOv').classList.contains('active'))closeZI();
+    if(document.getElementById('toolOv').classList.contains('active'))closeToolOv();
+    if(document.getElementById('ziOv')?.classList.contains('active'))closeZI();
     document.getElementById('mNav').classList.remove('open');
   }
 });
