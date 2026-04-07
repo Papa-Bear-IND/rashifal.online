@@ -1655,7 +1655,79 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   gap: var(--sp-4);
 }
 
-.zi-card { padding: var(--sp-5); }
+.zi-card { padding: var(--sp-5); transition: transform .2s ease, box-shadow .2s ease; }
+.zi-card:hover { transform: translateY(-3px); }
+.zi-card:focus-visible { outline: 2px solid #D4AF37; outline-offset: 3px; }
+.zi-more {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: #D4AF37;
+  font-weight: 600;
+  text-align: right;
+}
+.zi-detail { max-width: 760px; }
+.zi-section { margin-top: var(--sp-5); }
+.zi-section-head {
+  font-family: var(--font-display, serif);
+  font-size: var(--fs-md);
+  color: #D4AF37;
+  margin-bottom: var(--sp-2);
+  letter-spacing: .02em;
+}
+.zi-personality {
+  font-size: var(--fs-md);
+  line-height: 1.75;
+  opacity: .92;
+  margin: 0;
+}
+.zi-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+@media (max-width: 600px) { .zi-grid-2 { grid-template-columns: 1fr; } }
+.zi-list { margin: 0; padding-left: 1.2em; line-height: 1.7; }
+.zi-list-pos li::marker { color: #6fcf97; }
+.zi-list-neg li::marker { color: #e07a7a; }
+.zi-chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.zi-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.5);
+  background: rgba(212,175,55,.08);
+  font-size: var(--fs-sm);
+  color: #E8D9A0;
+}
+.zi-chips-neg .zi-chip {
+  border-color: rgba(224,122,122,.5);
+  background: rgba(224,122,122,.08);
+  color: #f0b8b8;
+}
+.zi-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(212,175,55,.2);
+}
+.zi-fact {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(212,175,55,.18);
+  border-radius: 8px;
+  padding: var(--sp-3);
+  text-align: center;
+}
+.zi-fact-label {
+  font-size: var(--fs-xs, 11px);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  opacity: .65;
+  margin-bottom: 4px;
+}
+.zi-fact-value { font-size: var(--fs-sm); font-weight: 600; color: #E8D9A0; }
 
 .zi-header {
   display: flex;
@@ -2173,10 +2245,10 @@ footer {
   <footer>
     <p class="footer-mark">Rashifal.online &middot; 2026 &middot; सर्वे भवन्तु सुखिनः</p>
     <div class="footer-links">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
     </div>
     <div class="footer-seo"><p data-hi="Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल। मेष, वृषभ, मिथुन, कर्क, सिंह, कन्या, तुला, वृश्चिक, धनु, मकर, कुम्भ, मीन।" data-en="Rashifal.online — India's complete astrology portal. Daily, weekly, monthly, yearly horoscope. Kundli, janampatri, kundli matching, compatibility. Love, career, health, finance horoscope. Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces.">Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल।</p></div>
   </footer>
@@ -2240,6 +2312,17 @@ footer {
         <div class="sub-text hi-text" id="dFinance"></div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ═══ ZODIAC INFO OVERLAY (rich rashi profile) ═══ -->
+<div class="overlay" id="ziOv" role="dialog" aria-modal="true" aria-labelledby="ziName" aria-hidden="true" onclick="if(event.target===this)closeZI()">
+  <div class="detail zi-detail" role="document">
+    <button class="detail-close" type="button" onclick="closeZI()" aria-label="Close">&times;</button>
+    <div class="detail-glyph" id="ziGlyph"></div>
+    <div class="detail-name" id="ziName"></div>
+    <div class="detail-sub" id="ziSub"></div>
+    <div id="ziBody"></div>
   </div>
 </div>
 
@@ -2667,18 +2750,42 @@ const ZODIAC_SVG = {
 };
 
 const RASHIS=[
-  {id:"mesh",hi:"मेष",en:"Aries",dt:"21 मार्च – 19 अप्रैल",dte:"Mar 21 – Apr 19",el:"अग्नि/Fire",ru:"मंगल/Mars",q:"चर/Cardinal",trH:"साहसी, ऊर्जावान",trE:"Courageous, energetic"},
-  {id:"vrishabh",hi:"वृषभ",en:"Taurus",dt:"20 अप्रैल – 20 मई",dte:"Apr 20 – May 20",el:"पृथ्वी/Earth",ru:"शुक्र/Venus",q:"स्थिर/Fixed",trH:"धैर्यवान, व्यावहारिक",trE:"Patient, practical"},
-  {id:"mithun",hi:"मिथुन",en:"Gemini",dt:"21 मई – 20 जून",dte:"May 21 – Jun 20",el:"वायु/Air",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"बुद्धिमान, जिज्ञासु",trE:"Intelligent, curious"},
-  {id:"kark",hi:"कर्क",en:"Cancer",dt:"21 जून – 22 जुलाई",dte:"Jun 21 – Jul 22",el:"जल/Water",ru:"चंद्र/Moon",q:"चर/Cardinal",trH:"भावुक, सहज",trE:"Emotional, intuitive"},
-  {id:"singh",hi:"सिंह",en:"Leo",dt:"23 जुलाई – 22 अगस्त",dte:"Jul 23 – Aug 22",el:"अग्नि/Fire",ru:"सूर्य/Sun",q:"स्थिर/Fixed",trH:"आत्मविश्वासी, नेता",trE:"Confident, leader"},
-  {id:"kanya",hi:"कन्या",en:"Virgo",dt:"23 अगस्त – 22 सितम्बर",dte:"Aug 23 – Sep 22",el:"पृथ्वी/Earth",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"विश्लेषक, व्यवस्थित",trE:"Analytical, organized"},
-  {id:"tula",hi:"तुला",en:"Libra",dt:"23 सितम्बर – 22 अक्टूबर",dte:"Sep 23 – Oct 22",el:"वायु/Air",ru:"शुक्र/Venus",q:"चर/Cardinal",trH:"संतुलित, कलाप्रेमी",trE:"Balanced, artistic"},
-  {id:"vrishchik",hi:"वृश्चिक",en:"Scorpio",dt:"23 अक्टूबर – 21 नवम्बर",dte:"Oct 23 – Nov 21",el:"जल/Water",ru:"मंगल/Mars",q:"स्थिर/Fixed",trH:"दृढ़, रहस्यमयी",trE:"Determined, mysterious"},
-  {id:"dhanu",hi:"धनु",en:"Sagittarius",dt:"22 नवम्बर – 21 दिसम्बर",dte:"Nov 22 – Dec 21",el:"अग्नि/Fire",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"आशावादी, साहसी",trE:"Optimistic, adventurous"},
-  {id:"makar",hi:"मकर",en:"Capricorn",dt:"22 दिसम्बर – 19 जनवरी",dte:"Dec 22 – Jan 19",el:"पृथ्वी/Earth",ru:"शनि/Saturn",q:"चर/Cardinal",trH:"महत्वाकांक्षी, अनुशासित",trE:"Ambitious, disciplined"},
-  {id:"kumbh",hi:"कुम्भ",en:"Aquarius",dt:"20 जनवरी – 18 फरवरी",dte:"Jan 20 – Feb 18",el:"वायु/Air",ru:"शनि/Saturn",q:"स्थिर/Fixed",trH:"नवीन, स्वतंत्र",trE:"Innovative, independent"},
-  {id:"meen",hi:"मीन",en:"Pisces",dt:"19 फरवरी – 20 मार्च",dte:"Feb 19 – Mar 20",el:"जल/Water",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"कल्पनाशील, दयालु",trE:"Imaginative, compassionate"},
+  {id:"mesh",hi:"मेष",en:"Aries",dt:"21 मार्च – 19 अप्रैल",dte:"Mar 21 – Apr 19",el:"अग्नि/Fire",ru:"मंगल/Mars",q:"चर/Cardinal",trH:"साहसी, ऊर्जावान",trE:"Courageous, energetic",
+   zi:{hi:{personality:"मेष राशि वाले जन्मजात अग्रदूत होते हैं — जोश, साहस और निर्भीकता इनकी पहचान है। नई शुरुआत से कभी नहीं घबराते और चुनौतियों को हाथों-हाथ लेते हैं। कभी-कभी जल्दबाज़ी और गुस्सा इनकी कमज़ोरी बन जाता है, पर इनका आत्मविश्वास सबको प्रेरित करता है।",strengths:["साहस और निडरता","प्राकृतिक नेतृत्व","अद्भुत ऊर्जा"],weaknesses:["जल्दबाज़ी","तीव्र क्रोध","अधीरता"],compatible:["सिंह","धनु","मिथुन"],incompatible:["कर्क","मकर"],gem:"मूँगा",day:"मंगलवार",body:"सिर एवं मस्तिष्क"},
+       en:{personality:"Aries are born trailblazers — fierce, fearless and bursting with raw energy. They never shy away from new beginnings and tackle challenges head-on. Their impatience and quick temper can trip them up, but their unshakable self-belief inspires everyone around them.",strengths:["Courage & boldness","Natural leadership","Boundless energy"],weaknesses:["Impulsiveness","Short temper","Impatience"],compatible:["Leo","Sagittarius","Gemini"],incompatible:["Cancer","Capricorn"],gem:"Red Coral",day:"Tuesday",body:"Head & brain"}}},
+  {id:"vrishabh",hi:"वृषभ",en:"Taurus",dt:"20 अप्रैल – 20 मई",dte:"Apr 20 – May 20",el:"पृथ्वी/Earth",ru:"शुक्र/Venus",q:"स्थिर/Fixed",trH:"धैर्यवान, व्यावहारिक",trE:"Patient, practical",
+   zi:{hi:{personality:"वृषभ राशि के लोग धैर्य और स्थिरता की मूर्ति होते हैं। आरामदायक जीवन, अच्छा भोजन और प्रकृति की सुंदरता इन्हें खूब लुभाती है। ये भरोसेमंद साथी और मेहनती कार्यकर्ता होते हैं, पर एक बार ज़िद पर अड़ जाएँ तो टस से मस नहीं होते।",strengths:["अटूट धैर्य","विश्वसनीयता","व्यावहारिक बुद्धि"],weaknesses:["ज़िद्दीपन","आलस्य","अधिकार-भावना"],compatible:["कन्या","मकर","कर्क"],incompatible:["सिंह","कुम्भ"],gem:"हीरा",day:"शुक्रवार",body:"गला एवं कण्ठ"},
+       en:{personality:"Taureans are the very picture of patience and steadiness. They love comfort, good food and the beauty of the natural world. Loyal partners and hard workers, they're rock-solid to lean on — but cross them and their stubborn streak shows up fast.",strengths:["Patience","Reliability","Practical wisdom"],weaknesses:["Stubbornness","Indulgence","Possessiveness"],compatible:["Virgo","Capricorn","Cancer"],incompatible:["Leo","Aquarius"],gem:"Diamond",day:"Friday",body:"Throat & neck"}}},
+  {id:"mithun",hi:"मिथुन",en:"Gemini",dt:"21 मई – 20 जून",dte:"May 21 – Jun 20",el:"वायु/Air",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"बुद्धिमान, जिज्ञासु",trE:"Intelligent, curious",
+   zi:{hi:{personality:"मिथुन राशि वाले बुद्धिमान, बातूनी और जिज्ञासु होते हैं। एक ही समय में कई विषयों में रुचि रखते हैं और हर महफ़िल की जान बन जाते हैं। दिमाग़ हमेशा दौड़ता रहता है, इसलिए कभी-कभी एक काम पर टिके रहना मुश्किल हो जाता है।",strengths:["तेज़ बुद्धि","अनुकूलनशीलता","संवाद कौशल"],weaknesses:["चंचलता","दुविधा","सतहीपन"],compatible:["तुला","कुम्भ","मेष"],incompatible:["कन्या","मीन"],gem:"पन्ना",day:"बुधवार",body:"फेफड़े, हाथ एवं भुजाएँ"},
+       en:{personality:"Geminis are sharp-witted, talkative and endlessly curious. They juggle multiple interests at once and become the life of every gathering. Their mind never stops racing — which sometimes makes it hard to stick with just one thing.",strengths:["Quick intellect","Adaptability","Communication skills"],weaknesses:["Restlessness","Indecision","Superficiality"],compatible:["Libra","Aquarius","Aries"],incompatible:["Virgo","Pisces"],gem:"Emerald",day:"Wednesday",body:"Lungs, arms & hands"}}},
+  {id:"kark",hi:"कर्क",en:"Cancer",dt:"21 जून – 22 जुलाई",dte:"Jun 21 – Jul 22",el:"जल/Water",ru:"चंद्र/Moon",q:"चर/Cardinal",trH:"भावुक, सहज",trE:"Emotional, intuitive",
+   zi:{hi:{personality:"कर्क राशि वाले बेहद भावुक और संवेदनशील होते हैं। परिवार और घर इनके जीवन का केंद्र होते हैं, और अपनों की देखभाल में जान लगा देते हैं। बाहर से कठोर दिखने वाले कर्क अंदर से बेहद कोमल हृदय के होते हैं।",strengths:["गहरी सहानुभूति","अटल निष्ठा","तेज़ अन्तर्ज्ञान"],weaknesses:["अति-संवेदनशीलता","मूड-स्विंग","पुरानी बातों में अटकाव"],compatible:["वृश्चिक","मीन","वृषभ"],incompatible:["मेष","तुला"],gem:"मोती",day:"सोमवार",body:"छाती, हृदय एवं उदर"},
+       en:{personality:"Cancerians are deeply emotional and tenderhearted. Family and home sit at the very center of their world, and they pour everything into caring for loved ones. Tough on the outside, they're remarkably soft underneath.",strengths:["Empathy","Loyalty","Strong intuition"],weaknesses:["Over-sensitivity","Mood swings","Holding on to the past"],compatible:["Scorpio","Pisces","Taurus"],incompatible:["Aries","Libra"],gem:"Pearl",day:"Monday",body:"Chest, stomach & heart"}}},
+  {id:"singh",hi:"सिंह",en:"Leo",dt:"23 जुलाई – 22 अगस्त",dte:"Jul 23 – Aug 22",el:"अग्नि/Fire",ru:"सूर्य/Sun",q:"स्थिर/Fixed",trH:"आत्मविश्वासी, नेता",trE:"Confident, leader",
+   zi:{hi:{personality:"सिंह राशि के जातक राजसी स्वभाव के होते हैं — आत्मविश्वास, गर्व और उदारता इनके स्तंभ हैं। जहाँ भी जाते हैं, सबकी नज़रों का केंद्र बन जाते हैं। दिल बड़ा रखते हैं पर तारीफ़ और सम्मान इनके लिए ऑक्सीजन के समान हैं।",strengths:["प्रबल आत्मविश्वास","उदारता","नेतृत्व क्षमता"],weaknesses:["अहंकार","दिखावा","ज़िद"],compatible:["मेष","धनु","तुला"],incompatible:["वृषभ","वृश्चिक"],gem:"माणिक्य",day:"रविवार",body:"हृदय एवं रीढ़"},
+       en:{personality:"Leos carry themselves with regal flair — confident, proud and big-hearted. Wherever they walk in, they instinctively become the center of attention. They give generously, but praise and respect are their oxygen.",strengths:["Self-confidence","Generosity","Leadership"],weaknesses:["Ego","Showiness","Stubborn pride"],compatible:["Aries","Sagittarius","Libra"],incompatible:["Taurus","Scorpio"],gem:"Ruby",day:"Sunday",body:"Heart & spine"}}},
+  {id:"kanya",hi:"कन्या",en:"Virgo",dt:"23 अगस्त – 22 सितम्बर",dte:"Aug 23 – Sep 22",el:"पृथ्वी/Earth",ru:"बुध/Mercury",q:"द्विस्वभाव/Mutable",trH:"विश्लेषक, व्यवस्थित",trE:"Analytical, organized",
+   zi:{hi:{personality:"कन्या राशि वाले विश्लेषणात्मक, व्यवस्थित और बारीकी पर ध्यान देने वाले होते हैं। हर काम को परिपूर्णता से करना चाहते हैं और दूसरों की मदद करने में आगे रहते हैं। पर कभी-कभी छोटी-छोटी बातों की चिंता इन्हें परेशान कर देती है।",strengths:["विश्लेषण क्षमता","व्यवस्थित सोच","सेवा भाव"],weaknesses:["अति-आलोचना","चिन्ता","पूर्णतावाद"],compatible:["वृषभ","मकर","कर्क"],incompatible:["मिथुन","धनु"],gem:"पन्ना",day:"बुधवार",body:"आँत एवं पाचन तंत्र"},
+       en:{personality:"Virgos are analytical, organized and obsessed with detail. They want every task done flawlessly and are always first in line to help others. The downside? Small worries have a habit of looping endlessly in their heads.",strengths:["Analytical mind","Organized approach","Service-oriented"],weaknesses:["Over-criticism","Worry","Perfectionism"],compatible:["Taurus","Capricorn","Cancer"],incompatible:["Gemini","Sagittarius"],gem:"Emerald",day:"Wednesday",body:"Intestines & digestive system"}}},
+  {id:"tula",hi:"तुला",en:"Libra",dt:"23 सितम्बर – 22 अक्टूबर",dte:"Sep 23 – Oct 22",el:"वायु/Air",ru:"शुक्र/Venus",q:"चर/Cardinal",trH:"संतुलित, कलाप्रेमी",trE:"Balanced, artistic",
+   zi:{hi:{personality:"तुला राशि वाले संतुलन, सौंदर्य और न्याय के प्रेमी होते हैं। रिश्तों में सामंजस्य बनाए रखना इनकी प्राथमिकता है, और कलाप्रेमी होने के साथ-साथ बेहद मिलनसार भी हैं। पर निर्णय लेने में अक्सर देर कर देते हैं।",strengths:["न्यायप्रियता","कूटनीति","सौंदर्यबोध"],weaknesses:["दुविधा","टकराव से बचाव","आत्म-दया"],compatible:["मिथुन","कुम्भ","सिंह"],incompatible:["कर्क","मकर"],gem:"हीरा",day:"शुक्रवार",body:"गुर्दे एवं कमर"},
+       en:{personality:"Librans are lovers of balance, beauty and fairness. Keeping harmony in their relationships is their top priority — they're refined, sociable and deeply artistic. The catch: making decisions can take them forever.",strengths:["Sense of fairness","Diplomacy","Aesthetic taste"],weaknesses:["Indecision","Conflict avoidance","Self-pity"],compatible:["Gemini","Aquarius","Leo"],incompatible:["Cancer","Capricorn"],gem:"Diamond",day:"Friday",body:"Kidneys & lower back"}}},
+  {id:"vrishchik",hi:"वृश्चिक",en:"Scorpio",dt:"23 अक्टूबर – 21 नवम्बर",dte:"Oct 23 – Nov 21",el:"जल/Water",ru:"मंगल/Mars",q:"स्थिर/Fixed",trH:"दृढ़, रहस्यमयी",trE:"Determined, mysterious",
+   zi:{hi:{personality:"वृश्चिक राशि वाले गहरे, रहस्यमयी और अत्यंत भावुक होते हैं। जो ठान लेते हैं, उसे पाने के लिए कुछ भी कर गुज़रते हैं। बाहर से शान्त दिखते हैं पर अंदर एक तीव्र ज्वाला जलती रहती है — वफ़ादार दोस्त भी, और कड़े शत्रु भी।",strengths:["दृढ़ संकल्प","गहरी अंतर्दृष्टि","निष्ठा"],weaknesses:["ईर्ष्या","रहस्यवाद","प्रतिशोधी स्वभाव"],compatible:["कर्क","मीन","मकर"],incompatible:["सिंह","कुम्भ"],gem:"मूँगा",day:"मंगलवार",body:"जननांग एवं उत्सर्जन तंत्र"},
+       en:{personality:"Scorpios are deep, mysterious and intensely emotional. Once they set their mind on something, nothing can stop them. They look calm on the outside, but a fierce flame burns within — fiercely loyal friends, and unforgiving enemies.",strengths:["Determination","Deep insight","Loyalty"],weaknesses:["Jealousy","Secretiveness","Vindictiveness"],compatible:["Cancer","Pisces","Capricorn"],incompatible:["Leo","Aquarius"],gem:"Red Coral",day:"Tuesday",body:"Reproductive & excretory system"}}},
+  {id:"dhanu",hi:"धनु",en:"Sagittarius",dt:"22 नवम्बर – 21 दिसम्बर",dte:"Nov 22 – Dec 21",el:"अग्नि/Fire",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"आशावादी, साहसी",trE:"Optimistic, adventurous",
+   zi:{hi:{personality:"धनु राशि वाले स्वतंत्र, आशावादी और रोमांच के दीवाने होते हैं। नई जगहों की खोज, ज्ञान और दर्शन में इनकी गहरी रुचि है। दिल खोलकर बात करते हैं — कभी-कभी इतनी सीधी कि सुनने वाले को चोट लग जाए।",strengths:["आशावाद","ईमानदारी","ज्ञान-पिपासा"],weaknesses:["बेबाकी","लापरवाही","प्रतिबद्धता से बचाव"],compatible:["मेष","सिंह","कुम्भ"],incompatible:["कन्या","मीन"],gem:"पुखराज",day:"गुरुवार",body:"जाँघें एवं कूल्हे"},
+       en:{personality:"Sagittarians are free-spirited, optimistic and addicted to adventure. They thirst for new places, knowledge and big philosophical questions. They speak their mind openly — sometimes so bluntly that listeners flinch.",strengths:["Optimism","Honesty","Love of learning"],weaknesses:["Bluntness","Carelessness","Fear of commitment"],compatible:["Aries","Leo","Aquarius"],incompatible:["Virgo","Pisces"],gem:"Yellow Sapphire",day:"Thursday",body:"Hips & thighs"}}},
+  {id:"makar",hi:"मकर",en:"Capricorn",dt:"22 दिसम्बर – 19 जनवरी",dte:"Dec 22 – Jan 19",el:"पृथ्वी/Earth",ru:"शनि/Saturn",q:"चर/Cardinal",trH:"महत्वाकांक्षी, अनुशासित",trE:"Ambitious, disciplined",
+   zi:{hi:{personality:"मकर राशि वाले महत्वाकांक्षी, अनुशासित और दीर्घकालिक सोच रखने वाले होते हैं। धीरे-धीरे पर मज़बूती से अपने लक्ष्य की ओर बढ़ते हैं। ज़िम्मेदारी इनके कंधों पर आराम से बैठती है, पर कभी-कभी काम के बोझ में जीवन का आनंद लेना भूल जाते हैं।",strengths:["अनुशासन","दीर्घकालिक धैर्य","ज़िम्मेदारी"],weaknesses:["कठोरता","निराशावाद","भावनात्मक दूरी"],compatible:["वृषभ","कन्या","वृश्चिक"],incompatible:["मेष","तुला"],gem:"नीलम",day:"शनिवार",body:"घुटने एवं अस्थियाँ"},
+       en:{personality:"Capricorns are ambitious, disciplined and play the long game. They climb toward their goals slowly but surely, never losing sight of the summit. Responsibility sits naturally on their shoulders — but they sometimes forget to enjoy the view along the way.",strengths:["Discipline","Patience","Sense of responsibility"],weaknesses:["Rigidity","Pessimism","Emotional distance"],compatible:["Taurus","Virgo","Scorpio"],incompatible:["Aries","Libra"],gem:"Blue Sapphire",day:"Saturday",body:"Knees & bones"}}},
+  {id:"kumbh",hi:"कुम्भ",en:"Aquarius",dt:"20 जनवरी – 18 फरवरी",dte:"Jan 20 – Feb 18",el:"वायु/Air",ru:"शनि/Saturn",q:"स्थिर/Fixed",trH:"नवीन, स्वतंत्र",trE:"Innovative, independent",
+   zi:{hi:{personality:"कुम्भ राशि वाले मौलिक, स्वतंत्र-विचार और मानवतावादी होते हैं। भीड़ से अलग चलना इन्हें पसंद है, और भविष्य के बारे में दूसरों से कहीं आगे सोचते हैं। पर भावनाओं को व्यक्त करना इनके लिए हमेशा आसान नहीं रहा।",strengths:["मौलिक सोच","मानवतावाद","दूरदर्शिता"],weaknesses:["भावनात्मक दूरी","ज़िद","अप्रत्याशितता"],compatible:["मिथुन","तुला","धनु"],incompatible:["वृषभ","वृश्चिक"],gem:"नीलम",day:"शनिवार",body:"टखने एवं पिंडली"},
+       en:{personality:"Aquarians are original thinkers, fiercely independent and wired for humanitarian causes. They love walking the road less travelled and tend to think years ahead of everyone else. Expressing feelings, however, has never come easily to them.",strengths:["Originality","Humanitarian spirit","Visionary outlook"],weaknesses:["Emotional detachment","Stubbornness","Unpredictability"],compatible:["Gemini","Libra","Sagittarius"],incompatible:["Taurus","Scorpio"],gem:"Blue Sapphire",day:"Saturday",body:"Ankles & calves"}}},
+  {id:"meen",hi:"मीन",en:"Pisces",dt:"19 फरवरी – 20 मार्च",dte:"Feb 19 – Mar 20",el:"जल/Water",ru:"गुरु/Jupiter",q:"द्विस्वभाव/Mutable",trH:"कल्पनाशील, दयालु",trE:"Imaginative, compassionate",
+   zi:{hi:{personality:"मीन राशि वाले कल्पनाशील, दयालु और गहरी आध्यात्मिक प्रवृत्ति वाले होते हैं। दूसरों की भावनाओं को बहुत जल्दी समझ लेते हैं और कला, संगीत व सपनों की दुनिया में रमते हैं। पर वास्तविकता से कभी-कभी भागने की प्रवृत्ति इन्हें मुश्किल में डाल सकती है।",strengths:["करुणा","रचनात्मकता","अंतर्ज्ञान"],weaknesses:["पलायनवाद","अति-संवेदनशीलता","अनिर्णय"],compatible:["कर्क","वृश्चिक","मकर"],incompatible:["मिथुन","धनु"],gem:"पुखराज",day:"गुरुवार",body:"पाँव एवं पंजे"},
+       en:{personality:"Pisceans are imaginative, kindhearted and deeply spiritual. They pick up on others' feelings instinctively and lose themselves in art, music and dreams. The flip side: when reality gets harsh, escapism can pull them under.",strengths:["Compassion","Creativity","Intuition"],weaknesses:["Escapism","Over-sensitivity","Indecision"],compatible:["Cancer","Scorpio","Capricorn"],incompatible:["Gemini","Sagittarius"],gem:"Yellow Sapphire",day:"Thursday",body:"Feet"}}},
 ];
 
 const CATEGORIES=[
@@ -2845,9 +2952,15 @@ function renderTools(){
 
 function renderZI(){
   const g=document.getElementById('ziGrid');g.innerHTML='';
-  RASHIS.forEach(r=>{
+  RASHIS.forEach((r,i)=>{
     const[elH,elE]=r.el.split('/');const[ruH,ruE]=r.ru.split('/');const[qH,qE]=r.q.split('/');
     const c=document.createElement('div');c.className='card zi-card';
+    c.style.cursor='pointer';
+    c.setAttribute('role','button');
+    c.setAttribute('tabindex','0');
+    c.setAttribute('aria-label',(cL==='hi'?r.hi:r.en)+' — '+(cL==='hi'?'विस्तृत जानकारी देखें':'View detailed information'));
+    c.onclick=()=>showZI(i);
+    c.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showZI(i);}};
     c.innerHTML=`
       <div class="zi-header">
         <div class="zi-glyph">${ZODIAC_SVG[r.id]}</div>
@@ -2858,9 +2971,67 @@ function renderZI(){
         <tr><td>${cL==='hi'?'स्वामी':'Ruler'}</td><td>${cL==='hi'?ruH:ruE}</td></tr>
         <tr><td>${cL==='hi'?'गुण':'Quality'}</td><td>${cL==='hi'?qH:qE}</td></tr>
         <tr><td>${cL==='hi'?'विशेषता':'Traits'}</td><td>${cL==='hi'?r.trH:r.trE}</td></tr>
-      </table>`;
+      </table>
+      <div class="zi-more">${cL==='hi'?'विस्तार से पढ़ें →':'Read more →'}</div>`;
     g.appendChild(c);
   });
+}
+
+function showZI(i){
+  const r=RASHIS[i];const z=r.zi[cL];
+  const[elH,elE]=r.el.split('/');const[ruH,ruE]=r.ru.split('/');const[qH,qE]=r.q.split('/');
+  const L={
+    personality:cL==='hi'?'व्यक्तित्व':'Personality',
+    strengths:cL==='hi'?'शक्तियाँ':'Strengths',
+    weaknesses:cL==='hi'?'कमज़ोरियाँ':'Weaknesses',
+    compatible:cL==='hi'?'अनुकूल राशियाँ':'Most Compatible',
+    incompatible:cL==='hi'?'प्रतिकूल राशियाँ':'Least Compatible',
+    element:cL==='hi'?'तत्व':'Element',
+    ruler:cL==='hi'?'स्वामी ग्रह':'Ruling Planet',
+    quality:cL==='hi'?'गुण':'Quality',
+    gem:cL==='hi'?'शुभ रत्न':'Lucky Gemstone',
+    day:cL==='hi'?'शुभ दिन':'Lucky Day',
+    body:cL==='hi'?'शरीर का अंग':'Ruled Body Part'
+  };
+  const chips=arr=>arr.map(s=>`<span class="zi-chip">${s}</span>`).join('');
+  const lis=arr=>arr.map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('ziGlyph').innerHTML=ZODIAC_SVG[r.id];
+  document.getElementById('ziName').textContent=cL==='hi'?r.hi:r.en;
+  document.getElementById('ziSub').textContent=(cL==='hi'?r.en:r.hi)+' • '+(cL==='hi'?r.dt:r.dte);
+  document.getElementById('ziBody').innerHTML=`
+    <div class="zi-section">
+      <div class="zi-section-head">${L.personality}</div>
+      <p class="zi-personality">${z.personality}</p>
+    </div>
+    <div class="zi-grid-2">
+      <div class="zi-section">
+        <div class="zi-section-head">★ ${L.strengths}</div>
+        <ul class="zi-list zi-list-pos">${lis(z.strengths)}</ul>
+      </div>
+      <div class="zi-section">
+        <div class="zi-section-head">⚠ ${L.weaknesses}</div>
+        <ul class="zi-list zi-list-neg">${lis(z.weaknesses)}</ul>
+      </div>
+    </div>
+    <div class="zi-grid-2">
+      <div class="zi-section">
+        <div class="zi-section-head">♥ ${L.compatible}</div>
+        <div class="zi-chips">${chips(z.compatible)}</div>
+      </div>
+      <div class="zi-section">
+        <div class="zi-section-head">✕ ${L.incompatible}</div>
+        <div class="zi-chips zi-chips-neg">${chips(z.incompatible)}</div>
+      </div>
+    </div>
+    <div class="zi-facts">
+      <div class="zi-fact"><div class="zi-fact-label">${L.element}</div><div class="zi-fact-value">${cL==='hi'?elH:elE}</div></div>
+      <div class="zi-fact"><div class="zi-fact-label">${L.ruler}</div><div class="zi-fact-value">${cL==='hi'?ruH:ruE}</div></div>
+      <div class="zi-fact"><div class="zi-fact-label">${L.quality}</div><div class="zi-fact-value">${cL==='hi'?qH:qE}</div></div>
+      <div class="zi-fact"><div class="zi-fact-label">${L.gem}</div><div class="zi-fact-value">${z.gem}</div></div>
+      <div class="zi-fact"><div class="zi-fact-label">${L.day}</div><div class="zi-fact-value">${z.day}</div></div>
+      <div class="zi-fact"><div class="zi-fact-label">${L.body}</div><div class="zi-fact-value">${z.body}</div></div>
+    </div>`;
+  openZI();
 }
 
 function showD(i){
@@ -2972,13 +3143,30 @@ function closeD(){
   document.body.style.overflow='';
   if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
 }
+function openZI(){
+  const ov=document.getElementById('ziOv');
+  _lastFocus=document.activeElement;
+  ov.classList.add('active');
+  ov.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>ov.querySelector('.detail-close')?.focus(),50);
+}
+function closeZI(){
+  const ov=document.getElementById('ziOv');
+  ov.classList.remove('active');
+  ov.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
+}
 // Focus trap: keep Tab cycling inside whichever dialog is open
 document.addEventListener('keydown',e=>{
   if(e.key!=='Tab')return;
   const ov=document.getElementById('ov').classList.contains('active')
     ?document.getElementById('ov')
     :document.getElementById('catOv').classList.contains('active')
-      ?document.getElementById('catOv'):null;
+      ?document.getElementById('catOv')
+      :document.getElementById('ziOv').classList.contains('active')
+        ?document.getElementById('ziOv'):null;
   if(!ov)return;
   const f=ov.querySelectorAll('button,[href],select,input,textarea,[tabindex]:not([tabindex="-1"])');
   if(!f.length)return;
@@ -3253,8 +3441,15 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 async function loadDD(){
-  const t=new Date().toISOString().slice(0,10);
-  try{const r=await fetch(`/content/${t}.json`);if(r.ok)dd=await r.json()}catch(e){}
+  // Use IST local date so the filename always matches what was generated
+  const n=new Date();
+  const ist=new Date(n.getTime()+(n.getTimezoneOffset()+330)*60000);
+  const t=ist.getFullYear()+'-'+String(ist.getMonth()+1).padStart(2,'0')+'-'+String(ist.getDate()).padStart(2,'0');
+  try{
+    let r=await fetch(`content/${t}.json`);
+    if(!r.ok)r=await fetch(`/content/${t}.json`);
+    if(r.ok)dd=await r.json();
+  }catch(e){}
   renderGrid();
 }
 
@@ -3299,6 +3494,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
     if(document.getElementById('ov').classList.contains('active'))closeD();
     if(document.getElementById('catOv').classList.contains('active'))closeCatOv();
+    if(document.getElementById('ziOv').classList.contains('active'))closeZI();
     document.getElementById('mNav').classList.remove('open');
   }
 });
