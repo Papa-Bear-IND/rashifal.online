@@ -49,8 +49,8 @@
   /* ── Text ── */
   --t-heading:   rgba(232, 228, 218, 0.95);
   --t-body:      rgba(200, 205, 220, 0.82);
-  --t-muted:     rgba(200, 205, 220, 0.48);
-  --t-faint:     rgba(200, 205, 220, 0.24);
+  --t-muted:     rgba(200, 205, 220, 0.62);
+  --t-faint:     rgba(200, 205, 220, 0.36);
 
   /* ── Borders ── */
   --b-subtle:    rgba(212, 175, 55, 0.06);
@@ -95,8 +95,202 @@
   --glass-radius: 14px;
 }
 
+/* ── LIGHT THEME (parchment / day sky) ── */
+:root[data-theme="light"] {
+  --midnight:    #F5F0E4;
+  --void:        #FAF6EB;
+  --charcoal:    #EFE8D6;
+  --slate:       #E5DCC4;
+  --surface:     rgba(255, 252, 244, 0.85);
+  --surface-h:   rgba(255, 252, 244, 0.95);
+
+  --silver:      rgba(60, 50, 30, 0.85);
+  --silver-dim:  rgba(60, 50, 30, 0.55);
+  --silver-faint:rgba(60, 50, 30, 0.2);
+  --ash:         rgba(60, 50, 30, 0.06);
+
+  --gold:        #A8801A;
+  --gold-light:  #C29B30;
+  --gold-muted:  rgba(168, 128, 26, 0.14);
+  --gold-glow:   rgba(168, 128, 26, 0.08);
+  --gold-faint:  rgba(168, 128, 26, 0.04);
+
+  --t-heading:   rgba(40, 30, 12, 0.95);
+  --t-body:      rgba(60, 48, 20, 0.85);
+  --t-muted:     rgba(60, 48, 20, 0.65);
+  --t-faint:     rgba(60, 48, 20, 0.4);
+
+  --b-subtle:    rgba(168, 128, 26, 0.12);
+  --b-default:   rgba(168, 128, 26, 0.2);
+  --b-hover:     rgba(168, 128, 26, 0.4);
+
+  --glass-bg:     rgba(255, 252, 244, 0.8);
+  --glass-bg-h:   rgba(255, 252, 244, 0.92);
+  --glass-border: 1px solid rgba(168, 128, 26, 0.12);
+}
+:root[data-theme="light"] body { background: var(--void); }
+:root[data-theme="light"] #skyCanvas,
+:root[data-theme="light"] .sky-overlay,
+:root[data-theme="light"] .horizon,
+:root[data-theme="light"] .horizon-dot { display: none !important; }
+:root[data-theme="light"] .period.active { color: #FAF6EB; }
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 200;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--b-default);
+  border-radius: 50%;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.05);
+  border-color: var(--gold);
+  background: var(--gold-muted);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+@media (max-width: 768px) {
+  .theme-toggle { top: 10px; right: 10px; width: 34px; height: 34px; }
+  .theme-toggle svg { width: 16px; height: 16px; }
+}
+
 /* ── BASE ── */
 html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ── Section indicator (current section pill) ── */
+.section-indicator {
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  margin: 0 0 calc(var(--sp-4) * -1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.section-indicator.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--b-default);
+  border-radius: 999px;
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.section-indicator-label {
+  color: var(--t-faint);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.section-indicator-name {
+  color: var(--gold);
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section-indicator { top: 56px; }
+  .section-indicator-pill { padding: 5px 12px; font-size: 11px; }
+}
+
+/* ── A11y: skip to content link ── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 20px;
+  background: var(--gold);
+  color: var(--void);
+  font-family: var(--f-sans);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: none;
+}
+
+/* ── A11y: visually hidden (screen reader only) ── */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ── A11y: compatibility helper + error ── */
+.compat-help {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin: -8px 0 16px;
+}
+.compat-error {
+  display: none;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: #ff8a8a;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 138, 138, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 138, 138, 0.06);
+}
+.compat-error.show { display: block; }
+
+/* ── A11y: global keyboard focus ── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+  transition: outline-offset 0.15s ease;
+}
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
 
 body {
   background: var(--void);
@@ -153,7 +347,7 @@ h1, h2, h3, h4 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  transition: background 120s ease-in-out;
+  transition: background 60s ease-in-out;
 }
 
 /* Horizon glow bar */
@@ -517,10 +711,16 @@ h1.title {
 .period:active { transform: scale(0.96); }
 .period:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .period.active {
-  border-color: rgba(212, 175, 55, 0.25);
-  color: var(--gold);
-  background: var(--gold-muted);
-  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.06);
+  border-color: var(--gold);
+  color: var(--void);
+  background: var(--gold);
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.28), 0 0 0 1px var(--gold) inset;
+}
+.period.active:hover {
+  background: var(--gold);
+  color: var(--void);
+  transform: translateY(-1px);
 }
 
 /* ── SECTION ── */
@@ -733,6 +933,23 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 }
 
 /* ── CATEGORY GRID ── */
+.cat-subgroup { margin-bottom: var(--sp-8); }
+.cat-subgroup:last-child { margin-bottom: 0; }
+.cat-subhead {
+  font-family: var(--f-serif);
+  font-size: var(--fs-xl);
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+.cat-subdesc {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin: 0 0 var(--sp-5);
+  font-style: italic;
+}
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -960,6 +1177,105 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   color: var(--t-muted);
   line-height: var(--lh-normal);
 }
+
+/* ── Glossary tooltip / "what is this?" ── */
+.tool-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: var(--sp-2);
+}
+.glossary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--b-default);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--f-sans);
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+.glossary-btn:hover {
+  background: var(--gold-muted);
+  border-color: var(--gold);
+  transform: scale(1.1);
+}
+.glossary-panel {
+  display: none;
+  margin-top: var(--sp-3);
+  padding: 10px 14px;
+  font-size: var(--fs-xs);
+  color: var(--t-body);
+  background: rgba(212, 175, 55, 0.05);
+  border-left: 2px solid var(--gold);
+  border-radius: 4px;
+  text-align: left;
+  font-style: italic;
+  line-height: 1.6;
+}
+.glossary-panel.open { display: block; }
+
+/* ── Notify-me capture for Coming Soon tools ── */
+.notify-wrap {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--b-subtle);
+}
+.notify-form {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+.notify-input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--b-default);
+  border-radius: 6px;
+  color: var(--t-body);
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.notify-input:focus { border-color: var(--gold); }
+.notify-input::placeholder { color: var(--t-faint); }
+.notify-btn {
+  padding: 8px 14px;
+  background: var(--gold-muted);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: var(--gold);
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.notify-btn:hover {
+  background: var(--gold);
+  color: var(--void);
+}
+.notify-msg {
+  display: none;
+  margin-top: 8px;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  text-align: center;
+  font-style: italic;
+}
+.notify-msg.show { display: block; }
 
 /* ── ZODIAC INFO ── */
 .zi-grid {
@@ -1275,6 +1591,13 @@ footer {
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light / dark theme" onclick="toggleTheme()">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1"/></svg>
+</button>
+
 <canvas id="skyCanvas"></canvas>
 <div class="sky-overlay" id="skyOverlay"></div>
 <div class="horizon"></div>
@@ -1330,6 +1653,15 @@ footer {
     <p class="subtitle">ग्रहों की भाषा में पढ़ें अपना भविष्य — Your Celestial Guide to Life</p>
   </header>
 
+  <main id="main-content" tabindex="-1">
+
+  <div class="section-indicator" id="secInd" aria-hidden="true">
+    <div class="section-indicator-pill">
+      <span class="section-indicator-label" data-hi="आप यहाँ हैं" data-en="You are in">आप यहाँ हैं</span>
+      <span class="section-indicator-name" id="secIndName"></span>
+    </div>
+  </div>
+
   <div class="controls">
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="hi" onclick="setLang('hi')">हिन्दी</button>
@@ -1375,7 +1707,16 @@ footer {
       <p data-hi="जीवन के हर पहलू के लिए अलग भविष्यवाणी — प्रेम, करियर, सेहत, धन" data-en="Dedicated predictions for every facet of life — love, career, health, wealth">जीवन के हर पहलू के लिए अलग भविष्यवाणी — प्रेम, करियर, सेहत, धन</p>
       <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
     </div>
-    <div class="cat-grid" id="catGrid"></div>
+    <div class="cat-subgroup">
+      <h3 class="cat-subhead" data-hi="आज की भविष्यवाणी" data-en="Today's Predictions">आज की भविष्यवाणी</h3>
+      <p class="cat-subdesc" data-hi="आज के दिन के लिए जीवन के मुख्य क्षेत्रों पर विस्तृत भविष्यफल" data-en="Detailed forecasts for the key areas of life today">आज के दिन के लिए जीवन के मुख्य क्षेत्रों पर विस्तृत भविष्यफल</p>
+      <div class="cat-grid" id="catGridDaily"></div>
+    </div>
+    <div class="cat-subgroup">
+      <h3 class="cat-subhead" data-hi="गहन मार्गदर्शिका" data-en="In-Depth Guides">गहन मार्गदर्शिका</h3>
+      <p class="cat-subdesc" data-hi="आपकी राशि के अनुसार सम्पूर्ण जीवन मार्गदर्शिका" data-en="Comprehensive lifelong guidance based on your sign">आपकी राशि के अनुसार सम्पूर्ण जीवन मार्गदर्शिका</p>
+      <div class="cat-grid" id="catGridGuide"></div>
+    </div>
   </section>
 
   <!-- ═══ COMPATIBILITY ═══ -->
@@ -1387,14 +1728,18 @@ footer {
     </div>
     <div class="compat-wrap">
       <div class="card compat-inner">
-        <h3 data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</h3>
+        <h3 id="compatTitle" data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</h3>
+        <p class="compat-help" data-hi="दो अलग-अलग राशियाँ चुनें" data-en="Select two different signs to compare">दो अलग-अलग राशियाँ चुनें</p>
         <div class="compat-row">
-          <select class="compat-select" id="s1"><option value="" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</option></select>
-          <div class="compat-divider"></div>
-          <select class="compat-select" id="s2"><option value="" data-hi="पार्टनर की राशि" data-en="Partner's sign">पार्टनर की राशि</option></select>
+          <label for="s1" class="sr-only" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</label>
+          <select class="compat-select" id="s1" aria-label="Your sign" onchange="clearCErr()"><option value="" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</option></select>
+          <div class="compat-divider" aria-hidden="true"></div>
+          <label for="s2" class="sr-only" data-hi="पार्टनर की राशि" data-en="Partner's sign">पार्टनर की राशि</label>
+          <select class="compat-select" id="s2" aria-label="Partner's sign" onchange="clearCErr()"><option value="" data-hi="पार्टनर की राशि" data-en="Partner's sign">पार्टनर की राशि</option></select>
         </div>
-        <button class="btn-primary" onclick="checkC()"><span data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</span></button>
-        <div class="compat-result" id="cRes"><div class="compat-score" id="cScore"></div><div class="compat-verdict" id="cVerdict"></div></div>
+        <button class="btn-primary" type="button" onclick="checkC()"><span data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</span></button>
+        <div class="compat-error" id="cErr" role="alert" aria-live="polite"></div>
+        <div class="compat-result" id="cRes" aria-live="polite"><div class="compat-score" id="cScore"></div><div class="compat-verdict" id="cVerdict"></div></div>
       </div>
     </div>
   </section>
@@ -1422,6 +1767,8 @@ footer {
   </section>
 
   <div class="ad-slot">Ad Placement &mdash; Bottom</div>
+
+  </main>
 
   <footer>
     <p class="footer-mark">Rashifal.online &middot; 2026 &middot; सर्वे भवन्तु सुखिनः</p>
@@ -1463,9 +1810,9 @@ footer {
 </nav>
 
 <!-- ═══ DETAIL OVERLAY ═══ -->
-<div class="overlay" id="ov" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow=''}">
-  <div class="detail">
-    <button class="detail-close" onclick="document.getElementById('ov').classList.remove('active');document.body.style.overflow=''" aria-label="Close">&times;</button>
+<div class="overlay" id="ov" role="dialog" aria-modal="true" aria-labelledby="dName" aria-hidden="true" onclick="if(event.target===this)closeD()">
+  <div class="detail" role="document">
+    <button class="detail-close" type="button" onclick="closeD()" aria-label="Close">&times;</button>
     <div class="detail-glyph" id="dGlyph"></div>
     <div class="detail-name" id="dName"></div>
     <div class="detail-sub" id="dSub"></div>
@@ -1514,7 +1861,15 @@ function initNebulae(){
   ];
 }
 
-function getIST(){const n=new Date();return(n.getUTCHours()+n.getUTCMinutes()/60+n.getUTCSeconds()/3600+5.5)%24}
+let _istCache={t:0,v:0};
+function getIST(){
+  const now=Date.now();
+  if(now-_istCache.t<1000)return _istCache.v;
+  const n=new Date();
+  _istCache.v=(n.getUTCHours()+n.getUTCMinutes()/60+n.getUTCSeconds()/3600+5.5)%24;
+  _istCache.t=now;
+  return _istCache.v;
+}
 function lerp(a,b,t){return a+(b-a)*t}
 function lerpC(a,b,t){
   const pa=parseInt(a.slice(1),16),pb=parseInt(b.slice(1),16);
@@ -1849,10 +2204,17 @@ function frame(){
   doShoot(time,na);
   updateHorizon(h);
 
-  requestAnimationFrame(frame);
+  _rafId=requestAnimationFrame(frame);
 }
 
-addEventListener('resize',resize);resize();frame();
+let _rafId=null;
+function startLoop(){if(_rafId==null)_rafId=requestAnimationFrame(frame);}
+function stopLoop(){if(_rafId!=null){cancelAnimationFrame(_rafId);_rafId=null;}}
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden)stopLoop();else startLoop();
+});
+
+addEventListener('resize',resize);resize();startLoop();
 })();
 
 
@@ -1892,28 +2254,36 @@ const RASHIS=[
 ];
 
 const CATEGORIES=[
-  {id:'love',titleH:'प्रेम एवं रिश्ते',titleE:'Love & Relationships',subH:'Love & Relationships',subE:'प्रेम एवं रिश्ते',descH:'आपके प्रेम जीवन में आज क्या लिखा है? विवाह, रोमांस और रिश्तों की विस्तृत भविष्यवाणी पढ़ें।',descE:'What does the cosmos hold for your love life? Read detailed predictions on romance, marriage and relationships.',label:'Love',labelClass:'label-love',
+  {id:'love',group:'daily',titleH:'प्रेम एवं रिश्ते',titleE:'Love & Relationships',subH:'Love & Relationships',subE:'प्रेम एवं रिश्ते',descH:'आपके प्रेम जीवन में आज क्या लिखा है? विवाह, रोमांस और रिश्तों की विस्तृत भविष्यवाणी पढ़ें।',descE:'What does the cosmos hold for your love life? Read detailed predictions on romance, marriage and relationships.',label:'Love',labelClass:'label-love',
    icon:'<svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9 3c1.7 0 3 1.2 3 1.2S13.3 3 15 3c2.5 0 5 2.5 5 5.5C20 13.5 12 21 12 21z"/></svg>'},
-  {id:'career',titleH:'करियर एवं व्यवसाय',titleE:'Career & Business',subH:'Career & Business',subE:'करियर एवं व्यवसाय',descH:'आज नौकरी में तरक्की होगी या व्यापार में लाभ? जानिए ग्रहों की चाल का आपके करियर पर प्रभाव।',descE:'Will today bring a promotion or business breakthrough? Discover how planetary alignments affect your career.',label:'Career',labelClass:'label-career',
+  {id:'career',group:'daily',titleH:'करियर एवं व्यवसाय',titleE:'Career & Business',subH:'Career & Business',subE:'करियर एवं व्यवसाय',descH:'आज नौकरी में तरक्की होगी या व्यापार में लाभ? जानिए ग्रहों की चाल का आपके करियर पर प्रभाव।',descE:'Will today bring a promotion or business breakthrough? Discover how planetary alignments affect your career.',label:'Career',labelClass:'label-career',
    icon:'<svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.5"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>'},
-  {id:'health',titleH:'स्वास्थ्य राशिफल',titleE:'Health Horoscope',subH:'Health Horoscope',subE:'स्वास्थ्य राशिफल',descH:'तन और मन दोनों का ध्यान रखें। आज किन बातों से सावधान रहें और कैसे स्वस्थ रहें, जानिए।',descE:'Nurture body and mind. Learn what to watch out for today and how to maintain optimal wellness.',label:'Health',labelClass:'label-health',
+  {id:'health',group:'daily',titleH:'स्वास्थ्य राशिफल',titleE:'Health Horoscope',subH:'Health Horoscope',subE:'स्वास्थ्य राशिफल',descH:'तन और मन दोनों का ध्यान रखें। आज किन बातों से सावधान रहें और कैसे स्वस्थ रहें, जानिए।',descE:'Nurture body and mind. Learn what to watch out for today and how to maintain optimal wellness.',label:'Health',labelClass:'label-health',
    icon:'<svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>'},
-  {id:'money',titleH:'धन एवं वित्त',titleE:'Money & Finance',subH:'Money & Finance',subE:'धन एवं वित्त',descH:'क्या आज निवेश का सही समय है? बचत, खर्च और आर्थिक निर्णयों के लिए ज्योतिषीय मार्गदर्शन।',descE:'Is today the right time to invest? Astrological guidance for savings, spending and financial decisions.',label:'Finance',labelClass:'label-money',
+  {id:'money',group:'daily',titleH:'धन एवं वित्त',titleE:'Money & Finance',subH:'Money & Finance',subE:'धन एवं वित्त',descH:'क्या आज निवेश का सही समय है? बचत, खर्च और आर्थिक निर्णयों के लिए ज्योतिषीय मार्गदर्शन।',descE:'Is today the right time to invest? Astrological guidance for savings, spending and financial decisions.',label:'Finance',labelClass:'label-money',
    icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v12M9 9.5c0-1 1.3-2 3-2s3 1 3 2-1.3 2-3 2-3 1-3 2 1.3 2 3 2"/></svg>'},
-  {id:'sunsign',titleH:'सन साइन भविष्यफल',titleE:'Sun Sign Predictions',subH:'Sun Sign Predictions',subE:'सन साइन भविष्यफल',descH:'पश्चिमी ज्योतिष पद्धति के अनुसार आपके सूर्य चिन्ह का आज का सम्पूर्ण भविष्यफल।',descE:'Your complete daily forecast according to Western tropical astrology and your sun sign.',label:'Sun Sign',labelClass:'label-accent',
+  {id:'sunsign',group:'guide',titleH:'सन साइन भविष्यफल',titleE:'Sun Sign Predictions',subH:'Sun Sign Predictions',subE:'सन साइन भविष्यफल',descH:'पश्चिमी ज्योतिष पद्धति के अनुसार आपके सूर्य चिन्ह का आज का सम्पूर्ण भविष्यफल।',descE:'Your complete daily forecast according to Western tropical astrology and your sun sign.',label:'Sun Sign',labelClass:'label-accent',
    icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1"/></svg>'},
-  {id:'career-guide',titleH:'राशि अनुसार करियर मार्गदर्शन',titleE:'Zodiac Career Guide',subH:'Zodiac Career Guide',subE:'राशि अनुसार करियर मार्गदर्शन',descH:'आपकी राशि के अनुसार कौन सा क्षेत्र आपके लिए सर्वोत्तम है? स्थायी करियर मार्गदर्शिका।',descE:'Which field suits you best according to your zodiac? A comprehensive career guide for every sign.',label:'Guide',labelClass:'label-career',
+  {id:'career-guide',group:'guide',titleH:'राशि अनुसार करियर मार्गदर्शन',titleE:'Zodiac Career Guide',subH:'Zodiac Career Guide',subE:'राशि अनुसार करियर मार्गदर्शन',descH:'आपकी राशि के अनुसार कौन सा क्षेत्र आपके लिए सर्वोत्तम है? स्थायी करियर मार्गदर्शिका।',descE:'Which field suits you best according to your zodiac? A comprehensive career guide for every sign.',label:'Guide',labelClass:'label-career',
    icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>'},
 ];
 
 const TOOLS=[
   {titleH:'निःशुल्क कुंडली',titleE:'Free Kundli',descH:'अपनी जन्म तिथि, समय और स्थान दर्ज करें — विस्तृत ग्रह स्थिति, भाव चक्र और दशा विश्लेषण तुरंत प्राप्त करें।',descE:'Enter your birth date, time and place to receive a detailed chart with planetary positions, house analysis and dasha periods.',badge:true,
+   glossH:'कुंडली एक ज्योतिषीय चार्ट है जो आपके जन्म के समय आकाश में ग्रहों की स्थिति को दर्शाता है। इसे जन्म कुंडली या birth chart भी कहते हैं।',
+   glossE:'A Kundli is an astrological chart that shows the position of planets in the sky at the moment of your birth — also known as a birth chart or natal chart.',
    icon:'<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>'},
   {titleH:'जन्मपत्री',titleE:'Janampatri',descH:'विस्तृत जन्म कुंडली — महादशा, अंतर्दशा, ग्रह योग, मांगलिक दोष और जीवन के प्रत्येक पहलू का विश्लेषण।',descE:'Complete birth chart analysis — Mahadasha, Antardasha, planetary Yogas, Manglik Dosha and predictions for every life aspect.',badge:true,
+   glossH:'जन्मपत्री कुंडली का विस्तृत रूप है जिसमें दशा (समयचक्र), योग (ग्रह संयोजन) और जीवन के विभिन्न पहलुओं की भविष्यवाणी शामिल होती है।',
+   glossE:'Janampatri is an in-depth horoscope that goes beyond a basic Kundli — it includes Dashas (planetary time periods), Yogas (planetary combinations), and detailed life predictions.',
    icon:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l16 16M20 4L4 20"/></svg>'},
   {titleH:'कुंडली मिलान',titleE:'Kundli Matching',descH:'विवाह से पहले 36 गुणों के आधार पर अष्टकूट मिलान करें। नाड़ी, भकूट, गण और अन्य कूटों का विश्लेषण।',descE:'Match horoscopes before marriage using 36 Guna Ashtakoot method. Analysis of Nadi, Bhakoot, Gana and all Kootas.',badge:false,
+   glossH:'अष्टकूट विवाह के लिए कुंडली मिलान की वैदिक पद्धति है। दूल्हा-दुल्हन की कुंडलियों को 8 कूटों (कुल 36 गुण) पर परखा जाता है — जितने अधिक गुण मिलें, उतनी अनुकूलता मानी जाती है।',
+   glossE:'Ashtakoot is the Vedic method of matching horoscopes for marriage. The bride and groom\'s charts are compared across 8 Kootas (36 points total) — the more points that align, the better the compatibility.',
    icon:'<svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>'},
   {titleH:'आज का पंचांग',titleE:"Today's Panchang",descH:'सम्पूर्ण दैनिक पंचांग — तिथि, नक्षत्र, योग, करण, राहुकाल, शुभ मुहूर्त और चौघड़िया।',descE:'Complete daily Panchang — Tithi, Nakshatra, Yoga, Karana, Rahu Kaal, Shubh Muhurat and Choghadiya.',badge:true,
+   glossH:'पंचांग हिन्दू पंचांगिक कैलेंडर है जो दिन के पाँच अंग — तिथि, वार, नक्षत्र, योग और करण — दर्शाता है। इससे शुभ-अशुभ समय और मुहूर्त निर्धारित किए जाते हैं।',
+   glossE:'Panchang is the Hindu almanac that tracks five elements of a day — Tithi (lunar day), Vara (weekday), Nakshatra (lunar mansion), Yoga, and Karana — used to determine auspicious times and muhuratas.',
    icon:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>'},
 ];
 
@@ -1980,8 +2350,12 @@ function renderGrid(){
   const g=document.getElementById('rGrid');g.innerHTML='';
   RASHIS.forEach((r,i)=>{
     const rd=dd?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
-    const c=document.createElement('a');c.className='card rashi-card';c.href='javascript:void(0)';
+    const c=document.createElement('div');c.className='card rashi-card';
+    c.setAttribute('role','button');
+    c.setAttribute('tabindex','0');
+    c.setAttribute('aria-label',(cL==='hi'?r.hi:r.en)+' — '+(cL==='hi'?'विस्तृत राशिफल खोलें':'Open detailed horoscope'));
     c.onclick=()=>showD(i);
+    c.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showD(i);}};
     c.innerHTML=`
       <div class="rashi-top">
         <div class="rashi-glyph">${ZODIAC_SVG[r.id]}</div>
@@ -1997,7 +2371,9 @@ function renderGrid(){
 }
 
 function renderCats(){
-  const g=document.getElementById('catGrid');g.innerHTML='';
+  const gd=document.getElementById('catGridDaily'),gg=document.getElementById('catGridGuide');
+  if(!gd||!gg)return;
+  gd.innerHTML='';gg.innerHTML='';
   CATEGORIES.forEach(c=>{
     const el=document.createElement('a');el.className='card cat-card';el.href='#';
     el.innerHTML=`
@@ -2006,19 +2382,34 @@ function renderCats(){
       <div class="cat-subtitle">${cL==='hi'?c.subH:c.subE}</div>
       <div class="cat-desc">${cL==='hi'?c.descH:c.descE}</div>
       <span class="cat-label ${c.labelClass}">${c.label}</span>`;
-    g.appendChild(el);
+    (c.group==='guide'?gg:gd).appendChild(el);
   });
 }
 
 function renderTools(){
   const g=document.getElementById('toolsGrid');g.innerHTML='';
-  TOOLS.forEach(t=>{
+  TOOLS.forEach((t,i)=>{
     const el=document.createElement('div');el.className='card tool-card';
+    const pid=`gloss-${i}`;
+    const helpLabel=cL==='hi'?'यह क्या है? जानें':'What is this? Learn more';
     el.innerHTML=`
       ${t.badge?`<span class="tool-badge">${cL==='hi'?'जल्द':'Soon'}</span>`:''}
       <div class="tool-icon-wrap">${t.icon}</div>
-      <div class="tool-title">${cL==='hi'?t.titleH:t.titleE}</div>
-      <div class="tool-desc">${cL==='hi'?t.descH:t.descE}</div>`;
+      <div class="tool-title-row">
+        <div class="tool-title">${cL==='hi'?t.titleH:t.titleE}</div>
+        <button type="button" class="glossary-btn" aria-label="${helpLabel}" aria-expanded="false" aria-controls="${pid}" onclick="toggleGloss(this,'${pid}')">?</button>
+      </div>
+      <div class="tool-desc">${cL==='hi'?t.descH:t.descE}</div>
+      <div class="glossary-panel" id="${pid}" role="region">${cL==='hi'?t.glossH:t.glossE}</div>
+      ${t.badge?`
+      <div class="notify-wrap">
+        <form class="notify-form" onsubmit="return notifyMe(event,this,${i})">
+          <label class="sr-only" for="notify-${i}">${cL==='hi'?'ईमेल':'Email'}</label>
+          <input class="notify-input" id="notify-${i}" type="email" required placeholder="${cL==='hi'?'आपका ईमेल पता':'your@email.com'}" />
+          <button class="notify-btn" type="submit">${cL==='hi'?'सूचित करें':'Notify me'}</button>
+        </form>
+        <div class="notify-msg" id="notify-msg-${i}" role="status" aria-live="polite"></div>
+      </div>`:''}`;
     g.appendChild(el);
   });
 }
@@ -2052,12 +2443,90 @@ function showD(i){
   document.getElementById('dNum').textContent=ld?.lucky_number||'\u2014';
   document.getElementById('dCol').textContent=ld?.lucky_color||'\u2014';
   document.getElementById('dRate').textContent=ld?sr(ld.rating):'\u2014';
-  document.getElementById('ov').classList.add('active');document.body.style.overflow='hidden';
+  openD();
 }
 
+let _lastFocus=null;
+function openD(){
+  const ov=document.getElementById('ov');
+  _lastFocus=document.activeElement;
+  ov.classList.add('active');
+  ov.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  // focus the close button so keyboard users land inside the dialog
+  setTimeout(()=>ov.querySelector('.detail-close')?.focus(),50);
+}
+function closeD(){
+  const ov=document.getElementById('ov');
+  ov.classList.remove('active');
+  ov.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
+}
+// Focus trap: keep Tab cycling inside the dialog while open
+document.addEventListener('keydown',e=>{
+  const ov=document.getElementById('ov');
+  if(e.key!=='Tab'||!ov.classList.contains('active'))return;
+  const f=ov.querySelectorAll('button,[href],select,input,textarea,[tabindex]:not([tabindex="-1"])');
+  if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
+
+function notifyMe(e,form,idx){
+  e.preventDefault();
+  const input=form.querySelector('input');
+  const msg=document.getElementById('notify-msg-'+idx);
+  const email=(input.value||'').trim();
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msg.textContent=cL==='hi'?'कृपया वैध ईमेल दर्ज करें':'Please enter a valid email';
+    msg.style.color='#ff8a8a';
+    msg.classList.add('show');
+    return false;
+  }
+  try{
+    const key='notifySubs';
+    const list=JSON.parse(localStorage.getItem(key)||'[]');
+    list.push({tool:TOOLS[idx].titleE,email,t:Date.now()});
+    localStorage.setItem(key,JSON.stringify(list));
+  }catch(_){}
+  msg.textContent=cL==='hi'?'धन्यवाद! लॉन्च होते ही आपको सूचित किया जाएगा।':'Thank you! We\'ll notify you when this launches.';
+  msg.style.color='';
+  msg.classList.add('show');
+  input.value='';
+  input.disabled=true;
+  form.querySelector('button').disabled=true;
+  return false;
+}
+
+function toggleGloss(btn,id){
+  const p=document.getElementById(id);
+  if(!p)return;
+  const open=p.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open?'true':'false');
+}
+
+function showCErr(msg){
+  const e=document.getElementById('cErr');
+  e.textContent=msg;
+  e.classList.add('show');
+  document.getElementById('cRes').style.display='none';
+}
+function clearCErr(){
+  document.getElementById('cErr').classList.remove('show');
+}
 function checkC(){
   const a=document.getElementById('s1').value,b=document.getElementById('s2').value;
-  if(!a||!b)return;
+  clearCErr();
+  if(!a||!b){
+    showCErr(cL==='hi'?'कृपया दोनों राशियाँ चुनें':'Please select both signs');
+    return;
+  }
+  if(a===b){
+    showCErr(cL==='hi'?'कृपया दो अलग-अलग राशियाँ चुनें':'Please choose two different signs');
+    return;
+  }
   const sc=COMPAT[a]?.[b]||50;
   document.getElementById('cRes').style.display='block';
   document.getElementById('cScore').textContent=sc+'%';
@@ -2069,7 +2538,9 @@ function setLang(l){
   cL=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
-  upDate();upCel();renderGrid();renderCats();renderTools();renderZI();
+  upDate();upCel();renderGrid();renderCats();
+  if(_rendered.tools)renderTools();
+  if(_rendered.zi)renderZI();
 }
 
 function setP(el){document.querySelectorAll('.period').forEach(t=>t.classList.remove('active'));el.classList.add('active')}
@@ -2086,13 +2557,46 @@ async function loadDD(){
   renderGrid();
 }
 
-// Initialize
-fillSelects();upDate();upCel();renderGrid();renderCats();renderTools();renderZI();loadDD();
+// Track which deferred sections have been rendered
+const _rendered={tools:false,zi:false};
+
+// Theme toggle (light / dark) — persists to localStorage, respects OS pref on first visit
+(function initTheme(){
+  let saved=null;
+  try{saved=localStorage.getItem('theme');}catch(_){}
+  const sys=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  const t=saved||sys;
+  if(t==='light')document.documentElement.setAttribute('data-theme','light');
+})();
+function toggleTheme(){
+  const cur=document.documentElement.getAttribute('data-theme')==='light'?'light':'dark';
+  const next=cur==='light'?'dark':'light';
+  if(next==='light')document.documentElement.setAttribute('data-theme','light');
+  else document.documentElement.removeAttribute('data-theme');
+  try{localStorage.setItem('theme',next);}catch(_){}
+}
+
+// Refresh celestial strip + date hourly so Muhurta / Sun-sign stay current
+setInterval(()=>{upDate();upCel();},60*60*1000);
+
+// Initialize (Tools + Zodiac are lazy — rendered on viewport approach)
+fillSelects();upDate();upCel();renderGrid();renderCats();loadDD();
+
+(function lazySections(){
+  const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
+  const lo=new IntersectionObserver((entries,o)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const fn=lazyMap[e.target.id];
+      if(fn){fn();o.unobserve(e.target);}
+    });
+  },{rootMargin:'400px 0px'});
+  ['tools','zodiac'].forEach(id=>{const el=document.getElementById(id);if(el)lo.observe(el);});
+})();
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
-    document.getElementById('ov').classList.remove('active');
-    document.body.style.overflow='';
+    if(document.getElementById('ov').classList.contains('active'))closeD();
     document.getElementById('mNav').classList.remove('open');
   }
 });
@@ -2100,8 +2604,17 @@ document.addEventListener('keydown',e=>{
 /* Bottom nav active state — scroll spy */
 (function(){
   const sections=['rashifal','horoscopes','compatibility','tools','zodiac'];
+  const SEC_NAMES={
+    rashifal:{hi:'राशिफल',en:'Rashifal'},
+    horoscopes:{hi:'विशेष राशिफल',en:'Horoscopes'},
+    compatibility:{hi:'अनुकूलता',en:'Compatibility'},
+    tools:{hi:'उपकरण',en:'Tools'},
+    zodiac:{hi:'राशि परिचय',en:'Zodiac'}
+  };
   const bnavItems=document.querySelectorAll('.bnav-item');
   if(!bnavItems.length)return;
+  const indEl=document.getElementById('secInd');
+  const indName=document.getElementById('secIndName');
   let ticking=false;
   function updateActive(){
     const scrollY=window.scrollY+200;
@@ -2114,12 +2627,16 @@ document.addEventListener('keydown',e=>{
       const href=item.getAttribute('href');
       item.classList.toggle('active',href==='#'+current);
     });
+    if(indEl&&indName){
+      const lang=(typeof cL!=='undefined'?cL:'hi');
+      indName.textContent=SEC_NAMES[current][lang];
+      indEl.classList.toggle('visible',window.scrollY>300);
+    }
     ticking=false;
   }
-  window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateActive);ticking=true}});
+  window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateActive);ticking=true}},{passive:true});
   /* Also update desktop nav */
   const dnavLinks=document.querySelectorAll('.nav-link');
-  const origUpdate=updateActive;
   window.addEventListener('scroll',()=>{
     if(ticking)return;
     requestAnimationFrame(()=>{
@@ -2127,7 +2644,7 @@ document.addEventListener('keydown',e=>{
       sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=scrollY2)cur=id});
       dnavLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
     });
-  });
+  },{passive:true});
 })();
 </script>
 </body>
