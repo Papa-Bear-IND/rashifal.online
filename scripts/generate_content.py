@@ -233,12 +233,226 @@ Rules:
     return output
 
 
+def _period_rashi_loop(prompt_builder, label: str):
+    """Helper that runs a per-rashi Claude call and returns a list of entries."""
+    out = []
+    for rashi in RASHIS:
+        print(f"  {label}: {rashi['name_en']} ({rashi['name_hi']})...")
+        prompt = prompt_builder(rashi)
+        try:
+            data = _parse_json(call_claude(prompt))
+        except Exception:
+            time.sleep(2)
+            data = _parse_json(call_claude(prompt))
+        out.append({**rashi, **data})
+        time.sleep(1)
+    return out
+
+
+def generate_weekly(date_str: str):
+    """Weekly rashifal — Monday to Sunday containing date_str."""
+    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    monday = dt - datetime.timedelta(days=dt.weekday())
+    sunday = monday + datetime.timedelta(days=6)
+    iso_year, iso_week, _ = dt.isocalendar()
+    week_label = f"{monday.strftime('%d %b')} – {sunday.strftime('%d %b %Y')}"
+
+    def prompter(rashi):
+        return f"""You are an expert Vedic astrologer writing a weekly horoscope.
+Generate the weekly horoscope for {rashi['name_en']} ({rashi['name_hi']}) for the week {week_label}.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi": {{
+    "prediction": "5-6 sentences in Hindi covering the whole week, weekly themes, and key days to watch.",
+    "key_days": "1-2 sentences in Hindi naming the most auspicious and most challenging days of the week.",
+    "love": "2-3 sentences in Hindi for love/relationships this week.",
+    "career": "2-3 sentences in Hindi for career/work this week.",
+    "health": "2-3 sentences in Hindi for health this week.",
+    "finance": "2-3 sentences in Hindi for money this week.",
+    "lucky_number": 7,
+    "lucky_color": "लाल",
+    "rating": 3.5
+  }},
+  "english": {{
+    "prediction": "5-6 sentences in English covering the whole week, weekly themes, and key days to watch.",
+    "key_days": "1-2 sentences in English naming the most auspicious and most challenging days.",
+    "love": "2-3 sentences in English for love this week.",
+    "career": "2-3 sentences in English for career this week.",
+    "health": "2-3 sentences in English for health this week.",
+    "finance": "2-3 sentences in English for money this week.",
+    "lucky_number": 7,
+    "lucky_color": "Red",
+    "rating": 3.5
+  }}
+}}
+
+Rules:
+- rating 1.0-5.0 (half-star)
+- Be specific and varied per rashi
+- Mention ruling planet of the week and any major transits"""
+
+    rashis = _period_rashi_loop(prompter, "Weekly")
+    output = {
+        "period": "weekly",
+        "week_label": week_label,
+        "iso_year": iso_year,
+        "iso_week": iso_week,
+        "start": monday.strftime("%Y-%m-%d"),
+        "end": sunday.strftime("%Y-%m-%d"),
+        "rashis": rashis,
+        "generated_at": datetime.datetime.utcnow().isoformat(),
+    }
+    CONTENT_DIR.mkdir(parents=True, exist_ok=True)
+    outfile = CONTENT_DIR / f"weekly-{iso_year}-W{iso_week:02d}.json"
+    outfile.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"✅ Saved: {outfile}")
+    return output
+
+
+def generate_monthly(date_str: str):
+    """Monthly rashifal for the calendar month containing date_str."""
+    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    ym = dt.strftime("%Y-%m")
+    month_label = dt.strftime("%B %Y")
+
+    def prompter(rashi):
+        return f"""You are an expert Vedic astrologer writing a monthly horoscope.
+Generate the monthly horoscope for {rashi['name_en']} ({rashi['name_hi']}) for {month_label}.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi": {{
+    "prediction": "6-8 sentences in Hindi describing the monthly themes, best week, challenging week, and overall arc.",
+    "best_week": "1 sentence in Hindi naming the best week of the month and why.",
+    "tough_week": "1 sentence in Hindi naming the toughest week and what to watch.",
+    "love": "2-3 sentences in Hindi for love this month.",
+    "career": "2-3 sentences in Hindi for career this month.",
+    "health": "2-3 sentences in Hindi for health this month.",
+    "finance": "2-3 sentences in Hindi for finance this month.",
+    "lucky_number": 7,
+    "lucky_color": "लाल",
+    "rating": 3.5
+  }},
+  "english": {{
+    "prediction": "6-8 sentences in English describing the monthly themes, best week, challenging week, and overall arc.",
+    "best_week": "1 sentence in English naming the best week and why.",
+    "tough_week": "1 sentence in English naming the toughest week and what to watch.",
+    "love": "2-3 sentences in English for love this month.",
+    "career": "2-3 sentences in English for career this month.",
+    "health": "2-3 sentences in English for health this month.",
+    "finance": "2-3 sentences in English for finance this month.",
+    "lucky_number": 7,
+    "lucky_color": "Red",
+    "rating": 3.5
+  }}
+}}
+
+Rules:
+- Mention any major planetary transits (Jupiter, Saturn, eclipses) happening in {month_label}
+- Be specific to the rashi"""
+
+    rashis = _period_rashi_loop(prompter, "Monthly")
+    output = {
+        "period": "monthly",
+        "month": ym,
+        "month_label": month_label,
+        "rashis": rashis,
+        "generated_at": datetime.datetime.utcnow().isoformat(),
+    }
+    CONTENT_DIR.mkdir(parents=True, exist_ok=True)
+    outfile = CONTENT_DIR / f"monthly-{ym}.json"
+    outfile.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"✅ Saved: {outfile}")
+    return output
+
+
+def generate_yearly(date_str: str):
+    """Yearly rashifal for the calendar year containing date_str."""
+    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    year = dt.year
+
+    def prompter(rashi):
+        return f"""You are an expert Vedic astrologer writing a yearly horoscope.
+Generate the {year} yearly horoscope for {rashi['name_en']} ({rashi['name_hi']}).
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi": {{
+    "prediction": "8-10 sentences in Hindi giving the overall arc of {year} for this rashi, including major planetary events.",
+    "q1": "1-2 sentences in Hindi about January-March.",
+    "q2": "1-2 sentences in Hindi about April-June.",
+    "q3": "1-2 sentences in Hindi about July-September.",
+    "q4": "1-2 sentences in Hindi about October-December.",
+    "love": "2-3 sentences in Hindi for love this year.",
+    "career": "2-3 sentences in Hindi for career this year.",
+    "health": "2-3 sentences in Hindi for health this year.",
+    "finance": "2-3 sentences in Hindi for wealth this year.",
+    "lucky_number": 7,
+    "lucky_color": "लाल",
+    "rating": 3.5
+  }},
+  "english": {{
+    "prediction": "8-10 sentences in English giving the overall arc of {year} for this rashi, including major planetary events.",
+    "q1": "1-2 sentences in English about January-March.",
+    "q2": "1-2 sentences in English about April-June.",
+    "q3": "1-2 sentences in English about July-September.",
+    "q4": "1-2 sentences in English about October-December.",
+    "love": "2-3 sentences in English for love this year.",
+    "career": "2-3 sentences in English for career this year.",
+    "health": "2-3 sentences in English for health this year.",
+    "finance": "2-3 sentences in English for wealth this year.",
+    "lucky_number": 7,
+    "lucky_color": "Red",
+    "rating": 3.5
+  }}
+}}
+
+Rules:
+- Reference real major transits in {year} (Jupiter sign change, Saturn position, eclipses)
+- Be substantive — this is the most prominent reading"""
+
+    rashis = _period_rashi_loop(prompter, "Yearly")
+    output = {
+        "period": "yearly",
+        "year": year,
+        "rashis": rashis,
+        "generated_at": datetime.datetime.utcnow().isoformat(),
+    }
+    CONTENT_DIR.mkdir(parents=True, exist_ok=True)
+    outfile = CONTENT_DIR / f"yearly-{year}.json"
+    outfile.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"✅ Saved: {outfile}")
+    return output
+
+
 if __name__ == "__main__":
     if not API_KEY:
         print("❌ Set ANTHROPIC_API_KEY environment variable")
         sys.exit(1)
 
-    target_date = sys.argv[1] if len(sys.argv) > 1 else datetime.date.today().isoformat()
-    print(f"🔮 Generating rashifal for {target_date}...")
-    generate_daily(target_date)
+    mode = "daily"
+    target_date = datetime.date.today().isoformat()
+    args = sys.argv[1:]
+    if args and args[0] in ("daily", "weekly", "monthly", "yearly", "all"):
+        mode = args[0]
+        if len(args) > 1:
+            target_date = args[1]
+    elif args:
+        target_date = args[0]
+
+    print(f"🔮 Generating {mode} rashifal for {target_date}...")
+    if mode == "daily":
+        generate_daily(target_date)
+    elif mode == "weekly":
+        generate_weekly(target_date)
+    elif mode == "monthly":
+        generate_monthly(target_date)
+    elif mode == "yearly":
+        generate_yearly(target_date)
+    elif mode == "all":
+        generate_daily(target_date)
+        generate_weekly(target_date)
+        generate_monthly(target_date)
+        generate_yearly(target_date)
     print("🎉 Done!")

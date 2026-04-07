@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Rashifal",
+    "slug": "rashifal-online",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#0A0E1A",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "online.rashifal.app"
+    },
+    "android": {
+      "package": "online.rashifal.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0E1A"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

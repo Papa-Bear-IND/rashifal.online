@@ -1648,6 +1648,22 @@ h1.title {
 /* Reset h3 inside rashi-name to inherit existing styling */
 h3.rashi-name { font-size: inherit; font-weight: inherit; margin: 0; }
 
+/* Period tab notice (fallback / loading) */
+.period-notice {
+  max-width: 720px;
+  margin: 0 auto var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--gold-muted);
+  border: 1px solid var(--silver-faint);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  color: var(--silver);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+.period-notice.loading { color: var(--t-muted); }
+
 /* Panchang date under section header */
 .panchang-date {
   display: block;
@@ -3066,6 +3082,7 @@ footer {
       <button class="period" data-p="yearly" onclick="setP(this)" data-hi="वार्षिक" data-en="Yearly">वार्षिक</button>
     </div>
 
+    <div class="period-notice" id="periodNotice" hidden></div>
     <div class="rashi-grid" id="rGrid"></div>
   </section>
 
@@ -3903,8 +3920,9 @@ function fillSelects(){
 
 function renderGrid(){
   const g=document.getElementById('rGrid');g.innerHTML='';
+  const src=_gridDD||dd;
   RASHIS.forEach((r,i)=>{
-    const rd=dd?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+    const rd=src?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
     const c=document.createElement('article');c.className='card rashi-card';
     if(_personalIdx===i)c.classList.add('your-sign');
     c.setAttribute('role','button');
@@ -5234,7 +5252,96 @@ function setLang(l){
   if(_rendered.zi)renderZI();
 }
 
-function setP(el){document.querySelectorAll('.period').forEach(t=>t.classList.remove('active'));el.classList.add('active')}
+/* ── Period tabs (yesterday / daily / weekly / monthly / yearly) ── */
+let _activePeriod='daily';
+let _gridDD=null; // overrides dd for the rashi grid when set
+const _periodCache={};
+function periodFilename(period){
+  const n=new Date();
+  const ist=new Date(n.getTime()+(n.getTimezoneOffset()+330)*60000);
+  const y=ist.getFullYear();
+  const m=String(ist.getMonth()+1).padStart(2,'0');
+  const d=String(ist.getDate()).padStart(2,'0');
+  if(period==='daily')return`${y}-${m}-${d}`;
+  if(period==='yesterday'){
+    const yd=new Date(ist);yd.setDate(yd.getDate()-1);
+    return`${yd.getFullYear()}-${String(yd.getMonth()+1).padStart(2,'0')}-${String(yd.getDate()).padStart(2,'0')}`;
+  }
+  if(period==='weekly'){
+    // ISO week number
+    const dt=new Date(Date.UTC(ist.getFullYear(),ist.getMonth(),ist.getDate()));
+    const dayNum=dt.getUTCDay()||7;
+    dt.setUTCDate(dt.getUTCDate()+4-dayNum);
+    const yearStart=new Date(Date.UTC(dt.getUTCFullYear(),0,1));
+    const weekNo=Math.ceil((((dt-yearStart)/86400000)+1)/7);
+    return`weekly-${dt.getUTCFullYear()}-W${String(weekNo).padStart(2,'0')}`;
+  }
+  if(period==='monthly')return`monthly-${y}-${m}`;
+  if(period==='yearly')return`yearly-${y}`;
+  return`${y}-${m}-${d}`;
+}
+async function fetchJson(name){
+  try{
+    let r=await fetch(`content/${name}.json`);
+    if(!r.ok)r=await fetch(`/content/${name}.json`);
+    if(r.ok)return await r.json();
+  }catch(_){}
+  return null;
+}
+function showNotice(msg,loading){
+  const el=document.getElementById('periodNotice');
+  if(!el)return;
+  if(!msg){el.hidden=true;el.textContent='';el.classList.remove('loading');return;}
+  el.hidden=false;
+  el.textContent=msg;
+  el.classList.toggle('loading',!!loading);
+}
+async function loadContent(period){
+  _activePeriod=period;
+  const key=periodFilename(period);
+  showNotice(cL==='hi'?'लोड हो रहा है…':'Loading…',true);
+  let data=_periodCache[key];
+  if(!data){
+    data=await fetchJson(key);
+    if(data)_periodCache[key]=data;
+  }
+  if(period==='daily'){
+    _gridDD=null;
+    showNotice('');
+    renderGrid();
+    return;
+  }
+  if(period==='yesterday'){
+    if(data){
+      _gridDD=data;
+      showNotice('');
+    }else{
+      _gridDD={rashis:[]};
+      showNotice(cL==='hi'?'कल का राशिफल उपलब्ध नहीं है':'Yesterday\u2019s rashifal is not available');
+    }
+    renderGrid();
+    return;
+  }
+  // weekly / monthly / yearly
+  if(data){
+    _gridDD=data;
+    showNotice('');
+  }else{
+    _gridDD=null; // fall back to today's grid
+    const labels={
+      weekly:[cL==='hi'?'साप्ताहिक राशिफल जल्द उपलब्ध होगा। फिलहाल आज का राशिफल देखें।':'Weekly rashifal coming soon. Showing today\u2019s predictions.'],
+      monthly:[cL==='hi'?'मासिक राशिफल जल्द उपलब्ध होगा। फिलहाल आज का राशिफल देखें।':'Monthly rashifal coming soon. Showing today\u2019s predictions.'],
+      yearly:[cL==='hi'?'वार्षिक राशिफल जल्द उपलब्ध होगा। फिलहाल आज का राशिफल देखें।':'Yearly rashifal coming soon. Showing today\u2019s predictions.']
+    };
+    showNotice(labels[period][0]);
+  }
+  renderGrid();
+}
+function setP(el){
+  document.querySelectorAll('.period').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  loadContent(el.dataset.p||'daily');
+}
 
 // Scroll reveal
 const obs=new IntersectionObserver(entries=>{

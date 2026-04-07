@@ -1,0 +1,17 @@
+export const colors = {
+  background: '#0A0E1A',
+  void: '#070B14',
+  charcoal: '#131825',
+  surface: 'rgba(19,24,37,0.6)',
+  surfaceHigh: 'rgba(28,34,51,0.8)',
+  border: 'rgba(245,240,230,0.08)',
+  borderStrong: 'rgba(212,175,55,0.4)',
+  gold: '#D4AF37',
+  goldLight: '#E8CC6E',
+  goldMuted: 'rgba(212,175,55,0.12)',
+  textPrimary: 'rgba(245,240,230,0.95)',
+  textSecondary: 'rgba(245,240,230,0.55)',
+  textMuted: 'rgba(245,240,230,0.36)',
+  green: '#4ade80',
+  whatsapp: '#25D366',
+};
