@@ -1,0 +1,237 @@
+{
+  "date": "2026-04-07",
+  "date_hi": "07 April 2026",
+  "weekday_en": "Tuesday",
+  "weekday_hi": "मंगलवार",
+  "rashis": [
+    {
+      "id": "mesh",
+      "name_hi": "मेष",
+      "name_en": "Aries",
+      "symbol": "♈",
+      "dates": "Mar 21 – Apr 19",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का सकारात्मक प्रभाव आपके व्यापारिक मामलों में नई संभावनाएं लेकर आएगा। आज पारिवारिक रिश्तों में मधुरता बढ़ेगी और किसी पुराने मित्र से संपर्क हो सकता है। स्वास्थ्य के मामले में सुधार दिखाई देगा, लेकिन अत्यधिक तनाव से बचें। शाम के समय कोई महत्वपूर्ण वित्तीय निर्णय लेने का अवसर मिल सकता है। रचनात्मक कार्यों में आपकी क्षमताएं चमकेंगी।",
+        "lucky_number": 23,
+        "lucky_color": "नारंगी",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings favorable winds to your professional endeavors, particularly in collaborative projects. A conversation with a family elder could provide valuable insights for a pending decision you've been contemplating. Your physical vitality is strong today, making it an excellent time for outdoor activities or starting a new fitness routine. Financial matters show promise, especially investments related to property or long-term assets. Trust your instincts when it comes to a romantic situation that may require delicate handling.",
+        "lucky_number": 23,
+        "lucky_color": "Orange",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "vrishabh",
+      "name_hi": "वृषभ",
+      "name_en": "Taurus",
+      "symbol": "♉",
+      "dates": "Apr 20 – May 20",
+      "hindi": {
+        "prediction": "मंगलवार की ऊर्जा आपकी वित्तीय स्थिति में सुधार लाने का संकेत दे रही है। कार्यक्षेत्र में किसी नए प्रोजेक्ट की शुरुआत हो सकती है जो भविष्य में फायदेमंद साबित होगा। पारिवारिक रिश्तों में थोड़ी समझदारी की आवश्यकता है, खासकर बुजुर्गों के साथ बातचीत में। स्वास्थ्य के लिए हल्की व्यायाम और संतुलित आहार का विशेष ध्यान रखें।",
+        "lucky_number": 42,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings positive momentum to your financial ventures and investment decisions. A new professional opportunity may present itself that requires your practical Taurus nature to evaluate carefully. Family dynamics need gentle handling today, especially conversations with elder relatives who seek your advice. Your health benefits from incorporating more outdoor activities and avoiding processed foods that may cause digestive discomfort.",
+        "lucky_number": 42,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "mithun",
+      "name_hi": "मिथुन",
+      "name_en": "Gemini",
+      "symbol": "♊",
+      "dates": "May 21 – Jun 20",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का प्रभाव आपके संचार कौशल को बढ़ाएगा। कार्यक्षेत्र में नई परियोजनाओं की शुरुआत के लिए अच्छा समय है। प्रेम संबंधों में थोड़ी सावधानी बरतें क्योंकि गलतफहमी हो सकती है। स्वास्थ्य के मामले में गर्दन और कंधों में तनाव महसूस हो सकता है। आर्थिक मामलों में सोच-समझकर निवेश करें।",
+        "lucky_number": 23,
+        "lucky_color": "पीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy amplifies your natural communication talents, making it an excellent day for presentations and negotiations. A unexpected message or call could bring positive developments in your career path. Your dual nature may cause some confusion in personal relationships, so practice clear expression of your feelings. Health-wise, pay attention to your respiratory system and consider some breathing exercises. Financial opportunities may arise through social connections or networking events.",
+        "lucky_number": 23,
+        "lucky_color": "Yellow",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kark",
+      "name_hi": "कर्क",
+      "name_en": "Cancer",
+      "symbol": "♋",
+      "dates": "Jun 21 – Jul 22",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का प्रभाव आपको नई चुनौतियों का सामना करने की शक्ति देगा। कार्यक्षेत्र में किसी महत्वपूर्ण निर्णय को लेकर द्विविधा हो सकती है, लेकिन शाम तक स्पष्टता मिलेगी। पारिवारिक मामलों में धैर्य रखें और बुजुर्गों की सलाह सुनें। स्वास्थ्य के लिए पानी का अधिक सेवन करें और तनाव से बचें। धन के मामले में छोटी बचत आज बड़े काम आएगी।",
+        "lucky_number": 23,
+        "lucky_color": "सफेद",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings determination to tackle pending projects that have been weighing on your mind. A conversation with a female colleague or family member could open unexpected doors in your career path. Your intuitive nature is particularly sharp today, so trust your gut feelings when making financial decisions. Health-wise, pay attention to your digestive system and avoid spicy foods. The evening hours are favorable for romantic conversations and strengthening bonds with your partner.",
+        "lucky_number": 23,
+        "lucky_color": "White",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "singh",
+      "name_hi": "सिंह",
+      "name_en": "Leo",
+      "symbol": "♌",
+      "dates": "Jul 23 – Aug 22",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का प्रभाव आपकी नेतृत्व क्षमता को बढ़ाएगा। कार्यक्षेत्र में एक महत्वपूर्ण बैठक या प्रस्तुति का अवसर मिल सकता है जो आपकी स्थिति को मजबूत करेगा। पारिवारिक संबंधों में थोड़ी सावधानी बरतें, क्योंकि अहंकार की वजह से कोई छोटी-मोटी बहस हो सकती है। वित्तीय मामलों में आज धैर्य रखना आवश्यक है। स्वास्थ्य के लिए गर्म पानी का सेवन करें और तनाव से बचें।",
+        "lucky_number": 28,
+        "lucky_color": "नारंगी",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy amplifies your natural leadership qualities and brings opportunities to showcase your talents. A significant presentation or meeting at work could open doors for career advancement, so prepare well and speak with confidence. Family relationships require gentle handling today, as your strong personality might clash with others' opinions. Financial decisions should be postponed until later this week when planetary positions are more favorable. Focus on maintaining good posture and taking short breaks to prevent back strain, which Leo natives are prone to during Mars transits.",
+        "lucky_number": 28,
+        "lucky_color": "Orange",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kanya",
+      "name_hi": "कन्या",
+      "name_en": "Virgo",
+      "symbol": "♍",
+      "dates": "Aug 23 – Sep 22",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का प्रभाव आपके कार्यक्षेत्र में नई ऊर्जा लेकर आएगा। आज आपकी विश्लेषणात्मक क्षमता चरम पर होगी, जो किसी महत्वपूर्ण प्रोजेक्ट को पूरा करने में सहायक सिद्ध होगी। स्वास्थ्य के मामले में योग या ध्यान का अभ्यास करना लाभकारी होगा। पारिवारिक संबंधों में मिठास आएगी और किसी पुराने मित्र से संपर्क हो सकता है। वित्तीय मामलों में सोच-समझकर निर्णय लें।",
+        "lucky_number": 24,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy will ignite your professional sphere with dynamic momentum. Your natural attention to detail will prove invaluable today as you tackle a complex project that has been pending. Health-wise, incorporating some physical activity or breathing exercises will boost your vitality significantly. A heartwarming conversation with a family member may provide the emotional support you've been seeking. Financially, avoid impulsive purchases but consider investing in something that enhances your skills or workspace.",
+        "lucky_number": 24,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "tula",
+      "name_hi": "तुला",
+      "name_en": "Libra",
+      "symbol": "♎",
+      "dates": "Sep 23 – Oct 22",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह की ऊर्जा आपके व्यावसायिक क्षेत्र में नई संभावनाएं लेकर आएगी। किसी पुराने विवाद का समाधान आज मिल सकता है, जो आपके मन को शांति देगा। स्वास्थ्य के मामले में थोड़ी सावधानी बरतें, विशेषकर पाचन तंत्र का ध्यान रखें। प्रेम संबंधों में आज संयम से काम लें, जल्दबाजी में कोई निर्णय न लें।",
+        "lucky_number": 18,
+        "lucky_color": "गुलाबी",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings dynamic opportunities in your professional sphere, dear Libra. An old dispute or pending matter may finally find resolution today, bringing much-needed peace to your mind. Your natural diplomatic skills will be particularly valuable in workplace negotiations. Health-wise, pay attention to your digestive system and avoid heavy meals. In relationships, practice patience and avoid making hasty decisions, as your balanced approach will yield better results.",
+        "lucky_number": 18,
+        "lucky_color": "Pink",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "vrishchik",
+      "name_hi": "वृश्चिक",
+      "name_en": "Scorpio",
+      "symbol": "♏",
+      "dates": "Oct 23 – Nov 21",
+      "hindi": {
+        "prediction": "मंगलवार का मंगल प्रभाव आपके करियर क्षेत्र में नई संभावनाएं लेकर आ रहा है। कार्यक्षेत्र में किसी महत्वपूर्ण व्यक्ति से मिलने का योग है जो भविष्य में लाभकारी हो सकता है। पारिवारिक रिश्तों में थोड़ी मिठास आएगी और पुराने मतभेद सुलझने की संभावना है। स्वास्थ्य के मामले में पेट संबंधी छोटी समस्या हो सकती है, इसलिए खानपान में सावधानी बरतें। शाम के समय कोई खुशखबरी मिल सकती है।",
+        "lucky_number": 23,
+        "lucky_color": "गहरा नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Mars's influence on this Tuesday brings promising developments in your professional sphere. An important meeting or conversation with a senior colleague could open doors to future opportunities you hadn't considered. Your intense Scorpio nature will help you read between the lines in financial discussions today. A minor digestive issue may surface, so avoid spicy foods and stick to lighter meals. The evening hours hold potential for receiving good news related to a pending matter that's been on your mind.",
+        "lucky_number": 23,
+        "lucky_color": "Deep Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "dhanu",
+      "name_hi": "धनु",
+      "name_en": "Sagittarius",
+      "symbol": "♐",
+      "dates": "Nov 22 – Dec 21",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह की ऊर्जा आपके व्यावसायिक क्षेत्र में नई संभावनाएं लेकर आएगी। आज किसी महत्वपूर्ण प्रोजेक्ट में सफलता मिल सकती है जिसका इंतजार आप लंबे समय से कर रहे थे। पारिवारिक रिश्तों में थोड़ी सावधानी बरतें क्योंकि आपकी बातों का गलत अर्थ निकाला जा सकता है। स्वास्थ्य के मामले में पेट संबंधी समस्याओं से बचने के लिए खान-पान पर विशेष ध्यान दें। वित्तीय स्थिति में सुधार के संकेत मिल रहे हैं।",
+        "lucky_number": 23,
+        "lucky_color": "नारंगी",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings dynamic momentum to your professional endeavors, with potential breakthroughs in projects you've been nurturing. A long-awaited opportunity may finally materialize, opening doors to career advancement. However, exercise diplomacy in family conversations as misunderstandings could arise from hasty words. Your adventurous Sagittarian nature might tempt you to overindulge in rich foods, so maintain digestive health through mindful eating. Financial prospects show promising signs of improvement, particularly through collaborative ventures.",
+        "lucky_number": 23,
+        "lucky_color": "Orange",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "makar",
+      "name_hi": "मकर",
+      "name_en": "Capricorn",
+      "symbol": "♑",
+      "dates": "Dec 22 – Jan 19",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह की ऊर्जा आपकी व्यावसायिक महत्वाकांक्षाओं को बढ़ावा देगी। आज किसी पुराने निवेश से अच्छा रिटर्न मिल सकता है जो आपकी वित्तीय स्थिति को मजबूत बनाएगा। पारिवारिक रिश्तों में थोड़ी सी गलतफहमी हो सकती है, धैर्य रखें और संवेदनशीलता से बात करें। शाम के समय कोई महत्वपूर्ण फोन कॉल या संदेश आ सकता है जो आपके भविष्य की योजनाओं को प्रभावित करे। स्वास्थ्य के लिए हल्का व्यायाम और पर्याप्त पानी पिएं।",
+        "lucky_number": 23,
+        "lucky_color": "गहरा हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy will amplify your professional ambitions and drive for success. An old investment or pending financial matter may finally show positive results, strengthening your monetary position. Family relationships might experience minor misunderstandings today, so approach conversations with patience and empathy. An important phone call or message this evening could influence your future plans significantly. Focus on light exercise and adequate hydration to maintain your energy levels throughout this dynamic day.",
+        "lucky_number": 23,
+        "lucky_color": "Dark Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kumbh",
+      "name_hi": "कुम्भ",
+      "name_en": "Aquarius",
+      "symbol": "♒",
+      "dates": "Jan 20 – Feb 18",
+      "hindi": {
+        "prediction": "मंगलवार का दिन आपके लिए नई संभावनाओं से भरा है। कार्यक्षेत्र में आपकी रचनात्मक सोच को सराहना मिलेगी और किसी महत्वपूर्ण प्रोजेक्ट में आपकी भूमिका बढ़ सकती है। स्वास्थ्य के मामले में सुस्ती महसूस हो सकती है, इसलिए हल्का व्यायाम करें। पारिवारिक संबंधों में मिठास रहेगी और किसी पुराने मित्र से संपर्क हो सकता है। वित्तीय मामलों में सोच-समझकर निर्णय लें।",
+        "lucky_number": 23,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Tuesday brings a wave of innovation and fresh perspectives to your life. Your unconventional ideas will find appreciation at work, possibly leading to an important assignment or recognition from seniors. Mars's energy today might make you feel slightly restless, so channel this into productive activities rather than overthinking. A heartwarming conversation with family members will lift your spirits, and you might reconnect with an old friend who shares valuable insights. Financial decisions should be made carefully, as impulsive choices could lead to regrets later.",
+        "lucky_number": 23,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "meen",
+      "name_hi": "मीन",
+      "name_en": "Pisces",
+      "symbol": "♓",
+      "dates": "Feb 19 – Mar 20",
+      "hindi": {
+        "prediction": "मंगलवार के दिन मंगल ग्रह का प्रभाव आपकी कार्यक्षेत्र में नई ऊर्जा लाएगा। आज आपको किसी पुराने मित्र से संपर्क हो सकता है जो आपके व्यवसाय में सहायक सिद्ध होगा। स्वास्थ्य के मामले में आंखों का विशेष ध्यान रखें और अधिक देर तक स्क्रीन का उपयोग न करें। शाम के समय परिवार के साथ बिताया गया समय आपको मानसिक शांति प्रदान करेगा। वित्तीय मामलों में संयम बरतें और बड़े निवेश से बचें।",
+        "lucky_number": 24,
+        "lucky_color": "गुलाबी",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Tuesday's Mars energy brings dynamic momentum to your professional endeavors, dear Pisces. An unexpected message from a former colleague could open doors to a lucrative collaboration that aligns perfectly with your creative vision. Pay attention to minor digestive issues today and avoid spicy foods to maintain your well-being. Your intuitive abilities are heightened this evening, making it an ideal time for important conversations with your partner. Financial opportunities may surface through social connections, but verify all details before committing.",
+        "lucky_number": 24,
+        "lucky_color": "Pink",
+        "rating": 4.0
+      }
+    }
+  ],
+  "generated_at": "2026-04-07T12:46:36.305387"
+}
