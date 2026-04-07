@@ -2442,7 +2442,7 @@ function showD(i){
   document.getElementById('dText').textContent=ld?.prediction||(cL==='hi'?'आज का विस्तृत राशिफल शीघ्र ही उपलब्ध होगा। कृपया कुछ समय बाद पुनः देखें।':'Today\'s detailed prediction will be available shortly. Please check back soon.');
   document.getElementById('dNum').textContent=ld?.lucky_number||'\u2014';
   document.getElementById('dCol').textContent=ld?.lucky_color||'\u2014';
-  document.getElementById('dRate').textContent=ld?sr(ld.rating):'\u2014';
+  document.getElementById('dRate').innerHTML=ld?sr(ld.rating):'\u2014';
   openD();
 }
 
