@@ -1244,6 +1244,196 @@ h1.title {
   .festival-card { flex-basis: 230px; }
 }
 
+/* ── PERSONAL RASHIFAL ── */
+.personal-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--silver-faint);
+  border-radius: 16px;
+  padding: var(--sp-6) var(--sp-6);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+.personal-card.has-result {
+  max-width: 720px;
+  text-align: left;
+}
+.personal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.personal-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+  margin-bottom: var(--sp-5);
+  line-height: var(--lh-relaxed);
+}
+.personal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: center;
+}
+.personal-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+.personal-input {
+  width: 100%;
+  max-width: 280px;
+  padding: 12px 14px;
+  background: var(--charcoal);
+  border: 1px solid var(--silver-faint);
+  border-radius: 10px;
+  color: var(--silver);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-base);
+  text-align: center;
+  color-scheme: dark;
+}
+:root[data-theme="light"] .personal-input { background: #FFFCF4; color-scheme: light; }
+.personal-input:focus { outline: none; border-color: var(--gold); }
+.personal-btn { margin-top: var(--sp-2); }
+.personal-result {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--silver-faint);
+  text-align: left;
+}
+.pr-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+.pr-glyph {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+.pr-glyph svg { width: 100%; height: 100%; }
+.pr-headtext { flex: 1; }
+.pr-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--t-muted);
+}
+.pr-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-xl);
+  color: var(--gold);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.pr-name-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-muted);
+}
+.pr-prediction {
+  font-family: var(--f-hindi);
+  font-size: var(--fs-base);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-4);
+}
+.pr-prediction.lang-en { font-family: 'Inter', sans-serif; }
+.pr-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+.pr-meta-item {
+  background: var(--gold-muted);
+  border-radius: 10px;
+  padding: var(--sp-3);
+  text-align: center;
+}
+.pr-meta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.pr-meta-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--silver);
+}
+.pr-subs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+.pr-sub {
+  background: var(--surface-h);
+  border: 1px solid var(--silver-faint);
+  border-radius: 10px;
+  padding: var(--sp-3) var(--sp-4);
+}
+.pr-sub-head {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: var(--sp-2);
+}
+.pr-sub-text {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--silver);
+  line-height: var(--lh-relaxed);
+}
+.pr-remedy, .pr-mantra {
+  margin-top: var(--sp-4);
+}
+.pr-change {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pr-change:hover { color: var(--gold); }
+.rashi-card.your-sign {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold-muted);
+}
+.your-sign-badge {
+  display: inline-block;
+  margin-left: var(--sp-2);
+  padding: 2px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  background: var(--gold-muted);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
 /* ── CONTROLS ── */
 .controls {
   display: flex;
@@ -2487,6 +2677,41 @@ footer {
   <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1"/></svg>
 </button>
 
+<button class="prefs-toggle" id="prefsToggle" type="button" aria-label="Open preferences" onclick="openPrefs()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+</button>
+
+<!-- ═══ PREFERENCES PANEL ═══ -->
+<div class="prefs-backdrop" id="prefsBackdrop" onclick="closePrefs()" hidden></div>
+<aside class="prefs-panel" id="prefsPanel" role="dialog" aria-modal="true" aria-labelledby="prefsTitle" aria-hidden="true">
+  <div class="prefs-head">
+    <h2 id="prefsTitle" class="prefs-title" data-hi="आपकी प्राथमिकताएं" data-en="Your Preferences">आपकी प्राथमिकताएं</h2>
+    <button class="prefs-close" type="button" onclick="closePrefs()" aria-label="Close">&times;</button>
+  </div>
+  <div class="prefs-body">
+    <div class="prefs-group">
+      <label class="prefs-label" data-hi="जन्म तिथि" data-en="Birth Date">जन्म तिथि</label>
+      <input type="date" id="prefsDob" class="personal-input">
+    </div>
+    <div class="prefs-group">
+      <div class="prefs-label" data-hi="पसंदीदा राशियाँ (परिवार)" data-en="Favorite Rashis (Family)">पसंदीदा राशियाँ (परिवार)</div>
+      <div class="prefs-help" data-hi="2-3 राशियाँ चुनें — पति/पत्नी, बच्चे, माता-पिता" data-en="Pick 2-3 — spouse, children, parents">2-3 राशियाँ चुनें — पति/पत्नी, बच्चे, माता-पिता</div>
+      <div class="prefs-rashi-grid" id="prefsRashiGrid"></div>
+    </div>
+    <div class="prefs-group">
+      <label class="prefs-check"><input type="checkbox" id="prefsNotify"> <span data-hi="दैनिक स्मरण दिखाएँ" data-en="Show daily reminder">दैनिक स्मरण दिखाएँ</span></label>
+    </div>
+    <div class="prefs-group">
+      <div class="prefs-label" data-hi="भाषा" data-en="Language">भाषा</div>
+      <div class="prefs-langs">
+        <label class="prefs-radio"><input type="radio" name="prefsLang" value="hi"> हिन्दी</label>
+        <label class="prefs-radio"><input type="radio" name="prefsLang" value="en"> English</label>
+      </div>
+    </div>
+    <button class="btn-primary prefs-save" type="button" onclick="savePrefs()"><span data-hi="सहेजें" data-en="Save">सहेजें</span></button>
+  </div>
+</aside>
+
 <canvas id="skyCanvas"></canvas>
 <div class="sky-overlay" id="skyOverlay"></div>
 <div class="horizon"></div>
@@ -2571,6 +2796,35 @@ footer {
   </div>
 
   <div class="ad-slot">Ad Placement &mdash; Top Banner</div>
+
+  <!-- ═══ PERSONAL RASHIFAL ═══ -->
+  <section class="section reveal" id="personal">
+    <div class="greeting-bar" id="greetingBar" hidden>
+      <div class="greeting-glyph" id="greetingGlyph"></div>
+      <div class="greeting-text">
+        <div class="greeting-line" id="greetingLine"></div>
+        <div class="streak-pill" id="streakPill" hidden></div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <h2 class="personal-title" data-hi="अपना व्यक्तिगत राशिफल जानें" data-en="Get Your Personal Rashifal">अपना व्यक्तिगत राशिफल जानें</h2>
+      <p class="personal-sub" data-hi="जन्म तिथि दर्ज करें और आज का विशेष भविष्यफल पाएं" data-en="Enter your birth date for today's personalized prediction">जन्म तिथि दर्ज करें और आज का विशेष भविष्यफल पाएं</p>
+      <form class="personal-form" id="personalForm" onsubmit="event.preventDefault();handlePersonalSubmit();">
+        <label class="personal-label" for="personalDob" data-hi="जन्म तिथि" data-en="Birth Date">जन्म तिथि</label>
+        <input type="date" id="personalDob" class="personal-input" required>
+        <button type="submit" class="btn-primary personal-btn"><span data-hi="मेरा राशिफल देखें" data-en="Get My Rashifal">मेरा राशिफल देखें</span></button>
+      </form>
+      <div class="personal-result" id="personalResult" hidden></div>
+    </div>
+    <div class="family-block" id="familyBlock" hidden>
+      <h3 class="family-head" data-hi="आपका परिवार" data-en="Your Family">आपका परिवार</h3>
+      <div class="family-grid" id="familyGrid"></div>
+    </div>
+    <div class="recent-block" id="recentBlock" hidden>
+      <h3 class="recent-head" data-hi="हाल में देखे गए" data-en="Recently Viewed">हाल में देखे गए</h3>
+      <div class="recent-row" id="recentRow"></div>
+    </div>
+  </section>
 
   <!-- ═══ RASHIFAL ═══ -->
   <section class="section reveal" id="rashifal">
@@ -2830,6 +3084,10 @@ footer {
       <div class="mantra-sanskrit" id="dMantraSans"></div>
       <div class="mantra-meaning" id="dMantraMean"></div>
     </blockquote>
+    <button type="button" class="story-share detail-share" onclick="shareRashi()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+      <span data-hi="आज का राशिफल साझा करें" data-en="Share today's rashifal">आज का राशिफल साझा करें</span>
+    </button>
     <div class="detail-updated" id="dUpdated"></div>
   </div>
 </div>
@@ -3414,16 +3672,18 @@ function renderGrid(){
   RASHIS.forEach((r,i)=>{
     const rd=dd?.rashis?.[i];const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
     const c=document.createElement('div');c.className='card rashi-card';
+    if(_personalIdx===i)c.classList.add('your-sign');
     c.setAttribute('role','button');
     c.setAttribute('tabindex','0');
     c.setAttribute('aria-label',(cL==='hi'?r.hi:r.en)+' — '+(cL==='hi'?'विस्तृत राशिफल खोलें':'Open detailed horoscope'));
     c.onclick=()=>showD(i);
     c.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showD(i);}};
+    const badge=_personalIdx===i?`<span class="your-sign-badge">${cL==='hi'?'आपकी राशि':'Your sign'}</span>`:'';
     c.innerHTML=`
       <div class="rashi-top">
         <div class="rashi-glyph">${ZODIAC_SVG[r.id]}</div>
         <div>
-          <div class="rashi-name">${cL==='hi'?r.hi:r.en}</div>
+          <div class="rashi-name">${cL==='hi'?r.hi:r.en}${badge}</div>
           <div class="rashi-name-sub">${cL==='hi'?r.en:r.hi}</div>
         </div>
       </div>
@@ -4212,6 +4472,143 @@ function checkC(){
   document.getElementById('cRes').classList.add('show');
 }
 
+/* ── PERSONAL RASHIFAL ── */
+const PERSONAL_RANGES=[
+  {id:'mesh',     start:[4,14], end:[5,14]},
+  {id:'vrishabh', start:[5,15], end:[6,14]},
+  {id:'mithun',   start:[6,15], end:[7,14]},
+  {id:'kark',     start:[7,15], end:[8,14]},
+  {id:'singh',    start:[8,15], end:[9,15]},
+  {id:'kanya',    start:[9,16], end:[10,15]},
+  {id:'tula',     start:[10,16],end:[11,14]},
+  {id:'vrishchik',start:[11,15],end:[12,14]},
+  {id:'dhanu',    start:[12,15],end:[1,13]},
+  {id:'makar',    start:[1,14], end:[2,11]},
+  {id:'kumbh',    start:[2,12], end:[3,13]},
+  {id:'meen',     start:[3,14], end:[4,13]}
+];
+function rashiFromDate(dob){
+  const m=dob.getMonth()+1,d=dob.getDate();
+  for(const r of PERSONAL_RANGES){
+    const [sm,sd]=r.start,[em,ed]=r.end;
+    if(sm<=em){
+      if((m===sm&&d>=sd)||(m===em&&d<=ed)||(m>sm&&m<em))return r.id;
+    }else{
+      if((m===sm&&d>=sd)||(m===em&&d<=ed)||(m>sm)||(m<em))return r.id;
+    }
+  }
+  return null;
+}
+let _personalIdx=null;
+function personalDob(){try{return localStorage.getItem('rf_dob')||'';}catch(_){return'';}}
+function savePersonalDob(v){try{v?localStorage.setItem('rf_dob',v):localStorage.removeItem('rf_dob');}catch(_){}}
+function handlePersonalSubmit(){
+  const v=document.getElementById('personalDob').value;
+  if(!v)return;
+  savePersonalDob(v);
+  showPersonal(v);
+  renderGrid();
+}
+function clearPersonal(){
+  savePersonalDob('');
+  _personalIdx=null;
+  const card=document.querySelector('.personal-card');
+  card&&card.classList.remove('has-result');
+  const res=document.getElementById('personalResult');
+  if(res){res.hidden=true;res.innerHTML='';}
+  const form=document.getElementById('personalForm');
+  if(form){form.style.display='';}
+  const inp=document.getElementById('personalDob');
+  if(inp)inp.value='';
+  renderGrid();
+}
+function showPersonal(dobStr){
+  if(!dobStr)return;
+  const dob=new Date(dobStr+'T00:00:00');
+  if(isNaN(dob))return;
+  const id=rashiFromDate(dob);
+  if(!id)return;
+  const idx=RASHIS.findIndex(r=>r.id===id);
+  if(idx<0)return;
+  _personalIdx=idx;
+  renderPersonalResult(idx);
+  const inp=document.getElementById('personalDob');if(inp)inp.value=dobStr;
+  const form=document.getElementById('personalForm');if(form)form.style.display='none';
+}
+function renderPersonalResult(idx){
+  const r=RASHIS[idx];
+  const rd=dd?.rashis?.[idx];
+  const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+  const res=document.getElementById('personalResult');
+  const card=document.querySelector('.personal-card');
+  if(!res||!r)return;
+  card.classList.add('has-result');
+  const elParts=(r.el||'').split('/');
+  const ruParts=(r.ru||'').split('/');
+  const elDisplay=cL==='hi'?(elParts[0]||r.el):(elParts[1]||r.el);
+  const ruDisplay=cL==='hi'?(ruParts[0]||r.ru):(ruParts[1]||r.ru);
+  const L={
+    eyebrow:cL==='hi'?'आपकी राशि':'Your Rashi',
+    luckyN:cL==='hi'?'शुभ अंक':'Lucky Number',
+    luckyC:cL==='hi'?'शुभ रंग':'Lucky Color',
+    rating:cL==='hi'?'रेटिंग':'Day Rating',
+    ruler:cL==='hi'?'स्वामी ग्रह':'Ruling Planet',
+    element:cL==='hi'?'तत्व':'Element',
+    love:cL==='hi'?'प्रेम':'Love',
+    career:cL==='hi'?'करियर':'Career',
+    health:cL==='hi'?'स्वास्थ्य':'Health',
+    finance:cL==='hi'?'धन':'Finance',
+    remedy:cL==='hi'?'आज का उपाय':"Today's Remedy",
+    mantra:cL==='hi'?'आज का मंत्र':'Mantra of the Day',
+    change:cL==='hi'?'जन्म तिथि बदलें':'Change birth date',
+    pending:cL==='hi'?'आज का राशिफल जल्द उपलब्ध होगा।':'Today\u2019s prediction will be available shortly.'
+  };
+  const fb=cL==='hi'?'जल्द उपलब्ध':'Coming soon';
+  const sub=(label,val)=>`<div class="pr-sub"><div class="pr-sub-head">${label}</div><div class="pr-sub-text">${val||fb}</div></div>`;
+  const mantra=ld?.mantra;
+  const remedyHtml=ld?.remedy?`
+    <div class="remedy-card pr-remedy">
+      <div class="remedy-head">
+        <svg class="remedy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 6 5 9 5 13a7 7 0 0 0 14 0c0-4-3-7-7-11z"/><path d="M12 22V11"/></svg>
+        <span>${L.remedy}</span>
+      </div>
+      <div class="remedy-text">${ld.remedy}</div>
+    </div>`:'';
+  const mantraHtml=(mantra&&(mantra.sanskrit||mantra.meaning))?`
+    <blockquote class="mantra-card pr-mantra">
+      <div class="mantra-head">${L.mantra}</div>
+      <div class="mantra-sanskrit">${mantra.sanskrit||''}</div>
+      <div class="mantra-meaning">${mantra.meaning||''}</div>
+    </blockquote>`:'';
+  res.innerHTML=`
+    <div class="pr-head">
+      <div class="pr-glyph">${ZODIAC_SVG[r.id]||''}</div>
+      <div class="pr-headtext">
+        <div class="pr-eyebrow">${L.eyebrow}</div>
+        <div class="pr-name">${cL==='hi'?r.hi:r.en}</div>
+        <div class="pr-name-sub">${cL==='hi'?r.en:r.hi} · ${cL==='hi'?r.dt:r.dte}</div>
+      </div>
+    </div>
+    <div class="pr-prediction${cL==='en'?' lang-en':''}">${ld?.prediction||L.pending}</div>
+    <div class="pr-meta">
+      <div class="pr-meta-item"><div class="pr-meta-label">${L.luckyN}</div><div class="pr-meta-value">${ld?.lucky_number||'—'}</div></div>
+      <div class="pr-meta-item"><div class="pr-meta-label">${L.luckyC}</div><div class="pr-meta-value">${ld?.lucky_color||'—'}</div></div>
+      <div class="pr-meta-item"><div class="pr-meta-label">${L.rating}</div><div class="pr-meta-value">${ld?sr(ld.rating):'—'}</div></div>
+      <div class="pr-meta-item"><div class="pr-meta-label">${L.ruler}</div><div class="pr-meta-value">${ruDisplay}</div></div>
+      <div class="pr-meta-item"><div class="pr-meta-label">${L.element}</div><div class="pr-meta-value">${elDisplay}</div></div>
+    </div>
+    <div class="pr-subs">
+      ${sub(L.love,ld?.love)}
+      ${sub(L.career,ld?.career)}
+      ${sub(L.health,ld?.health)}
+      ${sub(L.finance,ld?.finance)}
+    </div>
+    ${remedyHtml}
+    ${mantraHtml}
+    <button type="button" class="pr-change" onclick="clearPersonal()">${L.change}</button>`;
+  res.hidden=false;
+}
+
 /* ── PANCHANG ── */
 const RAHU_KAAL={ // 0=Sun .. 6=Sat (JS getDay)
   0:'4:30 PM – 6:00 PM',
@@ -4393,6 +4790,7 @@ function setLang(l){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
   upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
+  if(_personalIdx!=null)renderPersonalResult(_personalIdx);
   if(_rendered.tools)renderTools();
   if(_rendered.zi)renderZI();
 }
@@ -4418,6 +4816,7 @@ async function loadDD(){
   renderGrid();
   renderPanchang();
   renderStory();
+  if(_personalIdx!=null)renderPersonalResult(_personalIdx);
 }
 
 // Track which deferred sections have been rendered
@@ -4443,7 +4842,7 @@ function toggleTheme(){
 setInterval(()=>{upDate();upCel();},60*60*1000);
 
 // Initialize (Tools + Zodiac are lazy — rendered on viewport approach)
-fillSelects();upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();loadDD();
+fillSelects();upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();(function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();loadDD();
 
 (function lazySections(){
   const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
