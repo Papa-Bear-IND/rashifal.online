@@ -6,6 +6,16 @@
 <title>Rashifal.online — आज का राशिफल | Daily Horoscope, Kundli, Compatibility</title>
 <meta name="description" content="आज का राशिफल, साप्ताहिक, मासिक, वार्षिक भविष्यफल। Free kundli, compatibility, career, love, health & finance horoscope.">
 <link rel="canonical" href="https://rashifal.online">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rashifal.online",
+  "url": "https://rashifal.online",
+  "description": "Daily Rashifal and horoscope in Hindi and English — predictions for all 12 zodiac signs, updated every day.",
+  "inLanguage": ["hi", "en"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
@@ -951,6 +961,32 @@ h1.title {
   line-height: var(--lh-relaxed);
   max-width: 420px;
   margin: 0 auto;
+}
+
+.trust-line {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--t-muted);
+  margin-top: var(--sp-2);
+  letter-spacing: 0.02em;
+}
+.freshness-line {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--t-muted);
+  margin-top: var(--sp-1);
+  opacity: 0.85;
+}
+.detail-updated {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  text-align: center;
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--silver-faint);
 }
 
 /* ── CONTROLS ── */
@@ -2249,6 +2285,8 @@ footer {
 
     <h1 class="title">Rashifal.online</h1>
     <p class="subtitle">ग्रहों की भाषा में पढ़ें अपना भविष्य — Your Celestial Guide to Life</p>
+    <p class="trust-line" data-hi="वैदिक ज्योतिष पद्धति पर आधारित" data-en="Based on Vedic Astrology principles">वैदिक ज्योतिष पद्धति पर आधारित</p>
+    <p class="freshness-line" data-hi="आज 12 राशियों का ताज़ा राशिफल उपलब्ध" data-en="Fresh predictions for all 12 signs updated daily">आज 12 राशियों का ताज़ा राशिफल उपलब्ध</p>
   </header>
 
   <main id="main-content" tabindex="-1">
@@ -2398,7 +2436,7 @@ footer {
   </main>
 
   <footer>
-    <p class="footer-mark">Rashifal.online &middot; 2026 &middot; सर्वे भवन्तु सुखिनः</p>
+    <p class="footer-mark">Rashifal.online &middot; Est. 2026 &middot; Bhopal, India</p>
     <div class="footer-links">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
@@ -2467,6 +2505,7 @@ footer {
         <div class="sub-text hi-text" id="dFinance"></div>
       </div>
     </div>
+    <div class="detail-updated" id="dUpdated"></div>
   </div>
 </div>
 
@@ -3204,6 +3243,7 @@ function showD(i){
   document.getElementById('dCareer').textContent=ld?.career||fallback;
   document.getElementById('dHealth').textContent=ld?.health||fallback;
   document.getElementById('dFinance').textContent=ld?.finance||fallback;
+  document.getElementById('dUpdated').textContent=fmtUpdated(dd?.generated_at);
   openD();
 }
 
@@ -3835,6 +3875,25 @@ function checkC(){
   document.querySelectorAll('#cRes [data-hi]').forEach(e=>{e.textContent=cL==='hi'?e.dataset.hi:e.dataset.en});
 
   document.getElementById('cRes').classList.add('show');
+}
+
+function fmtUpdated(iso){
+  if(!iso)return'';
+  const d=new Date(iso);
+  if(isNaN(d))return'';
+  const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  const monthsEn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  let h=d.getHours(),m=d.getMinutes();
+  const mm=String(m).padStart(2,'0');
+  if(cL==='hi'){
+    const ampmHi=h<12?'प्रातः':(h<16?'दोपहर':(h<19?'शाम':'रात्रि'));
+    const h12=((h+11)%12)+1;
+    return`अंतिम अपडेट: ${d.getDate()} ${monthsHi[d.getMonth()]} ${d.getFullYear()}, ${ampmHi} ${h12}:${mm} बजे`;
+  }else{
+    const ampm=h<12?'AM':'PM';
+    const h12=((h+11)%12)+1;
+    return`Last updated: ${monthsEn[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}, ${h12}:${mm} ${ampm}`;
+  }
 }
 
 function setLang(l){
