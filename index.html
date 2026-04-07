@@ -115,10 +115,10 @@
   --gold-glow:   rgba(168, 128, 26, 0.08);
   --gold-faint:  rgba(168, 128, 26, 0.04);
 
-  --t-heading:   rgba(40, 30, 12, 0.95);
-  --t-body:      rgba(60, 48, 20, 0.85);
-  --t-muted:     rgba(60, 48, 20, 0.65);
-  --t-faint:     rgba(60, 48, 20, 0.4);
+  --t-heading:   #1a1205;
+  --t-body:      #2a2010;
+  --t-muted:     #4a3c1a;
+  --t-faint:     #6b5828;
 
   --b-subtle:    rgba(168, 128, 26, 0.12);
   --b-default:   rgba(168, 128, 26, 0.2);
@@ -128,7 +128,29 @@
   --glass-bg-h:   rgba(255, 252, 244, 0.92);
   --glass-border: 1px solid rgba(168, 128, 26, 0.12);
 }
-:root[data-theme="light"] body { background: var(--void); }
+:root[data-theme="light"] {
+  font-size: 17.5px;
+}
+:root[data-theme="light"] body {
+  background: var(--void);
+  font-weight: 450;
+}
+:root[data-theme="light"] p,
+:root[data-theme="light"] .rashi-excerpt,
+:root[data-theme="light"] .cat-desc,
+:root[data-theme="light"] .tool-desc,
+:root[data-theme="light"] .zi-traits,
+:root[data-theme="light"] .detail-text,
+:root[data-theme="light"] .footer-seo,
+:root[data-theme="light"] .glossary-panel { font-weight: 450; }
+:root[data-theme="light"] h1,
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3,
+:root[data-theme="light"] h4 { font-weight: 700; }
+:root[data-theme="light"] .nav-link,
+:root[data-theme="light"] .bnav-label,
+:root[data-theme="light"] .cat-label,
+:root[data-theme="light"] .period { font-weight: 600; }
 :root[data-theme="light"] #skyCanvas,
 :root[data-theme="light"] .sky-overlay,
 :root[data-theme="light"] .horizon,
@@ -220,6 +242,136 @@ html { scroll-behavior: smooth; font-size: 16px; }
 @media (max-width: 768px) {
   .section-indicator { top: 56px; }
   .section-indicator-pill { padding: 5px 12px; font-size: 11px; }
+}
+
+/* ── Detail modal: sub-prediction blocks (love/career/health/finance) ── */
+.detail-subs {
+  margin-top: var(--sp-6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+.sub-block {
+  padding: var(--sp-4);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 10px;
+  text-align: left;
+}
+.sub-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-serif);
+  font-weight: 600;
+  color: var(--gold);
+  font-size: var(--fs-sm);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.sub-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--b-default);
+  border-radius: 50%;
+  font-size: 12px;
+}
+.sub-text {
+  font-size: var(--fs-xs);
+  color: var(--t-body);
+  line-height: var(--lh-normal);
+}
+@media (max-width: 600px) {
+  .detail-subs { grid-template-columns: 1fr; }
+}
+
+/* ── Category overlay (12 rashis for one life area) ── */
+.cat-detail { max-width: 920px; }
+.cat-rashi-grid {
+  margin-top: var(--sp-6);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-3);
+}
+.cat-rashi-card {
+  padding: var(--sp-4);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 10px;
+  text-align: left;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.cat-rashi-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.cat-rashi-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.cat-rashi-name {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--gold);
+}
+.cat-rashi-en {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-faint);
+}
+.cat-rashi-text {
+  font-size: var(--fs-xs);
+  color: var(--t-body);
+  line-height: var(--lh-normal);
+}
+.cat-rashi-empty {
+  font-style: italic;
+  color: var(--t-muted);
+}
+
+/* ── Toast notification ── */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 88px;
+  transform: translate(-50%, 20px);
+  z-index: 9000;
+  max-width: calc(100vw - 32px);
+  padding: 12px 22px;
+  background: rgba(10, 14, 26, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5), 0 0 0 1px var(--gold-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+:root[data-theme="light"] .toast {
+  background: rgba(255, 252, 244, 0.96);
+  color: var(--gold);
+}
+@media (max-width: 768px) {
+  .toast { bottom: 96px; font-size: var(--fs-xs); padding: 10px 18px; }
 }
 
 /* ── A11y: skip to content link ── */
@@ -1822,6 +1974,34 @@ footer {
       <div class="meta-item"><div class="meta-label" data-hi="शुभ रंग" data-en="Lucky Color">शुभ रंग</div><div class="meta-value" id="dCol" style="font-size:var(--fs-sm)"></div></div>
       <div class="meta-item"><div class="meta-label" data-hi="दिन की रेटिंग" data-en="Day Rating">दिन की रेटिंग</div><div class="meta-value" id="dRate"></div></div>
     </div>
+    <div class="detail-subs" id="dSubs">
+      <div class="sub-block">
+        <div class="sub-head"><span class="sub-icon">♥</span><span data-hi="प्रेम एवं रिश्ते" data-en="Love & Relationships">प्रेम एवं रिश्ते</span></div>
+        <div class="sub-text hi-text" id="dLove"></div>
+      </div>
+      <div class="sub-block">
+        <div class="sub-head"><span class="sub-icon">⚒</span><span data-hi="करियर एवं व्यवसाय" data-en="Career & Business">करियर एवं व्यवसाय</span></div>
+        <div class="sub-text hi-text" id="dCareer"></div>
+      </div>
+      <div class="sub-block">
+        <div class="sub-head"><span class="sub-icon">✚</span><span data-hi="स्वास्थ्य" data-en="Health">स्वास्थ्य</span></div>
+        <div class="sub-text hi-text" id="dHealth"></div>
+      </div>
+      <div class="sub-block">
+        <div class="sub-head"><span class="sub-icon">₹</span><span data-hi="धन एवं वित्त" data-en="Money & Finance">धन एवं वित्त</span></div>
+        <div class="sub-text hi-text" id="dFinance"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CATEGORY OVERLAY (12 rashis for one life-area) ═══ -->
+<div class="overlay" id="catOv" role="dialog" aria-modal="true" aria-labelledby="catOvTitle" aria-hidden="true" onclick="if(event.target===this)closeCatOv()">
+  <div class="detail cat-detail" role="document">
+    <button class="detail-close" type="button" onclick="closeCatOv()" aria-label="Close">&times;</button>
+    <div class="detail-name" id="catOvTitle"></div>
+    <div class="detail-sub" id="catOvSub"></div>
+    <div class="cat-rashi-grid" id="catOvGrid"></div>
   </div>
 </div>
 
@@ -2376,9 +2556,12 @@ function renderCats(){
   gd.innerHTML='';gg.innerHTML='';
   CATEGORIES.forEach(c=>{
     const el=document.createElement('a');el.className='card cat-card';el.href='javascript:void(0)';el.setAttribute('role','button');
+    const name=cL==='hi'?c.titleH:c.titleE;
+    el.setAttribute('aria-label',name);
+    el.onclick=()=>handleCatClick(name);
     el.innerHTML=`
       <div class="cat-icon-wrap">${c.icon}</div>
-      <div class="cat-title">${cL==='hi'?c.titleH:c.titleE}</div>
+      <div class="cat-title">${name}</div>
       <div class="cat-subtitle">${cL==='hi'?c.subH:c.subE}</div>
       <div class="cat-desc">${cL==='hi'?c.descH:c.descE}</div>
       <span class="cat-label ${c.labelClass}">${c.label}</span>`;
@@ -2443,7 +2626,87 @@ function showD(i){
   document.getElementById('dNum').textContent=ld?.lucky_number||'\u2014';
   document.getElementById('dCol').textContent=ld?.lucky_color||'\u2014';
   document.getElementById('dRate').innerHTML=ld?sr(ld.rating):'\u2014';
+  const fallback=cL==='hi'?'आज का विवरण शीघ्र उपलब्ध होगा।':'Details coming soon.';
+  document.getElementById('dLove').textContent=ld?.love||fallback;
+  document.getElementById('dCareer').textContent=ld?.career||fallback;
+  document.getElementById('dHealth').textContent=ld?.health||fallback;
+  document.getElementById('dFinance').textContent=ld?.finance||fallback;
   openD();
+}
+
+/* ── Category overlay (12 rashis for one life-area) ── */
+const CAT_KEY_MAP={
+  'Love & Relationships':'love','प्रेम एवं रिश्ते':'love',
+  'Career & Business':'career','करियर एवं व्यवसाय':'career',
+  'Health Horoscope':'health','स्वास्थ्य राशिफल':'health',
+  'Money & Finance':'finance','धन एवं वित्त':'finance'
+};
+const CAT_TITLES={
+  love:{hi:'प्रेम एवं रिश्ते',en:'Love & Relationships'},
+  career:{hi:'करियर एवं व्यवसाय',en:'Career & Business'},
+  health:{hi:'स्वास्थ्य राशिफल',en:'Health Horoscope'},
+  finance:{hi:'धन एवं वित्त',en:'Money & Finance'}
+};
+function handleCatClick(name){
+  const key=CAT_KEY_MAP[name];
+  if(!key){
+    // Guides (sun-sign / career-guide) — graceful fallback
+    showToast(cL==='hi'?'जल्द आ रहा है — '+name+' शीघ्र उपलब्ध होगा।':'Coming soon — '+name+' predictions will be available shortly.');
+    document.getElementById('rashifal')?.scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+  openCatOv(key);
+}
+function openCatOv(key){
+  const ov=document.getElementById('catOv');
+  const grid=document.getElementById('catOvGrid');
+  const title=CAT_TITLES[key][cL];
+  document.getElementById('catOvTitle').textContent=title;
+  document.getElementById('catOvSub').textContent=cL==='hi'?'सभी 12 राशियों के लिए आज':'Today, for all 12 signs';
+  grid.innerHTML='';
+  const fallback=cL==='hi'?'आज का विवरण शीघ्र उपलब्ध होगा।':'Details coming soon.';
+  RASHIS.forEach((r,i)=>{
+    const rd=dd?.rashis?.[i];
+    const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+    const txt=ld&&ld[key]?ld[key]:fallback;
+    const card=document.createElement('div');
+    card.className='cat-rashi-card';
+    card.innerHTML=`
+      <div class="cat-rashi-head">
+        <span class="cat-rashi-name">${cL==='hi'?r.hi:r.en}</span>
+        <span class="cat-rashi-en">${cL==='hi'?r.en:r.hi}</span>
+      </div>
+      <div class="cat-rashi-text${ld&&ld[key]?'':' cat-rashi-empty'}">${txt}</div>`;
+    grid.appendChild(card);
+  });
+  _lastFocus=document.activeElement;
+  ov.classList.add('active');
+  ov.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>ov.querySelector('.detail-close')?.focus(),50);
+}
+function closeCatOv(){
+  const ov=document.getElementById('catOv');
+  ov.classList.remove('active');
+  ov.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
+}
+
+/* ── Toast ── */
+let _toastEl=null,_toastTimer=null;
+function showToast(msg){
+  if(!_toastEl){
+    _toastEl=document.createElement('div');
+    _toastEl.className='toast';
+    _toastEl.setAttribute('role','status');
+    _toastEl.setAttribute('aria-live','polite');
+    document.body.appendChild(_toastEl);
+  }
+  _toastEl.textContent=msg;
+  requestAnimationFrame(()=>_toastEl.classList.add('show'));
+  clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(()=>_toastEl.classList.remove('show'),3000);
 }
 
 let _lastFocus=null;
@@ -2463,10 +2726,14 @@ function closeD(){
   document.body.style.overflow='';
   if(_lastFocus&&_lastFocus.focus)_lastFocus.focus();
 }
-// Focus trap: keep Tab cycling inside the dialog while open
+// Focus trap: keep Tab cycling inside whichever dialog is open
 document.addEventListener('keydown',e=>{
-  const ov=document.getElementById('ov');
-  if(e.key!=='Tab'||!ov.classList.contains('active'))return;
+  if(e.key!=='Tab')return;
+  const ov=document.getElementById('ov').classList.contains('active')
+    ?document.getElementById('ov')
+    :document.getElementById('catOv').classList.contains('active')
+      ?document.getElementById('catOv'):null;
+  if(!ov)return;
   const f=ov.querySelectorAll('button,[href],select,input,textarea,[tabindex]:not([tabindex="-1"])');
   if(!f.length)return;
   const first=f[0],last=f[f.length-1];
@@ -2597,6 +2864,7 @@ fillSelects();upDate();upCel();renderGrid();renderCats();loadDD();
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
     if(document.getElementById('ov').classList.contains('active'))closeD();
+    if(document.getElementById('catOv').classList.contains('active'))closeCatOv();
     document.getElementById('mNav').classList.remove('open');
   }
 });

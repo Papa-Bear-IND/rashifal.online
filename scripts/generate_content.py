@@ -74,13 +74,21 @@ Generate the daily horoscope for {rashi['name_en']} ({rashi['name_hi']}) for {da
 Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
 {{
   "hindi": {{
-    "prediction": "4-5 sentences of daily prediction in Hindi. Be specific, varied, and engaging. Mention career, health, relationships, or finance as relevant for today.",
+    "prediction": "4-5 sentences of overall daily prediction in Hindi. Be specific, varied, engaging.",
+    "love": "2-3 sentences in Hindi about love, romance and relationships for today.",
+    "career": "2-3 sentences in Hindi about career, work and business for today.",
+    "health": "2-3 sentences in Hindi about physical and mental health for today.",
+    "finance": "2-3 sentences in Hindi about money, savings and financial decisions for today.",
     "lucky_number": 7,
     "lucky_color": "लाल",
     "rating": 3.5
   }},
   "english": {{
-    "prediction": "4-5 sentences of daily prediction in English. Be specific, varied, and engaging. Mention career, health, relationships, or finance as relevant for today.",
+    "prediction": "4-5 sentences of overall daily prediction in English. Be specific, varied, engaging.",
+    "love": "2-3 sentences in English about love, romance and relationships for today.",
+    "career": "2-3 sentences in English about career, work and business for today.",
+    "health": "2-3 sentences in English about physical and mental health for today.",
+    "finance": "2-3 sentences in English about money, savings and financial decisions for today.",
     "lucky_number": 7,
     "lucky_color": "Red",
     "rating": 3.5
@@ -92,7 +100,9 @@ Rules:
 - lucky_number is 1-99
 - Each day's prediction must be UNIQUE — never repeat generic advice
 - Mention the weekday's ruling planet influence naturally
-- Keep tone warm, hopeful but realistic"""
+- Keep tone warm, hopeful but realistic
+- Each category (love/career/health/finance) must give DIFFERENT, specific guidance — do not repeat the overall prediction
+- The overall prediction should be a holistic summary, the categories should add fresh detail"""
 
         raw = call_claude(prompt)
         # Clean any markdown fencing
