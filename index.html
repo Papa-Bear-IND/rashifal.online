@@ -157,6 +157,41 @@
 :root[data-theme="light"] .horizon-dot { display: none !important; }
 :root[data-theme="light"] .period.active { color: #FAF6EB; }
 
+/* ── Light theme: re-skin hardcoded dark surfaces ── */
+:root[data-theme="light"] .overlay {
+  background: rgba(60, 50, 30, 0.55);
+}
+:root[data-theme="light"] .detail {
+  background: #FFFCF4;
+  border-color: var(--gold);
+  box-shadow: 0 24px 60px rgba(60, 50, 30, 0.25);
+}
+:root[data-theme="light"] .section-indicator-pill {
+  background: rgba(255, 252, 244, 0.95);
+}
+:root[data-theme="light"] .notify-input {
+  background: #FFFCF4;
+  color: var(--t-body);
+}
+:root[data-theme="light"] .notify-input::placeholder { color: var(--t-faint); }
+:root[data-theme="light"] .compat-select,
+:root[data-theme="light"] .compat-select option {
+  background: #FFFCF4;
+  color: var(--t-body);
+}
+:root[data-theme="light"] .sub-block,
+:root[data-theme="light"] .cat-rashi-card {
+  background: #FFFCF4;
+}
+:root[data-theme="light"] .glossary-panel {
+  background: rgba(168, 128, 26, 0.08);
+  color: var(--t-body);
+}
+:root[data-theme="light"] .ad-slot {
+  background: rgba(168, 128, 26, 0.06);
+  color: var(--t-muted);
+}
+
 /* Theme toggle button */
 .theme-toggle {
   position: fixed;
@@ -1177,7 +1212,7 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .label-accent  { color: var(--gold); border-color: var(--b-default); }
 
 /* ── COMPATIBILITY ── */
-.compat-wrap { max-width: 460px; margin: 0 auto; }
+.compat-wrap { max-width: 720px; margin: 0 auto; }
 .compat-inner { padding: var(--sp-10) var(--sp-6); text-align: center; }
 
 .compat-inner h3 {
@@ -1255,20 +1290,204 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   margin-top: var(--sp-6);
   padding: var(--sp-6);
   border-radius: var(--glass-radius);
-  background: var(--gold-faint);
-  border: 1px solid var(--b-default);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--b-hover);
+  text-align: left;
   display: none;
+  animation: compatFade 0.4s var(--ease-out);
 }
-.compat-score {
+.compat-result.show { display: block; }
+@keyframes compatFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header: ring + headline */
+.compat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--b-subtle);
+}
+.compat-ring {
+  position: relative;
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+}
+.compat-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.compat-ring-bg {
+  fill: none;
+  stroke: var(--b-default);
+  stroke-width: 8;
+}
+.compat-ring-fg {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s var(--ease-out);
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.4));
+}
+.compat-ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: var(--f-serif);
-  font-size: var(--fs-xl);
+}
+.compat-ring-num {
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--gold);
+  line-height: 1;
 }
-.compat-verdict {
-  font-size: var(--fs-sm);
+.compat-ring-pct {
+  font-size: var(--fs-xs);
   color: var(--t-muted);
-  margin-top: var(--sp-2);
+  margin-top: 2px;
+}
+.compat-headline { flex: 1; min-width: 0; }
+.compat-headline-pair {
+  font-family: var(--f-serif);
+  font-size: var(--fs-md);
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.compat-headline-verdict {
+  margin-top: 4px;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  font-style: italic;
+}
+
+/* Categories */
+.compat-categories {
+  margin-top: var(--sp-5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3) var(--sp-5);
+}
+.compat-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.compat-cat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+}
+.compat-cat-name {
+  color: var(--t-body);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.compat-cat-score {
+  color: var(--gold);
+  font-family: var(--f-serif);
+  font-weight: 600;
+}
+.compat-cat-bar {
+  position: relative;
+  height: 5px;
+  background: var(--b-default);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.compat-cat-bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold));
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: barGrow 0.9s var(--ease-out);
+}
+@keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Analysis paragraph */
+.compat-analysis {
+  margin-top: var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--gold-faint);
+  border-left: 2px solid var(--gold);
+  border-radius: 6px;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+}
+
+/* Best aspects + challenges */
+.compat-aspects {
+  margin-top: var(--sp-4);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+.aspects-block {
+  padding: var(--sp-4);
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 8px;
+}
+.aspects-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.aspects-head .aspects-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--b-default);
+  border-radius: 50%;
+  font-size: 10px;
+}
+.aspects-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.aspects-block li {
+  position: relative;
+  padding-left: 14px;
+  margin: 6px 0;
+  font-size: var(--fs-xs);
+  color: var(--t-body);
+  line-height: var(--lh-normal);
+}
+.aspects-block li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .compat-header { flex-direction: column; text-align: center; }
+  .compat-categories { grid-template-columns: 1fr; }
+  .compat-aspects { grid-template-columns: 1fr; }
 }
 
 /* ── TOOLS ── */
@@ -1881,7 +2100,7 @@ footer {
     <div class="compat-wrap">
       <div class="card compat-inner">
         <h3 id="compatTitle" data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</h3>
-        <p class="compat-help" data-hi="दो अलग-अलग राशियाँ चुनें" data-en="Select two different signs to compare">दो अलग-अलग राशियाँ चुनें</p>
+        <p class="compat-help" data-hi="दो राशियाँ चुनें" data-en="Select two signs to compare">दो राशियाँ चुनें</p>
         <div class="compat-row">
           <label for="s1" class="sr-only" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</label>
           <select class="compat-select" id="s1" aria-label="Your sign" onchange="clearCErr()"><option value="" data-hi="आपकी राशि" data-en="Your sign">आपकी राशि</option></select>
@@ -1891,7 +2110,36 @@ footer {
         </div>
         <button class="btn-primary" type="button" onclick="checkC()"><span data-hi="अनुकूलता जांचें" data-en="Check Compatibility">अनुकूलता जांचें</span></button>
         <div class="compat-error" id="cErr" role="alert" aria-live="polite"></div>
-        <div class="compat-result" id="cRes" aria-live="polite"><div class="compat-score" id="cScore"></div><div class="compat-verdict" id="cVerdict"></div></div>
+        <div class="compat-result" id="cRes" aria-live="polite">
+          <div class="compat-header">
+            <div class="compat-ring">
+              <svg viewBox="0 0 120 120">
+                <circle class="compat-ring-bg" cx="60" cy="60" r="52"/>
+                <circle class="compat-ring-fg" id="cRing" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+              </svg>
+              <div class="compat-ring-label">
+                <div class="compat-ring-num" id="cRingNum">0</div>
+                <div class="compat-ring-pct" data-hi="अनुकूलता" data-en="match">अनुकूलता</div>
+              </div>
+            </div>
+            <div class="compat-headline">
+              <div class="compat-headline-pair" id="cPair"></div>
+              <div class="compat-headline-verdict" id="cVerdict"></div>
+            </div>
+          </div>
+          <div class="compat-categories" id="cCats"></div>
+          <div class="compat-analysis" id="cAnalysis"></div>
+          <div class="compat-aspects">
+            <div class="aspects-block">
+              <div class="aspects-head"><span class="aspects-icon">+</span><span data-hi="अच्छे पहलू" data-en="Best Aspects">अच्छे पहलू</span></div>
+              <ul id="cBest"></ul>
+            </div>
+            <div class="aspects-block">
+              <div class="aspects-head"><span class="aspects-icon">!</span><span data-hi="चुनौतियाँ" data-en="Challenges">चुनौतियाँ</span></div>
+              <ul id="cChall"></ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2467,8 +2715,6 @@ const TOOLS=[
    icon:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>'},
 ];
 
-const COMPAT={mesh:{mesh:70,vrishabh:55,mithun:80,kark:50,singh:90,kanya:45,tula:65,vrishchik:60,dhanu:92,makar:48,kumbh:75,meen:55},vrishabh:{mesh:55,vrishabh:75,mithun:40,kark:88,singh:60,kanya:92,tula:65,vrishchik:85,dhanu:42,makar:90,kumbh:45,meen:82},mithun:{mesh:80,vrishabh:40,mithun:65,kark:50,singh:78,kanya:60,tula:88,vrishchik:42,dhanu:75,makar:45,kumbh:90,meen:48},kark:{mesh:50,vrishabh:88,mithun:50,kark:72,singh:55,kanya:78,tula:48,vrishchik:90,dhanu:40,makar:60,kumbh:42,meen:92},singh:{mesh:90,vrishabh:60,mithun:78,kark:55,singh:68,kanya:50,tula:82,vrishchik:65,dhanu:88,makar:48,kumbh:55,meen:50},kanya:{mesh:45,vrishabh:92,mithun:60,kark:78,singh:50,kanya:70,tula:55,vrishchik:80,dhanu:48,makar:88,kumbh:50,meen:65},tula:{mesh:65,vrishabh:65,mithun:88,kark:48,singh:82,kanya:55,tula:68,vrishchik:60,dhanu:78,makar:50,kumbh:85,meen:52},vrishchik:{mesh:60,vrishabh:85,mithun:42,kark:90,singh:65,kanya:80,tula:60,vrishchik:72,dhanu:55,makar:78,kumbh:48,meen:88},dhanu:{mesh:92,vrishabh:42,mithun:75,kark:40,singh:88,kanya:48,tula:78,vrishchik:55,dhanu:70,makar:52,kumbh:80,meen:50},makar:{mesh:48,vrishabh:90,mithun:45,kark:60,singh:48,kanya:88,tula:50,vrishchik:78,dhanu:52,makar:72,kumbh:55,meen:65},kumbh:{mesh:75,vrishabh:45,mithun:90,kark:42,singh:55,kanya:50,tula:85,vrishchik:48,dhanu:80,makar:55,kumbh:68,meen:52},meen:{mesh:55,vrishabh:82,mithun:48,kark:92,singh:50,kanya:65,tula:52,vrishchik:88,dhanu:50,makar:65,kumbh:52,meen:70}};
-
 let cL='hi',dd=null;
 
 function upDate(){
@@ -2783,6 +3029,156 @@ function showCErr(msg){
 function clearCErr(){
   document.getElementById('cErr').classList.remove('show');
 }
+/* ── Compatibility Engine v2 ── */
+const ELEMENT_OF={mesh:'fire',singh:'fire',dhanu:'fire',vrishabh:'earth',kanya:'earth',makar:'earth',mithun:'air',tula:'air',kumbh:'air',kark:'water',vrishchik:'water',meen:'water'};
+
+/* category order: emotional, communication, trust, physical, values (each /10) */
+const ANALYSIS={
+  'fire-fire':{
+    scores:[7,7,6,9,8],
+    en:{
+      verdict:'Electric, passionate, never boring.',
+      analysis:'Two fire signs create an instinctive, high-voltage bond — the kind of relationship that runs hot from day one. You energize each other, chase the same adventures, and rarely feel bored together. The challenge is that fire feeds on dominance: when both partners want the spotlight, sparks turn into friction. With mutual respect for each other\'s independence, this is one of the most exhilarating pairings in the zodiac.',
+      best:['Shared zest for adventure and spontaneity','Powerful physical and creative chemistry'],
+      challenges:['Two big egos competing for control','Tempers can flare quickly and burn out'] },
+    hi:{
+      verdict:'विद्युतमय, भावुक, कभी उबाऊ नहीं।',
+      analysis:'दो अग्नि राशियाँ सहज, उच्च-ऊर्जा वाला बंधन बनाती हैं — पहले दिन से ही गर्म रिश्ता। आप एक-दूसरे को प्रेरित करते हैं, समान रोमांच की तलाश करते हैं, और साथ में कभी ऊब नहीं होते। चुनौती यह है कि अग्नि वर्चस्व से बढ़ती है: जब दोनों मुख्य भूमिका चाहते हैं तो चिंगारियाँ टकराव बन जाती हैं। आपसी स्वतंत्रता के सम्मान के साथ, यह राशि चक्र की सबसे रोमांचक जोड़ियों में से एक है।',
+      best:['रोमांच और सहजता का साझा उत्साह','शक्तिशाली शारीरिक और रचनात्मक केमिस्ट्री'],
+      challenges:['दो बड़े अहंकार नियंत्रण के लिए होड़ में','गुस्सा जल्दी भड़कता है और बुझ जाता है'] }
+  },
+  'earth-fire':{
+    scores:[5,5,6,6,4],
+    en:{
+      verdict:'Opposites that struggle to meet in the middle.',
+      analysis:'Earth and fire move at completely different speeds. Fire wants spontaneity, risk, and forward motion; earth wants security, planning, and roots. There is real attraction here — earth admires fire\'s confidence, and fire is calmed by earth\'s steadiness — but daily life can feel like negotiating between two different operating systems. Long-term success requires both partners to genuinely respect what they don\'t naturally understand.',
+      best:['Earth grounds fire when impulses run wild','Fire pulls earth out of routine and into joy'],
+      challenges:['Different attitudes toward risk and money','Fire feels suffocated, earth feels destabilized'] },
+    hi:{
+      verdict:'विपरीत जो बीच में मिलने के लिए संघर्ष करते हैं।',
+      analysis:'पृथ्वी और अग्नि बिल्कुल अलग गति से चलते हैं। अग्नि सहजता, जोखिम और आगे बढ़ना चाहती है; पृथ्वी सुरक्षा, योजना और जड़ें चाहती है। यहाँ वास्तविक आकर्षण है — पृथ्वी अग्नि के आत्मविश्वास की प्रशंसा करती है, और अग्नि पृथ्वी की स्थिरता से शांत होती है — लेकिन दैनिक जीवन दो अलग प्रणालियों के बीच बातचीत जैसा लग सकता है। दीर्घकालिक सफलता के लिए दोनों को एक-दूसरे का सच्चा सम्मान चाहिए।',
+      best:['पृथ्वी अग्नि के आवेगों को संतुलित करती है','अग्नि पृथ्वी को दिनचर्या से बाहर खींचती है'],
+      challenges:['जोखिम और धन के प्रति अलग दृष्टिकोण','अग्नि घुटन महसूस करती है, पृथ्वी अस्थिर'] }
+  },
+  'air-fire':{
+    scores:[7,9,7,8,8],
+    en:{
+      verdict:'Brilliant, fast-moving, full of ideas.',
+      analysis:'Air feeds fire — literally. This is one of the most naturally compatible elemental pairings: air provides the curiosity, words, and social energy that fire needs to thrive, while fire gives air\'s ideas the courage to become action. Conversation flows easily, life feels like a creative collaboration, and you make each other braver. The risk is moving so fast that you forget to slow down for emotional depth.',
+      best:['Effortless conversation and shared humor','Mutual encouragement of bold ideas'],
+      challenges:['Both can avoid difficult emotional conversations','Restlessness can derail long-term plans'] },
+    hi:{
+      verdict:'चमकदार, तेज़, विचारों से भरपूर।',
+      analysis:'वायु अग्नि को बढ़ावा देती है — वस्तुतः। यह सबसे स्वाभाविक रूप से अनुकूल तत्व जोड़ियों में से एक है: वायु जिज्ञासा, शब्द और सामाजिक ऊर्जा देती है जिसकी अग्नि को आवश्यकता है, जबकि अग्नि वायु के विचारों को कार्य का साहस देती है। बातचीत आसानी से चलती है, जीवन रचनात्मक सहयोग जैसा लगता है। जोखिम यह है कि गहराई के लिए धीमे होना भूल जाते हैं।',
+      best:['सहज बातचीत और साझा हास्य','साहसी विचारों का परस्पर प्रोत्साहन'],
+      challenges:['दोनों कठिन भावनात्मक बातें टाल सकते हैं','बेचैनी दीर्घकालिक योजनाओं को बाधित कर सकती है'] }
+  },
+  'fire-water':{
+    scores:[5,4,5,7,4],
+    en:{
+      verdict:'Steam — beautiful, but hard to hold.',
+      analysis:'Fire and water are nature\'s opposites, and the metaphor is exact: water dampens fire, fire boils water away. The initial pull can be magnetic — fire is drawn to water\'s emotional depth, water finds fire\'s confidence intoxicating — but the daily reality often sees fire feeling drained by water\'s moods, and water feeling burned by fire\'s bluntness. It can work, but only with extraordinary emotional self-awareness on both sides.',
+      best:['Powerful initial attraction and chemistry','Each teaches the other a missing skill'],
+      challenges:['Fire can wound water without realizing','Water\'s emotional needs overwhelm fire'] },
+    hi:{
+      verdict:'भाप — सुंदर, पर पकड़ना कठिन।',
+      analysis:'अग्नि और जल प्रकृति के विपरीत हैं, और रूपक सटीक है: जल अग्नि को बुझाता है, अग्नि जल को वाष्पित करती है। प्रारंभिक आकर्षण चुंबकीय हो सकता है — अग्नि जल की भावनात्मक गहराई से आकर्षित होती है, जल अग्नि के आत्मविश्वास से मोहित होता है — पर दैनिक वास्तविकता में अग्नि जल के मूड से थक जाती है, और जल अग्नि की कठोरता से जल जाता है। यह काम कर सकता है, पर असाधारण आत्म-जागरूकता के साथ।',
+      best:['शक्तिशाली प्रारंभिक आकर्षण और केमिस्ट्री','प्रत्येक दूसरे को कमी का कौशल सिखाता है'],
+      challenges:['अग्नि अनजाने में जल को घायल कर सकती है','जल की भावनात्मक माँगें अग्नि को अभिभूत करती हैं'] }
+  },
+  'earth-earth':{
+    scores:[7,6,9,7,9],
+    en:{
+      verdict:'Steady, reliable, built to last.',
+      analysis:'Two earth signs share the same fundamental values: stability, loyalty, hard work, and a love of tangible results. This is the pairing most likely to build a real life together — the home, the savings account, the family — without unnecessary drama. The trade-off is that earth can become so practical it forgets to be playful. Without conscious effort to keep romance and novelty alive, the relationship can slide into routine.',
+      best:['Deep mutual trust and shared life goals','Both partners are dependable and present'],
+      challenges:['Routine can dull the spark over time','Both may avoid emotional confrontation'] },
+    hi:{
+      verdict:'स्थिर, विश्वसनीय, टिकने के लिए बना।',
+      analysis:'दो पृथ्वी राशियाँ समान मूल मूल्य साझा करती हैं: स्थिरता, वफादारी, मेहनत, और ठोस परिणामों का प्रेम। यह वह जोड़ी है जो साथ में वास्तविक जीवन बनाने की सबसे अधिक संभावना रखती है — घर, बचत, परिवार — बिना अनावश्यक नाटक के। समझौता यह है कि पृथ्वी इतनी व्यावहारिक हो सकती है कि चंचलता भूल जाए। रोमांस और नवीनता को जीवित रखने के सचेत प्रयास के बिना, रिश्ता दिनचर्या में फिसल सकता है।',
+      best:['गहरा परस्पर विश्वास और साझा जीवन लक्ष्य','दोनों भागीदार भरोसेमंद और उपस्थित'],
+      challenges:['दिनचर्या समय के साथ चिंगारी को मंद कर सकती है','दोनों भावनात्मक टकराव से बच सकते हैं'] }
+  },
+  'air-earth':{
+    scores:[5,6,6,5,5],
+    en:{
+      verdict:'Two thinkers with different priorities.',
+      analysis:'Earth lives in the physical world; air lives in the world of ideas. Both are intelligent and rational, so the conversation is good — but earth wants the conversation to lead somewhere concrete, while air enjoys ideas for their own sake. Earth can find air flighty and ungrounded; air can find earth rigid and unimaginative. With effort, earth can teach air how to follow through, and air can teach earth how to play.',
+      best:['Both communicate calmly and rationally','Complementary strengths: vision and execution'],
+      challenges:['Earth wants commitment, air wants freedom','Different definitions of what "matters"'] },
+    hi:{
+      verdict:'अलग प्राथमिकताओं वाले दो विचारक।',
+      analysis:'पृथ्वी भौतिक जगत में रहती है; वायु विचारों के जगत में रहती है। दोनों बुद्धिमान और तर्कसंगत हैं, इसलिए बातचीत अच्छी है — पर पृथ्वी चाहती है कि बातचीत कहीं ठोस ले जाए, जबकि वायु विचारों का आनंद लेती है। पृथ्वी वायु को अस्थिर पा सकती है; वायु पृथ्वी को कठोर पा सकती है। प्रयास से, पृथ्वी वायु को अनुसरण सिखा सकती है, और वायु पृथ्वी को खेलना।',
+      best:['दोनों शांति से और तर्कसंगत संवाद करते हैं','पूरक शक्तियाँ: दृष्टि और निष्पादन'],
+      challenges:['पृथ्वी प्रतिबद्धता चाहती है, वायु स्वतंत्रता','क्या "मायने रखता है" की अलग परिभाषा'] }
+  },
+  'earth-water':{
+    scores:[9,7,9,8,9],
+    en:{
+      verdict:'Soulful, nurturing, deeply rooted.',
+      analysis:'Earth and water are the most naturally nurturing pairing in the zodiac. Water provides the emotional depth that earth often struggles to express; earth provides the safety and structure that water desperately needs. Together they build something quietly powerful — a home, a family, a refuge. The relationship feels more like coming home than falling in love. The only risk is that both can be so cautious they avoid taking the leaps that real growth requires.',
+      best:['Profound emotional understanding','A shared longing for home and stability'],
+      challenges:['Both can hold grudges silently','Risk-aversion may stall important changes'] },
+    hi:{
+      verdict:'भावपूर्ण, पोषक, गहराई से जड़ा।',
+      analysis:'पृथ्वी और जल राशि चक्र की सबसे स्वाभाविक रूप से पोषक जोड़ी हैं। जल वह भावनात्मक गहराई प्रदान करता है जिसे पृथ्वी व्यक्त करने में संघर्ष करती है; पृथ्वी वह सुरक्षा और संरचना प्रदान करती है जिसकी जल को सख्त आवश्यकता है। साथ में वे कुछ शांत शक्तिशाली बनाते हैं — एक घर, एक परिवार, एक शरण। रिश्ता प्यार में पड़ने से अधिक घर लौटने जैसा लगता है।',
+      best:['गहरी भावनात्मक समझ','घर और स्थिरता की साझा चाह'],
+      challenges:['दोनों चुपचाप शिकायत रख सकते हैं','जोखिम-विमुखता महत्वपूर्ण परिवर्तनों को रोक सकती है'] }
+  },
+  'air-air':{
+    scores:[6,9,7,6,8],
+    en:{
+      verdict:'A meeting of minds, light and bright.',
+      analysis:'Two air signs share a love of ideas, conversation, and social life. You will rarely run out of things to talk about, and your relationship will feel intellectually alive. There is real friendship at the core, which is the strongest foundation a partnership can have. The challenge is emotional: air signs sometimes intellectualize feelings instead of feeling them, and two air partners can drift through years without ever really going deep.',
+      best:['Endless conversation and mental stimulation','Friendship-first foundation'],
+      challenges:['Avoiding emotional vulnerability','Lacking the grounding needed for routine life'] },
+    hi:{
+      verdict:'मनों का मिलन, हल्का और उज्ज्वल।',
+      analysis:'दो वायु राशियाँ विचारों, बातचीत और सामाजिक जीवन का प्रेम साझा करती हैं। आपको शायद ही कभी बात करने के लिए चीजें खत्म होंगी। मूल में वास्तविक मित्रता है, जो किसी साझेदारी की सबसे मजबूत नींव है। चुनौती भावनात्मक है: वायु राशियाँ कभी-कभी भावनाओं को महसूस करने के बजाय उन्हें बौद्धिक बनाती हैं।',
+      best:['अंतहीन बातचीत और मानसिक उत्तेजना','मित्रता-प्रथम नींव'],
+      challenges:['भावनात्मक भेद्यता से बचना','दैनिक जीवन के लिए आवश्यक जमीन की कमी'] }
+  },
+  'air-water':{
+    scores:[6,6,6,6,5],
+    en:{
+      verdict:'A bridge between the head and the heart.',
+      analysis:'Air thinks; water feels. The pairing can either be beautifully complementary or quietly frustrating, depending on whether each partner respects the other\'s mode of being. Air can teach water to articulate emotions instead of drowning in them; water can teach air that not everything important can be reasoned through. The friction comes when air dismisses water as "too sensitive" or water sees air as "cold."',
+      best:['Air helps water find words for feelings','Water adds depth to air\'s ideas'],
+      challenges:['Air may seem cold, water may seem irrational','Different needs for emotional intimacy'] },
+    hi:{
+      verdict:'सिर और हृदय के बीच एक पुल।',
+      analysis:'वायु सोचती है; जल महसूस करता है। यह जोड़ी या तो खूबसूरती से पूरक हो सकती है या चुपचाप निराशाजनक, यह इस पर निर्भर करता है कि प्रत्येक भागीदार दूसरे का सम्मान करता है या नहीं। वायु जल को भावनाओं को व्यक्त करना सिखा सकती है; जल वायु को सिखा सकता है कि सब कुछ तर्क से नहीं समझा जा सकता।',
+      best:['वायु जल को भावनाओं के शब्द खोजने में मदद करती है','जल वायु के विचारों में गहराई जोड़ता है'],
+      challenges:['वायु ठंडी लग सकती है, जल अतार्किक','भावनात्मक निकटता की अलग आवश्यकताएँ'] }
+  },
+  'water-water':{
+    scores:[10,6,9,8,9],
+    en:{
+      verdict:'Soul-deep, intuitive, emotionally vast.',
+      analysis:'Two water signs share an almost telepathic emotional understanding — you feel each other\'s moods before words are spoken, and the intimacy can be extraordinary. This is the pairing most likely to describe each other as a soulmate. The risk is that without an external anchor, two water signs can amplify each other\'s emotions until the relationship becomes overwhelming — joy becomes ecstasy, sadness becomes despair, and there\'s no one being practical.',
+      best:['Profound intuitive and emotional bond','Unwavering loyalty and devotion'],
+      challenges:['Emotions can spiral and amplify','Both may avoid practical responsibilities'] },
+    hi:{
+      verdict:'आत्मा-गहरा, सहज, भावनात्मक रूप से विशाल।',
+      analysis:'दो जल राशियाँ लगभग टेलीपैथिक भावनात्मक समझ साझा करती हैं — आप शब्दों से पहले एक-दूसरे के मूड महसूस करते हैं, और निकटता असाधारण हो सकती है। यह वह जोड़ी है जो एक-दूसरे को सोलमेट कहने की सबसे अधिक संभावना रखती है। जोखिम यह है कि बाहरी लंगर के बिना, दो जल राशियाँ एक-दूसरे की भावनाओं को बढ़ा सकती हैं।',
+      best:['गहरा सहज और भावनात्मक बंधन','अटूट वफादारी और समर्पण'],
+      challenges:['भावनाएँ बढ़ सकती हैं और घूम सकती हैं','दोनों व्यावहारिक जिम्मेदारियों से बच सकते हैं'] }
+  }
+};
+
+const CAT_NAMES={
+  emotional:{en:'Emotional',hi:'भावनात्मक'},
+  communication:{en:'Communication',hi:'संवाद'},
+  trust:{en:'Trust',hi:'विश्वास'},
+  physical:{en:'Physical',hi:'शारीरिक'},
+  values:{en:'Values',hi:'मूल्य'}
+};
+
+function _pairKey(a,b){
+  const e1=ELEMENT_OF[a],e2=ELEMENT_OF[b];
+  return [e1,e2].sort().join('-');
+}
+
 function checkC(){
   const a=document.getElementById('s1').value,b=document.getElementById('s2').value;
   clearCErr();
@@ -2790,15 +3186,53 @@ function checkC(){
     showCErr(cL==='hi'?'कृपया दोनों राशियाँ चुनें':'Please select both signs');
     return;
   }
-  if(a===b){
-    showCErr(cL==='hi'?'कृपया दो अलग-अलग राशियाँ चुनें':'Please choose two different signs');
-    return;
-  }
-  const sc=COMPAT[a]?.[b]||50;
-  document.getElementById('cRes').style.display='block';
-  document.getElementById('cScore').textContent=sc+'%';
-  const v=cL==='hi'?['अनुकूलता बहुत कम है','अनुकूलता कम है','ठीक-ठाक अनुकूलता','अच्छी अनुकूलता','अत्युत्तम जोड़ी']:['Very low compatibility','Low compatibility','Moderate compatibility','Good compatibility','Excellent match'];
-  document.getElementById('cVerdict').textContent=v[sc<30?0:sc<50?1:sc<70?2:sc<85?3:4];
+  const data=ANALYSIS[_pairKey(a,b)];
+  let scores=data.scores.slice();
+  // same-sign bonus: deepens emotional + trust
+  if(a===b){scores=scores.map((s,i)=>i===0||i===2?Math.min(10,s+1):s);}
+  const overall=Math.round((scores.reduce((x,y)=>x+y,0)/50)*100);
+  const t=data[cL]||data.en;
+
+  const ra=RASHIS.find(r=>r.id===a),rb=RASHIS.find(r=>r.id===b);
+  const pairLabel=(cL==='hi'?ra.hi:ra.en)+' + '+(cL==='hi'?rb.hi:rb.en);
+  document.getElementById('cPair').textContent=pairLabel;
+  document.getElementById('cVerdict').textContent=t.verdict;
+
+  // Animate ring
+  const circumference=2*Math.PI*52;
+  document.getElementById('cRing').setAttribute('stroke-dasharray',circumference);
+  const ring=document.getElementById('cRing');
+  ring.style.strokeDashoffset=circumference;
+  document.getElementById('cRingNum').textContent=overall+'%';
+  setTimeout(()=>{ring.style.strokeDashoffset=circumference*(1-overall/100);},80);
+
+  // Categories
+  const catKeys=['emotional','communication','trust','physical','values'];
+  const catBox=document.getElementById('cCats');catBox.innerHTML='';
+  catKeys.forEach((k,i)=>{
+    const sc=scores[i];
+    const div=document.createElement('div');
+    div.className='compat-cat';
+    div.innerHTML=`
+      <div class="compat-cat-row">
+        <span class="compat-cat-name">${CAT_NAMES[k][cL]}</span>
+        <span class="compat-cat-score">${sc}/10</span>
+      </div>
+      <div class="compat-cat-bar"><div class="compat-cat-bar-fill" style="width:${sc*10}%"></div></div>`;
+    catBox.appendChild(div);
+  });
+
+  document.getElementById('cAnalysis').textContent=t.analysis;
+
+  const ulBest=document.getElementById('cBest');ulBest.innerHTML='';
+  t.best.forEach(s=>{const li=document.createElement('li');li.textContent=s;ulBest.appendChild(li);});
+  const ulChall=document.getElementById('cChall');ulChall.innerHTML='';
+  t.challenges.forEach(s=>{const li=document.createElement('li');li.textContent=s;ulChall.appendChild(li);});
+
+  // Re-translate static [data-hi] inside the result
+  document.querySelectorAll('#cRes [data-hi]').forEach(e=>{e.textContent=cL==='hi'?e.dataset.hi:e.dataset.en});
+
+  document.getElementById('cRes').classList.add('show');
 }
 
 function setLang(l){
