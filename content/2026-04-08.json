@@ -1,0 +1,237 @@
+{
+  "date": "2026-04-08",
+  "date_hi": "08 April 2026",
+  "weekday_en": "Wednesday",
+  "weekday_hi": "बुधवार",
+  "rashis": [
+    {
+      "id": "mesh",
+      "name_hi": "मेष",
+      "name_en": "Aries",
+      "symbol": "♈",
+      "dates": "Mar 21 – Apr 19",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपकी संवाद क्षमता को बढ़ाएगा। कार्यक्षेत्र में नई योजनाओं पर चर्चा सफल रहेगी और वरिष्ठों से सराहना मिल सकती है। वित्तीय मामलों में सोच-समझकर निवेश करें, जल्दबाजी में लिए गए फैसले नुकसानदायक हो सकते हैं। स्वास्थ्य के लिए हल्की व्यायाम और योग का अभ्यास लाभकारी होगा। शाम के समय परिवारजनों के साथ गुणवत्तापूर्ण समय बिताने से मानसिक शांति मिलेगी।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Mercury's influence on Wednesday enhances your communication skills and networking abilities significantly. Professional discussions about new projects will yield positive results, with potential recognition from seniors. Exercise caution in financial decisions today, as hasty investments might not deliver expected returns. Your energy levels are moderate, making it an ideal day for light exercise and meditation practices. Evening hours bring harmony in family relationships, and a meaningful conversation with loved ones will provide emotional satisfaction.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "vrishabh",
+      "name_hi": "वृषभ",
+      "name_en": "Taurus",
+      "symbol": "♉",
+      "dates": "Apr 20 – May 20",
+      "hindi": {
+        "prediction": "बुधवार का दिन आपके लिए व्यावसायिक क्षेत्र में नई संभावनाओं के द्वार खोलेगा। बुध ग्रह का प्रभाव आपकी संवाद क्षमता को बढ़ाएगा, जिससे महत्वपूर्ण बातचीत सफल होगी। स्वास्थ्य के मामले में गले और श्वसन संबंधी समस्याओं से बचाव करें। प्रेम संबंधों में धैर्य रखें क्योंकि कुछ मतभेद हो सकते हैं। वित्तीय मामलों में सोच-समझकर निवेश करने का उत्तम समय है।",
+        "lucky_number": 26,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Wednesday brings promising opportunities in your professional sphere as Mercury's influence enhances your communication skills significantly. Important negotiations or presentations will work in your favor, leading to potential career advancement. Be mindful of throat and respiratory issues today - staying hydrated and avoiding cold foods will help. Your romantic relationships may face minor disagreements, but patience and understanding will resolve them quickly. Financial investments made today with careful consideration could yield excellent returns in the coming weeks.",
+        "lucky_number": 26,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "mithun",
+      "name_hi": "मिथुन",
+      "name_en": "Gemini",
+      "symbol": "♊",
+      "dates": "May 21 – Jun 20",
+      "hindi": {
+        "prediction": "बुधवार का दिन मिथुन राशि के लिए संवाद और नई शुरुआत का दिन है। आज आपके व्यावसायिक क्षेत्र में एक महत्वपूर्ण बैठक या प्रस्तुतीकरण हो सकता है जो आपके भविष्य की योजनाओं को प्रभावित करेगा। पारिवारिक रिश्तों में कुछ मतभेद हो सकते हैं, लेकिन धैर्य रखें और समझदारी से बात करें। स्वास्थ्य के मामले में गले या श्वसन संबंधी समस्याओं का ध्यान रखें। शाम के समय कोई अप्रत्याशित वित्तीय लाभ मिल सकता है।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Wednesday brings Mercury's communicative energy strongly into your sphere, making it an ideal day for presentations and negotiations. A significant professional opportunity may arise through a colleague's recommendation, but be cautious about committing too quickly. Your natural wit and charm will help resolve a minor family dispute that has been brewing for days. Health-wise, pay attention to your nervous system - meditation or light yoga could be beneficial. An unexpected text message or call in the evening might bring pleasant news related to a past investment or pending payment.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kark",
+      "name_hi": "कर्क",
+      "name_en": "Cancer",
+      "symbol": "♋",
+      "dates": "Jun 21 – Jul 22",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपके संचार कौशल को बढ़ाएगा और कार्यक्षेत्र में नई संभावनाएं लेकर आएगा। पारिवारिक रिश्तों में मधुरता आएगी और किसी पुराने मित्र से संपर्क हो सकता है। वित्तीय मामलों में सावधानी बरतें क्योंकि कोई अनावश्यक खर्च हो सकता है। स्वास्थ्य की दृष्टि से पेट संबंधी समस्याओं से बचने के लिए खानपान में संयम रखें।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Wednesday's Mercury influence will enhance your communication abilities, opening new doors in your professional sphere. Family relationships will experience sweetness, and you may reconnect with an old friend who brings positive energy. Exercise caution in financial matters as unexpected expenses might arise that could strain your budget. Health-wise, maintain moderation in your diet to avoid digestive issues, particularly with spicy or heavy foods today.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "singh",
+      "name_hi": "सिंह",
+      "name_en": "Leo",
+      "symbol": "♌",
+      "dates": "Jul 23 – Aug 22",
+      "hindi": {
+        "prediction": "बुधवार का दिन सिंह राशि के लिए संचार और बुद्धिमत्ता के क्षेत्र में उत्कृष्टता लेकर आएगा। आज आपकी वाणी में जादू होगा और महत्वपूर्ण बातचीत सफल होगी। करियर में नए अवसरों की संभावना है जो आपकी नेतृत्व क्षमता को निखारेंगे। स्वास्थ्य की दृष्टि से मानसिक तनाव कम रहेगा लेकिन पेट संबंधी समस्याओं से बचाव रखें। रिश्तों में मिठास आएगी और पुराने मित्रों से संपर्क हो सकता है।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Wednesday brings Mercury's communicative energy to enhance Leo's natural charisma and leadership abilities. Your articulate expression will open doors in professional discussions and important negotiations today. A financial opportunity linked to your creative talents may present itself, requiring quick decision-making. Health-wise, focus on digestive wellness and avoid heavy meals during the afternoon hours. Personal relationships flourish as old friends reach out, bringing nostalgic joy and potential collaborations into your sphere.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "kanya",
+      "name_hi": "कन्या",
+      "name_en": "Virgo",
+      "symbol": "♍",
+      "dates": "Aug 23 – Sep 22",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह की शुभ स्थिति आपके व्यावसायिक क्षेत्र में नई संभावनाएं लेकर आएगी। आज किसी महत्वपूर्ण परियोजना को पूरा करने में सफलता मिल सकती है। स्वास्थ्य की दृष्टि से पेट संबंधी समस्याओं से बचने के लिए भोजन में संयम बरतें। पारिवारिक रिश्तों में मधुरता बनी रहेगी और किसी पुराने मित्र से संपर्क हो सकता है। वित्तीय मामलों में सोच-समझकर निवेश करें।",
+        "lucky_number": 42,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Wednesday's Mercury influence brings excellent analytical abilities to the forefront, making it an ideal day for detailed work and problem-solving. Your meticulous nature will be particularly appreciated by colleagues, potentially leading to new responsibilities or recognition. A minor health concern related to stress may require attention - consider incorporating meditation into your routine. In relationships, your practical advice will be sought after by loved ones, strengthening your bonds. Financially, a small but steady income source may present itself through your skills or hobbies.",
+        "lucky_number": 42,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "tula",
+      "name_hi": "तुला",
+      "name_en": "Libra",
+      "symbol": "♎",
+      "dates": "Sep 23 – Oct 22",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपकी बातचीत और संवाद कौशल को बढ़ावा देगा। कार्यक्षेत्र में नई परियोजनाओं पर चर्चा करने का अच्छा समय है, लेकिन जल्दबाजी में निर्णय न लें। वित्तीय मामलों में सावधानी बरतें और बड़े खर्चों से बचें। स्वास्थ्य के लिए पर्याप्त आराम जरूरी है। शाम के समय प्रियजनों के साथ बिताया गया समय मानसिक शांति देगा।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.0
+      },
+      "english": {
+        "prediction": "Mercury's influence on Wednesday enhances your communication abilities and networking potential. It's an excellent day for brainstorming and collaborative discussions at work, though avoid rushing into major commitments. Financial caution is advised today - postpone significant purchases or investments for now. Your health requires attention, particularly proper rest and avoiding stress. Evening hours bring harmonious energy for strengthening personal relationships and finding emotional balance.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.0
+      }
+    },
+    {
+      "id": "vrishchik",
+      "name_hi": "वृश्चिक",
+      "name_en": "Scorpio",
+      "symbol": "♏",
+      "dates": "Oct 23 – Nov 21",
+      "hindi": {
+        "prediction": "बुधवार का दिन आपके लिए मिश्रित फल लेकर आ रहा है। बुध ग्रह के प्रभाव से आज संवाद और व्यापारिक मामलों में सफलता मिल सकती है। करियर में कोई महत्वपूर्ण निर्णय लेने से पहले अच्छी तरह विचार करें। स्वास्थ्य की दृष्टि से गले और श्वसन संबंधी समस्याओं का ध्यान रखें। पारिवारिक संबंधों में मधुरता बनी रहेगी और धन की स्थिति में सुधार के संकेत हैं।",
+        "lucky_number": 17,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Wednesday brings a balanced mix of opportunities and challenges for you. Mercury's influence enhances your communication skills, making it an excellent day for negotiations and business discussions. A long-pending project may finally show signs of progress, but avoid making hasty financial commitments. Your intuitive powers are particularly strong today, so trust your instincts in personal relationships. Health-wise, focus on maintaining good posture and consider some light exercise to boost your energy levels.",
+        "lucky_number": 17,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "dhanu",
+      "name_hi": "धनु",
+      "name_en": "Sagittarius",
+      "symbol": "♐",
+      "dates": "Nov 22 – Dec 21",
+      "hindi": {
+        "prediction": "बुधवार का दिन आपके लिए नई शुरुआत लेकर आ रहा है। बुध ग्रह के प्रभाव से आपकी संवाद शैली में सुधार होगा और व्यापारिक मामलों में सफलता मिलेगी। स्वास्थ्य के मामले में थोड़ी सावधानी बरतें, खासकर पाचन संबंधी समस्याओं से बचें। रिश्तों में मधुरता आएगी और परिवारजनों का साथ मिलेगा। वित्तीय मामलों में नए अवसर दिखाई दे सकते हैं।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Wednesday brings fresh beginnings and renewed energy for Sagittarius natives. Mercury's influence enhances your communication skills, making it an excellent day for negotiations and business discussions. Pay attention to your digestive health and avoid heavy meals today. Your natural optimism will attract positive responses in personal relationships, particularly from family members. A financial opportunity may present itself through networking or educational pursuits, aligning perfectly with your adventurous spirit.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "makar",
+      "name_hi": "मकर",
+      "name_en": "Capricorn",
+      "symbol": "♑",
+      "dates": "Dec 22 – Jan 19",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपके संचार कौशल को बढ़ाएगा। कार्यक्षेत्र में नई परियोजनाओं की शुरुआत के लिए यह शुभ समय है। आर्थिक मामलों में सावधानी बरतें और अनावश्यक खर्च से बचें। स्वास्थ्य की दृष्टि से गले की समस्या हो सकती है, इसलिए ठंडी चीजों से दूर रहें। पारिवारिक संबंधों में मधुरता बनी रहेगी।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Mercury's influence this Wednesday enhances your analytical abilities and communication skills perfectly. A significant breakthrough in your professional projects is likely, especially those involving documentation or negotiations. Financial planning requires careful attention today - avoid impulsive investments but consider long-term savings options. Your methodical Capricorn nature will help you resolve a lingering relationship misunderstanding through patient dialogue. Pay attention to your digestive system and maintain regular meal timings.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kumbh",
+      "name_hi": "कुम्भ",
+      "name_en": "Aquarius",
+      "symbol": "♒",
+      "dates": "Jan 20 – Feb 18",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपकी संवाद क्षमता को बढ़ाएगा। कार्यक्षेत्र में एक महत्वपूर्ण प्रस्ताव आपके सामने आ सकता है जिस पर सोच-समझकर निर्णय लें। स्वास्थ्य की दृष्टि से गले और सांस संबंधी समस्याओं से बचाव करें। पारिवारिक रिश्तों में मधुरता बनी रहेगी और किसी पुराने मित्र से संपर्क हो सकता है। वित्तीय मामलों में सावधानी बरतते हुए अनावश्यक खर्च से बचें।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Wednesday's Mercury influence enhances your communication skills and analytical thinking. A significant proposal or opportunity may come your way at work, requiring careful consideration rather than hasty decisions. Pay attention to throat and respiratory health today, as these areas might need extra care. Family relationships flow smoothly, and you might reconnect with an old friend who brings positive energy. Exercise caution with finances by avoiding unnecessary expenditures, though a small investment in learning or technology could prove beneficial.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "meen",
+      "name_hi": "मीन",
+      "name_en": "Pisces",
+      "symbol": "♓",
+      "dates": "Feb 19 – Mar 20",
+      "hindi": {
+        "prediction": "बुधवार के दिन बुध ग्रह का प्रभाव आपकी बातचीत और संवाद कौशल को बेहतर बनाएगा। कार्यक्षेत्र में किसी महत्वपूर्ण बैठक या प्रस्तुति में आपका प्रदर्शन सराहनीय रहेगा। स्वास्थ्य की दृष्टि से गले और श्वसन संबंधी समस्याओं से बचाव रखें। पारिवारिक संबंधों में मिठास आएगी और पुराने मित्रों से संपर्क हो सकता है। वित्तीय मामलों में छोटे निवेश के अवसर मिल सकते हैं।",
+        "lucky_number": 23,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Wednesday's Mercury influence enhances your communication abilities and intellectual pursuits significantly. A crucial presentation or meeting at work will showcase your talents and may open new doors for advancement. Health-wise, pay attention to throat and respiratory issues that might surface today. Family relationships experience renewed warmth, and an unexpected reconnection with old friends brings joy. Small investment opportunities in technology or education sector may prove beneficial for your long-term financial growth.",
+        "lucky_number": 23,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    }
+  ],
+  "generated_at": "2026-04-07T12:32:02.949752"
+}
