@@ -90,6 +90,115 @@ Rules:
         return _parse_json(call_claude(prompt))
 
 
+CHINESE_ANIMALS = [
+    {"id":"rat",     "hi":"चूहा",     "en":"Rat"},
+    {"id":"ox",      "hi":"बैल",      "en":"Ox"},
+    {"id":"tiger",   "hi":"बाघ",      "en":"Tiger"},
+    {"id":"rabbit",  "hi":"खरगोश",    "en":"Rabbit"},
+    {"id":"dragon",  "hi":"ड्रैगन",   "en":"Dragon"},
+    {"id":"snake",   "hi":"साँप",     "en":"Snake"},
+    {"id":"horse",   "hi":"घोड़ा",    "en":"Horse"},
+    {"id":"goat",    "hi":"बकरी",     "en":"Goat"},
+    {"id":"monkey",  "hi":"बंदर",     "en":"Monkey"},
+    {"id":"rooster", "hi":"मुर्गा",   "en":"Rooster"},
+    {"id":"dog",     "hi":"कुत्ता",   "en":"Dog"},
+    {"id":"pig",     "hi":"सूअर",     "en":"Pig"},
+]
+
+
+def generate_chinese_daily(date_str: str) -> dict:
+    """Generate daily Chinese horoscope for all 12 animals.
+    Returns a dict keyed by animal id with hindi/english predictions."""
+    out = {}
+    for animal in CHINESE_ANIMALS:
+        prompt = f"""You are an expert Chinese astrologer writing a daily horoscope.
+Generate the daily Chinese horoscope for {animal['en']} ({animal['hi']}) sign for {date_str}.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi": {{
+    "prediction": "3-4 sentences in Hindi about today for this Chinese sign — work, relationships, energy.",
+    "lucky_number": 7,
+    "lucky_color": "लाल",
+    "rating": 3.5
+  }},
+  "english": {{
+    "prediction": "3-4 sentences in English about today for this Chinese sign — work, relationships, energy.",
+    "lucky_number": 7,
+    "lucky_color": "Red",
+    "rating": 3.5
+  }}
+}}
+
+Rules:
+- rating is 1.0 to 5.0
+- Be specific and varied per sign — do not repeat generic advice
+- Tone: warm, hopeful, realistic"""
+        try:
+            out[animal["id"]] = _parse_json(call_claude(prompt))
+        except Exception as e:
+            print(f"    ⚠ Chinese {animal['en']} failed: {e}")
+            out[animal["id"]] = None
+        time.sleep(1)
+    return out
+
+
+def generate_tarot_daily(date_str: str) -> dict:
+    """Generate today's tarot card-of-the-day plus a 3-card past/present/future spread."""
+    prompt = f"""You are a Tarot reader producing the reading for {date_str}.
+Pick one Major Arcana card as Card of the Day and three Major Arcana cards
+(can be different from the Card of the Day) as a Past / Present / Future spread.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "card_of_day": {{
+    "number": 17,
+    "hindi": {{
+      "name": "तारा",
+      "meaning": "2-3 sentences in Hindi explaining the card's meaning.",
+      "advice": "1 sentence advice in Hindi for the day."
+    }},
+    "english": {{
+      "name": "The Star",
+      "meaning": "2-3 sentences in English explaining the card's meaning.",
+      "advice": "1 sentence advice in English for the day."
+    }}
+  }},
+  "spread": [
+    {{
+      "position": {{"hi":"अतीत","en":"Past"}},
+      "number": 6,
+      "hindi": {{"name":"प्रेमी","meaning":"1-2 sentence interpretation in Hindi for the past position."}},
+      "english": {{"name":"The Lovers","meaning":"1-2 sentence interpretation in English for the past position."}}
+    }},
+    {{
+      "position": {{"hi":"वर्तमान","en":"Present"}},
+      "number": 10,
+      "hindi": {{"name":"भाग्य का चक्र","meaning":"1-2 sentence interpretation in Hindi for the present position."}},
+      "english": {{"name":"Wheel of Fortune","meaning":"1-2 sentence interpretation in English for the present position."}}
+    }},
+    {{
+      "position": {{"hi":"भविष्य","en":"Future"}},
+      "number": 19,
+      "hindi": {{"name":"सूर्य","meaning":"1-2 sentence interpretation in Hindi for the future position."}},
+      "english": {{"name":"The Sun","meaning":"1-2 sentence interpretation in English for the future position."}}
+    }}
+  ]
+}}
+
+Rules:
+- Use only Major Arcana cards (number 0 to 21).
+- Pick a different Card of the Day each calendar day — vary across the year.
+- Names must be the standard Tarot names in English (e.g. The Fool, The Magician)
+  and the standard Hindi equivalents.
+- Keep meanings warm, applicable, and free of fatalism."""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Tarot failed: {e}")
+        return None
+
+
 def generate_story(date_str: str) -> dict:
     """Call Claude to produce a short dharmic story for the day."""
     prompt = f"""You are a teacher of dharmic literature. Compose a short story (150-200 words) for {date_str}, drawn from the Ramayan, Mahabharat, Puranas, or other Hindu scriptures.
@@ -214,6 +323,22 @@ Rules:
     except Exception as e:
         print(f"    ⚠ Story failed: {e}")
         story = None
+    time.sleep(1)
+
+    print("  Generating: Chinese horoscope (12 animals)...")
+    try:
+        chinese = generate_chinese_daily(date_str)
+    except Exception as e:
+        print(f"    ⚠ Chinese horoscope failed: {e}")
+        chinese = None
+    time.sleep(1)
+
+    print("  Generating: Tarot card of the day + spread...")
+    try:
+        tarot = generate_tarot_daily(date_str)
+    except Exception as e:
+        print(f"    ⚠ Tarot failed: {e}")
+        tarot = None
 
     # Save daily content
     output = {
@@ -224,6 +349,8 @@ Rules:
         "rashis": all_rashis,
         "panchang": panchang,
         "story": story,
+        "chinese": chinese,
+        "tarot": tarot,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
 
