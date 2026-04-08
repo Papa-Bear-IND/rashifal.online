@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rashifal.online — आज का राशिफल | Daily Horoscope, Kundli, Compatibility</title>
 <meta name="description" content="आज का राशिफल, साप्ताहिक, मासिक, वार्षिक भविष्यफल। Free kundli, compatibility, career, love, health & finance horoscope.">
+<meta name="keywords" content="rashifal, राशिफल, aaj ka rashifal, आज का राशिफल, daily horoscope, horoscope today, rashifal today, dainik rashifal, mesh rashifal, vrishabh rashifal, mithun rashifal, kark rashifal, singh rashifal, kanya rashifal, tula rashifal, vrishchik rashifal, dhanu rashifal, makar rashifal, kumbh rashifal, meen rashifal, aries horoscope, taurus horoscope, gemini horoscope, cancer horoscope, leo horoscope, virgo horoscope, libra horoscope, scorpio horoscope, sagittarius horoscope, capricorn horoscope, aquarius horoscope, pisces horoscope, panchang today, आज का पंचांग, kundli, कुंडली, compatibility, राशि अनुकूलता, chinese horoscope, चीनी राशिफल, tarot card today, आज का टैरो, numerology, अंक ज्योतिष, navratri, दिवाली पूजा विधि, muhurat 2026, ग्रह गोचर, weekly rashifal, monthly rashifal, yearly rashifal, rashifal 2026, horoscope 2026, love horoscope, career horoscope, health horoscope, finance horoscope">
 <link rel="canonical" href="https://rashifal.online">
 <link rel="alternate" hreflang="hi" href="https://rashifal.online">
 <link rel="alternate" hreflang="en" href="https://rashifal.online">
@@ -66,23 +67,28 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "राशिफल क्या होता है?",
-      "acceptedAnswer": {"@type":"Answer","text":"राशिफल वैदिक ज्योतिष के आधार पर आपकी चंद्र राशि का दैनिक भविष्यफल है।"}
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are daily horoscopes?",
-      "acceptedAnswer": {"@type":"Answer","text":"Daily horoscopes provide general guidance based on planetary transits. For precise predictions, a complete birth chart analysis is recommended."}
+      "name": "आज का राशिफल कैसे देखें?",
+      "acceptedAnswer": {"@type":"Answer","text":"Rashifal.online पर अपनी राशि चुनें और आज का विस्तृत राशिफल पढ़ें।"}
     },
     {
       "@type": "Question",
       "name": "राशिफल प्रतिदिन कब अपडेट होता है?",
-      "acceptedAnswer": {"@type":"Answer","text":"हमारा राशिफल प्रतिदिन प्रातः 5 बजे IST पर अपडेट किया जाता है।"}
+      "acceptedAnswer": {"@type":"Answer","text":"प्रतिदिन प्रातः 5 बजे IST पर ताज़ा राशिफल उपलब्ध होता है।"}
     },
     {
       "@type": "Question",
-      "name": "Can I check rashifal for my family members?",
-      "acceptedAnswer": {"@type":"Answer","text":"Yes, save multiple rashis in your preferences to see predictions for family members."}
+      "name": "What is the most accurate horoscope site?",
+      "acceptedAnswer": {"@type":"Answer","text":"Rashifal.online provides daily Vedic astrology predictions updated every morning at 5 AM IST."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check horoscope for free?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes, Rashifal.online offers completely free daily, weekly, monthly and yearly horoscope for all 12 zodiac signs."}
+    },
+    {
+      "@type": "Question",
+      "name": "आज का पंचांग कैसे देखें?",
+      "acceptedAnswer": {"@type":"Answer","text":"Rashifal.online पर आज की तिथि, नक्षत्र, योग, करण और राहुकाल की जानकारी उपलब्ध है।"}
     }
   ]
 }
@@ -1372,6 +1378,134 @@ a.festival-card-link:hover { text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+/* ── TAROT SECTION ── */
+.tarot-featured {
+  max-width: 540px;
+  margin: 0 auto var(--sp-6);
+  padding: var(--sp-6) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+}
+.tarot-card-art {
+  width: 140px;
+  height: 220px;
+  border-radius: 12px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(180deg, #1a1230 0%, #0a0820 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(212,175,55,0.18), inset 0 0 30px rgba(212,175,55,0.06);
+}
+.tarot-card-art::before,
+.tarot-card-art::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 8px;
+  pointer-events: none;
+}
+.tarot-card-art::after { inset: 12px; border-color: rgba(212,175,55,0.15); }
+.tarot-card-roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  color: var(--gold);
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(212,175,55,0.4);
+  z-index: 1;
+}
+:root[data-theme="light"] .tarot-card-art {
+  background: linear-gradient(180deg, #FFFCF4 0%, #F5EAD0 100%);
+}
+.tarot-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: var(--sp-2);
+}
+.tarot-name-en {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tarot-meaning {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+  max-width: 440px;
+}
+.tarot-advice {
+  margin-top: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--gold-faint);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  font-style: italic;
+  text-align: left;
+}
+.tarot-spread-head {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--gold);
+  margin: var(--sp-6) 0 var(--sp-4);
+  letter-spacing: 0.02em;
+}
+.tarot-spread {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .tarot-spread { grid-template-columns: 1fr; } }
+.tarot-spread-card {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-2);
+}
+.tarot-spread-card .tarot-card-art {
+  width: 100px;
+  height: 156px;
+}
+.tarot-spread-card .tarot-card-roman { font-size: 32px; }
+.tarot-spread-pos {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 600;
+}
+.tarot-spread-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--t-heading);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.tarot-spread-meaning {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  line-height: var(--lh-normal);
+}
+
 .link-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3700,6 +3834,34 @@ footer {
 
   <div class="ad-slot">Ad Placement &mdash; Mid Content</div>
 
+  <!-- ═══ CHINESE HOROSCOPE ═══ -->
+  <section class="section reveal" id="chinese">
+    <div class="section-header">
+      <h2 data-hi="आज का चीनी राशिफल" data-en="Today's Chinese Horoscope">आज का चीनी राशिफल</h2>
+      <p data-hi="चीनी ज्योतिष — 12 पशु राशियों के लिए दैनिक भविष्यफल" data-en="Chinese astrology — daily predictions for all 12 animal signs">चीनी ज्योतिष — 12 पशु राशियों के लिए दैनिक भविष्यफल</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="rashi-grid" id="chineseGrid"></div>
+    <div style="text-align:center;margin-top:var(--sp-5);">
+      <a class="btn-ghost-gold" href="chinese-horoscope.html" data-hi="पूरा चीनी राशिफल देखें →" data-en="View Full Chinese Horoscope →">पूरा चीनी राशिफल देखें →</a>
+    </div>
+  </section>
+
+  <!-- ═══ TAROT CARD OF THE DAY ═══ -->
+  <section class="section reveal" id="tarot">
+    <div class="section-header">
+      <h2 data-hi="आज का टैरो कार्ड" data-en="Today's Tarot Card">आज का टैरो कार्ड</h2>
+      <p data-hi="दिन का कार्ड और तीन-कार्ड स्प्रेड — अतीत · वर्तमान · भविष्य" data-en="Card of the Day and a 3-card spread — past · present · future">दिन का कार्ड और तीन-कार्ड स्प्रेड — अतीत · वर्तमान · भविष्य</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="tarot-featured card" id="tarotFeatured"></div>
+    <h3 class="tarot-spread-head" data-hi="आज का तीन-कार्ड स्प्रेड" data-en="Today's 3-Card Spread">आज का तीन-कार्ड स्प्रेड</h3>
+    <div class="tarot-spread" id="tarotSpread"></div>
+    <div style="text-align:center;margin-top:var(--sp-5);">
+      <a class="btn-ghost-gold" href="tarot.html" data-hi="टैरो के बारे में और जानें →" data-en="Learn More About Tarot →">टैरो के बारे में और जानें →</a>
+    </div>
+  </section>
+
   <!-- ═══ HOROSCOPES ═══ -->
   <section class="section reveal" id="horoscopes">
     <div class="section-header">
@@ -4610,6 +4772,123 @@ function renderGrid(){
       ${ld?`<div class="rashi-excerpt">${ld.prediction}</div><div class="rashi-rating">${sr(ld.rating)}</div>`:''}`;
     g.appendChild(c);
   });
+}
+
+/* ── CHINESE ZODIAC ── */
+const CHINESE_ANIMALS=[
+  {id:'rat',     hi:'चूहा',    en:'Rat',     years:'1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020'},
+  {id:'ox',      hi:'बैल',     en:'Ox',      years:'1925, 1937, 1949, 1961, 1973, 1985, 1997, 2009, 2021'},
+  {id:'tiger',   hi:'बाघ',     en:'Tiger',   years:'1926, 1938, 1950, 1962, 1974, 1986, 1998, 2010, 2022'},
+  {id:'rabbit',  hi:'खरगोश',   en:'Rabbit',  years:'1927, 1939, 1951, 1963, 1975, 1987, 1999, 2011, 2023'},
+  {id:'dragon',  hi:'ड्रैगन',  en:'Dragon',  years:'1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024'},
+  {id:'snake',   hi:'साँप',    en:'Snake',   years:'1929, 1941, 1953, 1965, 1977, 1989, 2001, 2013, 2025'},
+  {id:'horse',   hi:'घोड़ा',   en:'Horse',   years:'1930, 1942, 1954, 1966, 1978, 1990, 2002, 2014, 2026'},
+  {id:'goat',    hi:'बकरी',    en:'Goat',    years:'1931, 1943, 1955, 1967, 1979, 1991, 2003, 2015, 2027'},
+  {id:'monkey',  hi:'बंदर',    en:'Monkey',  years:'1932, 1944, 1956, 1968, 1980, 1992, 2004, 2016, 2028'},
+  {id:'rooster', hi:'मुर्गा',  en:'Rooster', years:'1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029'},
+  {id:'dog',     hi:'कुत्ता',  en:'Dog',     years:'1934, 1946, 1958, 1970, 1982, 1994, 2006, 2018, 2030'},
+  {id:'pig',     hi:'सूअर',    en:'Pig',     years:'1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031'}
+];
+const CHINESE_GLYPHS={rat:'🐀',ox:'🐂',tiger:'🐅',rabbit:'🐇',dragon:'🐉',snake:'🐍',horse:'🐎',goat:'🐐',monkey:'🐒',rooster:'🐓',dog:'🐕',pig:'🐖'};
+function renderChinese(){
+  const g=document.getElementById('chineseGrid');
+  if(!g)return;
+  g.innerHTML='';
+  const chinese=dd?.chinese||{};
+  const fb=cL==='hi'
+    ?'चीनी राशिफल जल्द ही उपलब्ध होगा। पूर्ण विवरण के लिए चीनी राशिफल पृष्ठ पर जाएँ।'
+    :'Chinese horoscope coming soon. Visit the full Chinese horoscope page for details.';
+  CHINESE_ANIMALS.forEach(a=>{
+    const data=chinese[a.id]||null;
+    const ld=data?(cL==='hi'?data.hindi:data.english):null;
+    const c=document.createElement('a');
+    c.className='card rashi-card';
+    c.href='chinese-horoscope.html';
+    c.setAttribute('aria-label',(cL==='hi'?a.hi:a.en)+' — '+(cL==='hi'?'विस्तृत':'view full'));
+    const text=ld?.prediction||fb;
+    const ratingHtml=ld?`<div class="rashi-rating">${sr(ld.rating)}</div>`:'';
+    c.innerHTML=`
+      <div class="rashi-top">
+        <div class="rashi-glyph" style="font-size:42px;line-height:1;">${CHINESE_GLYPHS[a.id]||''}</div>
+        <div>
+          <h3 class="rashi-name">${cL==='hi'?a.hi:a.en}</h3>
+          <div class="rashi-name-sub">${cL==='hi'?a.en:a.hi}</div>
+        </div>
+      </div>
+      <div class="rashi-dates">${a.years.split(', ').slice(-3).join(', ')}…</div>
+      <div class="rashi-excerpt">${text}</div>
+      ${ratingHtml}`;
+    g.appendChild(c);
+  });
+}
+
+/* ── TAROT ── */
+// Major Arcana fallback (used when daily JSON has no tarot key)
+const TAROT_MAJOR=[
+  {n:0, hi:'मूर्ख',en:'The Fool',           m_hi:'नई शुरुआत और निडर साहस का संकेत।',          m_en:'A sign of new beginnings and fearless courage.',          a_hi:'आज जोखिम लें — दिल की सुनें।',a_en:'Take a leap today — trust your heart.'},
+  {n:1, hi:'जादूगर',en:'The Magician',     m_hi:'आपके पास सब उपकरण हैं — संकल्प से प्रकट होगा।',m_en:'You have all the tools — manifest with intention.',     a_hi:'अपनी शक्ति को पहचानें और कार्य करें।',a_en:'Recognise your power and act.'},
+  {n:2, hi:'महायाजिका',en:'The High Priestess',m_hi:'अंतर्ज्ञान की गहरी आवाज़ सुनें।',         m_en:'Listen to the deep voice of intuition.',                a_hi:'मौन और चिंतन में उत्तर मिलेगा।',a_en:'Answers will come in silence and reflection.'},
+  {n:3, hi:'सम्राज्ञी',en:'The Empress',   m_hi:'समृद्धि, प्रेम और रचनात्मकता का संदेश।',   m_en:'A message of abundance, love and creativity.',          a_hi:'अपना और प्रियजनों का पोषण करें।',a_en:'Nurture yourself and the ones you love.'},
+  {n:4, hi:'सम्राट',en:'The Emperor',       m_hi:'अनुशासन और संरचना से सफलता मिलेगी।',       m_en:'Discipline and structure will bring success.',          a_hi:'योजना बनाएँ और दृढ़ निर्णय लें।',a_en:'Plan ahead and make firm decisions.'},
+  {n:6, hi:'प्रेमी',en:'The Lovers',       m_hi:'प्रेम, साझेदारी और महत्वपूर्ण चयन।',        m_en:'Love, partnership and a meaningful choice.',            a_hi:'दिल और दिमाग दोनों से चुनाव करें।',a_en:'Choose with heart and mind together.'},
+  {n:10,hi:'भाग्य का चक्र',en:'Wheel of Fortune',m_hi:'जीवन की दिशा बदलने वाला दिन।',        m_en:'A day when the wheel turns in your favour.',            a_hi:'अवसर पहचानें — संकोच न करें।',a_en:'Spot the opportunity — do not hesitate.'},
+  {n:17,hi:'तारा',en:'The Star',           m_hi:'आशा, उपचार और प्रेरणा का प्रकाश।',         m_en:'Hope, healing and inspiration shine on you.',           a_hi:'अपने सपनों पर भरोसा रखें।',a_en:'Trust in your dreams.'},
+  {n:19,hi:'सूर्य',en:'The Sun',           m_hi:'आनंद, सफलता और सकारात्मक ऊर्जा।',          m_en:'Joy, success and positive energy abound.',              a_hi:'अपनी रोशनी सबके साथ बाँटें।',a_en:'Share your light with everyone.'}
+];
+function _toRoman(n){
+  const map=[[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+  let r='';for(const[v,s]of map){while(n>=v){r+=s;n-=v;}}return r||'0';
+}
+function _pickFallbackTarot(){
+  // Deterministic by IST date so the page is stable for all visitors today.
+  const d=_istToday();
+  let h=0;for(const c of d)h=(h*31+c.charCodeAt(0))%1000003;
+  const card=TAROT_MAJOR[h%TAROT_MAJOR.length];
+  const past=TAROT_MAJOR[(h*7+1)%TAROT_MAJOR.length];
+  const present=TAROT_MAJOR[(h*7+2)%TAROT_MAJOR.length];
+  const future=TAROT_MAJOR[(h*7+3)%TAROT_MAJOR.length];
+  return{
+    card_of_day:{
+      hindi:{name:card.hi,meaning:card.m_hi,advice:card.a_hi},
+      english:{name:card.en,meaning:card.m_en,advice:card.a_en},
+      number:card.n
+    },
+    spread:[
+      {position:{hi:'अतीत',en:'Past'},   hindi:{name:past.hi,meaning:past.m_hi},   english:{name:past.en,meaning:past.m_en},   number:past.n},
+      {position:{hi:'वर्तमान',en:'Present'},hindi:{name:present.hi,meaning:present.m_hi},english:{name:present.en,meaning:present.m_en},number:present.n},
+      {position:{hi:'भविष्य',en:'Future'},hindi:{name:future.hi,meaning:future.m_hi}, english:{name:future.en,meaning:future.m_en}, number:future.n}
+    ]
+  };
+}
+function renderTarot(){
+  const featured=document.getElementById('tarotFeatured');
+  const spread=document.getElementById('tarotSpread');
+  if(!featured||!spread)return;
+  const t=dd?.tarot||_pickFallbackTarot();
+  // Featured
+  const cd=t.card_of_day||{};
+  const cdLd=cL==='hi'?cd.hindi:cd.english;
+  const roman=_toRoman(cd.number||0);
+  featured.innerHTML=`
+    <div class="tarot-card-art"><span class="tarot-card-roman">${roman}</span></div>
+    <div class="tarot-name">${cdLd?.name||''}</div>
+    <div class="tarot-name-en">${cL==='hi'?(cd.english?.name||''):(cd.hindi?.name||'')}</div>
+    <p class="tarot-meaning">${cdLd?.meaning||''}</p>
+    ${cdLd?.advice?`<div class="tarot-advice">${cdLd.advice}</div>`:''}`;
+  // Spread
+  const items=t.spread||[];
+  spread.innerHTML=items.map(it=>{
+    const ld=cL==='hi'?it.hindi:it.english;
+    const pos=cL==='hi'?it.position?.hi:it.position?.en;
+    const r=_toRoman(it.number||0);
+    return`
+      <div class="card tarot-spread-card">
+        <div class="tarot-spread-pos">${pos||''}</div>
+        <div class="tarot-card-art"><span class="tarot-card-roman">${r}</span></div>
+        <div class="tarot-spread-name">${ld?.name||''}</div>
+        <div class="tarot-spread-meaning">${ld?.meaning||''}</div>
+      </div>`;
+  }).join('');
 }
 
 function renderCats(){
@@ -6117,7 +6396,7 @@ function setLang(l){
   cL=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
-  upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
+  upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
   renderGreeting();renderFamily();renderRecent();
   if(_rendered.tools)renderTools();
@@ -6234,6 +6513,8 @@ async function loadDD(){
   renderGrid();
   renderPanchang();
   renderStory();
+  renderChinese();
+  renderTarot();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
   renderFamily();
 }
@@ -6270,7 +6551,7 @@ setInterval(()=>{upDate();upCel();},60*60*1000);
 fillSelects();
 document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===cL));
 document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=cL==='hi'?e.dataset.hi:e.dataset.en});
-upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();
+upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();
 (function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();
 renderGreeting();renderFamily();renderRecent();
 loadDD();
