@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>अंक ज्योतिष | Numerology — Rashifal.online</title>
+<meta name="description" content="अंक ज्योतिष — जन्म तिथि के आधार पर मूलांक, भाग्यांक और जीवन पथ संख्या। Numerology calculator with life path number and predictions">
+<link rel="canonical" href="https://rashifal.online/numerology.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--midnight:#0A0E1A;--charcoal:#131825;--gold:#D4AF37;--gold-light:#E8CC6E;--gold-muted:rgba(212,175,55,0.12);--gold-faint:rgba(212,175,55,0.03);--t-heading:rgba(232,228,218,0.95);--t-body:rgba(200,205,220,0.82);--t-muted:rgba(200,205,220,0.62);--t-faint:rgba(200,205,220,0.36);--b-subtle:rgba(212,175,55,0.06);--b-default:rgba(212,175,55,0.1);--f-serif:'Cormorant Garamond','Tiro Devanagari Hindi',Georgia,serif;--f-sans:'Inter',system-ui,sans-serif;--f-hindi:'Tiro Devanagari Hindi',serif;--glass-bg:rgba(14,18,30,0.55);--glass-blur:blur(16px);--glass-border:1px solid rgba(255,255,255,0.04);--glass-radius:14px}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--midnight);color:var(--t-body);font-family:var(--f-sans);line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-serif);color:var(--t-heading);font-weight:600;line-height:1.2}
+.container{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.nav{position:sticky;top:0;z-index:50;background:rgba(7,11,20,0.85);backdrop-filter:var(--glass-blur);border-bottom:1px solid var(--b-subtle)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:56px}
+.nav-brand{font-family:var(--f-serif);font-size:1.333rem;font-weight:600;color:var(--gold);text-decoration:none;margin-right:auto}
+.nav-links{display:flex;gap:0.25rem}
+.nav-link{padding:0.5rem 1rem;font-size:0.875rem;font-weight:500;color:var(--t-muted);text-decoration:none;border-radius:6px}
+.nav-link:hover{color:var(--t-heading)}
+.hero{text-align:center;padding:3.5rem 0 2.5rem}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--gold);margin-bottom:0.5rem}
+.hero .sub{font-size:0.95rem;color:var(--t-muted);max-width:520px;margin:0 auto}
+.card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:var(--glass-border);border-radius:var(--glass-radius);padding:2rem;margin-bottom:1.5rem}
+.card h2{font-size:1.25rem;margin-bottom:1rem;color:var(--gold-light)}
+.card h3{font-size:1.05rem;margin-bottom:0.75rem;color:var(--gold-light)}
+.prose{font-size:1rem;line-height:1.85;color:var(--t-body)}
+.prose.hi{font-family:var(--f-hindi);line-height:1.95}
+.prose p{margin-bottom:1rem}
+.prose ul,.prose ol{margin:1rem 0;padding-left:1.5rem}
+.prose li{margin-bottom:0.5rem}
+.highlight{background:linear-gradient(135deg,rgba(212,175,55,0.04),rgba(14,18,30,0.6));border:1px solid rgba(212,175,55,0.08);border-radius:var(--glass-radius);padding:1.5rem;margin:1.5rem 0}
+.highlight p{color:var(--gold-light);font-style:italic}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
+.info-item{background:rgba(255,255,255,0.03);border-radius:10px;padding:1rem;text-align:center}
+.info-label{font-size:0.75rem;color:var(--t-faint);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.25rem}
+.info-value{font-family:var(--f-serif);font-size:1.1rem;color:var(--gold)}
+.lang-sw{display:flex;border:1px solid var(--b-default);border-radius:6px;overflow:hidden;margin:1rem auto;width:fit-content}
+.lang-b{padding:0.4rem 1.25rem;font-size:0.875rem;font-weight:500;background:none;border:none;color:var(--t-muted);cursor:pointer;font-family:var(--f-sans)}
+.lang-b.active{background:var(--gold-muted);color:var(--gold)}
+.en-only{display:none}.hi-only{display:block}
+body.lang-en .en-only{display:block}body.lang-en .hi-only{display:none}
+.back-link{display:inline-block;margin:2rem 0;font-size:0.875rem;color:var(--t-muted);text-decoration:none}
+.back-link:hover{color:var(--gold)}
+footer{text-align:center;padding:3rem 1.5rem 2rem;border-top:1px solid var(--b-subtle);margin-top:2rem;color:var(--t-faint);font-size:0.875rem}
+footer a{color:var(--gold);text-decoration:none}
+.dynamic-content{min-height:200px;position:relative}
+.loading{color:var(--t-faint);font-style:italic}
+@media(max-width:768px){.nav-links{display:none}.grid-2,.grid-3{grid-template-columns:1fr}.card{padding:1.5rem}.hero{padding:2.5rem 0 2rem}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="nav-brand">Rashifal</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="index.html#horoscopes" class="nav-link">Horoscopes</a>
+    <a href="index.html#compatibility" class="nav-link">Compatibility</a>
+  </div>
+</div></nav>
+<div class="container">
+  <div class="lang-sw">
+    <button class="lang-b active" onclick="setL('hi')">हिन्दी</button>
+    <button class="lang-b" onclick="setL('en')">English</button>
+  </div>
+  <div class="hero">
+    <h1 class="hi-only">अंक ज्योतिष</h1>
+    <h1 class="en-only">Numerology</h1>
+    <p class="sub hi-only">अंक ज्योतिष — जन्म तिथि के आधार पर मूलांक, भाग्यांक और जीवन पथ संख्या। Numerology calculator with life path number and predictions।</p>
+    <p class="sub en-only">अंक ज्योतिष — जन्म तिथि के आधार पर मूलांक, भाग्यांक और जीवन पथ संख्या। Numerology calculator with life path number and predictions.</p>
+  </div>
+  <div class="hi-only">
+<div class="card"><h2>अंक ज्योतिष क्या है?</h2><div class="prose hi">
+<p>अंक ज्योतिष (Numerology) एक प्राचीन विद्या है जो संख्याओं और उनके कंपन (vibrations) के माध्यम से व्यक्ति के जीवन, स्वभाव और भविष्य को समझने का प्रयास करती है। वैदिक अंक ज्योतिष में 1 से 9 तक के अंकों को नवग्रहों से जोड़ा जाता है।</p>
+<p>प्रत्येक व्यक्ति का एक मूलांक (Root Number) होता है जो जन्म तिथि से निकाला जाता है, और एक भाग्यांक (Destiny Number) जो पूरी जन्म तारीख़ के योग से प्राप्त होता है।</p>
+</div></div>
+
+<div class="card"><h2>मूलांक कैसे निकालें?</h2><div class="prose hi">
+<p>मूलांक आपकी जन्म तारीख़ का एकल अंक है। उदाहरण:</p>
+<p>यदि जन्म तारीख़ है 27 — तो 2 + 7 = 9। आपका मूलांक 9 है।</p>
+<p>यदि जन्म तारीख़ है 15 — तो 1 + 5 = 6। आपका मूलांक 6 है।</p>
+</div></div>
+
+<div class="card"><h2>अंकों का अर्थ</h2><div class="grid-3">
+<div class="info-item"><div class="info-label">अंक 1 — सूर्य</div><div class="info-value">नेतृत्व, आत्मविश्वास</div></div>
+<div class="info-item"><div class="info-label">अंक 2 — चंद्रमा</div><div class="info-value">संवेदनशीलता, कूटनीति</div></div>
+<div class="info-item"><div class="info-label">अंक 3 — गुरु</div><div class="info-value">रचनात्मकता, आशावाद</div></div>
+<div class="info-item"><div class="info-label">अंक 4 — राहु</div><div class="info-value">स्थिरता, मेहनत</div></div>
+<div class="info-item"><div class="info-label">अंक 5 — बुध</div><div class="info-value">बुद्धि, संचार</div></div>
+<div class="info-item"><div class="info-label">अंक 6 — शुक्र</div><div class="info-value">प्रेम, सौंदर्य</div></div>
+<div class="info-item"><div class="info-label">अंक 7 — केतु</div><div class="info-value">आध्यात्मिकता, अंतर्ज्ञान</div></div>
+<div class="info-item"><div class="info-label">अंक 8 — शनि</div><div class="info-value">अनुशासन, शक्ति</div></div>
+<div class="info-item"><div class="info-label">अंक 9 — मंगल</div><div class="info-value">साहस, ऊर्जा</div></div>
+</div></div>
+
+<div class="card"><h2>अंक ज्योतिष और वैदिक ज्योतिष</h2><div class="prose hi">
+<p>वैदिक अंक ज्योतिष में प्रत्येक अंक एक ग्रह से जुड़ा है। मूलांक 1 सूर्य से, 2 चंद्रमा से, 3 गुरु/बृहस्पति से, 4 राहु से, 5 बुध से, 6 शुक्र से, 7 केतु से, 8 शनि से और 9 मंगल से संबंधित है।</p>
+<p>जब आपके मूलांक का ग्रह आपकी जन्म कुंडली के अनुकूल होता है, तो जीवन में सहजता आती है। विपरीत स्थिति में उपाय और मंत्रों से संतुलन लाया जा सकता है।</p>
+<p>अंक ज्योतिष का उपयोग नाम सुधार, शुभ तिथि चयन, व्यवसाय नामकरण और जीवन साथी चयन में भी किया जाता है।</p>
+</div></div>
+</div>
+  <div class="en-only">
+<div class="card"><h2>What is Numerology?</h2><div class="prose">
+<p>Numerology is an ancient science that uses numbers and their vibrations to understand a person's life, personality, and future. In Vedic numerology, numbers 1 through 9 are associated with the nine planets (Navagraha).</p>
+<p>Every person has a Root Number (Moolank) derived from their birth date, and a Destiny Number (Bhagyank) calculated from the sum of their complete birth date.</p>
+</div></div>
+
+<div class="card"><h2>How to calculate your Root Number</h2><div class="prose">
+<p>Your root number is the single digit sum of your birth date. Examples:</p>
+<p>Born on the 27th: 2 + 7 = 9. Your root number is 9.</p>
+<p>Born on the 15th: 1 + 5 = 6. Your root number is 6.</p>
+</div></div>
+
+<div class="card"><h2>Meaning of numbers</h2><div class="grid-3">
+<div class="info-item"><div class="info-label">1 — Sun</div><div class="info-value">Leadership, confidence</div></div>
+<div class="info-item"><div class="info-label">2 — Moon</div><div class="info-value">Sensitivity, diplomacy</div></div>
+<div class="info-item"><div class="info-label">3 — Jupiter</div><div class="info-value">Creativity, optimism</div></div>
+<div class="info-item"><div class="info-label">4 — Rahu</div><div class="info-value">Stability, hard work</div></div>
+<div class="info-item"><div class="info-label">5 — Mercury</div><div class="info-value">Intelligence, communication</div></div>
+<div class="info-item"><div class="info-label">6 — Venus</div><div class="info-value">Love, beauty</div></div>
+<div class="info-item"><div class="info-label">7 — Ketu</div><div class="info-value">Spirituality, intuition</div></div>
+<div class="info-item"><div class="info-label">8 — Saturn</div><div class="info-value">Discipline, power</div></div>
+<div class="info-item"><div class="info-label">9 — Mars</div><div class="info-value">Courage, energy</div></div>
+</div></div>
+</div>
+  <a href="index.html" class="back-link">&larr; <span class="hi-only">मुखपृष्ठ पर लौटें</span><span class="en-only">Back to homepage</span></a>
+</div>
+<footer><p>Rashifal.online &middot; 2026 &middot; Bhopal, India</p><p style="margin-top:0.5rem"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="about.html">About</a></p></footer>
+<script>
+function setL(l){document.body.classList.toggle('lang-en',l==='en');document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('active',b.textContent.includes(l==='hi'?'हिन':'Eng')));localStorage.setItem('rashifal_lang',l)}
+if(localStorage.getItem('rashifal_lang')==='en')setL('en');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>आज का टैरो कार्ड | Daily Tarot Card — Rashifal.online</title>
+<meta name="description" content="आज का टैरो कार्ड — दैनिक टैरो रीडिंग और मार्गदर्शन। Daily Tarot card reading with interpretation and guidance">
+<link rel="canonical" href="https://rashifal.online/tarot.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--midnight:#0A0E1A;--charcoal:#131825;--gold:#D4AF37;--gold-light:#E8CC6E;--gold-muted:rgba(212,175,55,0.12);--gold-faint:rgba(212,175,55,0.03);--t-heading:rgba(232,228,218,0.95);--t-body:rgba(200,205,220,0.82);--t-muted:rgba(200,205,220,0.62);--t-faint:rgba(200,205,220,0.36);--b-subtle:rgba(212,175,55,0.06);--b-default:rgba(212,175,55,0.1);--f-serif:'Cormorant Garamond','Tiro Devanagari Hindi',Georgia,serif;--f-sans:'Inter',system-ui,sans-serif;--f-hindi:'Tiro Devanagari Hindi',serif;--glass-bg:rgba(14,18,30,0.55);--glass-blur:blur(16px);--glass-border:1px solid rgba(255,255,255,0.04);--glass-radius:14px}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--midnight);color:var(--t-body);font-family:var(--f-sans);line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-serif);color:var(--t-heading);font-weight:600;line-height:1.2}
+.container{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.nav{position:sticky;top:0;z-index:50;background:rgba(7,11,20,0.85);backdrop-filter:var(--glass-blur);border-bottom:1px solid var(--b-subtle)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;height:56px}
+.nav-brand{font-family:var(--f-serif);font-size:1.333rem;font-weight:600;color:var(--gold);text-decoration:none;margin-right:auto}
+.nav-links{display:flex;gap:0.25rem}
+.nav-link{padding:0.5rem 1rem;font-size:0.875rem;font-weight:500;color:var(--t-muted);text-decoration:none;border-radius:6px}
+.nav-link:hover{color:var(--t-heading)}
+.hero{text-align:center;padding:3.5rem 0 2.5rem}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--gold);margin-bottom:0.5rem}
+.hero .sub{font-size:0.95rem;color:var(--t-muted);max-width:520px;margin:0 auto}
+.card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:var(--glass-border);border-radius:var(--glass-radius);padding:2rem;margin-bottom:1.5rem}
+.card h2{font-size:1.25rem;margin-bottom:1rem;color:var(--gold-light)}
+.card h3{font-size:1.05rem;margin-bottom:0.75rem;color:var(--gold-light)}
+.prose{font-size:1rem;line-height:1.85;color:var(--t-body)}
+.prose.hi{font-family:var(--f-hindi);line-height:1.95}
+.prose p{margin-bottom:1rem}
+.prose ul,.prose ol{margin:1rem 0;padding-left:1.5rem}
+.prose li{margin-bottom:0.5rem}
+.highlight{background:linear-gradient(135deg,rgba(212,175,55,0.04),rgba(14,18,30,0.6));border:1px solid rgba(212,175,55,0.08);border-radius:var(--glass-radius);padding:1.5rem;margin:1.5rem 0}
+.highlight p{color:var(--gold-light);font-style:italic}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
+.info-item{background:rgba(255,255,255,0.03);border-radius:10px;padding:1rem;text-align:center}
+.info-label{font-size:0.75rem;color:var(--t-faint);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.25rem}
+.info-value{font-family:var(--f-serif);font-size:1.1rem;color:var(--gold)}
+.lang-sw{display:flex;border:1px solid var(--b-default);border-radius:6px;overflow:hidden;margin:1rem auto;width:fit-content}
+.lang-b{padding:0.4rem 1.25rem;font-size:0.875rem;font-weight:500;background:none;border:none;color:var(--t-muted);cursor:pointer;font-family:var(--f-sans)}
+.lang-b.active{background:var(--gold-muted);color:var(--gold)}
+.en-only{display:none}.hi-only{display:block}
+body.lang-en .en-only{display:block}body.lang-en .hi-only{display:none}
+.back-link{display:inline-block;margin:2rem 0;font-size:0.875rem;color:var(--t-muted);text-decoration:none}
+.back-link:hover{color:var(--gold)}
+footer{text-align:center;padding:3rem 1.5rem 2rem;border-top:1px solid var(--b-subtle);margin-top:2rem;color:var(--t-faint);font-size:0.875rem}
+footer a{color:var(--gold);text-decoration:none}
+.dynamic-content{min-height:200px;position:relative}
+.loading{color:var(--t-faint);font-style:italic}
+@media(max-width:768px){.nav-links{display:none}.grid-2,.grid-3{grid-template-columns:1fr}.card{padding:1.5rem}.hero{padding:2.5rem 0 2rem}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="nav-brand">Rashifal</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="index.html#horoscopes" class="nav-link">Horoscopes</a>
+    <a href="index.html#compatibility" class="nav-link">Compatibility</a>
+  </div>
+</div></nav>
+<div class="container">
+  <div class="lang-sw">
+    <button class="lang-b active" onclick="setL('hi')">हिन्दी</button>
+    <button class="lang-b" onclick="setL('en')">English</button>
+  </div>
+  <div class="hero">
+    <h1 class="hi-only">आज का टैरो कार्ड</h1>
+    <h1 class="en-only">Daily Tarot Card</h1>
+    <p class="sub hi-only">आज का टैरो कार्ड — दैनिक टैरो रीडिंग और मार्गदर्शन। Daily Tarot card reading with interpretation and guidance।</p>
+    <p class="sub en-only">आज का टैरो कार्ड — दैनिक टैरो रीडिंग और मार्गदर्शन। Daily Tarot card reading with interpretation and guidance.</p>
+  </div>
+  <div class="hi-only">
+<div class="card"><h2>टैरो क्या है?</h2><div class="prose hi">
+<p>टैरो कार्ड्स 78 कार्डों का एक प्राचीन समूह है जो सदियों से मार्गदर्शन और आत्मचिंतन के लिए उपयोग किया जाता रहा है। इसमें 22 मेजर आर्काना कार्ड हैं जो जीवन की प्रमुख घटनाओं और आध्यात्मिक पाठों को दर्शाते हैं, और 56 माइनर आर्काना कार्ड जो दैनिक जीवन की घटनाओं से संबंधित हैं।</p>
+<p>टैरो भविष्य बताने का साधन नहीं है — यह आत्मचिंतन और मार्गदर्शन का उपकरण है। यह आपको अपनी वर्तमान परिस्थितियों को बेहतर समझने और सही निर्णय लेने में सहायता करता है।</p>
+</div></div>
+
+<div class="card"><h2>22 मेजर आर्काना कार्ड</h2><div class="prose hi">
+<p><strong>0 — द फ़ूल (मूर्ख):</strong> नई शुरुआत, निर्दोषता, साहस। यह कार्ड बताता है कि नई यात्रा का समय आ गया है।</p>
+<p><strong>I — द मैजिशियन (जादूगर):</strong> इच्छाशक्ति, कौशल, एकाग्रता। आपके पास वह सब कुछ है जो सफल होने के लिए चाहिए।</p>
+<p><strong>II — हाई प्रीस्टेस (महापुरोहित):</strong> अंतर्ज्ञान, रहस्य, आंतरिक ज्ञान। अपनी आंतरिक आवाज़ सुनें।</p>
+<p><strong>III — द एम्प्रेस (सम्राज्ञी):</strong> प्रकृति, उर्वरता, सौंदर्य। प्रेम और समृद्धि का समय।</p>
+<p><strong>IV — द एम्परर (सम्राट):</strong> अधिकार, संरचना, नियंत्रण। नेतृत्व और अनुशासन की आवश्यकता।</p>
+<p><strong>V — हाइरोफ़ेंट (धर्मगुरु):</strong> परंपरा, आध्यात्मिकता, शिक्षा। किसी गुरु या मार्गदर्शक की तलाश करें।</p>
+<p><strong>VI — द लवर्स (प्रेमी):</strong> प्रेम, चुनाव, साझेदारी। महत्वपूर्ण निर्णय का समय।</p>
+<p><strong>VII — द चैरियट (रथ):</strong> दृढ़ संकल्प, विजय, नियंत्रण। बाधाओं को पार करने की शक्ति।</p>
+<p><strong>VIII — स्ट्रेंथ (शक्ति):</strong> आंतरिक शक्ति, साहस, धैर्य। कोमलता में ही असली शक्ति है।</p>
+<p><strong>IX — द हर्मिट (सन्यासी):</strong> एकांत, आत्मचिंतन, ज्ञान की खोज। अकेले समय बिताने की आवश्यकता।</p>
+<p><strong>X — व्हील ऑफ़ फ़ॉर्च�न (भाग्यचक्र):</strong> भाग्य, परिवर्तन, चक्र। जीवन में उतार-चढ़ाव स्वाभाविक हैं।</p>
+</div></div>
+
+<div class="card"><h2>टैरो कैसे पढ़ें?</h2><div class="prose hi">
+<p>टैरो पढ़ने के लिए सबसे महत्वपूर्ण बात है — खुले मन से बैठना। किसी विशेष प्रश्न या स्थिति पर ध्यान केंद्रित करें।</p>
+<p><strong>एक कार्ड रीडिंग:</strong> दिन की शुरुआत में एक कार्ड निकालें। यह आपके दिन का मार्गदर्शक विषय होगा।</p>
+<p><strong>तीन कार्ड रीडिंग:</strong> तीन कार्ड निकालें — पहला अतीत, दूसरा वर्तमान, तीसरा भविष्य को दर्शाता है।</p>
+<p><strong>उल्टा कार्ड:</strong> यदि कोई कार्ड उल्टा आता है तो उसका अर्थ विपरीत या अवरुद्ध ऊर्जा होता है।</p>
+<p>टैरो को नियमित अभ्यास से सीखा जा सकता है। जितना अधिक आप अपने अंतर्ज्ञान पर विश्वास करेंगे, उतनी ही सटीक आपकी रीडिंग होगी।</p>
+</div></div>
+</div>
+  <div class="en-only">
+<div class="card"><h2>What is Tarot?</h2><div class="prose">
+<p>Tarot is a set of 78 cards that has been used for centuries as a tool for guidance and self-reflection. It includes 22 Major Arcana cards representing life's major events and spiritual lessons, and 56 Minor Arcana cards relating to daily life situations.</p>
+<p>Tarot is not fortune-telling — it is a mirror for self-understanding and a compass for decision-making. It helps you see your current situation from new perspectives and make more informed choices.</p>
+</div></div>
+
+<div class="card"><h2>The 22 Major Arcana cards</h2><div class="prose">
+<p><strong>0 — The Fool:</strong> New beginnings, innocence, adventure. A fresh start awaits.</p>
+<p><strong>I — The Magician:</strong> Willpower, skill, manifestation. You have everything you need to succeed.</p>
+<p><strong>II — The High Priestess:</strong> Intuition, mystery, inner wisdom. Listen to your inner voice.</p>
+<p><strong>III — The Empress:</strong> Nature, fertility, beauty. A time of love and abundance.</p>
+<p><strong>IV — The Emperor:</strong> Authority, structure, control. Leadership and discipline needed.</p>
+<p><strong>V — The Hierophant:</strong> Tradition, spirituality, teaching. Seek a mentor or guide.</p>
+<p><strong>VI — The Lovers:</strong> Love, choices, partnership. Time for important decisions.</p>
+<p><strong>VII — The Chariot:</strong> Determination, victory, willpower. Strength to overcome obstacles.</p>
+<p><strong>VIII — Strength:</strong> Inner power, courage, patience. True strength lies in gentleness.</p>
+<p><strong>IX — The Hermit:</strong> Solitude, reflection, wisdom-seeking. Time for inner contemplation.</p>
+<p><strong>X — Wheel of Fortune:</strong> Destiny, change, cycles. Life's ups and downs are natural.</p>
+</div></div>
+
+<div class="card"><h2>How to read Tarot</h2><div class="prose">
+<p>The most important thing in Tarot reading is approaching with an open mind. Focus on a specific question or situation.</p>
+<p><strong>One-card reading:</strong> Draw a single card each morning. This becomes your guiding theme for the day.</p>
+<p><strong>Three-card reading:</strong> Draw three cards — past, present, and future. This gives context to your current situation.</p>
+<p><strong>Reversed cards:</strong> When a card appears upside down, it indicates blocked or reversed energy of that card's meaning.</p>
+<p>Tarot is learned through regular practice. The more you trust your intuition, the more accurate your readings become.</p>
+</div></div>
+</div>
+  <a href="index.html" class="back-link">&larr; <span class="hi-only">मुखपृष्ठ पर लौटें</span><span class="en-only">Back to homepage</span></a>
+</div>
+<footer><p>Rashifal.online &middot; 2026 &middot; Bhopal, India</p><p style="margin-top:0.5rem"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="about.html">About</a></p></footer>
+<script>
+function setL(l){document.body.classList.toggle('lang-en',l==='en');document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('active',b.textContent.includes(l==='hi'?'हिन':'Eng')));localStorage.setItem('rashifal_lang',l)}
+if(localStorage.getItem('rashifal_lang')==='en')setL('en');
+
+</script>
+</body>
+</html>
