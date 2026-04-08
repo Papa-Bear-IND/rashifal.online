@@ -516,6 +516,10 @@ Rules:
 
     print("  Generating: Muhurat timings...")
     muhurat_detail = generate_muhurat(date_str)
+    time.sleep(1)
+
+    print("  Generating: Festival special (if a major festival is within 3 days)...")
+    festival_special = generate_festival_special(date_str)
 
     # Save daily content
     output = {
@@ -533,6 +537,7 @@ Rules:
         "gemstone": gemstone,
         "transit": transit,
         "muhurat_detail": muhurat_detail,
+        "festival_special": festival_special,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
 
@@ -556,6 +561,184 @@ def _period_rashi_loop(prompt_builder, label: str):
         out.append({**rashi, **data})
         time.sleep(1)
     return out
+
+
+def generate_chinese_weekly(start: str, end: str) -> dict:
+    """Weekly Chinese horoscope for all 12 animals."""
+    out = {}
+    for animal in CHINESE_ANIMALS:
+        prompt = f"""Generate a weekly Chinese horoscope for {animal['en']} ({animal['hi']}) sign
+for the week of {start} to {end}.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi":   {{"prediction":"4-5 sentences in Hindi covering career, love, health for the week."}},
+  "english": {{"prediction":"4-5 sentences in English covering career, love, health for the week."}}
+}}"""
+        try:
+            out[animal["id"]] = _parse_json(call_claude(prompt))
+        except Exception as e:
+            print(f"    ⚠ Chinese weekly {animal['en']} failed: {e}")
+            out[animal["id"]] = None
+        time.sleep(1)
+    return out
+
+
+def generate_tarot_weekly(start: str, end: str) -> dict:
+    """One Major Arcana card as the week's theme + interpretation."""
+    prompt = f"""Generate a weekly tarot reading for the week of {start} to {end}.
+Pick ONE Major Arcana card as the week's theme.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "card_of_week": {{
+    "number": 17,
+    "hindi":   {{"name":"तारा","meaning":"4-5 sentence interpretation in Hindi covering work, relationships and personal growth.","advice":"1 sentence advice in Hindi for the week."}},
+    "english": {{"name":"The Star","meaning":"4-5 sentence interpretation in English covering work, relationships and personal growth.","advice":"1 sentence advice in English for the week."}}
+  }}
+}}
+
+Rules:
+- Use a Major Arcana card (number 0..21) only.
+- Names must be the standard Tarot names.
+- Tone: warm, applicable, no fatalism."""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Tarot weekly failed: {e}")
+        return None
+
+
+def generate_nifty_weekly(start: str, end: str) -> dict:
+    """Weekly stock market astrological outlook."""
+    prompt = f"""Generate a weekly stock market astrological outlook for Indian markets
+(Nifty / Sensex) for the week of {start} to {end}.
+
+Based on planetary transits, which sectors look favourable? Which days look volatile?
+4-5 sentences. Include a clear disclaimer that this is an astrological perspective only,
+not investment advice.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi": {{
+    "outlook": "4-5 sentences in Hindi about the week ahead — overall trend, planetary influences.",
+    "favorable_sectors": "1-2 sentences in Hindi naming sectors that look favourable.",
+    "volatile_days": "1-2 sentences in Hindi naming the most volatile days and why.",
+    "disclaimer": "यह केवल ज्योतिषीय दृष्टिकोण है, निवेश सलाह नहीं। कृपया किसी भी निवेश से पहले प्रमाणित वित्तीय सलाहकार से परामर्श करें।"
+  }},
+  "english": {{
+    "outlook": "4-5 sentences in English about the week ahead.",
+    "favorable_sectors": "1-2 sentences in English naming sectors that look favourable.",
+    "volatile_days": "1-2 sentences in English naming the most volatile days and why.",
+    "disclaimer": "This is an astrological perspective only, not investment advice. Always consult a qualified financial advisor before any investment."
+  }}
+}}"""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Nifty weekly failed: {e}")
+        return None
+
+
+def generate_chinese_monthly(month_label: str) -> dict:
+    """Monthly Chinese horoscope for all 12 animals."""
+    out = {}
+    for animal in CHINESE_ANIMALS:
+        prompt = f"""Generate a monthly Chinese horoscope for {animal['en']} ({animal['hi']}) sign
+for {month_label}.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "hindi":   {{"prediction":"6-8 sentences in Hindi covering the whole month — career, love, health, the best week and the toughest week."}},
+  "english": {{"prediction":"6-8 sentences in English covering the whole month — career, love, health, the best week and the toughest week."}}
+}}"""
+        try:
+            out[animal["id"]] = _parse_json(call_claude(prompt))
+        except Exception as e:
+            print(f"    ⚠ Chinese monthly {animal['en']} failed: {e}")
+            out[animal["id"]] = None
+        time.sleep(1)
+    return out
+
+
+# Major festivals to watch for in generate_festival_special.
+# Dates are best-effort approximations and should be verified against the
+# panchang. Generator only checks the next 3 days, so a small drift is fine.
+MAJOR_FESTIVALS_BY_YEAR = {
+    2026: [
+        ("2026-03-04", "Holi", "होली"),
+        ("2026-03-19", "Chaitra Navratri", "चैत्र नवरात्रि"),
+        ("2026-03-28", "Ram Navami", "राम नवमी"),
+        ("2026-04-02", "Hanuman Jayanti", "हनुमान जयंती"),
+        ("2026-08-08", "Raksha Bandhan", "रक्षा बंधन"),
+        ("2026-08-22", "Janmashtami", "जन्माष्टमी"),
+        ("2026-09-07", "Ganesh Chaturthi", "गणेश चतुर्थी"),
+        ("2026-09-23", "Navratri", "नवरात्रि"),
+        ("2026-10-02", "Dussehra", "दशहरा"),
+        ("2026-10-14", "Karwa Chauth", "करवा चौथ"),
+        ("2026-10-20", "Diwali", "दीवाली"),
+    ],
+    2027: [
+        ("2027-01-14", "Makar Sankranti", "मकर संक्रांति"),
+        ("2027-02-14", "Maha Shivaratri", "महाशिवरात्रि"),
+        ("2027-03-04", "Holi", "होली"),
+        ("2027-03-19", "Chaitra Navratri", "चैत्र नवरात्रि"),
+        ("2027-03-28", "Ram Navami", "राम नवमी"),
+    ],
+}
+
+
+def _upcoming_festival(date_str: str):
+    """Return (festival_date_str, name_en, name_hi) if any major festival is
+    within the next 3 days from date_str (inclusive), else None."""
+    target = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+    for year in (target.year, target.year + 1):
+        for d, en, hi in MAJOR_FESTIVALS_BY_YEAR.get(year, []):
+            fd = datetime.datetime.strptime(d, "%Y-%m-%d").date()
+            delta = (fd - target).days
+            if 0 <= delta <= 3:
+                return d, en, hi
+    return None
+
+
+def generate_festival_special(date_str: str) -> dict:
+    """Generate festival-special rashifal if a major festival is approaching."""
+    upcoming = _upcoming_festival(date_str)
+    if not upcoming:
+        return None
+    fdate, fen, fhi = upcoming
+    prompt = f"""Generate a special festival rashifal for {fen} ({fhi}) on {fdate}.
+For each of the 12 rashis (Aries, Taurus, ..., Pisces), how will this festival be
+for them? 2-3 sentences per rashi in BOTH Hindi and English. Also include 3 special
+tips for celebrating this festival.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "festival": {{"name_en":"{fen}","name_hi":"{fhi}","date":"{fdate}"}},
+  "rashis": {{
+    "mesh":      {{"hindi":"2-3 sentences","english":"2-3 sentences"}},
+    "vrishabh":  {{"hindi":"...","english":"..."}},
+    "mithun":    {{"hindi":"...","english":"..."}},
+    "kark":      {{"hindi":"...","english":"..."}},
+    "singh":     {{"hindi":"...","english":"..."}},
+    "kanya":     {{"hindi":"...","english":"..."}},
+    "tula":      {{"hindi":"...","english":"..."}},
+    "vrishchik": {{"hindi":"...","english":"..."}},
+    "dhanu":     {{"hindi":"...","english":"..."}},
+    "makar":     {{"hindi":"...","english":"..."}},
+    "kumbh":     {{"hindi":"...","english":"..."}},
+    "meen":      {{"hindi":"...","english":"..."}}
+  }},
+  "tips": {{
+    "hindi":   ["tip 1","tip 2","tip 3"],
+    "english": ["tip 1","tip 2","tip 3"]
+  }}
+}}"""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Festival special failed: {e}")
+        return None
 
 
 def generate_weekly(date_str: str):
@@ -602,6 +785,18 @@ Rules:
 - Mention ruling planet of the week and any major transits"""
 
     rashis = _period_rashi_loop(prompter, "Weekly")
+
+    print("  Generating: Weekly Chinese horoscope (12 animals)...")
+    chinese = generate_chinese_weekly(monday.strftime("%Y-%m-%d"), sunday.strftime("%Y-%m-%d"))
+    time.sleep(1)
+
+    print("  Generating: Weekly Tarot...")
+    tarot = generate_tarot_weekly(monday.strftime("%Y-%m-%d"), sunday.strftime("%Y-%m-%d"))
+    time.sleep(1)
+
+    print("  Generating: Weekly Nifty outlook...")
+    nifty = generate_nifty_weekly(monday.strftime("%Y-%m-%d"), sunday.strftime("%Y-%m-%d"))
+
     output = {
         "period": "weekly",
         "week_label": week_label,
@@ -610,6 +805,9 @@ Rules:
         "start": monday.strftime("%Y-%m-%d"),
         "end": sunday.strftime("%Y-%m-%d"),
         "rashis": rashis,
+        "chinese": chinese,
+        "tarot": tarot,
+        "nifty": nifty,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
     CONTENT_DIR.mkdir(parents=True, exist_ok=True)
@@ -662,11 +860,16 @@ Rules:
 - Be specific to the rashi"""
 
     rashis = _period_rashi_loop(prompter, "Monthly")
+
+    print("  Generating: Monthly Chinese horoscope (12 animals)...")
+    chinese = generate_chinese_monthly(month_label)
+
     output = {
         "period": "monthly",
         "month": ym,
         "month_label": month_label,
         "rashis": rashis,
+        "chinese": chinese,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
     CONTENT_DIR.mkdir(parents=True, exist_ok=True)

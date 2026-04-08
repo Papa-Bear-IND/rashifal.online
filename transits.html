@@ -121,7 +121,12 @@ footer a{color:var(--gold);text-decoration:none}
 </div>
   <a href="index.html" class="back-link">&larr; <span class="hi-only">मुखपृष्ठ पर लौटें</span><span class="en-only">Back to homepage</span></a>
 </div>
-<footer><p>Rashifal.online &middot; 2026 &middot; Bhopal, India</p><p style="margin-top:0.5rem"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="about.html">About</a></p></footer>
+<footer>
+  <p>Rashifal.online &middot; 2026 &middot; Bhopal, India</p>
+  <p style="margin-top:0.5rem;line-height:1.8"><a href="index.html">Home</a> &middot; <a href="chinese-horoscope.html">Chinese</a> &middot; <a href="tarot.html">Tarot</a> &middot; <a href="numerology.html">Numerology</a> &middot; <a href="muhurat.html">Muhurat</a> &middot; <a href="transits.html">Transits</a> &middot; <a href="nifty-prediction.html">Nifty</a> &middot; <a href="dream-interpretation.html">Dreams</a> &middot; <a href="baby-names.html">Baby Names</a> &middot; <a href="mantra-collection.html">Mantras</a></p>
+  <p style="margin-top:0.5rem"><a href="navratri-puja.html">Navratri Puja</a> &middot; <a href="diwali-puja-vidhi.html">Diwali Puja</a> &middot; <a href="dussehra-puja.html">Dussehra</a> &middot; <a href="karwa-chauth-katha.html">Karwa Chauth</a></p>
+  <p style="margin-top:0.5rem"><a href="about.html">About</a> &middot; <a href="methodology.html">Methodology</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+</footer>
 <script>
 function setL(l){document.body.classList.toggle('lang-en',l==='en');document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('active',b.textContent.includes(l==='hi'?'हिन':'Eng')));localStorage.setItem('rashifal_lang',l)}
 if(localStorage.getItem('rashifal_lang')==='en')setL('en');
