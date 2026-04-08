@@ -1372,6 +1372,58 @@ a.festival-card-link:hover { text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  max-width: 980px;
+  margin: 0 auto;
+}
+.link-grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .link-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .link-grid, .link-grid-3 { grid-template-columns: 1fr; }
+}
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.link-card:hover { text-decoration: none; }
+.link-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.link-title-en {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.link-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+  margin-top: var(--sp-2);
+}
+.link-cta {
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
 .btn-ghost-gold {
   display: inline-flex;
   align-items: center;
@@ -1445,6 +1497,46 @@ a.festival-card-link:hover { text-decoration: none; }
   gap: var(--sp-3);
 }
 .fest-cal-item a:hover .fest-cal-name { color: var(--gold); }
+.fest-cal-meta { display: inline-flex; align-items: center; gap: 10px; }
+.fest-cal-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.fest-cal-status-past   { background: rgba(120,120,120,0.18); color: var(--t-faint); }
+.fest-cal-status-today  { background: var(--gold); color: var(--void); }
+.fest-cal-status-soon   { background: var(--gold-muted); color: var(--gold); }
+.fest-cal-years {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--sp-4);
+  padding: var(--sp-2) 0;
+}
+.fest-cal-year-btn {
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid var(--b-default);
+  border-radius: 999px;
+  color: var(--t-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.fest-cal-year-btn:hover { border-color: var(--gold); color: var(--gold); }
+.fest-cal-year-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--void);
+}
 .festival-icon {
   width: 36px;
   height: 36px;
@@ -3402,12 +3494,95 @@ footer {
     <p class="festival-disclaimer muted" style="text-align:center;margin-top:var(--sp-4);font-size:var(--fs-xs);" data-hi="तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।" data-en="Dates may vary based on your local Panchang.">तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।</p>
   </section>
 
+  <!-- ═══ PUJA VIDHI & KATHAS ═══ -->
+  <section class="section reveal" id="puja-guides">
+    <div class="section-header">
+      <h2 data-hi="पूजा विधि एवं कथाएँ" data-en="Puja Vidhi & Kathas">पूजा विधि एवं कथाएँ</h2>
+      <p data-hi="प्रमुख त्योहारों की पूजा विधि, मंत्र और व्रत कथाएँ" data-en="Step-by-step puja rituals, mantras and vrat kathas for major festivals">प्रमुख त्योहारों की पूजा विधि, मंत्र और व्रत कथाएँ</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="link-grid">
+      <a class="card link-card" href="navratri-puja.html">
+        <div class="link-title">नवरात्रि पूजा विधि</div>
+        <div class="link-title-en">Navratri Puja Vidhi</div>
+        <div class="link-desc" data-hi="नौ दिनों की देवी आराधना — कलश स्थापना, बीज मंत्र और दैनिक विधि।" data-en="Nine nights of Devi worship — kalash sthapana, beej mantras, daily rituals.">नौ दिनों की देवी आराधना — कलश स्थापना, बीज मंत्र और दैनिक विधि।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="diwali-puja-vidhi.html">
+        <div class="link-title">दिवाली लक्ष्मी-गणेश पूजा</div>
+        <div class="link-title-en">Diwali Lakshmi-Ganesh Puja</div>
+        <div class="link-desc" data-hi="धनतेरस से भाई दूज तक — पूजा सामग्री, मंत्र और शुभ मुहूर्त।" data-en="From Dhanteras to Bhai Dooj — puja samagri, mantras and shubh muhurat.">धनतेरस से भाई दूज तक — पूजा सामग्री, मंत्र और शुभ मुहूर्त।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="dussehra-puja.html">
+        <div class="link-title">दशहरा — विजयदशमी</div>
+        <div class="link-title-en">Dussehra — Vijayadashami</div>
+        <div class="link-desc" data-hi="रावण दहन, शस्त्र पूजा और विजय का पर्व — पूर्ण विधि।" data-en="Ravan Dahan, Shastra Puja and the festival of victory — complete vidhi.">रावण दहन, शस्त्र पूजा और विजय का पर्व — पूर्ण विधि।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="karwa-chauth-katha.html">
+        <div class="link-title">करवा चौथ व्रत कथा</div>
+        <div class="link-title-en">Karwa Chauth Vrat Katha</div>
+        <div class="link-desc" data-hi="सुहागिनों का पवित्र व्रत — पारंपरिक कथा, पूजन विधि और चंद्र दर्शन।" data-en="A sacred fast for married women — traditional katha, puja vidhi, moon rituals.">सुहागिनों का पवित्र व्रत — पारंपरिक कथा, पूजन विधि और चंद्र दर्शन।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ EXPLORE MORE ═══ -->
+  <section class="section reveal" id="explore">
+    <div class="section-header">
+      <h2 data-hi="और जानें" data-en="Explore More">और जानें</h2>
+      <p data-hi="ज्योतिष की अन्य पद्धतियाँ — चीनी राशिफल, टैरो, अंक ज्योतिष और अधिक" data-en="Other astrology systems — Chinese zodiac, tarot, numerology and more">ज्योतिष की अन्य पद्धतियाँ — चीनी राशिफल, टैरो, अंक ज्योतिष और अधिक</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="link-grid link-grid-3">
+      <a class="card link-card" href="chinese-horoscope.html">
+        <div class="link-title">चीनी राशिफल</div>
+        <div class="link-title-en">Chinese Horoscope</div>
+        <div class="link-desc" data-hi="अपने जन्म वर्ष के अनुसार चीनी राशि और भविष्यफल जानें।" data-en="Discover your Chinese zodiac animal and yearly forecast by birth year.">अपने जन्म वर्ष के अनुसार चीनी राशि और भविष्यफल जानें।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="tarot.html">
+        <div class="link-title">टैरो कार्ड</div>
+        <div class="link-title-en">Tarot Cards</div>
+        <div class="link-desc" data-hi="आज का टैरो कार्ड और उसका अर्थ — जीवन के सवालों का उत्तर।" data-en="Today's tarot card and its meaning — answers to life's questions.">आज का टैरो कार्ड और उसका अर्थ — जीवन के सवालों का उत्तर।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="numerology.html">
+        <div class="link-title">अंक ज्योतिष</div>
+        <div class="link-title-en">Numerology</div>
+        <div class="link-desc" data-hi="जन्म तिथि से मूलांक और भाग्यांक की गणना और उसका प्रभाव।" data-en="Calculate your moolank and bhagyank from your birth date and what it reveals.">जन्म तिथि से मूलांक और भाग्यांक की गणना और उसका प्रभाव।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="muhurat.html">
+        <div class="link-title">शुभ मुहूर्त 2026</div>
+        <div class="link-title-en">Shubh Muhurat 2026</div>
+        <div class="link-desc" data-hi="विवाह, गृह प्रवेश, मुंडन और अन्य संस्कारों के लिए शुभ तिथियाँ।" data-en="Auspicious dates for weddings, griha pravesh, mundan and other ceremonies.">विवाह, गृह प्रवेश, मुंडन और अन्य संस्कारों के लिए शुभ तिथियाँ।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="transits.html">
+        <div class="link-title">ग्रह गोचर 2026</div>
+        <div class="link-title-en">Planetary Transits 2026</div>
+        <div class="link-desc" data-hi="2026 में प्रमुख ग्रहों के राशि परिवर्तन और उनका सभी राशियों पर प्रभाव।" data-en="Major planetary sign changes in 2026 and their impact on all 12 zodiac signs.">2026 में प्रमुख ग्रहों के राशि परिवर्तन और उनका सभी राशियों पर प्रभाव।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+      <a class="card link-card" href="nifty-prediction.html">
+        <div class="link-title">निफ्टी भविष्यवाणी</div>
+        <div class="link-title-en">Nifty Prediction</div>
+        <div class="link-desc" data-hi="ज्योतिष के अनुसार शेयर बाजार और निफ्टी का साप्ताहिक रुझान।" data-en="Astrology-based weekly outlook for the Indian stock market and Nifty.">ज्योतिष के अनुसार शेयर बाजार और निफ्टी का साप्ताहिक रुझान।</div>
+        <div class="link-cta" data-hi="पढ़ें →" data-en="Read →">पढ़ें →</div>
+      </a>
+    </div>
+  </section>
+
   <!-- ═══ FULL FESTIVAL CALENDAR MODAL ═══ -->
   <div class="overlay" id="festCalOv" role="dialog" aria-modal="true" aria-labelledby="festCalTitle" aria-hidden="true" onclick="if(event.target===this)closeFestivalCalendar()">
     <div class="detail fest-cal-detail">
       <button class="detail-close" type="button" onclick="closeFestivalCalendar()" aria-label="Close">&times;</button>
       <h3 class="detail-name" id="festCalTitle" data-hi="सम्पूर्ण त्योहार कैलेंडर" data-en="Full Festival Calendar">सम्पूर्ण त्योहार कैलेंडर</h3>
-      <p class="detail-sub" data-hi="2026 – 2027 के सभी प्रमुख हिन्दू पर्व" data-en="All major Hindu festivals for 2026 – 2027">2026 – 2027 के सभी प्रमुख हिन्दू पर्व</p>
+      <p class="detail-sub" data-hi="2024 – 2027 के प्रमुख हिन्दू पर्व" data-en="Major Hindu festivals 2024 – 2027">2024 – 2027 के प्रमुख हिन्दू पर्व</p>
+      <div class="fest-cal-years" id="festCalYears" role="tablist"></div>
       <div id="festCalBody" class="fest-cal-body"></div>
       <p class="muted" style="text-align:center;margin-top:var(--sp-4);font-size:var(--fs-xs);" data-hi="तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।" data-en="Dates may vary based on local panchang.">तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।</p>
     </div>
@@ -5485,64 +5660,102 @@ const FEST_ICONS={
   trident:'<line x1="12" y1="22" x2="12" y2="8"/><path d="M6 10V4"/><path d="M18 10V4"/><path d="M12 8V2"/><path d="M5 10h14"/>',
   colors:'<circle cx="8" cy="14" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="12" cy="8" r="3"/>'
 };
-// Comprehensive festival list 2026 – 2027 for the full calendar modal.
-const FESTIVAL_CALENDAR=[
-  // April 2026
-  {date:'2026-04-02',hi:'हनुमान जयंती',en:'Hanuman Jayanti'},
-  {date:'2026-04-26',hi:'अक्षय तृतीया',en:'Akshaya Tritiya'},
-  // May 2026
-  {date:'2026-05-01',hi:'बुद्ध पूर्णिमा',en:'Buddha Purnima'},
-  {date:'2026-05-22',hi:'वट सावित्री व्रत',en:'Vat Savitri Vrat'},
-  // June 2026
-  {date:'2026-06-15',hi:'निर्जला एकादशी',en:'Nirjala Ekadashi'},
-  {date:'2026-06-23',hi:'जगन्नाथ रथ यात्रा',en:'Jagannath Rath Yatra'},
-  // July 2026
-  {date:'2026-07-11',hi:'गुरु पूर्णिमा',en:'Guru Purnima'},
-  {date:'2026-07-27',hi:'देवशयनी एकादशी',en:'Devshayani Ekadashi'},
-  // August 2026
-  {date:'2026-08-05',hi:'हरियाली तीज',en:'Hariyali Teej'},
-  {date:'2026-08-07',hi:'नाग पंचमी',en:'Nag Panchami'},
-  {date:'2026-08-08',hi:'रक्षा बंधन',en:'Raksha Bandhan'},
-  {date:'2026-08-22',hi:'जन्माष्टमी',en:'Janmashtami'},
-  // September 2026
-  {date:'2026-09-07',hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi'},
-  {date:'2026-09-15',hi:'अनंत चतुर्दशी',en:'Anant Chaturdashi'},
-  {date:'2026-09-17',hi:'विश्वकर्मा पूजा',en:'Vishwakarma Puja'},
-  {date:'2026-09-23',hi:'नवरात्रि आरंभ',en:'Navratri Start'},
-  // October 2026
-  {date:'2026-10-02',hi:'दशहरा',en:'Dussehra'},
-  {date:'2026-10-14',hi:'करवा चौथ',en:'Karwa Chauth'},
-  {date:'2026-10-18',hi:'धनतेरस',en:'Dhanteras'},
-  {date:'2026-10-20',hi:'दीवाली',en:'Diwali'},
-  {date:'2026-10-21',hi:'गोवर्धन पूजा',en:'Govardhan Puja'},
-  {date:'2026-10-22',hi:'भाई दूज',en:'Bhai Dooj'},
-  {date:'2026-10-26',hi:'छठ पूजा',en:'Chhath Puja'},
-  // November 2026
-  {date:'2026-11-04',hi:'देव दीवाली',en:'Dev Diwali'},
-  {date:'2026-11-06',hi:'तुलसी विवाह',en:'Tulsi Vivah'},
-  {date:'2026-11-06',hi:'देव उठनी एकादशी',en:'Dev Uthani Ekadashi'},
-  // December 2026
-  {date:'2026-12-05',hi:'गीता जयंती',en:'Geeta Jayanti'},
-  {date:'2026-12-05',hi:'विवाह पंचमी',en:'Vivah Panchami'},
-  // January 2027
-  {date:'2027-01-13',hi:'लोहड़ी',en:'Lohri'},
-  {date:'2027-01-14',hi:'मकर संक्रांति',en:'Makar Sankranti'},
-  {date:'2027-01-14',hi:'पोंगल',en:'Pongal'},
-  {date:'2027-01-31',hi:'बसंत पंचमी',en:'Basant Panchami'},
-  // February 2027
-  {date:'2027-02-14',hi:'महाशिवरात्रि',en:'Maha Shivaratri'},
-  // March 2027
-  {date:'2027-03-03',hi:'होलिका दहन',en:'Holika Dahan'},
-  {date:'2027-03-04',hi:'होली',en:'Holi'},
-  {date:'2027-03-19',hi:'चैत्र नवरात्रि',en:'Chaitra Navratri'},
-  {date:'2027-03-19',hi:'उगादि / गुड़ी पड़वा',en:'Ugadi / Gudi Padwa'},
-  {date:'2027-03-28',hi:'राम नवमी',en:'Ram Navami'}
-];
+// Comprehensive multi-year festival data. Dates are best-effort and may vary
+// by local panchang — the modal shows a disclaimer.
+const FESTIVAL_CALENDAR_BY_YEAR={
+  2024:[
+    {date:'2024-01-15',hi:'मकर संक्रांति',en:'Makar Sankranti'},
+    {date:'2024-02-14',hi:'बसंत पंचमी',en:'Basant Panchami'},
+    {date:'2024-03-08',hi:'महाशिवरात्रि',en:'Maha Shivaratri'},
+    {date:'2024-03-25',hi:'होली',en:'Holi'},
+    {date:'2024-04-17',hi:'राम नवमी',en:'Ram Navami'},
+    {date:'2024-04-23',hi:'हनुमान जयंती',en:'Hanuman Jayanti'},
+    {date:'2024-05-10',hi:'अक्षय तृतीया',en:'Akshaya Tritiya'},
+    {date:'2024-07-21',hi:'गुरु पूर्णिमा',en:'Guru Purnima'},
+    {date:'2024-08-19',hi:'रक्षा बंधन',en:'Raksha Bandhan'},
+    {date:'2024-08-26',hi:'जन्माष्टमी',en:'Janmashtami'},
+    {date:'2024-09-07',hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi'},
+    {date:'2024-10-03',hi:'नवरात्रि आरंभ',en:'Navratri Start'},
+    {date:'2024-10-12',hi:'दशहरा',en:'Dussehra'},
+    {date:'2024-10-20',hi:'करवा चौथ',en:'Karwa Chauth'},
+    {date:'2024-11-01',hi:'दीवाली',en:'Diwali'},
+    {date:'2024-11-03',hi:'भाई दूज',en:'Bhai Dooj'},
+    {date:'2024-11-07',hi:'छठ पूजा',en:'Chhath Puja'}
+  ],
+  2025:[
+    {date:'2025-01-14',hi:'मकर संक्रांति',en:'Makar Sankranti'},
+    {date:'2025-02-02',hi:'बसंत पंचमी',en:'Basant Panchami'},
+    {date:'2025-02-26',hi:'महाशिवरात्रि',en:'Maha Shivaratri'},
+    {date:'2025-03-13',hi:'होलिका दहन',en:'Holika Dahan'},
+    {date:'2025-03-14',hi:'होली',en:'Holi'},
+    {date:'2025-03-30',hi:'चैत्र नवरात्रि',en:'Chaitra Navratri'},
+    {date:'2025-04-06',hi:'राम नवमी',en:'Ram Navami'},
+    {date:'2025-04-12',hi:'हनुमान जयंती',en:'Hanuman Jayanti'},
+    {date:'2025-04-30',hi:'अक्षय तृतीया',en:'Akshaya Tritiya'},
+    {date:'2025-05-12',hi:'बुद्ध पूर्णिमा',en:'Buddha Purnima'},
+    {date:'2025-07-10',hi:'गुरु पूर्णिमा',en:'Guru Purnima'},
+    {date:'2025-08-09',hi:'रक्षा बंधन',en:'Raksha Bandhan'},
+    {date:'2025-08-16',hi:'जन्माष्टमी',en:'Janmashtami'},
+    {date:'2025-08-27',hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi'},
+    {date:'2025-09-22',hi:'नवरात्रि आरंभ',en:'Navratri Start'},
+    {date:'2025-10-02',hi:'दशहरा',en:'Dussehra'},
+    {date:'2025-10-18',hi:'धनतेरस',en:'Dhanteras'},
+    {date:'2025-10-20',hi:'दीवाली',en:'Diwali'},
+    {date:'2025-10-22',hi:'भाई दूज',en:'Bhai Dooj'},
+    {date:'2025-10-26',hi:'छठ पूजा',en:'Chhath Puja'},
+    {date:'2025-11-01',hi:'करवा चौथ',en:'Karwa Chauth'}
+  ],
+  2026:[
+    {date:'2026-04-02',hi:'हनुमान जयंती',en:'Hanuman Jayanti'},
+    {date:'2026-04-26',hi:'अक्षय तृतीया',en:'Akshaya Tritiya'},
+    {date:'2026-05-01',hi:'बुद्ध पूर्णिमा',en:'Buddha Purnima'},
+    {date:'2026-05-22',hi:'वट सावित्री व्रत',en:'Vat Savitri Vrat'},
+    {date:'2026-06-15',hi:'निर्जला एकादशी',en:'Nirjala Ekadashi'},
+    {date:'2026-06-23',hi:'जगन्नाथ रथ यात्रा',en:'Jagannath Rath Yatra'},
+    {date:'2026-07-11',hi:'गुरु पूर्णिमा',en:'Guru Purnima'},
+    {date:'2026-07-27',hi:'देवशयनी एकादशी',en:'Devshayani Ekadashi'},
+    {date:'2026-08-05',hi:'हरियाली तीज',en:'Hariyali Teej'},
+    {date:'2026-08-07',hi:'नाग पंचमी',en:'Nag Panchami'},
+    {date:'2026-08-08',hi:'रक्षा बंधन',en:'Raksha Bandhan'},
+    {date:'2026-08-22',hi:'जन्माष्टमी',en:'Janmashtami'},
+    {date:'2026-09-07',hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi'},
+    {date:'2026-09-15',hi:'अनंत चतुर्दशी',en:'Anant Chaturdashi'},
+    {date:'2026-09-17',hi:'विश्वकर्मा पूजा',en:'Vishwakarma Puja'},
+    {date:'2026-09-23',hi:'नवरात्रि आरंभ',en:'Navratri Start'},
+    {date:'2026-10-02',hi:'दशहरा',en:'Dussehra'},
+    {date:'2026-10-14',hi:'करवा चौथ',en:'Karwa Chauth'},
+    {date:'2026-10-18',hi:'धनतेरस',en:'Dhanteras'},
+    {date:'2026-10-20',hi:'दीवाली',en:'Diwali'},
+    {date:'2026-10-21',hi:'गोवर्धन पूजा',en:'Govardhan Puja'},
+    {date:'2026-10-22',hi:'भाई दूज',en:'Bhai Dooj'},
+    {date:'2026-10-26',hi:'छठ पूजा',en:'Chhath Puja'},
+    {date:'2026-11-04',hi:'देव दीवाली',en:'Dev Diwali'},
+    {date:'2026-11-06',hi:'तुलसी विवाह',en:'Tulsi Vivah'},
+    {date:'2026-11-06',hi:'देव उठनी एकादशी',en:'Dev Uthani Ekadashi'},
+    {date:'2026-12-05',hi:'गीता जयंती',en:'Geeta Jayanti'},
+    {date:'2026-12-05',hi:'विवाह पंचमी',en:'Vivah Panchami'}
+  ],
+  2027:[
+    {date:'2027-01-13',hi:'लोहड़ी',en:'Lohri'},
+    {date:'2027-01-14',hi:'मकर संक्रांति',en:'Makar Sankranti'},
+    {date:'2027-01-14',hi:'पोंगल',en:'Pongal'},
+    {date:'2027-01-31',hi:'बसंत पंचमी',en:'Basant Panchami'},
+    {date:'2027-02-14',hi:'महाशिवरात्रि',en:'Maha Shivaratri'},
+    {date:'2027-03-03',hi:'होलिका दहन',en:'Holika Dahan'},
+    {date:'2027-03-04',hi:'होली',en:'Holi'},
+    {date:'2027-03-19',hi:'चैत्र नवरात्रि',en:'Chaitra Navratri'},
+    {date:'2027-03-19',hi:'उगादि / गुड़ी पड़वा',en:'Ugadi / Gudi Padwa'},
+    {date:'2027-03-28',hi:'राम नवमी',en:'Ram Navami'}
+  ]
+};
+let _festCalYear=2026;
 // Festival → detail page mapping. Match by English name (case-insensitive substring).
 const FESTIVAL_LINKS={
   'navratri':'navratri-puja.html',
   'diwali':'diwali-puja-vidhi.html',
   'dev diwali':'diwali-puja-vidhi.html',
+  'dhanteras':'diwali-puja-vidhi.html',
+  'govardhan':'diwali-puja-vidhi.html',
   'dussehra':'dussehra-puja.html',
   'karwa chauth':'karwa-chauth-katha.html'
 };
@@ -5593,20 +5806,49 @@ function renderFestivals(){
 
 /* ── FULL FESTIVAL CALENDAR MODAL ── */
 function _festCalLink(en){return festivalLink(en);}
+function _festStatus(d){
+  // Returns {kind, text} where kind ∈ {'past','today','soon','future'}
+  const today=new Date();today.setHours(0,0,0,0);
+  const days=Math.round((d-today)/86400000);
+  if(days<0)return{kind:'past',text:cL==='hi'?'बीत चुका':'Passed'};
+  if(days===0)return{kind:'today',text:cL==='hi'?'आज':'Today'};
+  if(days<=365)return{kind:'soon',text:cL==='hi'?`${days} दिन शेष`:`${days} day${days===1?'':'s'} away`};
+  return{kind:'future',text:''};
+}
+function renderFestivalCalendarYears(){
+  const wrap=document.getElementById('festCalYears');
+  if(!wrap)return;
+  const years=Object.keys(FESTIVAL_CALENDAR_BY_YEAR).map(Number).sort();
+  wrap.innerHTML=years.map(y=>
+    `<button type="button" class="fest-cal-year-btn${y===_festCalYear?' active':''}" data-y="${y}" role="tab" aria-selected="${y===_festCalYear}">${y}</button>`
+  ).join('');
+  wrap.querySelectorAll('.fest-cal-year-btn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      _festCalYear=parseInt(b.dataset.y,10);
+      renderFestivalCalendarYears();
+      renderFestivalCalendar();
+    });
+  });
+}
 function renderFestivalCalendar(){
   const body=document.getElementById('festCalBody');
   if(!body)return;
   const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
   const monthsEn=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  // Group by year-month
+  const data=FESTIVAL_CALENDAR_BY_YEAR[_festCalYear]||[];
+  // Group by month
   const groups={};
-  FESTIVAL_CALENDAR.forEach(f=>{
+  data.forEach(f=>{
     const d=new Date(f.date+'T00:00:00');
     const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
     if(!groups[key])groups[key]={y:d.getFullYear(),m:d.getMonth(),items:[]};
     groups[key].items.push({...f,d});
   });
   const keys=Object.keys(groups).sort();
+  if(!keys.length){
+    body.innerHTML=`<p class="muted" style="text-align:center;padding:var(--sp-5);">${cL==='hi'?'इस वर्ष के लिए डेटा उपलब्ध नहीं है।':'No data available for this year.'}</p>`;
+    return;
+  }
   body.innerHTML=keys.map(k=>{
     const g=groups[k];
     const head=cL==='hi'?`${monthsHi[g.m]} ${g.y}`:`${monthsEn[g.m]} ${g.y}`;
@@ -5616,13 +5858,20 @@ function renderFestivalCalendar(){
       const name=cL==='hi'?f.hi:f.en;
       const altName=cL==='hi'?f.en:f.hi;
       const href=_festCalLink(f.en);
-      const inner=`<span class="fest-cal-name">${name}<span class="fest-cal-name-en">· ${altName}</span></span><span class="fest-cal-date">${dateStr}</span>`;
+      const status=_festStatus(f.d);
+      const badge=status.text?`<span class="fest-cal-status fest-cal-status-${status.kind}">${status.text}</span>`:'';
+      const inner=`<span class="fest-cal-name">${name}<span class="fest-cal-name-en">· ${altName}</span></span><span class="fest-cal-meta"><span class="fest-cal-date">${dateStr}</span>${badge}</span>`;
       return`<li class="fest-cal-item">${href?`<a href="${href}">${inner}</a>`:inner}</li>`;
     }).join('');
     return`<div class="fest-cal-month"><div class="fest-cal-month-head">${head}</div><ul class="fest-cal-list">${rows}</ul></div>`;
   }).join('');
 }
 function openFestivalCalendar(){
+  // Default to current year if it's in the dataset, otherwise the latest available
+  const cy=new Date().getFullYear();
+  const years=Object.keys(FESTIVAL_CALENDAR_BY_YEAR).map(Number).sort();
+  if(!years.includes(_festCalYear))_festCalYear=years.includes(cy)?cy:years[years.length-1];
+  renderFestivalCalendarYears();
   renderFestivalCalendar();
   const ov=document.getElementById('festCalOv');
   if(!ov)return;
