@@ -3246,6 +3246,34 @@ footer {
   transition: color var(--dur-fast) var(--ease);
 }
 .footer-links a:hover { color: var(--gold); }
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6) var(--sp-8);
+  max-width: 1100px;
+  margin: var(--sp-8) auto 0;
+  padding: 0 var(--sp-4);
+  text-align: left;
+}
+@media (max-width: 900px) { .footer-cols { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .footer-cols { grid-template-columns: 1fr; text-align: center; } }
+.footer-col { display: flex; flex-direction: column; gap: 6px; }
+.footer-col-head {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-base);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.footer-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-faint);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-col a:hover { color: var(--gold); }
 
 .footer-seo {
   max-width: 640px;
@@ -3773,12 +3801,47 @@ footer {
 
   <footer>
     <p class="footer-mark">Rashifal.online &middot; Est. 2026 &middot; Bhopal, India</p>
-    <div class="footer-links">
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/about.html">About</a>
-      <a href="/methodology.html" data-hi="हमारी पद्धति" data-en="Our Methodology">हमारी पद्धति</a>
-      <a href="/contact.html">Contact</a>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="footer-col-head" data-hi="राशिफल" data-en="Rashifal Pages">राशिफल</h4>
+        <a href="mesh.html">मेष / Aries</a>
+        <a href="vrishabh.html">वृषभ / Taurus</a>
+        <a href="mithun.html">मिथुन / Gemini</a>
+        <a href="kark.html">कर्क / Cancer</a>
+        <a href="singh.html">सिंह / Leo</a>
+        <a href="kanya.html">कन्या / Virgo</a>
+        <a href="tula.html">तुला / Libra</a>
+        <a href="vrishchik.html">वृश्चिक / Scorpio</a>
+        <a href="dhanu.html">धनु / Sagittarius</a>
+        <a href="makar.html">मकर / Capricorn</a>
+        <a href="kumbh.html">कुम्भ / Aquarius</a>
+        <a href="meen.html">मीन / Pisces</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-head" data-hi="ज्योतिष उपकरण" data-en="Astrology Tools">ज्योतिष उपकरण</h4>
+        <a href="chinese-horoscope.html" data-hi="चीनी राशिफल" data-en="Chinese Horoscope">चीनी राशिफल</a>
+        <a href="tarot.html" data-hi="टैरो कार्ड" data-en="Tarot Cards">टैरो कार्ड</a>
+        <a href="numerology.html" data-hi="अंक ज्योतिष" data-en="Numerology">अंक ज्योतिष</a>
+        <a href="muhurat.html" data-hi="शुभ मुहूर्त 2026" data-en="Shubh Muhurat 2026">शुभ मुहूर्त 2026</a>
+        <a href="transits.html" data-hi="ग्रह गोचर 2026" data-en="Planetary Transits 2026">ग्रह गोचर 2026</a>
+        <a href="nifty-prediction.html" data-hi="निफ्टी भविष्यवाणी" data-en="Nifty Prediction">निफ्टी भविष्यवाणी</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-head" data-hi="पूजा एवं त्योहार" data-en="Puja &amp; Festivals">पूजा एवं त्योहार</h4>
+        <a href="navratri-puja.html" data-hi="नवरात्रि पूजा विधि" data-en="Navratri Puja Vidhi">नवरात्रि पूजा विधि</a>
+        <a href="diwali-puja-vidhi.html" data-hi="दिवाली लक्ष्मी-गणेश पूजा" data-en="Diwali Lakshmi-Ganesh Puja">दिवाली लक्ष्मी-गणेश पूजा</a>
+        <a href="dussehra-puja.html" data-hi="दशहरा विजयदशमी" data-en="Dussehra Vijayadashami">दशहरा विजयदशमी</a>
+        <a href="karwa-chauth-katha.html" data-hi="करवा चौथ व्रत कथा" data-en="Karwa Chauth Vrat Katha">करवा चौथ व्रत कथा</a>
+        <a href="#festivals" data-hi="सभी त्योहार" data-en="All Festivals">सभी त्योहार</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-head" data-hi="जानकारी" data-en="Info">जानकारी</h4>
+        <a href="about.html">About</a>
+        <a href="methodology.html" data-hi="हमारी पद्धति" data-en="Our Methodology">हमारी पद्धति</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
     </div>
     <div class="footer-seo"><p data-hi="Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल। मेष, वृषभ, मिथुन, कर्क, सिंह, कन्या, तुला, वृश्चिक, धनु, मकर, कुम्भ, मीन।" data-en="Rashifal.online — India's complete astrology portal. Daily, weekly, monthly, yearly horoscope. Kundli, janampatri, kundli matching, compatibility. Love, career, health, finance horoscope. Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces.">Rashifal.online — भारत का सम्पूर्ण ज्योतिष पोर्टल। दैनिक, साप्ताहिक, मासिक, वार्षिक राशिफल। कुंडली, जन्मपत्री, कुंडली मिलान, राशि अनुकूलता। प्रेम, करियर, स्वास्थ्य, धन राशिफल।</p></div>
   </footer>
@@ -3876,6 +3939,9 @@ footer {
       </button>
     </div>
     <div class="detail-updated" id="dUpdated"></div>
+    <div style="text-align:center;margin-top:var(--sp-4);">
+      <a id="dFullPage" class="btn-ghost-gold" href="mesh.html" data-hi="विस्तृत पढ़ें →" data-en="Read full page →">विस्तृत पढ़ें →</a>
+    </div>
   </div>
 </div>
 
@@ -4673,6 +4739,12 @@ function showD(i){
   // otherwise fall back to today's daily data.
   const src=_gridDD||dd;
   const r=RASHIS[i],rd=src?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+  // Wire up the "Read full page →" link to the individual rashi page
+  const fullLink=document.getElementById('dFullPage');
+  if(fullLink){
+    fullLink.href=`${r.id}.html`;
+    fullLink.textContent=cL==='hi'?'विस्तृत पढ़ें →':'Read full page →';
+  }
   document.getElementById('dGlyph').innerHTML=ZODIAC_SVG[r.id];
   document.getElementById('dName').textContent=cL==='hi'?r.hi:r.en;
   document.getElementById('dSub').textContent=cL==='hi'?r.en:r.hi;
