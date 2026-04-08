@@ -4070,7 +4070,10 @@ function showZI(i){
 
 function showD(i){
   _currentDetailIdx=i;trackRecent(i);
-  const r=RASHIS[i],rd=dd?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
+  // Read from the active period's data (weekly/monthly/yearly/yesterday) when set,
+  // otherwise fall back to today's daily data.
+  const src=_gridDD||dd;
+  const r=RASHIS[i],rd=src?.rashis?.[i],ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
   document.getElementById('dGlyph').innerHTML=ZODIAC_SVG[r.id];
   document.getElementById('dName').textContent=cL==='hi'?r.hi:r.en;
   document.getElementById('dSub').textContent=cL==='hi'?r.en:r.hi;
@@ -4093,7 +4096,7 @@ function showD(i){
     document.getElementById('dMantraSans').textContent=mantra.sanskrit||'';
     document.getElementById('dMantraMean').textContent=mantra.meaning||'';
   }else mantraWrap.style.display='none';
-  document.getElementById('dUpdated').textContent=fmtUpdated(dd?.generated_at);
+  document.getElementById('dUpdated').textContent=fmtUpdated(src?.generated_at||dd?.generated_at);
   openD();
 }
 
