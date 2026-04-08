@@ -2,14 +2,16 @@ name: Rashifal Generator
 
 on:
   schedule:
-    # Daily — every day at 23:30 UTC = 05:00 IST next day
-    - cron: '30 23 * * *'
-    # Weekly — Sundays at 23:30 UTC = 05:00 IST Monday
-    - cron: '30 23 * * 0'
-    # Monthly — 28th of each month at 22:00 UTC (covers Feb; we filter inside the job)
-    - cron: '0 22 28-31 * *'
-    # Yearly — December 30 at 22:00 UTC
-    - cron: '0 22 30 12 *'
+    # All times are UTC. IST = UTC + 5:30. We must publish BEFORE IST midnight
+    # (18:30 UTC) so the new IST date's file is live the moment users wake up.
+    # Daily — every day at 17:00 UTC = 22:30 IST (90 min before IST midnight)
+    - cron: '0 17 * * *'
+    # Weekly — Sundays at 16:30 UTC = 22:00 IST Sunday (publishes Mon's week)
+    - cron: '30 16 * * 0'
+    # Monthly — fires daily 28-31 at 16:00 UTC; job filters to last day of month
+    - cron: '0 16 28-31 * *'
+    # Yearly — December 31 at 15:30 UTC = 21:00 IST (publishes next year)
+    - cron: '30 15 31 12 *'
   workflow_dispatch:
     inputs:
       mode:
@@ -48,29 +50,35 @@ jobs:
             echo "date=$DATE" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # Schedule path — disambiguate by cron string
-          TODAY_UTC=$(date -u +%Y-%m-%d)
-          TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d)
-          DOM=$(date -u +%-d)
-          MONTH=$(date -u +%-m)
-          # Last day of current month
-          LAST_DOM=$(date -u -d "$(date -u +%Y-%m-01) +1 month -1 day" +%-d)
+          # Schedule path — compute dates in IST so files match what the site requests.
+          # IST "tomorrow" = the date the site will look for once IST midnight ticks over.
+          IST_TODAY=$(TZ=Asia/Kolkata date +%Y-%m-%d)
+          IST_TOMORROW=$(TZ=Asia/Kolkata date -d "+1 day" +%Y-%m-%d)
+          IST_DOM=$(TZ=Asia/Kolkata date -d "+1 day" +%-d)
+          # First day of the month *after* IST tomorrow's month — used for monthly rollover
+          NEXT_MONTH_FIRST=$(TZ=Asia/Kolkata date -d "$(TZ=Asia/Kolkata date +%Y-%m-01) +1 month" +%Y-%m-%d)
+          # Last day of IST current month
+          LAST_DOM=$(TZ=Asia/Kolkata date -d "$(TZ=Asia/Kolkata date +%Y-%m-01) +1 month -1 day" +%-d)
+          IST_DOM_NOW=$(TZ=Asia/Kolkata date +%-d)
           case "$SCHEDULE" in
-            "30 23 * * *")
-              MODE="daily"; DATE="$TOMORROW";;
-            "30 23 * * 0")
-              MODE="weekly"; DATE="$TOMORROW";;
-            "0 22 28-31 * *")
-              if [ "$DOM" = "$LAST_DOM" ]; then
-                MODE="monthly"; DATE="$TODAY_UTC"
+            "0 17 * * *")
+              MODE="daily"; DATE="$IST_TOMORROW";;
+            "30 16 * * 0")
+              MODE="weekly"; DATE="$IST_TOMORROW";;
+            "0 16 28-31 * *")
+              if [ "$IST_DOM_NOW" = "$LAST_DOM" ]; then
+                # On the last day of the IST month, generate NEXT month's file
+                MODE="monthly"; DATE="$NEXT_MONTH_FIRST"
               else
-                echo "Not last day of month — skipping"; MODE="skip"; DATE="$TODAY_UTC"
+                echo "Not last day of IST month — skipping"; MODE="skip"; DATE="$IST_TODAY"
               fi
               ;;
-            "0 22 30 12 *")
-              MODE="yearly"; DATE="$TODAY_UTC";;
+            "30 15 31 12 *")
+              # Generate next year's yearly file
+              NEXT_YEAR=$(TZ=Asia/Kolkata date -d "+1 day" +%Y)
+              MODE="yearly"; DATE="${NEXT_YEAR}-01-01";;
             *)
-              MODE="daily"; DATE="$TOMORROW";;
+              MODE="daily"; DATE="$IST_TOMORROW";;
           esac
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
