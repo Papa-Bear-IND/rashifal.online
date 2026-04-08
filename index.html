@@ -105,6 +105,11 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Paint the deep-space backdrop on the very first frame so the page never
+   flashes white before the canvas + body styles resolve. */
+html { background: #0A0E1A; }
+:root[data-theme="light"] html, html[data-theme="light"] { background: #FAF6EB; }
+
 :root {
   /* ── 60% Primary Neutrals (Deep Space) ── */
   --midnight:    #0A0E1A;
@@ -771,6 +776,8 @@ h1, h2, h3, h4 {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  will-change: transform;
+  background: #0A0E1A;
 }
 
 /* Atmospheric gradient overlay that shifts with time */
@@ -3772,7 +3779,19 @@ document.addEventListener('visibilitychange',()=>{
   if(document.hidden)stopLoop();else startLoop();
 });
 
-addEventListener('resize',resize);resize();startLoop();
+addEventListener('resize',resize);resize();
+// Seed the sky-overlay with the current hour's sky gradient so it doesn't
+// flash from transparent → colored on first paint.
+try{
+  const _ovEl=document.getElementById('skyOverlay');
+  if(_ovEl){
+    const _h=getIST(),_s=skyAt(_h);
+    _ovEl.style.background=`linear-gradient(to bottom, ${_s.t}, ${_s.b})`;
+  }
+}catch(_){}
+// Draw the first frame synchronously before any rAF, so the canvas is
+// painted before the browser commits the initial frame to screen.
+frame();
 })();
 
 
