@@ -1288,6 +1288,21 @@ h1.title {
   border-color: var(--gold);
   transform: translateY(-3px);
 }
+a.festival-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a.festival-card-link:hover { text-decoration: none; }
+.festival-more {
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 .festival-icon {
   width: 36px;
   height: 36px;
@@ -5248,6 +5263,23 @@ const FEST_ICONS={
   trident:'<line x1="12" y1="22" x2="12" y2="8"/><path d="M6 10V4"/><path d="M18 10V4"/><path d="M12 8V2"/><path d="M5 10h14"/>',
   colors:'<circle cx="8" cy="14" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="12" cy="8" r="3"/>'
 };
+// Festival → detail page mapping. Match by English name (case-insensitive substring).
+const FESTIVAL_LINKS={
+  'navratri':'navratri-puja.html',
+  'diwali':'diwali-puja-vidhi.html',
+  'dev diwali':'diwali-puja-vidhi.html',
+  'dussehra':'dussehra-puja.html',
+  'karwa chauth':'karwa-chauth-katha.html'
+};
+function festivalLink(nameEn){
+  const n=(nameEn||'').toLowerCase();
+  // Longest match wins so 'dev diwali' beats 'diwali'
+  let best='';
+  for(const k of Object.keys(FESTIVAL_LINKS)){
+    if(n.includes(k)&&k.length>best.length)best=k;
+  }
+  return best?FESTIVAL_LINKS[best]:null;
+}
 function renderFestivals(){
   const wrap=document.getElementById('festScroll');
   if(!wrap)return;
@@ -5260,6 +5292,7 @@ function renderFestivals(){
   if(!upcoming.length){wrap.innerHTML='';return;}
   const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
   const monthsEn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const moreH=cL==='hi'?'विस्तार से पढ़ें →':'Read more →';
   wrap.innerHTML=upcoming.map(f=>{
     const days=Math.round((f.d-today)/86400000);
     const dateStr=cL==='hi'
@@ -5268,15 +5301,18 @@ function renderFestivals(){
     const cd=days===0
       ?(cL==='hi'?'आज':'Today')
       :(cL==='hi'?`${days} दिन शेष`:`${days} day${days===1?'':'s'} away`);
-    return`
-      <div class="festival-card">
+    const href=festivalLink(f.nameEn);
+    const inner=`
         <svg class="festival-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FEST_ICONS[f.icon]||FEST_ICONS.lamp}</svg>
         <div class="festival-name">${cL==='hi'?f.nameHi:f.nameEn}</div>
         <div class="festival-name-en">${cL==='hi'?f.nameEn:f.nameHi}</div>
         <div class="festival-date">${dateStr}</div>
         <div class="festival-countdown">${cd}</div>
         <div class="festival-desc">${cL==='hi'?f.descHi:f.descEn}</div>
-      </div>`;
+        ${href?`<div class="festival-more">${moreH}</div>`:''}`;
+    return href
+      ?`<a class="festival-card festival-card-link" href="${href}">${inner}</a>`
+      :`<div class="festival-card">${inner}</div>`;
   }).join('');
 }
 
