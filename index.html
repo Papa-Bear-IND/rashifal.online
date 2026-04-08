@@ -1512,30 +1512,84 @@ a.festival-card-link:hover { text-decoration: none; }
 .fest-cal-status-soon   { background: var(--gold-muted); color: var(--gold); }
 .fest-cal-years {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   margin-top: var(--sp-4);
   padding: var(--sp-2) 0;
 }
-.fest-cal-year-btn {
-  padding: 8px 18px;
-  background: transparent;
-  border: 1px solid var(--b-default);
-  border-radius: 999px;
-  color: var(--t-muted);
+.fest-cal-year-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 600;
+}
+.fest-cal-year-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.fest-cal-year-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 36px 10px 16px;
+  color: var(--t-body);
   font-family: 'Inter', sans-serif;
   font-size: var(--fs-sm);
   font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition: all 0.2s ease;
+  outline: none;
+  min-width: 120px;
+  color-scheme: dark;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.fest-cal-year-btn:hover { border-color: var(--gold); color: var(--gold); }
-.fest-cal-year-btn.active {
+.fest-cal-year-select:hover,
+.fest-cal-year-select:focus {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.18);
+}
+:root[data-theme="light"] .fest-cal-year-select {
+  background: #FFFCF4;
+  color: var(--t-body);
+  color-scheme: light;
+}
+.fest-cal-year-caret {
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+  color: var(--gold);
+  font-size: 12px;
+}
+.fest-cal-head-year {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 2px 14px;
   background: var(--gold);
-  border-color: var(--gold);
   color: var(--void);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+.fest-cal-approx-note {
+  margin: var(--sp-3) 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(212,175,55,0.10);
+  border: 1px dashed var(--gold);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 .festival-icon {
   width: 36px;
@@ -3580,8 +3634,11 @@ footer {
   <div class="overlay" id="festCalOv" role="dialog" aria-modal="true" aria-labelledby="festCalTitle" aria-hidden="true" onclick="if(event.target===this)closeFestivalCalendar()">
     <div class="detail fest-cal-detail">
       <button class="detail-close" type="button" onclick="closeFestivalCalendar()" aria-label="Close">&times;</button>
-      <h3 class="detail-name" id="festCalTitle" data-hi="सम्पूर्ण त्योहार कैलेंडर" data-en="Full Festival Calendar">सम्पूर्ण त्योहार कैलेंडर</h3>
-      <p class="detail-sub" data-hi="2024 – 2027 के प्रमुख हिन्दू पर्व" data-en="Major Hindu festivals 2024 – 2027">2024 – 2027 के प्रमुख हिन्दू पर्व</p>
+      <h3 class="detail-name" id="festCalTitle">
+        <span data-hi="सम्पूर्ण त्योहार कैलेंडर" data-en="Full Festival Calendar">सम्पूर्ण त्योहार कैलेंडर</span>
+        <span class="fest-cal-head-year" id="festCalHeadYear">2026</span>
+      </h3>
+      <p class="detail-sub" data-hi="2020 – 2030 के प्रमुख हिन्दू पर्व" data-en="Major Hindu festivals 2020 – 2030">2020 – 2030 के प्रमुख हिन्दू पर्व</p>
       <div class="fest-cal-years" id="festCalYears" role="tablist"></div>
       <div id="festCalBody" class="fest-cal-body"></div>
       <p class="muted" style="text-align:center;margin-top:var(--sp-4);font-size:var(--fs-xs);" data-hi="तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।" data-en="Dates may vary based on local panchang.">तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।</p>
@@ -5749,6 +5806,30 @@ const FESTIVAL_CALENDAR_BY_YEAR={
   ]
 };
 let _festCalYear=2026;
+const FEST_CAL_YEARS=[2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030];
+const FEST_CAL_REAL_YEARS=new Set([2024,2025,2026,2027]);
+// Build approximate festival data for missing years by shifting from the
+// nearest known year. Hindu lunar festivals drift ~11 days earlier each year
+// on the Gregorian calendar (354-day lunar year). This ignores Adhik Maas
+// (leap-month) corrections, hence "approximate".
+function _computeApproxYear(targetYear){
+  if(FESTIVAL_CALENDAR_BY_YEAR[targetYear])return FESTIVAL_CALENDAR_BY_YEAR[targetYear];
+  // Pick the nearest real year as the base
+  const realYears=Array.from(FEST_CAL_REAL_YEARS).sort((a,b)=>Math.abs(a-targetYear)-Math.abs(b-targetYear));
+  const base=realYears[0];
+  const baseData=FESTIVAL_CALENDAR_BY_YEAR[base]||[];
+  // Festivals shift ~11 days earlier per year forward, ~11 days later per year backward
+  const shiftDays=(base-targetYear)*11;
+  return baseData.map(f=>{
+    const d=new Date(f.date+'T00:00:00');
+    d.setDate(d.getDate()+shiftDays);
+    // Re-anchor the year on the resulting date so it lands in the target year
+    const yearOffset=targetYear-d.getFullYear();
+    if(yearOffset!==0)d.setFullYear(d.getFullYear()+yearOffset);
+    const iso=d.toISOString().slice(0,10);
+    return{date:iso,hi:f.hi,en:f.en};
+  });
+}
 // Festival → detail page mapping. Match by English name (case-insensitive substring).
 const FESTIVAL_LINKS={
   'navratri':'navratri-puja.html',
@@ -5818,24 +5899,37 @@ function _festStatus(d){
 function renderFestivalCalendarYears(){
   const wrap=document.getElementById('festCalYears');
   if(!wrap)return;
-  const years=Object.keys(FESTIVAL_CALENDAR_BY_YEAR).map(Number).sort();
-  wrap.innerHTML=years.map(y=>
-    `<button type="button" class="fest-cal-year-btn${y===_festCalYear?' active':''}" data-y="${y}" role="tab" aria-selected="${y===_festCalYear}">${y}</button>`
-  ).join('');
-  wrap.querySelectorAll('.fest-cal-year-btn').forEach(b=>{
-    b.addEventListener('click',()=>{
-      _festCalYear=parseInt(b.dataset.y,10);
-      renderFestivalCalendarYears();
+  const label=cL==='hi'?'वर्ष चुनें':'Select Year';
+  wrap.innerHTML=`
+    <label class="fest-cal-year-label" for="festCalYearSel">${label}</label>
+    <div class="fest-cal-year-select-wrap">
+      <select id="festCalYearSel" class="fest-cal-year-select">
+        ${FEST_CAL_YEARS.map(y=>`<option value="${y}"${y===_festCalYear?' selected':''}>${y}</option>`).join('')}
+      </select>
+      <span class="fest-cal-year-caret" aria-hidden="true">▾</span>
+    </div>`;
+  const sel=document.getElementById('festCalYearSel');
+  if(sel){
+    sel.addEventListener('change',()=>{
+      _festCalYear=parseInt(sel.value,10);
+      // Update the heading year
+      const yEl=document.getElementById('festCalHeadYear');
+      if(yEl)yEl.textContent=_festCalYear;
       renderFestivalCalendar();
     });
-  });
+  }
 }
 function renderFestivalCalendar(){
   const body=document.getElementById('festCalBody');
   if(!body)return;
   const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
   const monthsEn=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const data=FESTIVAL_CALENDAR_BY_YEAR[_festCalYear]||[];
+  const isApprox=!FEST_CAL_REAL_YEARS.has(_festCalYear);
+  const data=FESTIVAL_CALENDAR_BY_YEAR[_festCalYear]||(isApprox?_computeApproxYear(_festCalYear):[]);
+  // Approximate-year banner
+  const approxNote=isApprox
+    ?`<div class="fest-cal-approx-note">${cL==='hi'?'⚠ अनुमानित तिथियाँ — कृपया स्थानीय पंचांग से पुष्टि करें।':'⚠ Approximate dates — please verify with your local panchang.'}</div>`
+    :'';
   // Group by month
   const groups={};
   data.forEach(f=>{
@@ -5849,7 +5943,7 @@ function renderFestivalCalendar(){
     body.innerHTML=`<p class="muted" style="text-align:center;padding:var(--sp-5);">${cL==='hi'?'इस वर्ष के लिए डेटा उपलब्ध नहीं है।':'No data available for this year.'}</p>`;
     return;
   }
-  body.innerHTML=keys.map(k=>{
+  body.innerHTML=approxNote+keys.map(k=>{
     const g=groups[k];
     const head=cL==='hi'?`${monthsHi[g.m]} ${g.y}`:`${monthsEn[g.m]} ${g.y}`;
     const rows=g.items.sort((a,b)=>a.d-b.d).map(f=>{
@@ -5867,10 +5961,12 @@ function renderFestivalCalendar(){
   }).join('');
 }
 function openFestivalCalendar(){
-  // Default to current year if it's in the dataset, otherwise the latest available
+  // Default to current year if supported, otherwise the closest one we list.
   const cy=new Date().getFullYear();
-  const years=Object.keys(FESTIVAL_CALENDAR_BY_YEAR).map(Number).sort();
-  if(!years.includes(_festCalYear))_festCalYear=years.includes(cy)?cy:years[years.length-1];
+  if(FEST_CAL_YEARS.includes(cy))_festCalYear=cy;
+  else if(!FEST_CAL_YEARS.includes(_festCalYear))_festCalYear=FEST_CAL_YEARS[FEST_CAL_YEARS.length-1];
+  const yEl=document.getElementById('festCalHeadYear');
+  if(yEl)yEl.textContent=_festCalYear;
   renderFestivalCalendarYears();
   renderFestivalCalendar();
   const ov=document.getElementById('festCalOv');
