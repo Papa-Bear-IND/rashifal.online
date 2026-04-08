@@ -5951,6 +5951,25 @@ function _pairKey(a,b){
   return [e1,e2].sort().join('-');
 }
 
+// Cache for the rich per-pair compatibility data (loaded once on init).
+let _compatData=null;
+let _compatLoaded=false;
+async function loadCompatData(){
+  if(_compatLoaded)return;
+  _compatLoaded=true;
+  try{
+    let r=await fetch('content/compatibility-data.json');
+    if(!r.ok)r=await fetch('/content/compatibility-data.json');
+    if(!r.ok)return;
+    const j=await r.json();
+    _compatData=j.pairs||j; // support both wrapped and unwrapped formats
+  }catch(_){_compatData=null;}
+}
+function _richPairLookup(a,b){
+  if(!_compatData)return null;
+  return _compatData[`${a}_${b}`]||_compatData[`${b}_${a}`]||null;
+}
+
 function checkC(){
   const a=document.getElementById('s1').value,b=document.getElementById('s2').value;
   clearCErr();
@@ -5958,12 +5977,30 @@ function checkC(){
     showCErr(cL==='hi'?'कृपया दोनों राशियाँ चुनें':'Please select both signs');
     return;
   }
-  const data=ANALYSIS[_pairKey(a,b)];
-  let scores=data.scores.slice();
-  // same-sign bonus: deepens emotional + trust
-  if(a===b){scores=scores.map((s,i)=>i===0||i===2?Math.min(10,s+1):s);}
-  const overall=Math.round((scores.reduce((x,y)=>x+y,0)/50)*100);
-  const t=data[cL]||data.en;
+  // Prefer the rich per-pair data when it's available.
+  const rich=_richPairLookup(a,b);
+  let scores, overall, t;
+  if(rich){
+    scores=[rich.emotional,rich.communication,rich.trust,rich.physical,rich.values];
+    overall=rich.score;
+    t={
+      verdict: overall>=80?(cL==='hi'?'उत्कृष्ट जोड़ी':'Excellent match')
+              :overall>=65?(cL==='hi'?'अच्छी जोड़ी':'Strong match')
+              :overall>=50?(cL==='hi'?'संतुलित जोड़ी':'Balanced match')
+              :(cL==='hi'?'चुनौतीपूर्ण जोड़ी':'Challenging match'),
+      analysis: cL==='hi'?rich.analysis_hi:rich.analysis_en,
+      best:     cL==='hi'?(rich.best_hi||[]):(rich.best_en||[]),
+      challenges: cL==='hi'?(rich.challenges_hi||[]):(rich.challenges_en||[])
+    };
+  }else{
+    // Fall back to the static element-based ANALYSIS table
+    const data=ANALYSIS[_pairKey(a,b)];
+    scores=data.scores.slice();
+    // same-sign bonus: deepens emotional + trust
+    if(a===b){scores=scores.map((s,i)=>i===0||i===2?Math.min(10,s+1):s);}
+    overall=Math.round((scores.reduce((x,y)=>x+y,0)/50)*100);
+    t=data[cL]||data.en;
+  }
 
   const ra=RASHIS.find(r=>r.id===a),rb=RASHIS.find(r=>r.id===b);
   const pairLabel=(cL==='hi'?ra.hi:ra.en)+' + '+(cL==='hi'?rb.hi:rb.en);
@@ -6990,6 +7027,7 @@ upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();re
 (function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();
 renderGreeting();renderFamily();renderRecent();
 loadDD();
+loadCompatData();
 
 (function lazySections(){
   const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
