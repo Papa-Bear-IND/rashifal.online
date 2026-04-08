@@ -37,7 +37,7 @@ def call_claude(prompt: str) -> str:
     """Call Claude API and return text response."""
     body = json.dumps({
         "model": MODEL,
-        "max_tokens": 2500,
+        "max_tokens": 4000,
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
 
