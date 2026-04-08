@@ -183,43 +183,64 @@ html { background: #0A0E1A; }
 
 /* ── LIGHT THEME (parchment / day sky) ── */
 :root[data-theme="light"] {
-  --midnight:    #F5F0E4;
-  --void:        #FAF6EB;
-  --charcoal:    #EFE8D6;
-  --slate:       #E5DCC4;
-  --surface:     rgba(255, 252, 244, 0.85);
-  --surface-h:   rgba(255, 252, 244, 0.95);
+  --midnight:    #F5F0E8;
+  --void:        #F5F0E8;
+  --charcoal:    #EDE6D8;
+  --slate:       #E0D6C0;
+  --surface:     rgba(255, 252, 245, 0.78);
+  --surface-h:   rgba(255, 252, 245, 0.92);
 
-  --silver:      rgba(60, 50, 30, 0.85);
-  --silver-dim:  rgba(60, 50, 30, 0.55);
-  --silver-faint:rgba(60, 50, 30, 0.2);
-  --ash:         rgba(60, 50, 30, 0.06);
+  --silver:      rgba(44, 36, 24, 0.92);
+  --silver-dim:  rgba(44, 36, 24, 0.60);
+  --silver-faint:rgba(44, 36, 24, 0.22);
+  --ash:         rgba(44, 36, 24, 0.06);
 
-  --gold:        #A8801A;
-  --gold-light:  #C29B30;
-  --gold-muted:  rgba(168, 128, 26, 0.14);
-  --gold-glow:   rgba(168, 128, 26, 0.08);
-  --gold-faint:  rgba(168, 128, 26, 0.04);
+  --gold:        #8B7020;
+  --gold-light:  #A88A30;
+  --gold-muted:  rgba(139, 112, 32, 0.14);
+  --gold-glow:   rgba(139, 112, 32, 0.10);
+  --gold-faint:  rgba(139, 112, 32, 0.05);
 
-  --t-heading:   #1a1205;
-  --t-body:      #2a2010;
-  --t-muted:     #4a3c1a;
-  --t-faint:     #6b5828;
+  --t-heading:   #1F1808;
+  --t-body:      #2C2418;
+  --t-muted:     #6B5D4D;
+  --t-faint:     #8A7B68;
 
-  --b-subtle:    rgba(168, 128, 26, 0.12);
-  --b-default:   rgba(168, 128, 26, 0.2);
-  --b-hover:     rgba(168, 128, 26, 0.4);
+  --b-subtle:    rgba(180, 165, 130, 0.18);
+  --b-default:   rgba(180, 165, 130, 0.35);
+  --b-hover:     rgba(139, 112, 32, 0.55);
 
-  --glass-bg:     rgba(255, 252, 244, 0.8);
-  --glass-bg-h:   rgba(255, 252, 244, 0.92);
-  --glass-border: 1px solid rgba(168, 128, 26, 0.12);
+  --glass-bg:     rgba(255, 252, 245, 0.72);
+  --glass-bg-h:   rgba(255, 252, 245, 0.88);
+  --glass-border: 1px solid rgba(180, 165, 130, 0.32);
 }
 :root[data-theme="light"] {
   font-size: 17.5px;
 }
+/* Warm parchment background — gradient base + a CSS-only paper grain */
 :root[data-theme="light"] body {
-  background: var(--void);
+  background:
+    radial-gradient(1200px 700px at 75% -10%, rgba(255, 240, 200, 0.55), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(220, 195, 145, 0.35), transparent 65%),
+    linear-gradient(180deg, #F5F0E8 0%, #EFE7D2 50%, #EDE6D8 100%);
+  background-attachment: fixed;
   font-weight: 450;
+}
+:root[data-theme="light"] body::before {
+  /* Subtle paper grain — pure CSS, no images */
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(120, 95, 50, 0.025) 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(120, 95, 50, 0.020) 1px, transparent 2px),
+    radial-gradient(circle at 45% 85%, rgba(120, 95, 50, 0.020) 1px, transparent 2px),
+    repeating-linear-gradient(0deg, rgba(120, 95, 50, 0.012) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(120, 95, 50, 0.012) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+  opacity: 0.7;
 }
 :root[data-theme="light"] p,
 :root[data-theme="light"] .rashi-excerpt,
@@ -237,11 +258,53 @@ html { background: #0A0E1A; }
 :root[data-theme="light"] .bnav-label,
 :root[data-theme="light"] .cat-label,
 :root[data-theme="light"] .period { font-weight: 600; }
-:root[data-theme="light"] #skyCanvas,
-:root[data-theme="light"] .sky-overlay,
-:root[data-theme="light"] .horizon,
-:root[data-theme="light"] .horizon-dot { display: none !important; }
-:root[data-theme="light"] .period.active { color: #FAF6EB; }
+/* Canvas stays in light mode — frame() switches to a daytime palette internally */
+:root[data-theme="light"] #skyCanvas { background: #DCE9F2; opacity: 0.95; }
+:root[data-theme="light"] .sky-overlay {
+  /* A soft cream warming wash from the bottom — gives the daytime sky depth */
+  background: linear-gradient(180deg, transparent 0%, transparent 55%, rgba(245, 240, 232, 0.45) 100%) !important;
+  opacity: 1;
+}
+:root[data-theme="light"] .horizon {
+  background: linear-gradient(90deg, transparent, rgba(139, 112, 32, 0.18) 20%, rgba(139, 112, 32, 0.18) 80%, transparent);
+}
+:root[data-theme="light"] .period.active { color: #FFFCF4; }
+
+/* ── Light theme: cards, nav, surfaces ── */
+:root[data-theme="light"] .card {
+  background: rgba(255, 252, 245, 0.78);
+  border: 1px solid rgba(180, 165, 130, 0.30);
+  box-shadow:
+    0 1px 2px rgba(80, 60, 20, 0.04),
+    0 4px 16px rgba(80, 60, 20, 0.06),
+    0 12px 36px rgba(80, 60, 20, 0.05);
+}
+:root[data-theme="light"] .card:hover {
+  background: rgba(255, 252, 245, 0.92);
+  border-color: rgba(139, 112, 32, 0.50);
+  box-shadow:
+    0 2px 6px rgba(80, 60, 20, 0.08),
+    0 10px 28px rgba(80, 60, 20, 0.10),
+    0 22px 60px rgba(80, 60, 20, 0.08);
+}
+:root[data-theme="light"] .card::after {
+  /* Subtle warm shine instead of the dark-mode white streak */
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 235, 180, 0.25) 50%, transparent 60%);
+}
+:root[data-theme="light"] .nav {
+  background: rgba(248, 242, 228, 0.92);
+  border-bottom: 1px solid rgba(180, 165, 130, 0.40);
+  box-shadow: 0 2px 12px rgba(80, 60, 20, 0.06);
+}
+:root[data-theme="light"] .nav-toran {
+  background: linear-gradient(90deg, transparent 0%, rgba(139, 112, 32, 0.25) 15%, rgba(139, 112, 32, 0.18) 50%, rgba(139, 112, 32, 0.25) 85%, transparent 100%);
+}
+:root[data-theme="light"] .theme-toggle {
+  background: rgba(255, 252, 245, 0.92);
+  border-color: rgba(139, 112, 32, 0.4);
+  box-shadow: 0 2px 10px rgba(80, 60, 20, 0.10);
+}
+:root[data-theme="light"] .container { z-index: 2; }
 
 /* ── Light theme: re-skin hardcoded dark surfaces ── */
 :root[data-theme="light"] .overlay {
@@ -3746,13 +3809,70 @@ function updateHorizon(h){
 }
 
 /* ── MAIN RENDER LOOP ── */
+function _isLightTheme(){
+  return document.documentElement.getAttribute('data-theme')==='light';
+}
+function _lightSkyAt(h){
+  // Pale daytime palette: deeper morning/evening tones, midday is bright pale-blue → cream
+  // Returns {t: top color, b: horizon color}
+  const PAL=[
+    {h:0,  t:'#1A2A3A',b:'#3A4858'},  // pre-dawn (dim)
+    {h:5,  t:'#4A5A78',b:'#C8A878'},  // early dawn warm
+    {h:6.5,t:'#88AAC8',b:'#F0D8B0'},  // sunrise glow
+    {h:8,  t:'#A8C8E0',b:'#F5EAD8'},  // morning
+    {h:11, t:'#B8D4E8',b:'#F8F2E0'},  // late morning — pale blue → cream
+    {h:14, t:'#BCD8EA',b:'#F8F2E0'},  // midday
+    {h:16, t:'#A8C8DC',b:'#F5E8D0'},  // afternoon
+    {h:17.5,t:'#88A0BC',b:'#F0C898'}, // golden hour
+    {h:18.5,t:'#5A6888',b:'#D08858'}, // sunset
+    {h:19.5,t:'#3A4868',b:'#80485C'}, // dusk
+    {h:21, t:'#1F2A40',b:'#2A2C3C'},  // night (still light enough vs dark theme)
+    {h:24, t:'#1A2A3A',b:'#3A4858'}
+  ];
+  for(let i=0;i<PAL.length-1;i++){
+    if(h>=PAL[i].h&&h<PAL[i+1].h){
+      const t=(h-PAL[i].h)/(PAL[i+1].h-PAL[i].h);
+      return{t:lerpC(PAL[i].t,PAL[i+1].t,t),b:lerpC(PAL[i].b,PAL[i+1].b,t)};
+    }
+  }
+  return{t:'#A8C8E0',b:'#F5EAD8'};
+}
+function _drawLightClouds(){
+  // A few soft white cloud blobs for daytime warmth
+  const clouds=[
+    {x:0.15,y:0.20,rx:0.18,ry:0.06,a:0.22},
+    {x:0.55,y:0.12,rx:0.22,ry:0.05,a:0.18},
+    {x:0.82,y:0.25,rx:0.16,ry:0.06,a:0.20},
+    {x:0.35,y:0.32,rx:0.20,ry:0.05,a:0.14},
+  ];
+  clouds.forEach(c=>{
+    const grd=cx.createRadialGradient(c.x*W,c.y*H,0,c.x*W,c.y*H,Math.max(c.rx*W,c.ry*H));
+    grd.addColorStop(0,`rgba(255,255,255,${c.a})`);
+    grd.addColorStop(0.6,`rgba(255,250,240,${c.a*0.45})`);
+    grd.addColorStop(1,'rgba(255,250,240,0)');
+    cx.fillStyle=grd;cx.fillRect(0,0,W,H);
+  });
+}
 function frame(){
-  const h=getIST(),time=Date.now(),na=nightAlpha(h),sky=skyAt(h);
+  const h=getIST(),time=Date.now(),na=nightAlpha(h);
+  const light=_isLightTheme();
+  const sky=light?_lightSkyAt(h):skyAt(h);
 
   /* Sky gradient */
   const bg=cx.createLinearGradient(0,0,0,H);
   bg.addColorStop(0,sky.t);bg.addColorStop(1,sky.b);
   cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+
+  if(light){
+    /* Daytime: clouds + sun/moon, no stars/nebulae/milky way/aurora */
+    _drawLightClouds();
+    const lmp=moonPos(h);if(lmp)drawMoon(lmp.x,lmp.y);
+    const lsp=sunPos(h);if(lsp)drawSun(lsp.x,lsp.y,h);
+    drawHorizon(h);
+    updateHorizon(h);
+    _rafId=requestAnimationFrame(frame);
+    return;
+  }
 
   /* Night layers */
   drawNebulae(na);
@@ -3785,8 +3905,9 @@ addEventListener('resize',resize);resize();
 try{
   const _ovEl=document.getElementById('skyOverlay');
   if(_ovEl){
-    const _h=getIST(),_s=skyAt(_h);
-    _ovEl.style.background=`linear-gradient(to bottom, ${_s.t}, ${_s.b})`;
+    const _h=getIST();
+    const _s=_isLightTheme()?_lightSkyAt(_h):skyAt(_h);
+    if(!_isLightTheme())_ovEl.style.background=`linear-gradient(to bottom, ${_s.t}, ${_s.b})`;
   }
 }catch(_){}
 // Draw the first frame synchronously before any rAF, so the canvas is
