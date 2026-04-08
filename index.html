@@ -5539,11 +5539,14 @@ document.addEventListener('keydown',e=>{
   const indName=document.getElementById('secIndName');
   let ticking=false;
   function updateActive(){
-    const scrollY=window.scrollY+200;
+    // Pick the section whose top is just above the viewport top (offset for sticky nav).
+    // The previous +200 was too aggressive: short sections like Festivals were skipped
+    // because the next section's top fell within that 200px window.
+    const probe=window.scrollY+90;
     let current='rashifal';
     sections.forEach(id=>{
       const el=document.getElementById(id);
-      if(el&&el.offsetTop<=scrollY)current=id;
+      if(el&&el.offsetTop<=probe)current=id;
     });
     bnavItems.forEach(item=>{
       const href=item.getAttribute('href');
