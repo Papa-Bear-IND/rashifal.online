@@ -1240,6 +1240,7 @@ h1.title {
 }
 
 /* ── FESTIVALS ── */
+.festival-wrap { position: relative; }
 .festival-scroll {
   display: flex;
   gap: var(--sp-4);
@@ -1251,8 +1252,27 @@ h1.title {
 }
 .festival-scroll::-webkit-scrollbar { height: 6px; }
 .festival-scroll::-webkit-scrollbar-thumb { background: var(--silver-faint); border-radius: 3px; }
+/* Edge fades — visual hint that more cards are off-screen on desktop */
+.festival-wrap::before,
+.festival-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: var(--sp-4);
+  width: 48px;
+  pointer-events: none;
+  z-index: 2;
+}
+.festival-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--void) 0%, transparent 100%);
+}
+.festival-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--void) 0%, transparent 100%);
+}
 .festival-card {
   flex: 0 0 260px;
+  min-height: 220px;
   background: var(--surface);
   border: 1px solid var(--silver-faint);
   border-radius: 14px;
@@ -1391,7 +1411,26 @@ h1.title {
 @media (max-width: 600px) {
   .story-card { padding: var(--sp-5) var(--sp-4); }
   .panchang-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-  .festival-card { flex-basis: 230px; }
+}
+/* Festivals: stack vertically on mobile instead of horizontal scroll */
+@media (max-width: 768px) {
+  .festival-scroll {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: var(--sp-2) 0 var(--sp-4);
+  }
+  .festival-card {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: auto;
+    padding: var(--sp-5) var(--sp-5);
+  }
+  /* Hide desktop edge-fade hints on mobile */
+  .festival-wrap::before,
+  .festival-wrap::after { display: none; }
+  /* Touch-friendly tap target floor */
+  .festival-countdown { min-height: 28px; padding: 8px 14px; }
 }
 
 /* ── PERSONAL RASHIFAL ── */
@@ -3190,7 +3229,9 @@ footer {
       <p data-hi="आने वाले प्रमुख हिन्दू पर्व और उनकी तिथियाँ" data-en="The next major Hindu festivals and their dates">आने वाले प्रमुख हिन्दू पर्व और उनकी तिथियाँ</p>
       <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
     </div>
-    <div class="festival-scroll" id="festScroll"></div>
+    <div class="festival-wrap">
+      <div class="festival-scroll" id="festScroll"></div>
+    </div>
     <p class="festival-disclaimer muted" style="text-align:center;margin-top:var(--sp-4);font-size:var(--fs-xs);" data-hi="तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।" data-en="Dates may vary based on your local Panchang.">तिथियाँ स्थानीय पंचांग से भिन्न हो सकती हैं।</p>
   </section>
 
