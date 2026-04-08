@@ -1,37 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://rashifal.online/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://rashifal.online/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rashifal.online/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rashifal.online/"/>
-  </url>
-  <url>
-    <loc>https://rashifal.online/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://rashifal.online/methodology.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rashifal.online/contact.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://rashifal.online/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://rashifal.online/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/xmlns/sitemap/0.9">
+<url><loc>https://rashifal.online/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://rashifal.online/mesh.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/vrishabh.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/mithun.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/kark.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/singh.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/kanya.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/tula.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/vrishchik.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/dhanu.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/makar.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/kumbh.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/meen.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://rashifal.online/methodology.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+<url><loc>https://rashifal.online/about.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+<url><loc>https://rashifal.online/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+<url><loc>https://rashifal.online/terms.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+<url><loc>https://rashifal.online/contact.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 </urlset>
