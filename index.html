@@ -2450,7 +2450,14 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--sp-4);
+  justify-content: center;
 }
+/* Single-card layout: center it instead of stretching across the row */
+.tools-grid.single {
+  display: flex;
+  justify-content: center;
+}
+.tools-grid.single .tool-card { max-width: 380px; width: 100%; }
 
 .tool-card { padding: var(--sp-8) var(--sp-6); position: relative; }
 
@@ -4109,6 +4116,7 @@ function renderCats(){
 
 function renderTools(){
   const g=document.getElementById('toolsGrid');g.innerHTML='';
+  g.classList.toggle('single',TOOLS.length===1);
   TOOLS.forEach((t,i)=>{
     const el=document.createElement('div');el.className='card tool-card';
     el.setAttribute('role','button');
