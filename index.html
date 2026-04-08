@@ -1378,6 +1378,188 @@ a.festival-card-link:hover { text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+/* ── NUMEROLOGY GRID ── */
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .num-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .num-grid { grid-template-columns: 1fr; } }
+.num-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  cursor: pointer;
+  position: relative;
+}
+.num-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.num-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 700;
+  text-shadow: 0 0 24px rgba(212,175,55,0.3);
+}
+.num-card-planet {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--t-muted);
+  font-weight: 600;
+}
+.num-card-pred {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+  margin-top: var(--sp-2);
+}
+.num-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+}
+.num-color-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--b-default);
+}
+
+/* ── VASTU + GEMSTONE STRIP ── */
+.vg-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  max-width: 980px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .vg-strip { grid-template-columns: 1fr; } }
+.vg-card {
+  padding: var(--sp-5);
+  border: 1px solid var(--gold);
+  border-radius: var(--glass-radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.vg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 700;
+}
+.vg-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--t-heading);
+  font-weight: 600;
+}
+.vg-text {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--t-body);
+  line-height: var(--lh-relaxed);
+}
+.vg-badge {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  padding: 4px 12px;
+  background: var(--gold-muted);
+  color: var(--gold);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+/* ── TRANSIT INFO STRIP ── */
+.transit-strip {
+  max-width: 760px;
+  margin: var(--sp-3) auto 0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold-faint);
+  border: 1px solid var(--b-default);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  color: var(--t-muted);
+  letter-spacing: 0.02em;
+}
+.transit-icon { color: var(--gold); }
+.transit-text { color: var(--t-body); }
+
+/* ── MUHURAT EXTRA CARDS ── */
+.muhurat-head {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-md);
+  color: var(--gold);
+  margin: var(--sp-8) 0 var(--sp-4);
+  letter-spacing: 0.02em;
+}
+.muhurat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-4);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.muhurat-card {
+  padding: var(--sp-4);
+  background: var(--glass-bg);
+  border: 1px solid var(--b-default);
+  border-radius: 12px;
+  text-align: center;
+}
+.muhurat-card.avoid {
+  border-color: rgba(224,122,122,0.35);
+  background: rgba(224,122,122,0.04);
+}
+.muhurat-card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--t-muted);
+}
+.muhurat-card-time {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-md);
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.muhurat-card.avoid .muhurat-card-time { color: #d06060; }
+:root[data-theme="light"] .muhurat-card.avoid .muhurat-card-time { color: #9a2020; }
+
 /* ── TAROT SECTION ── */
 .tarot-featured {
   max-width: 540px;
@@ -3624,6 +3806,10 @@ footer {
     <div class="cel-datum" id="celPhase"></div>
     <div class="cel-datum" id="celMuhurta"></div>
   </div>
+  <div class="transit-strip" id="transitStrip" hidden>
+    <span class="transit-icon" aria-hidden="true">✦</span>
+    <span class="transit-text" id="transitText"></span>
+  </div>
 
   <div class="ad-slot">Ad Placement &mdash; Top Banner</div>
 
@@ -3692,6 +3878,8 @@ footer {
     </div>
     <div class="panchang-notice" id="panchangNotice" hidden></div>
     <div class="panchang-grid" id="panchangGrid"></div>
+    <h3 class="muhurat-head" id="muhuratHead" hidden data-hi="आज के शुभ-अशुभ काल" data-en="Today's Auspicious & Inauspicious Times">आज के शुभ-अशुभ काल</h3>
+    <div class="muhurat-grid" id="muhuratGrid"></div>
   </section>
 
   <!-- ═══ FESTIVALS ═══ -->
@@ -3832,6 +4020,14 @@ footer {
     </article>
   </section>
 
+  <!-- ═══ VASTU TIP + GEMSTONE OF DAY ═══ -->
+  <section class="section reveal" id="vastu-gem">
+    <div class="vg-strip">
+      <article class="card vg-card vg-vastu" id="vastuCard"></article>
+      <article class="card vg-card vg-gem" id="gemstoneCard"></article>
+    </div>
+  </section>
+
   <div class="ad-slot">Ad Placement &mdash; Mid Content</div>
 
   <!-- ═══ CHINESE HOROSCOPE ═══ -->
@@ -3844,6 +4040,19 @@ footer {
     <div class="rashi-grid" id="chineseGrid"></div>
     <div style="text-align:center;margin-top:var(--sp-5);">
       <a class="btn-ghost-gold" href="chinese-horoscope.html" data-hi="पूरा चीनी राशिफल देखें →" data-en="View Full Chinese Horoscope →">पूरा चीनी राशिफल देखें →</a>
+    </div>
+  </section>
+
+  <!-- ═══ NUMEROLOGY ═══ -->
+  <section class="section reveal" id="numerology">
+    <div class="section-header">
+      <h2 data-hi="आज का अंक ज्योतिष" data-en="Today's Numerology">आज का अंक ज्योतिष</h2>
+      <p data-hi="मूलांक 1 से 9 तक — आज का दैनिक भविष्यफल" data-en="Daily forecast for mulank 1 through 9">मूलांक 1 से 9 तक — आज का दैनिक भविष्यफल</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="num-grid" id="numGrid"></div>
+    <div style="text-align:center;margin-top:var(--sp-5);">
+      <a class="btn-ghost-gold" href="numerology.html" data-hi="अंक ज्योतिष के बारे में और जानें →" data-en="Learn More About Numerology →">अंक ज्योतिष के बारे में और जानें →</a>
     </div>
   </section>
 
@@ -4820,6 +5029,206 @@ function renderChinese(){
       ${ratingHtml}`;
     g.appendChild(c);
   });
+}
+
+/* ── NUMEROLOGY ── */
+const NUM_PLANETS=[
+  null,
+  {hi:'सूर्य',en:'Sun',color:'#E8A030'},
+  {hi:'चंद्र',en:'Moon',color:'#E0E4F0'},
+  {hi:'गुरु',en:'Jupiter',color:'#F5C040'},
+  {hi:'राहु',en:'Rahu',color:'#605070'},
+  {hi:'बुध',en:'Mercury',color:'#5BBE6B'},
+  {hi:'शुक्र',en:'Venus',color:'#F2B8C8'},
+  {hi:'केतु',en:'Ketu',color:'#888'},
+  {hi:'शनि',en:'Saturn',color:'#3050A0'},
+  {hi:'मंगल',en:'Mars',color:'#D04030'}
+];
+function _numFallback(n){
+  const fallbacks={
+    hi:[null,
+      'आज का दिन आपके आत्मविश्वास को नई दिशा देगा। नेतृत्व क्षमता पर भरोसा रखें।',
+      'भावनाओं में संतुलन बनाए रखें। परिवार के साथ बिताया समय शुभ रहेगा।',
+      'ज्ञान और शिक्षा से संबंधित कार्य फलदायी होंगे। शिक्षकों का सम्मान करें।',
+      'अप्रत्याशित परिवर्तन के लिए तैयार रहें। शांत मन से निर्णय लें।',
+      'संचार और बुद्धिमत्ता आज आपकी ताकत है। नई बातचीत लाभदायक होगी।',
+      'सौंदर्य, कला और रिश्तों में आनंद। प्रेम जीवन में मधुरता।',
+      'आत्म-चिंतन का दिन। आध्यात्मिक अभ्यास से शांति मिलेगी।',
+      'कठिन परिश्रम का फल मिलेगा। धैर्य और अनुशासन आज की कुंजी हैं।',
+      'ऊर्जा और साहस उच्च स्तर पर। नए कार्य आरंभ करने का शुभ दिन।'
+    ],
+    en:[null,
+      'A day of renewed self-confidence. Trust your leadership instincts.',
+      'Keep your emotions balanced. Time with family will be especially soothing.',
+      'Learning and teaching activities thrive today. Honour your mentors.',
+      'Be ready for unexpected change — make decisions with a calm mind.',
+      'Communication is your strength today. Fresh conversations bring opportunity.',
+      'Beauty, art and relationships flourish. Romance is in the air.',
+      'A day for introspection. Spiritual practice brings deep peace.',
+      'Hard work pays off. Patience and discipline are today\u2019s keys.',
+      'Energy and courage are at a peak — auspicious for starting new ventures.'
+    ]
+  };
+  return{
+    number:n,
+    planet:NUM_PLANETS[n],
+    hindi:{prediction:fallbacks.hi[n],lucky_color:'सोना',compatible:((n%9)+1)},
+    english:{prediction:fallbacks.en[n],lucky_color:'Gold',compatible:((n%9)+1)}
+  };
+}
+function _numColorFromName(name){
+  const map={
+    'red':'#d04030','लाल':'#d04030',
+    'green':'#2f7a4a','हरा':'#2f7a4a',
+    'yellow':'#e8c440','पीला':'#e8c440',
+    'blue':'#3050A0','नीला':'#3050A0',
+    'white':'#f0f0f0','सफेद':'#f0f0f0','सफ़ेद':'#f0f0f0',
+    'gold':'#d4af37','सोना':'#d4af37','स्वर्ण':'#d4af37',
+    'silver':'#c0c0c8','चांदी':'#c0c0c8',
+    'orange':'#e8a030','नारंगी':'#e8a030',
+    'pink':'#f2b8c8','गुलाबी':'#f2b8c8',
+    'purple':'#605070','बैंगनी':'#605070'
+  };
+  const k=(name||'').trim().toLowerCase();
+  for(const m of Object.keys(map))if(k.includes(m))return map[m];
+  return '#d4af37';
+}
+function renderNumerology(){
+  const g=document.getElementById('numGrid');
+  if(!g)return;
+  g.innerHTML='';
+  const data=dd?.numerology||[];
+  const lookup={};
+  data.forEach(e=>{if(e&&e.number)lookup[e.number]=e;});
+  for(let n=1;n<=9;n++){
+    const e=lookup[n]||_numFallback(n);
+    const ld=cL==='hi'?e.hindi:e.english;
+    const planet=cL==='hi'?(e.planet?.hi||NUM_PLANETS[n].hi):(e.planet?.en||NUM_PLANETS[n].en);
+    const color=_numColorFromName(ld?.lucky_color);
+    const card=document.createElement('article');
+    card.className='card num-card';
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label',`${cL==='hi'?'मूलांक':'Mulank'} ${n}`);
+    card.innerHTML=`
+      <div class="num-card-head">
+        <div class="num-card-num">${n}</div>
+        <div class="num-card-planet">${planet}</div>
+      </div>
+      <div class="num-card-pred">${ld?.prediction||''}</div>
+      <div class="num-card-meta">
+        <span class="num-color-dot" style="background:${color};"></span>
+        <span>${cL==='hi'?'शुभ रंग':'Lucky color'}: ${ld?.lucky_color||'—'}</span>
+        <span style="margin-left:auto;">${cL==='hi'?'अनुकूल अंक':'Compatible'}: ${ld?.compatible||'—'}</span>
+      </div>`;
+    card.onclick=()=>showNumModal(n,e);
+    g.appendChild(card);
+  }
+}
+function showNumModal(n,e){
+  // Reuse the rashi detail modal infrastructure for a quick read-more pop.
+  // For simplicity we just navigate to numerology.html with a hash.
+  location.href=`numerology.html#mulank-${n}`;
+}
+
+/* ── VASTU + GEMSTONE ── */
+function _vastuFallback(){
+  return{
+    direction:{hi:'ईशान कोण (उत्तर-पूर्व)',en:'North-East'},
+    hindi:{title:'ईशान कोण को स्वच्छ रखें',tip:'घर के उत्तर-पूर्व कोने को सदा स्वच्छ, हल्का और जल से युक्त रखें। यहाँ पूजा स्थान या पीने का जल रखना अति शुभ है।',benefit:'घर में सकारात्मक ऊर्जा और मानसिक शांति बढ़ती है।'},
+    english:{title:'Keep the North-East Clean',tip:'The north-east corner of your home should be kept clean, light and ideally hold a water source. A puja altar or drinking-water spot here is especially auspicious.',benefit:'Increases positive energy and mental peace throughout the home.'}
+  };
+}
+function renderVastu(){
+  const card=document.getElementById('vastuCard');
+  if(!card)return;
+  const v=dd?.vastu||_vastuFallback();
+  const ld=cL==='hi'?v.hindi:v.english;
+  const dir=cL==='hi'?v.direction?.hi:v.direction?.en;
+  const eyebrow=cL==='hi'?'✦ वास्तु टिप':'✦ VASTU TIP';
+  card.innerHTML=`
+    <span class="vg-eyebrow">${eyebrow}</span>
+    <h3 class="vg-title">${ld?.title||''}</h3>
+    <p class="vg-text">${ld?.tip||''}</p>
+    <span class="vg-badge">${cL==='hi'?'दिशा':'Direction'}: ${dir||'—'}</span>
+    <p class="vg-text" style="margin-top:var(--sp-2);font-style:italic;">${ld?.benefit||''}</p>`;
+}
+function _gemFallbackForToday(){
+  // Choose by IST weekday
+  const now=new Date();
+  const ist=new Date(now.getTime()+(now.getTimezoneOffset()+330)*60000);
+  const wd=ist.getDay(); // 0=Sun
+  const table={
+    0:{planet:{hi:'सूर्य',en:'Sun'},gem:{hi:'माणिक्य',en:'Ruby'}},
+    1:{planet:{hi:'चंद्र',en:'Moon'},gem:{hi:'मोती',en:'Pearl'}},
+    2:{planet:{hi:'मंगल',en:'Mars'},gem:{hi:'मूँगा',en:'Red Coral'}},
+    3:{planet:{hi:'बुध',en:'Mercury'},gem:{hi:'पन्ना',en:'Emerald'}},
+    4:{planet:{hi:'गुरु',en:'Jupiter'},gem:{hi:'पुखराज',en:'Yellow Sapphire'}},
+    5:{planet:{hi:'शुक्र',en:'Venus'},gem:{hi:'हीरा',en:'Diamond'}},
+    6:{planet:{hi:'शनि',en:'Saturn'},gem:{hi:'नीलम',en:'Blue Sapphire'}}
+  };
+  const row=table[wd];
+  return{
+    planet:row.planet,
+    gemstone:row.gem,
+    hindi:{
+      why:`आज ${row.planet.hi} का दिन है। इनके आशीर्वाद से ${row.gem.hi} पहनना अत्यंत शुभ माना जाता है।`,
+      wear:'जिनकी कुंडली में संबंधित ग्रह बलवान या उच्च का है, उन्हें इसे धारण करने का लाभ मिलेगा।',
+      avoid:'विरोधी ग्रह वालों को विशेषज्ञ की सलाह बिना धारण नहीं करना चाहिए।',
+      mantra:'ॐ ग्रहाय नमः'
+    },
+    english:{
+      why:`Today is ruled by ${row.planet.en}. Wearing ${row.gem.en} is considered especially auspicious.`,
+      wear:'People with this planet strong or exalted in their birth chart benefit from wearing this gem.',
+      avoid:'If the planet is afflicted in your chart, consult an astrologer before wearing.',
+      mantra:'ॐ ग्रहाय नमः'
+    }
+  };
+}
+function renderGemstone(){
+  const card=document.getElementById('gemstoneCard');
+  if(!card)return;
+  const g=dd?.gemstone||_gemFallbackForToday();
+  const ld=cL==='hi'?g.hindi:g.english;
+  const gemName=cL==='hi'?g.gemstone?.hi:g.gemstone?.en;
+  const planet=cL==='hi'?g.planet?.hi:g.planet?.en;
+  const eyebrow=cL==='hi'?'✦ आज का रत्न':'✦ GEMSTONE OF THE DAY';
+  card.innerHTML=`
+    <span class="vg-eyebrow">${eyebrow}</span>
+    <h3 class="vg-title">${gemName||''}</h3>
+    <p class="vg-text">${ld?.why||''}</p>
+    <span class="vg-badge">${cL==='hi'?'स्वामी ग्रह':'Ruling planet'}: ${planet||'—'}</span>
+    <p class="vg-text" style="margin-top:var(--sp-2);"><strong>${cL==='hi'?'किसे पहनें':'Who should wear'}:</strong> ${ld?.wear||''}</p>`;
+}
+
+/* ── TRANSIT INFO STRIP ── */
+function renderTransit(){
+  const wrap=document.getElementById('transitStrip');
+  const txt=document.getElementById('transitText');
+  if(!wrap||!txt)return;
+  const t=dd?.transit;
+  if(!t||!t.headline){wrap.hidden=true;return;}
+  const line=cL==='hi'?t.headline.hi:t.headline.en;
+  if(!line){wrap.hidden=true;return;}
+  txt.textContent=line;
+  wrap.hidden=false;
+}
+
+/* ── MUHURAT EXTRA CARDS ── */
+function renderMuhuratDetail(){
+  const grid=document.getElementById('muhuratGrid');
+  const head=document.getElementById('muhuratHead');
+  if(!grid)return;
+  const m=dd?.muhurat_detail;
+  if(!m){grid.innerHTML='';if(head)head.hidden=true;return;}
+  if(head)head.hidden=false;
+  const order=['new_work','travel','finance','medical','avoid'];
+  grid.innerHTML=order.filter(k=>m[k]).map(k=>{
+    const it=m[k];
+    const label=cL==='hi'?it.hi:it.en;
+    const cls=k==='avoid'?'muhurat-card avoid':'muhurat-card';
+    return`<div class="${cls}"><div class="muhurat-card-label">${label}</div><div class="muhurat-card-time">${it.time||'—'}</div></div>`;
+  }).join('');
 }
 
 /* ── TAROT ── */
@@ -6396,7 +6805,7 @@ function setLang(l){
   cL=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
   document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=l==='hi'?e.dataset.hi:e.dataset.en});
-  upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();
+  upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();renderNumerology();renderVastu();renderGemstone();renderTransit();renderMuhuratDetail();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
   renderGreeting();renderFamily();renderRecent();
   if(_rendered.tools)renderTools();
@@ -6515,6 +6924,11 @@ async function loadDD(){
   renderStory();
   renderChinese();
   renderTarot();
+  renderNumerology();
+  renderVastu();
+  renderGemstone();
+  renderTransit();
+  renderMuhuratDetail();
   if(_personalIdx!=null)renderPersonalResult(_personalIdx);
   renderFamily();
 }
@@ -6551,7 +6965,7 @@ setInterval(()=>{upDate();upCel();},60*60*1000);
 fillSelects();
 document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===cL));
 document.querySelectorAll('[data-hi]').forEach(e=>{e.textContent=cL==='hi'?e.dataset.hi:e.dataset.en});
-upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();
+upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();renderStory();renderChinese();renderTarot();renderNumerology();renderVastu();renderGemstone();renderTransit();renderMuhuratDetail();
 (function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();
 renderGreeting();renderFamily();renderRecent();
 loadDD();

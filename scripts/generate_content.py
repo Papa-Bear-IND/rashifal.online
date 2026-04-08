@@ -199,6 +199,163 @@ Rules:
         return None
 
 
+def generate_numerology(date_str: str) -> list:
+    """Daily numerology — predictions for mulank 1..9."""
+    prompt = f"""Generate daily numerology predictions for {date_str}.
+For each root number (mulank) 1 through 9, provide:
+- 2-3 sentence prediction in Hindi
+- 2-3 sentence prediction in English
+- lucky color (Hindi name + English name)
+- compatible number (1..9)
+
+Ruling planets: 1=Sun, 2=Moon, 3=Jupiter, 4=Rahu, 5=Mercury, 6=Venus, 7=Ketu, 8=Saturn, 9=Mars.
+
+Return ONLY a valid JSON array (no markdown, no backticks) with exactly 9 entries:
+[
+  {{
+    "number": 1,
+    "planet": {{"hi":"सूर्य","en":"Sun"}},
+    "hindi": {{"prediction":"...","lucky_color":"लाल","compatible":3}},
+    "english":{{"prediction":"...","lucky_color":"Red","compatible":3}}
+  }},
+  ... (one entry per mulank 1..9)
+]"""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Numerology failed: {e}")
+        return None
+
+
+def generate_vastu(date_str: str) -> dict:
+    """One Vastu Shastra tip of the day."""
+    prompt = f"""Generate one Vastu Shastra tip of the day for {date_str}.
+Include the tip's title, a 3-4 sentence detailed tip, the direction it relates to,
+and the benefit. In both Hindi and English.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "direction": {{"hi":"उत्तर-पूर्व","en":"North-East"}},
+  "hindi": {{
+    "title": "...",
+    "tip": "3-4 sentence detailed tip in Hindi.",
+    "benefit": "1 sentence benefit in Hindi."
+  }},
+  "english": {{
+    "title": "...",
+    "tip": "3-4 sentence detailed tip in English.",
+    "benefit": "1 sentence benefit in English."
+  }}
+}}"""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Vastu failed: {e}")
+        return None
+
+
+def generate_gemstone(date_str: str) -> dict:
+    """Gemstone of the day, derived from weekday's ruling planet."""
+    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    # Mon=0..Sun=6 in python; map to gemstone+planet
+    table = {
+        0: ("Moon", "चंद्र", "Pearl", "मोती"),
+        1: ("Mars", "मंगल", "Red Coral", "मूँगा"),
+        2: ("Mercury", "बुध", "Emerald", "पन्ना"),
+        3: ("Jupiter", "गुरु", "Yellow Sapphire", "पुखराज"),
+        4: ("Venus", "शुक्र", "Diamond", "हीरा"),
+        5: ("Saturn", "शनि", "Blue Sapphire", "नीलम"),
+        6: ("Sun", "सूर्य", "Ruby", "माणिक्य"),
+    }
+    planet_en, planet_hi, gem_en, gem_hi = table[dt.weekday()]
+    weekday_en = dt.strftime("%A")
+    prompt = f"""Today is {weekday_en} ({date_str}), ruled by {planet_en} ({planet_hi}).
+The gemstone of the day is {gem_en} ({gem_hi}).
+
+Generate a recommendation explaining why it's auspicious today, who should wear it,
+who should avoid it, and a short Sanskrit mantra for energizing it.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "planet": {{"hi":"{planet_hi}","en":"{planet_en}"}},
+  "gemstone": {{"hi":"{gem_hi}","en":"{gem_en}"}},
+  "hindi": {{
+    "why": "2-3 sentences in Hindi explaining why this gem is auspicious today.",
+    "wear": "1-2 sentences in Hindi naming who benefits from wearing it.",
+    "avoid": "1 sentence in Hindi naming who should avoid it.",
+    "mantra": "Short Sanskrit mantra in Devanagari to energise the gem."
+  }},
+  "english": {{
+    "why": "2-3 sentences in English explaining why this gem is auspicious today.",
+    "wear": "1-2 sentences in English naming who benefits from wearing it.",
+    "avoid": "1 sentence in English naming who should avoid it.",
+    "mantra": "Same Sanskrit mantra in Devanagari (do not transliterate)."
+  }}
+}}"""
+    try:
+        out = _parse_json(call_claude(prompt))
+        return out
+    except Exception as e:
+        print(f"    ⚠ Gemstone failed: {e}")
+        return None
+
+
+def generate_transit(date_str: str) -> dict:
+    """One major planetary transit interpretation for today."""
+    prompt = f"""Generate today's planetary transit interpretation for {date_str}.
+Pick ONE major current transit (which planet is currently transiting which sign)
+and explain what it means for the general public. Include its effect on career,
+relationships and health. 3-4 sentences in Hindi and English.
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "headline": {{
+    "hi": "Short 1-line headline in Hindi like 'बुध मेष राशि में — संचार में सावधानी'.",
+    "en": "Short 1-line headline in English like 'Mercury in Aries — be careful with communication'."
+  }},
+  "hindi": {{
+    "summary": "3-4 sentence interpretation in Hindi.",
+    "career": "1 sentence in Hindi.",
+    "relationships": "1 sentence in Hindi.",
+    "health": "1 sentence in Hindi."
+  }},
+  "english": {{
+    "summary": "3-4 sentence interpretation in English.",
+    "career": "1 sentence in English.",
+    "relationships": "1 sentence in English.",
+    "health": "1 sentence in English."
+  }}
+}}"""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Transit failed: {e}")
+        return None
+
+
+def generate_muhurat(date_str: str) -> dict:
+    """Auspicious / inauspicious time slots for the day."""
+    prompt = f"""Generate auspicious and inauspicious timings for {date_str} (IST, Bhopal).
+Include best time for: starting new work, travel, financial transactions,
+medical procedures, and the time to avoid (Rahu Kaal based on weekday).
+
+Return ONLY valid JSON (no markdown, no backticks):
+{{
+  "new_work":   {{"time":"7:30 AM – 9:00 AM","hi":"नए कार्य के लिए","en":"For starting new work"}},
+  "travel":     {{"time":"...","hi":"यात्रा के लिए","en":"For travel"}},
+  "finance":    {{"time":"...","hi":"धन-लेनदेन के लिए","en":"For financial transactions"}},
+  "medical":    {{"time":"...","hi":"चिकित्सा के लिए","en":"For medical procedures"}},
+  "avoid":      {{"time":"...","hi":"राहु काल — टालें","en":"Rahu Kaal — avoid"}}
+}}
+
+Times must be in 12-hour IST format with AM/PM. Be realistic for the given weekday."""
+    try:
+        return _parse_json(call_claude(prompt))
+    except Exception as e:
+        print(f"    ⚠ Muhurat failed: {e}")
+        return None
+
+
 def generate_story(date_str: str) -> dict:
     """Call Claude to produce a short dharmic story for the day."""
     prompt = f"""You are a teacher of dharmic literature. Compose a short story (150-200 words) for {date_str}, drawn from the Ramayan, Mahabharat, Puranas, or other Hindu scriptures.
@@ -339,6 +496,26 @@ Rules:
     except Exception as e:
         print(f"    ⚠ Tarot failed: {e}")
         tarot = None
+    time.sleep(1)
+
+    print("  Generating: Numerology (mulank 1-9)...")
+    numerology = generate_numerology(date_str)
+    time.sleep(1)
+
+    print("  Generating: Vastu tip of the day...")
+    vastu = generate_vastu(date_str)
+    time.sleep(1)
+
+    print("  Generating: Gemstone of the day...")
+    gemstone = generate_gemstone(date_str)
+    time.sleep(1)
+
+    print("  Generating: Transit interpretation...")
+    transit = generate_transit(date_str)
+    time.sleep(1)
+
+    print("  Generating: Muhurat timings...")
+    muhurat_detail = generate_muhurat(date_str)
 
     # Save daily content
     output = {
@@ -351,6 +528,11 @@ Rules:
         "story": story,
         "chinese": chinese,
         "tarot": tarot,
+        "numerology": numerology,
+        "vastu": vastu,
+        "gemstone": gemstone,
+        "transit": transit,
+        "muhurat_detail": muhurat_detail,
         "generated_at": datetime.datetime.utcnow().isoformat(),
     }
 
