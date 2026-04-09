@@ -2368,6 +2368,21 @@ a.festival-card-link:hover { text-decoration: none; }
 .detail-share-row { display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap; margin: var(--sp-4) 0 0; }
 .wa-share { color: #25D366; border-color: #25D366; }
 .wa-share:hover { background: rgba(37,211,102,0.12); }
+/* Unified WhatsApp share button */
+.wa-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 22px; background: #25D366; color: #fff; border: none;
+  border-radius: 999px; font-family: 'Inter', sans-serif; font-size: var(--fs-sm);
+  font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(37,211,102,0.25);
+}
+.wa-btn:hover { background: #1ebe5a; transform: translateY(-1px); }
+.wa-btn svg { width: 18px; height: 18px; fill: #fff; }
+.wa-share-row { display: flex; justify-content: center; margin-top: var(--sp-4); }
+@media (max-width: 600px) {
+  .wa-btn { width: 100%; padding: 13px 22px; }
+  .wa-share-row { margin-top: var(--sp-3); }
+}
 
 /* Freshness pill on rashi cards */
 .fresh-pill {
@@ -3879,6 +3894,12 @@ footer {
     </div>
     <div class="panchang-notice" id="panchangNotice" hidden></div>
     <div class="panchang-grid" id="panchangGrid"></div>
+    <div class="wa-share-row">
+      <button type="button" class="wa-btn" onclick="sharePanchangWA()" aria-label="Share Panchang on WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.5A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.7c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.7.2.2 1.8 2.7 4.3 3.7 2.5 1 2.5.7 3 .6.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+        <span data-hi="WhatsApp पर शेयर करें" data-en="Share on WhatsApp">WhatsApp पर शेयर करें</span>
+      </button>
+    </div>
     <h3 class="muhurat-head" id="muhuratHead" hidden data-hi="आज के शुभ-अशुभ काल" data-en="Today's Auspicious & Inauspicious Times">आज के शुभ-अशुभ काल</h3>
     <div class="muhurat-grid" id="muhuratGrid"></div>
   </section>
@@ -4029,13 +4050,12 @@ footer {
         <div class="story-moral-label" data-hi="शिक्षा" data-en="Moral">शिक्षा</div>
         <div class="story-moral-text" id="storyMoral"></div>
       </div>
-      <button type="button" class="story-share" id="storyShareBtn" onclick="shareStory()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-          <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
-        </svg>
-        <span data-hi="साझा करें" data-en="Share">साझा करें</span>
-      </button>
+      <div class="wa-share-row">
+        <button type="button" class="wa-btn" id="storyShareBtn" onclick="shareStoryWA()" aria-label="Share Story on WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.5A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.7c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.7.2.2 1.8 2.7 4.3 3.7 2.5 1 2.5.7 3 .6.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+          <span data-hi="WhatsApp पर शेयर करें" data-en="Share on WhatsApp">WhatsApp पर शेयर करें</span>
+        </button>
+      </div>
     </article>
   </section>
 
@@ -4321,14 +4341,10 @@ footer {
       <div class="mantra-sanskrit" id="dMantraSans"></div>
       <div class="mantra-meaning" id="dMantraMean"></div>
     </blockquote>
-    <div class="detail-share-row">
-      <button type="button" class="story-share detail-share" onclick="shareRashi()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
-        <span data-hi="साझा करें" data-en="Share">साझा करें</span>
-      </button>
-      <button type="button" class="story-share wa-share" onclick="shareRashiWA()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.5A11 11 0 1 0 20.5 3.5z"/><path d="M16.5 14.3c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.7.2.2 1.8 2.7 4.3 3.7 2.5 1 2.5.7 3 .6.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
-        <span>WhatsApp</span>
+    <div class="wa-share-row">
+      <button type="button" class="wa-btn" onclick="shareRashiWA()" aria-label="Share Rashifal on WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.5A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.7c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.7.2.2 1.8 2.7 4.3 3.7 2.5 1 2.5.7 3 .6.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+        <span data-hi="WhatsApp पर शेयर करें" data-en="Share on WhatsApp">WhatsApp पर शेयर करें</span>
       </button>
     </div>
     <div class="detail-updated" id="dUpdated"></div>
@@ -6242,15 +6258,40 @@ function shareRashiWA(){
   if(_currentDetailIdx==null)return;
   const i=_currentDetailIdx;
   const r=RASHIS[i];
-  const rd=dd?.rashis?.[i];
+  const rd=(_gridDD||dd)?.rashis?.[i];
   const ld=rd?(cL==='hi'?rd.hindi:rd.english):null;
-  const dateStr=cL==='hi'?(dd?.date_hi||''):(dd?.date||'');
-  const pred=ld?.prediction||'';
-  const sentences=pred.split(/(?<=[।.!?])\s+/).slice(0,2).join(' ');
+  const pred=(ld?.prediction||'').trim();
+  const snippet=pred.length>200?pred.slice(0,200)+'...':pred;
   const name=cL==='hi'?r.hi:r.en;
-  const label=cL==='hi'?'राशिफल':'rashifal';
-  const more=cL==='hi'?'और पढ़ें — https://rashifal.online':'Read more at https://rashifal.online';
-  const text=`${name} ${label} ${dateStr?'('+dateStr+')':''}: ${sentences}\n\n${more}`;
+  const text=cL==='hi'
+    ? `🔮 आज का ${name} राशिफल\n\n${snippet}\n\nपूरा राशिफल पढ़ें: rashifal.online 🌟`
+    : `🔮 Today's ${name} Horoscope\n\n${snippet}\n\nRead full horoscope: rashifal.online 🌟`;
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+}
+function sharePanchangWA(){
+  const src=(_panchangDate===_istToday())?(dd||_panchangSource):_panchangSource;
+  const p=src?.panchang;
+  const target=new Date((_panchangDate||_istToday())+'T00:00:00');
+  const monthsHi=['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  const monthsEn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dateStr=cL==='hi'
+    ? `${target.getDate()} ${monthsHi[target.getMonth()]} ${target.getFullYear()}`
+    : `${monthsEn[target.getMonth()]} ${target.getDate()}, ${target.getFullYear()}`;
+  const wd=target.getDay(), month=target.getMonth();
+  const [sr,ss]=SUN_TIMES[month];
+  const noon=(sr+ss)/2;
+  const abhijit=`${fmtTime12(noon-0.4)} – ${fmtTime12(noon+0.4)}`;
+  const cp=computePanchang();
+  const val=(o,fb)=>o?((cL==='hi'?o.hi:o.en)||fb):fb;
+  const tithi=val(p?.tithi,cp.tithi+' · '+cp.paksha);
+  const nak=val(p?.nakshatra,cp.nakshatra);
+  const yoga=val(p?.yoga,cL==='hi'?'विष्कम्भ':'Vishkumbha');
+  const karana=val(p?.karana,cL==='hi'?'बव':'Bava');
+  const rahu=RAHU_KAAL[wd];
+  const sunrise=fmtTime12(sr), sunset=fmtTime12(ss);
+  const text=cL==='hi'
+    ? `🙏 आज का पंचांग — ${dateStr}\n\nतिथि: ${tithi}\nनक्षत्र: ${nak}\nयोग: ${yoga}\nकरण: ${karana}\nराहुकाल: ${rahu}\nशुभ मुहूर्त: ${abhijit}\nसूर्योदय: ${sunrise}\nसूर्यास्त: ${sunset}\n\nrashifal.online पर रोज़ पंचांग देखें 🙏`
+    : `🙏 Today's Panchang — ${dateStr}\n\nTithi: ${tithi}\nNakshatra: ${nak}\nYoga: ${yoga}\nKarana: ${karana}\nRahu Kaal: ${rahu}\nShubh Muhurat: ${abhijit}\nSunrise: ${sunrise}\nSunset: ${sunset}\n\nView daily Panchang at rashifal.online 🙏`;
   window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
 }
 
@@ -6846,20 +6887,16 @@ function renderStory(){
   moralEl.textContent=(cL==='hi'?s.moral?.hi:s.moral?.en)||'';
   textEl.classList.toggle('lang-en',cL==='en');
 }
-function shareStory(){
+function shareStoryWA(){
   const s=dd?.story;
   if(!s)return;
   const title=(cL==='hi'?s.title?.hi:s.title?.en)||'';
-  const text=(cL==='hi'?s.text?.hi:s.text?.en)||'';
-  const moral=(cL==='hi'?s.moral?.hi:s.moral?.en)||'';
-  const payload=`${title}\n\n${text}\n\n${cL==='hi'?'शिक्षा':'Moral'}: ${moral}\n\n— Rashifal.online`;
-  const done=()=>showToast(cL==='hi'?'कथा कॉपी हो गई':'Story copied to clipboard');
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(payload).then(done).catch(()=>{
-      const ta=document.createElement('textarea');ta.value=payload;document.body.appendChild(ta);ta.select();
-      try{document.execCommand('copy');done();}catch(_){}finally{document.body.removeChild(ta);}
-    });
-  }
+  const body=((cL==='hi'?s.text?.hi:s.text?.en)||'').trim();
+  const snippet=body.length>200?body.slice(0,200)+'...':body;
+  const text=cL==='hi'
+    ? `📖 आज की कथा — ${title}\n\n${snippet}\n\nपूरी कथा पढ़ें: rashifal.online 🙏`
+    : `📖 Story of the Day — ${title}\n\n${snippet}\n\nRead full story: rashifal.online 🙏`;
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
 }
 
 function fmtUpdated(iso){
