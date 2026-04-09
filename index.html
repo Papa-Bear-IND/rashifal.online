@@ -3105,11 +3105,12 @@ a.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* ── TOOLS ── */
 .tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: var(--sp-4);
 }
+.tools-grid .tool-card { max-width: 400px; flex: 1 1 300px; }
 /* Single-card layout: center it instead of stretching across the row */
 .tools-grid.single {
   display: flex;
@@ -4389,9 +4390,9 @@ function resize(){
 /* Three star layers: dim background, medium, bright with spikes */
 function initStars(){
   starsA=[];starsB=[];starsC=[];
-  for(let i=0;i<500;i++)starsA.push({x:Math.random(),y:Math.random(),r:Math.random()*0.8+0.2,a:Math.random()*0.3+0.1,ph:Math.random()*6.28,sp:Math.random()*0.001+0.0003});
-  for(let i=0;i<120;i++)starsB.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.5,a:Math.random()*0.35+0.2,ph:Math.random()*6.28,sp:Math.random()*0.0015+0.0005,warm:Math.random()>0.7});
-  for(let i=0;i<25;i++)starsC.push({x:Math.random()*0.9+0.05,y:Math.random()*0.5+0.03,r:Math.random()*1.5+1,a:Math.random()*0.3+0.4,ph:Math.random()*6.28,sp:Math.random()*0.002+0.0008,warm:Math.random()>0.5});
+  for(let i=0;i<300;i++)starsA.push({x:Math.random(),y:Math.random(),r:Math.random()*0.8+0.2,a:Math.random()*0.3+0.1,ph:Math.random()*6.28,sp:Math.random()*0.001+0.0003});
+  for(let i=0;i<80;i++)starsB.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.5,a:Math.random()*0.35+0.2,ph:Math.random()*6.28,sp:Math.random()*0.0015+0.0005,warm:Math.random()>0.7});
+  for(let i=0;i<15;i++)starsC.push({x:Math.random()*0.9+0.05,y:Math.random()*0.5+0.03,r:Math.random()*1.5+1,a:Math.random()*0.3+0.4,ph:Math.random()*6.28,sp:Math.random()*0.002+0.0008,warm:Math.random()>0.5});
 }
 
 /* Nebula clouds — large colored patches in the night sky */
@@ -4826,9 +4827,19 @@ try{
     if(!_isLightTheme())_ovEl.style.background=`linear-gradient(to bottom, ${_s.t}, ${_s.b})`;
   }
 }catch(_){}
-// Draw the first frame synchronously before any rAF, so the canvas is
-// painted before the browser commits the initial frame to screen.
-frame();
+// Draw one static frame synchronously so the backdrop is painted immediately.
+// Defer the animation loop until DOMContentLoaded + 500ms to avoid competing
+// with initial layout/paint on low-end devices.
+(function _deferFrameLoop(){
+  // Paint once without scheduling rAF
+  const _origRaf=window.requestAnimationFrame;
+  window.requestAnimationFrame=function(){return 0;};
+  try{frame();}catch(_){}
+  window.requestAnimationFrame=_origRaf;
+  const _kick=()=>setTimeout(()=>{_rafId=null;startLoop();},500);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',_kick,{once:true});
+  else _kick();
+})();
 })();
 
 
@@ -5461,11 +5472,22 @@ function showD(i){
   document.getElementById('dNum').textContent=ld?.lucky_number||'\u2014';
   document.getElementById('dCol').textContent=ld?.lucky_color||'\u2014';
   document.getElementById('dRate').innerHTML=ld?sr(ld.rating):'\u2014';
-  const fallback=ld?.prediction||(cL==='hi'?'आज का विवरण शीघ्र उपलब्ध होगा।':'Details coming soon.');
-  document.getElementById('dLove').textContent=ld?.love||fallback;
-  document.getElementById('dCareer').textContent=ld?.career||fallback;
-  document.getElementById('dHealth').textContent=ld?.health||fallback;
-  document.getElementById('dFinance').textContent=ld?.finance||fallback;
+  // When viewing a non-daily period (weekly/monthly/yearly/yesterday), hide
+  // love/career/health/finance sub-blocks if that period's JSON lacks them —
+  // don't show a "coming soon" fallback. For daily, fall back to prediction.
+  const isDaily=(_activePeriod==='daily'||!_activePeriod);
+  const fallback=isDaily?(ld?.prediction||(cL==='hi'?'आज का विवरण शीघ्र उपलब्ध होगा।':'Details coming soon.')):null;
+  const setSub=(id,val)=>{
+    const elTxt=document.getElementById(id);
+    const block=elTxt?.closest('.sub-block');
+    if(val){elTxt.textContent=val;if(block)block.style.display='';}
+    else if(fallback){elTxt.textContent=fallback;if(block)block.style.display='';}
+    else if(block)block.style.display='none';
+  };
+  setSub('dLove',ld?.love);
+  setSub('dCareer',ld?.career);
+  setSub('dHealth',ld?.health);
+  setSub('dFinance',ld?.finance);
   const remedyWrap=document.getElementById('dRemedyWrap');
   if(ld?.remedy){remedyWrap.style.display='';document.getElementById('dRemedy').textContent=ld.remedy;}
   else remedyWrap.style.display='none';
@@ -7027,7 +7049,15 @@ upDate();upCel();renderGrid();renderCats();renderPanchang();renderFestivals();re
 (function(){const d=personalDob();if(d){showPersonal(d);renderGrid();}})();
 renderGreeting();renderFamily();renderRecent();
 loadDD();
-loadCompatData();
+// Lazy-load 144-pair compatibility data only when user scrolls near the section
+(function lazyCompat(){
+  const el=document.getElementById('compatibility');
+  if(!el){loadCompatData();return;}
+  const io=new IntersectionObserver((entries,o)=>{
+    entries.forEach(e=>{if(e.isIntersecting){loadCompatData();o.unobserve(e.target);}});
+  },{rootMargin:'400px 0px'});
+  io.observe(el);
+})();
 
 (function lazySections(){
   const lazyMap={tools:()=>{renderTools();_rendered.tools=true;},zodiac:()=>{renderZI();_rendered.zi=true;}};
