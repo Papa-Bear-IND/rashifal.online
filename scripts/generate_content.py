@@ -335,9 +335,24 @@ Return ONLY valid JSON (no markdown, no backticks):
 
 def generate_muhurat(date_str: str) -> dict:
     """Auspicious / inauspicious time slots for the day."""
+    from datetime import datetime as _dt
+    _wd = _dt.strptime(date_str, "%Y-%m-%d").weekday()  # 0=Mon … 6=Sun
+    _rahu_kaal = {
+        6: "4:30 PM – 6:00 PM",    # Sunday
+        0: "7:30 AM – 9:00 AM",    # Monday
+        1: "3:00 PM – 4:30 PM",    # Tuesday
+        2: "12:00 PM – 1:30 PM",   # Wednesday
+        3: "1:30 PM – 3:00 PM",    # Thursday
+        4: "10:30 AM – 12:00 PM",  # Friday
+        5: "9:00 AM – 10:30 AM",   # Saturday
+    }
+    rahu_time = _rahu_kaal[_wd]
     prompt = f"""Generate auspicious and inauspicious timings for {date_str} (IST, Bhopal).
 Include best time for: starting new work, travel, financial transactions,
 medical procedures, and the time to avoid (Rahu Kaal based on weekday).
+
+IMPORTANT: Today's Rahu Kaal is {rahu_time}. Do NOT suggest any auspicious timing
+that overlaps with Rahu Kaal. Avoid that time range completely for all auspicious suggestions.
 
 Return ONLY valid JSON (no markdown, no backticks):
 {{
@@ -345,7 +360,7 @@ Return ONLY valid JSON (no markdown, no backticks):
   "travel":     {{"time":"...","hi":"यात्रा के लिए","en":"For travel"}},
   "finance":    {{"time":"...","hi":"धन-लेनदेन के लिए","en":"For financial transactions"}},
   "medical":    {{"time":"...","hi":"चिकित्सा के लिए","en":"For medical procedures"}},
-  "avoid":      {{"time":"...","hi":"राहु काल — टालें","en":"Rahu Kaal — avoid"}}
+  "avoid":      {{"time":"{rahu_time}","hi":"राहु काल — टालें","en":"Rahu Kaal — avoid"}}
 }}
 
 Times must be in 12-hour IST format with AM/PM. Be realistic for the given weekday."""
