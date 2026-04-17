@@ -1,0 +1,960 @@
+{
+  "date": "2026-04-18",
+  "date_hi": "18 April 2026",
+  "weekday_en": "Saturday",
+  "weekday_hi": "शनिवार",
+  "rashis": [
+    {
+      "id": "mesh",
+      "name_hi": "मेष",
+      "name_en": "Aries",
+      "symbol": "♈",
+      "dates": "Mar 21 – Apr 19",
+      "hindi": {
+        "prediction": "शनिवार के दिन शनि ग्रह की ऊर्जा से आपको धैर्य और दृढ़ता की जरूरत होगी। आज आपके पुराने प्रयासों में सफलता मिल सकती है, लेकिन जल्दबाजी न करें। सुबह का समय विशेष रूप से अनुकूल है। पारिवारिक मामलों में आपकी राय को महत्व दिया जाएगा। दिन के अंत में आध्यात्मिक गतिविधियों में मन लगेगा।",
+        "love": "प्रेम संबंधों में आज धैर्य और समझदारी दिखाना जरूरी है। यदि आप कुंवारे हैं तो किसी पुराने मित्र से रिश्ता आगे बढ़ सकता है। विवाहित जोड़ों के लिए पारिवारिक जिम्मेदारियों पर चर्चा का समय है।",
+        "career": "कार्यक्षेत्र में आज आपकी नेतृत्व क्षमता की परख होगी। बड़े निर्णयों को स्थगित करना बेहतर रहेगा। सहयोगियों के साथ संयम रखें और पुराने प्रोजेक्ट्स पर ध्यान दें।",
+        "health": "मानसिक तनाव का स्तर बढ़ा हुआ लग सकता है आज। गर्दन और कंधों में अकड़न हो सकती है। हल्का व्यायाम और प्राणायाम करें। देर रात जागने से बचें।",
+        "finance": "वित्तीय मामलों में संयम बरतें और बड़े निवेश से दूर रहें। पुराने बकाया पैसे वसूलने के लिए प्रयास करना शुभ रहेगा। छोटी बचत पर ध्यान दें।",
+        "remedy": "आज शनिदेव को तिल का तेल अर्पित करें",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनिदेव को प्रणाम करता है और धैर्य व न्याय प्रदान करता है।"
+        },
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.0
+      },
+      "english": {
+        "prediction": "Saturday's Saturn energy demands patience and steadfast approach from you today. Your past efforts may bear fruit, but avoid rushing into decisions. The morning hours bring particularly favorable vibrations. Your opinions will carry weight in family discussions. The evening draws you toward spiritual pursuits and introspection.",
+        "love": "Love matters require patience and wisdom today. Singles may find an old friendship developing into something deeper. Married couples should focus on discussing family responsibilities and long-term planning together.",
+        "career": "Your leadership abilities will be tested in professional settings today. It's better to postpone major decisions and maintain composure with colleagues. Focus your energy on completing older projects rather than starting new ones.",
+        "health": "Mental stress levels may feel elevated today. You might experience stiffness in neck and shoulders. Light exercise and breathing practices will help. Avoid staying up late tonight.",
+        "finance": "Exercise restraint in financial matters and avoid major investments today. This is a good time to follow up on pending payments and dues. Focus on small savings and avoid unnecessary expenses.",
+        "remedy": "Offer sesame oil to Lord Saturn today",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra honors Lord Saturn and grants patience and justice."
+        },
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.0
+      }
+    },
+    {
+      "id": "vrishabh",
+      "name_hi": "वृषभ",
+      "name_en": "Taurus",
+      "symbol": "♉",
+      "dates": "Apr 20 – May 20",
+      "hindi": {
+        "prediction": "शनिवार का दिन आपके लिए संतुलन और स्थिरता का होगा। शुक्र ग्रह की कृपा से आज आपकी कलात्मक क्षमताएं बढ़ेंगी और रचनात्मक कार्यों में सफलता मिलेगी। पारिवारिक मामलों में आपकी राय का सम्मान होगा। धन संबंधी निर्णय लेने से पहले किसी विश्वसनीय व्यक्ति से सलाह अवश्य लें। दिन के अंत में आपको मानसिक शांति और संतुष्टि का अनुभव होगा।",
+        "love": "प्रेम संबंधों में आज गहराई आएगी और आपका साथी आपकी भावनाओं को समझेगा। विवाहित जोड़ों के लिए यह दिन रोमांस से भरपूर होगा। एकल व्यक्तियों को किसी खास व्यक्ति से मधुर संवाद का अवसर मिल सकता है।",
+        "career": "कार्यक्षेत्र में आज आपकी धैर्य और मेहनत का फल मिलेगा। नई परियोजनाओं में शामिल होने के अवसर आ सकते हैं। सहकर्मियों के साथ सहयोग की भावना रखें और अपने अनुभव साझा करें।",
+        "health": "शारीरिक स्वास्थ्य अच्छा रहेगा लेकिन गले और कंधों में हल्की जकड़न हो सकती है। योग और प्राणायाम का अभ्यास करें। तनाव से बचने के लिए प्राकृतिक वातावरण में समय बिताएं।",
+        "finance": "आज पुराने निवेश से लाभ मिलने की संभावना है। संपत्ति संबंधी कागजों की जांच करें और आवश्यक सुधार करें। बड़े खर्च से बचें और बचत को प्राथमिकता दें।",
+        "remedy": "आज सफेद चंदन का तिलक लगाएं और तुलसी के पौधे को जल चढ़ाएं।",
+        "mantra": {
+          "sanskrit": "ॐ शुक्राय नमः",
+          "meaning": "यह मंत्र शुक्र ग्रह की शांति और सुख-समृद्धि के लिए है।"
+        },
+        "lucky_number": 6,
+        "lucky_color": "सफेद",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Saturday brings balance and stability to your life, dear Taurus. Venus's benefic influence will enhance your artistic abilities and bring success in creative endeavors. Your opinions will be valued in family matters, and others will seek your practical wisdom. Before making any financial decisions, consult with a trusted advisor for the best outcomes. The evening will bring a sense of mental peace and deep satisfaction with your progress.",
+        "love": "Love relationships will deepen today as your partner shows genuine understanding of your emotions. Married couples can expect romantic moments and renewed intimacy. Single Taureans may find themselves in meaningful conversations with someone special who appreciates their authentic nature.",
+        "career": "Your patience and consistent efforts will finally bear fruit in professional matters. New project opportunities may present themselves, requiring your steady approach and attention to detail. Foster cooperative relationships with colleagues and don't hesitate to share your valuable experience with the team.",
+        "health": "Physical health remains stable, though you may experience mild tension in your neck and shoulders. Practice yoga and breathing exercises to maintain flexibility. Spending time in natural surroundings will help alleviate any stress and restore your inner calm.",
+        "finance": "Old investments may show promising returns today, bringing unexpected financial relief. Review property-related documents and make necessary updates to your records. Avoid major expenditures and focus on building your savings for future security.",
+        "remedy": "Apply white sandalwood paste on your forehead and offer water to a Tulsi plant today.",
+        "mantra": {
+          "sanskrit": "ॐ शुक्राय नमः",
+          "meaning": "This mantra is for Venus planet's peace and brings happiness and prosperity."
+        },
+        "lucky_number": 6,
+        "lucky_color": "White",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "mithun",
+      "name_hi": "मिथुन",
+      "name_en": "Gemini",
+      "symbol": "♊",
+      "dates": "May 21 – Jun 20",
+      "hindi": {
+        "prediction": "शनि के प्रभाव में आज मिथुन राशि के जातकों को धैर्य और संयम की आवश्यकता होगी। आपकी वाणी में मधुरता और विवेक का प्रयोग करें। किसी पुराने मित्र से संपर्क हो सकता है जो आपको नई दिशा दे। आज के दिन छोटी यात्रा से बचें और घर में रहकर अध्ययन या रचनात्मक कार्यों में समय व्यतीत करें।",
+        "love": "प्रेम संबंधों में आज गंभीरता की झलक दिखेगी। पार्टनर के साथ भविष्य की योजनाओं पर चर्चा हो सकती है। विवाहित जोड़ों के लिए घरेलू जिम्मेदारियों में साझेदारी का दिन है।",
+        "career": "कार्यक्षेत्र में धीमी गति से लेकिन ठोस प्रगति होगी। वरिष्ठों का सहयोग मिलेगा और कोई महत्वपूर्ण दस्तावेज पर हस्ताक्षर हो सकते हैं। तकनीकी क्षेत्र से जुड़े लोगों को विशेष लाभ होगा।",
+        "health": "मानसिक तनाव कम रहेगा लेकिन गले और सांस संबंधी समस्याओं का ध्यान रखें। योगाभ्यास और प्राणायाम से विशेष लाभ मिलेगा। शाम के समय हल्की सैर करें।",
+        "finance": "धन के मामले में स्थिरता बनी रहेगी लेकिन बड़े निवेश से बचें। पुराने देनदार आपका पैसा वापस कर सकते हैं। संपत्ति खरीदारी के लिए उपयुक्त दिन नहीं है।",
+        "remedy": "आज शनि देव को तिल का तेल अर्पित करें",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "इस मंत्र से शनि देव की कृपा प्राप्त होती है और बाधाएं दूर होती हैं।"
+        },
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.0
+      },
+      "english": {
+        "prediction": "Under Saturn's influence, Gemini natives need patience and restraint today. Use sweetness and wisdom in your speech. An old friend might contact you, offering new direction. Avoid short trips today and spend time at home engaging in study or creative pursuits. The day calls for introspection and careful planning rather than hasty actions.",
+        "love": "Love relationships will show glimpses of seriousness today. Discussions about future plans with your partner are likely. For married couples, it's a day of sharing domestic responsibilities and strengthening your bond through practical cooperation.",
+        "career": "Professional progress will be slow but solid today. You'll receive support from seniors and might sign important documents. Those in technical fields will benefit especially, with recognition for their detailed work and expertise coming their way.",
+        "health": "Mental stress will be reduced, but pay attention to throat and respiratory issues. Yoga practice and pranayama will be particularly beneficial. Take a light evening walk to maintain your energy levels and overall well-being.",
+        "finance": "Financial stability will remain intact, but avoid major investments today. Old debtors might return your money, improving your cash flow. It's not an auspicious day for property purchases, so postpone such decisions for now.",
+        "remedy": "Offer sesame oil to Lord Saturn today",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra brings Lord Saturn's blessings and removes obstacles from your path."
+        },
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.0
+      }
+    },
+    {
+      "id": "kark",
+      "name_hi": "कर्क",
+      "name_en": "Cancer",
+      "symbol": "♋",
+      "dates": "Jun 21 – Jul 22",
+      "hindi": {
+        "prediction": "आज शनिवार को शनि देव का प्रभाव आपके जीवन में स्थिरता और अनुशासन लाएगा। चंद्रमा आपके स्वामी होने के कारण आज भावनात्मक संतुलन बना रहेगा। दोपहर बाद कोई महत्वपूर्ण समाचार मिल सकता है जो आपकी योजनाओं को नई दिशा देगा। पारिवारिक मामलों में सकारात्मक बदलाव के संकेत हैं। आज धैर्य के साथ काम करने से बेहतर परिणाम मिलेंगे।",
+        "love": "प्रेम संबंधों में आज गहराई आएगी और आपका साथी आपकी भावनाओं को समझेगा। विवाहित जातकों के लिए शाम का समय रोमांटिक होगा। एकल लोगों को कोई पुराना मित्र विशेष लग सकता है।",
+        "career": "कार्यक्षेत्र में आज टीमवर्क का महत्व बढ़ेगा और आपके सहयोगी आपकी सराहना करेंगे। कोई पुराना प्रोजेक्ट आज पूरा होने की संभावना है। व्यापारियों के लिए नई साझेदारी के अवसर मिल सकते हैं।",
+        "health": "शारीरिक स्वास्थ्य अच्छा रहेगा लेकिन गले और छाती की समस्याओं से बचाव रखें। योग और प्राणायाम से मानसिक तनाव कम होगा। रात्रि में पर्याप्त नींद लें और ठंडी चीजों से परहेज करें।",
+        "finance": "वित्तीय मामलों में आज सोच-समझकर निर्णय लें और किसी भी बड़े निवेश से बचें। पुराने उधार की वसूली हो सकती है। घर की जरूरतों के लिए खर्च बढ़ सकता है लेकिन यह फायदेमंद साबित होगा।",
+        "remedy": "आज सफेद वस्त्र पहनें और चांदी का कोई गहना धारण करें।",
+        "mantra": {
+          "sanskrit": "ॐ सोम सोमाय नमः",
+          "meaning": "यह चंद्रमा मंत्र मानसिक शांति और भावनात्मक संतुलन प्रदान करता है।"
+        },
+        "lucky_number": 16,
+        "lucky_color": "सफेद",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This Saturday brings Saturn's disciplining influence that will help you establish better routines and long-term stability. As the Moon rules your sign, emotional clarity and intuitive insights will guide your decisions today. An important message or communication in the afternoon could reshape your upcoming plans positively. Family matters show promising developments that have been pending for some time. Your patient and methodical approach today will yield better results than rushing into things.",
+        "love": "Deep emotional connections flourish today as your partner becomes more understanding of your feelings and needs. Married Cancerians will find the evening hours particularly romantic and harmonious. Singles may discover that an old friend holds special appeal and romantic potential.",
+        "career": "Collaborative efforts take center stage at work with colleagues recognizing and appreciating your contributions to team projects. A long-pending assignment or project reaches completion today, bringing satisfaction and recognition. Business owners may encounter promising partnership opportunities that could expand their ventures.",
+        "health": "Physical wellness remains stable, though you should pay attention to throat and chest-related concerns. Yoga and breathing exercises will effectively reduce any mental stress or anxiety you've been experiencing. Ensure adequate night rest and avoid cold foods and drinks to maintain optimal health.",
+        "finance": "Financial decisions require careful consideration today, and it's wise to postpone any major investments or expenditures. Recovery of old dues or pending payments may come through unexpectedly. Household expenses might increase, but these investments will prove beneficial for your family's comfort and well-being.",
+        "remedy": "Wear white clothing today and adorn yourself with a piece of silver jewelry.",
+        "mantra": {
+          "sanskrit": "ॐ सोम सोमाय नमः",
+          "meaning": "This lunar mantra brings mental peace and emotional balance to the devotee."
+        },
+        "lucky_number": 16,
+        "lucky_color": "White",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "singh",
+      "name_hi": "सिंह",
+      "name_en": "Leo",
+      "symbol": "♌",
+      "dates": "Jul 23 – Aug 22",
+      "hindi": {
+        "prediction": "शनिवार का दिन सिंह राशि के लिए मिश्रित फल लेकर आ रहा है। शनि ग्रह की शक्ति आपको धैर्य और अनुशासन की शिक्षा देगी। आज आपकी वाणी में विशेष तेज होगा लेकिन अहंकार से बचना होगा। परिवारिक मामलों में स्पष्टता आएगी और पुराने विवाद सुलझने के आसार हैं। दिन के अंतिम पहर में कोई अप्रत्याशित सुखद समाचार मिल सकता है।",
+        "love": "प्रेम जीवन में आज संवेदनशीलता की आवश्यकता होगी। साथी के साथ गहरी बातचीत करने से रिश्ते में नई मजबूती आएगी। विवाहित जोड़ों के लिए यह दिन रोमांस से भरपूर रहेगा।",
+        "career": "कार्यक्षेत्र में आपकी नेतृत्व क्षमता परखी जाएगी। किसी महत्वपूर्ण प्रोजेक्ट में आपकी राय मांगी जा सकती है। सहकर्मियों के साथ सहयोग की भावना रखें तो सफलता निश्चित है।",
+        "health": "स्वास्थ्य के मामले में सतर्कता बरतें, विशेषकर पाचन तंत्र का ख्याल रखें। योगाभ्यास और प्राणायाम करना लाभकारी होगा। शाम की ताजी हवा में टहलना आपको तरोताजा रखेगा।",
+        "finance": "आर्थिक मामलों में आज सोच-समझकर निर्णय लें। किसी पुराने निवेश से लाभ की संभावना है। अनावश्यक खर्चों से बचें और बचत को प्राथमिकता दें।",
+        "remedy": "आज सूर्यास्त के समय तुलसी के पौधे के पास दीपक जलाएं",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव की कृपा प्राप्त करने के लिए है।"
+        },
+        "lucky_number": 14,
+        "lucky_color": "नारंगी",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Saturday brings a mixed bag of opportunities for Leo natives. Saturn's influence today will teach you patience and disciplined approach to life. Your communication skills will be sharp, but guard against arrogance that might alienate others. Family matters will gain clarity, and old disputes are likely to find resolution. The evening hours may bring unexpected good news that lifts your spirits considerably.",
+        "love": "Your love life requires sensitivity and emotional intelligence today. Deep conversations with your partner will strengthen your bond significantly. Married couples can expect a romantic evening filled with renewed passion and understanding.",
+        "career": "Your leadership abilities will be put to the test in professional matters today. You might be consulted for an important project decision that could shape your career trajectory. Maintaining cooperative relationships with colleagues will ensure guaranteed success.",
+        "health": "Pay attention to your health, particularly your digestive system which needs care today. Yoga practice and breathing exercises will prove beneficial for your overall well-being. An evening walk in fresh air will rejuvenate your mind and body.",
+        "finance": "Exercise caution in financial decisions and think thoroughly before making any commitments. An old investment might yield profitable returns today. Avoid unnecessary expenses and prioritize building your savings for future security.",
+        "remedy": "Light a lamp near a tulsi plant during sunset today",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra is for receiving Lord Saturn's blessings and grace."
+        },
+        "lucky_number": 14,
+        "lucky_color": "Orange",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kanya",
+      "name_hi": "कन्या",
+      "name_en": "Virgo",
+      "symbol": "♍",
+      "dates": "Aug 23 – Sep 22",
+      "hindi": {
+        "prediction": "शनिवार का दिन आपके लिए काफी संतुलित रहेगा। शनि देव की कृपा से आपकी धैर्यवान प्रकृति आज काम आएगी। दिन के मध्य में कुछ छोटी समस्याएं हो सकती हैं, लेकिन आपकी व्यावहारिक सोच से सब कुछ सुलझ जाएगा। परिवार के साथ समय बिताना आपको मानसिक शांति देगा। आज अपनी सफाई प्रिय प्रवृत्ति का सदुपयोग करते हुए घर में व्यवस्था करने से सकारात्मक ऊर्जा मिलेगी।",
+        "love": "प्रेम संबंधों में आज थोड़ी गंभीरता आ सकती है। साथी के साथ किसी व्यावहारिक मुद्दे पर चर्चा हो सकती है जो भविष्य की योजनाओं से जुड़ा हो। धैर्य रखें और खुले मन से बात करें।",
+        "career": "कार्यक्षेत्र में आज आपकी विश्लेषण क्षमता की सराहना होगी। किसी पुराने प्रोजेक्ट में सुधार का मौका मिल सकता है। सहकर्मियों के साथ सहयोग बढ़ाने से अच्छे परिणाम आएंगे।",
+        "health": "स्वास्थ्य के मामले में आज पाचन तंत्र पर विशेष ध्यान दें। सुबह की ताजी हवा में टहलना फायदेमंद होगा। मानसिक तनाव से बचने के लिए ध्यान या योग करें।",
+        "finance": "वित्तीय मामलों में आज सोच-समझकर निर्णय लें। किसी पुराने निवेश की समीक्षा करने का अच्छा समय है। छोटी बचत करना आज शुभ फलदायी होगा।",
+        "remedy": "आज नीले रंग का वस्त्र पहनें और तिल का दान करें।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव की कृपा प्राप्त करने के लिए है।"
+        },
+        "lucky_number": 26,
+        "lucky_color": "नीला",
+        "rating": 3.0
+      },
+      "english": {
+        "prediction": "Saturday brings a well-balanced energy for you, dear Virgo. Saturn's influence enhances your natural patience and methodical approach to life's challenges. Mid-day may present some minor obstacles, but your practical mindset will help you navigate through them smoothly. Spending quality time with family will bring inner peace and emotional satisfaction. Your love for organization and cleanliness will serve you well today as tidying up your living space will generate positive vibrations around you.",
+        "love": "Your romantic life takes on a more serious tone today as practical matters come into focus. You and your partner might engage in meaningful discussions about future plans or shared responsibilities. Single Virgos should approach new connections with patience rather than rushing into anything.",
+        "career": "Your analytical skills will be highly appreciated in the workplace today. An opportunity to improve or refine an existing project may present itself, allowing you to showcase your attention to detail. Collaborative efforts with colleagues will yield better results than working in isolation.",
+        "health": "Pay special attention to your digestive system today and opt for lighter, easily digestible meals. A morning walk in fresh air will boost your energy levels significantly. Practice meditation or gentle yoga to release any mental tension that may have accumulated during the week.",
+        "finance": "Exercise careful judgment in financial decisions today, especially regarding long-term investments. This is an excellent time to review and reassess your existing investment portfolio. Small savings made today will have a positive cumulative effect on your financial stability.",
+        "remedy": "Wear blue clothing today and donate sesame seeds to gain Saturn's blessings.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra invokes the blessings and protection of Lord Saturn."
+        },
+        "lucky_number": 26,
+        "lucky_color": "Blue",
+        "rating": 3.0
+      }
+    },
+    {
+      "id": "tula",
+      "name_hi": "तुला",
+      "name_en": "Libra",
+      "symbol": "♎",
+      "dates": "Sep 23 – Oct 22",
+      "hindi": {
+        "prediction": "शनि के प्रभाव से आज संतुलन की तलाश में रहेंगे। व्यावहारिक निर्णय लेने का समय है और धैर्य आपका सबसे बड़ा सहयोगी होगा। आज के दिन कोई पुराना मामला सुलझने की संभावना है। रिश्तों में स्पष्टता लाने का अच्छा दिन है। शाम के समय कुछ अप्रत्याशित खुशी मिल सकती है।",
+        "love": "प्रेम संबंधों में गंभीरता का भाव आएगा और पार्टनर के साथ भविष्य की योजनाओं पर चर्चा हो सकती है। विवाहित जातकों के लिए पारिवारिक खुशी का अवसर मिलेगा। एकल व्यक्तियों को कोई पुराना परिचित व्यक्ति याद आ सकता है।",
+        "career": "कार्यक्षेत्र में किसी बड़े प्रोजेक्ट को अंतिम रूप देने का मौका मिलेगा। सहकर्मियों के साथ टीमवर्क से बेहतर परिणाम आएंगे। नौकरी में स्थिरता और व्यापार में धीमी लेकिन निश्चित प्रगति दिखेगी। नए कनेक्शन बनाने से बचें, मौजूदा संपर्कों को मजबूत करें।",
+        "health": "कमर और जोड़ों में थोड़ी परेशानी हो सकती है, आराम जरूरी है। मानसिक स्वास्थ्य बेहतर रहेगा और तनाव कम महसूस होगा। हल्का व्यायाम और योग करने से अच्छा लगेगा। देर रात जागने से बचें।",
+        "finance": "आर्थिक मामलों में संयम बरतने का दिन है, बड़े खर्च टालें। किसी पुराने निवेश से लाभ की उम्मीद है। परिवार से संबंधित खर्च हो सकता है लेकिन यह आवश्यक होगा। बचत करने की अच्छी आदत डालने का समय है।",
+        "remedy": "आज नीले फूल या नीला कपड़ा दान करें।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव को प्रसन्न करके धैर्य और स्थिरता प्रदान करता है।"
+        },
+        "lucky_number": 26,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Saturn's influence today brings a focus on balance and practical decision-making. This Saturday offers opportunities to resolve long-standing issues with patience and wisdom. Relationships will benefit from clear communication and honest conversations. A steady, methodical approach to challenges will yield better results than rushing. Evening hours may bring unexpected pleasant news or a small celebration.",
+        "love": "Romance takes on a more serious tone today, with discussions about future commitments likely with your partner. Married Librans may experience family harmony and shared joy in domestic matters. Singles might reconnect with someone from their past, bringing back fond memories and possibilities.",
+        "career": "Professional life shows promise for completing major projects or reaching important milestones. Collaboration with colleagues will prove more beneficial than working alone. Job stability increases while business owners see slow but steady progress. Focus on strengthening existing professional relationships rather than seeking new connections today.",
+        "health": "Minor aches in the back or joints may require attention, so prioritize rest and gentle movement. Mental health improves significantly with reduced stress levels and clearer thinking. Light exercise or yoga will feel particularly beneficial. Avoid staying up too late tonight for optimal recovery.",
+        "finance": "Financial restraint is advisable today - postpone major purchases or investments. Returns from an older investment may provide pleasant surprise income. Family-related expenses are likely but will be necessary and worthwhile. This is an excellent time to establish better saving habits for long-term security.",
+        "remedy": "Donate blue flowers or blue clothing today.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra pleases Lord Saturn and grants patience and stability in life."
+        },
+        "lucky_number": 26,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "vrishchik",
+      "name_hi": "वृश्चिक",
+      "name_en": "Scorpio",
+      "symbol": "♏",
+      "dates": "Oct 23 – Nov 21",
+      "hindi": {
+        "prediction": "शनिवार का दिन वृश्चिक राशि के लिए नई शुरुआत और गहरे बदलाव का संकेत देता है। शनि की ऊर्जा आपको धैर्य और अनुशासन से काम करने की प्रेरणा देगी। आज आपकी अंतर्दृष्टि और सहज ज्ञान विशेष रूप से तेज रहेगा। छुपे हुए सत्य और गुप्त जानकारी प्राप्त हो सकती है जो आपके फायदे में होगी। दिन के अंत में मानसिक शांति और संतुष्टि की अनुभूति होगी।",
+        "love": "प्रेम संबंधों में गहराई और भावनात्मक जुड़ाव बढ़ेगा। साथी के साथ किसी महत्वपूर्ण विषय पर खुली बातचीत हो सकती है जो रिश्ते को मजबूत बनाएगी। अविवाहित लोगों के लिए किसी रहस्यमय व्यक्तित्व वाले व्यक्ति से मुलाकात संभव है।",
+        "career": "कार्यक्षेत्र में आपकी जांच और विश्लेषण की क्षमता आज काम आएगी। किसी पुराने प्रोजेक्ट या कार्य में छुपी हुई त्रुटि मिल सकती है जिसे सुधारने से बड़ा फायदा होगा। वरिष्ठ अधिकारियों से सहायता मिलने की संभावना है।",
+        "health": "आज अपनी आंतरिक ऊर्जा पर विशेष ध्यान दें और तनाव से बचें। पेट संबंधी समस्याओं से सावधान रहें और हल्का भोजन लें। ध्यान या प्राणायाम का अभ्यास करने से मानसिक स्थिरता बनी रहेगी।",
+        "finance": "वित्तीय मामलों में सोच-समझकर निर्णय लें और जल्दबाजी से बचें। पुराने निवेश या बीमा पॉलिसी की समीक्षा करने का उपयुक्त समय है। किसी विश्वसनीय व्यक्ति से वित्तीय सलाह लेना फायदेमंद होगा।",
+        "remedy": "आज शाम को तांबे के बर्तन में पानी रखकर रात भर चांदनी में छोड़ दें और सुबह पिएं।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव की कृपा प्राप्त करके धैर्य और स्थिरता देता है।"
+        },
+        "lucky_number": 8,
+        "lucky_color": "काला",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Saturday brings transformative energy for Scorpio natives as Saturn's influence encourages deep introspection and methodical progress. Your natural investigative abilities will be heightened today, helping you uncover hidden truths or solutions to longstanding problems. The day favors research, analysis, and any work requiring patience and persistence. You may receive valuable insights through dreams or meditation that guide important decisions. Evening hours will bring a sense of accomplishment and inner peace.",
+        "love": "Romantic relationships take on a more profound and meaningful tone today. You and your partner may discuss future plans or share intimate secrets that strengthen your bond significantly. Single Scorpios might encounter someone with mysterious charm who intrigues them intellectually and emotionally.",
+        "career": "Your detective-like skills serve you well in professional matters as you identify inefficiencies or overlooked opportunities. A thorough review of past projects could reveal valuable lessons or forgotten resources worth revisiting. Senior colleagues may offer mentorship or recognition for your analytical contributions.",
+        "health": "Focus on internal cleansing and detoxification today by choosing lighter, more nutritious meals. Your digestive system may be sensitive, so avoid heavy or processed foods. Meditation or breathing exercises will help balance your intense mental energy and promote overall well-being.",
+        "finance": "Take a conservative approach to money matters and avoid impulsive purchases or investments. This is an excellent day to review insurance policies, tax documents, or long-term savings plans. Consulting with a trusted financial advisor could provide valuable insights for your future security.",
+        "remedy": "Place water in a copper vessel tonight under moonlight and drink it first thing tomorrow morning.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra invokes Saturn's blessings for patience, discipline and steady progress."
+        },
+        "lucky_number": 8,
+        "lucky_color": "Black",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "dhanu",
+      "name_hi": "धनु",
+      "name_en": "Sagittarius",
+      "symbol": "♐",
+      "dates": "Nov 22 – Dec 21",
+      "hindi": {
+        "prediction": "शनिवार का दिन आपके लिए नई संभावनाओं से भरपूर है। शनि की मजबूत ऊर्जा आपको धैर्य और अनुशासन सिखाएगी। आज आपको पुराने मित्रों से संपर्क साधने का मौका मिलेगा। दूसरे लोगों की सलाह सुनना आपके लिए फायदेमंद रहेगा। शाम के समय कोई महत्वपूर्ण समाचार मिल सकता है।",
+        "love": "प्रेम संबंधों में आज संयम और समझदारी बरतने की आवश्यकता है। पार्टनर के साथ पुराने मुद्दों पर बात करना सकारात्मक परिणाम लाएगा। अविवाहित धनु राशि वालों को आज किसी गंभीर व्यक्ति से मिलने का योग है।",
+        "career": "कार्यक्षेत्र में आज आपकी कड़ी मेहनत का फल मिलेगा। सहकर्मियों के साथ टीमवर्क पर जोर दें। व्यापारिक मामलों में बुजुर्गों की सलाह लेना लाभकारी होगा।",
+        "health": "स्वास्थ्य के मामले में आज विशेष सावधानी बरतें। घुटनों और जोड़ों में दर्द हो सकता है। योग और प्राणायाम करना आपके लिए बेहद फायदेमंद रहेगा।",
+        "finance": "आर्थिक मामलों में आज रूढ़िवादी रवैया अपनाएं। बड़े निवेश से बचें और बचत पर ध्यान दें। पुराने कर्ज चुकाने का अच्छा समय है।",
+        "remedy": "आज शाम को तिल का दान करें",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि ग्रह की कृपा प्राप्त करने के लिए है।"
+        },
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Saturday brings a wave of practical wisdom and steady progress for you, dear Sagittarius. Saturn's influence encourages you to build solid foundations rather than chase quick wins. Reconnecting with old friends or mentors could provide valuable insights today. Your natural optimism will be tempered with realistic thinking, leading to better decisions. An important piece of news may arrive in the evening hours.",
+        "love": "In matters of the heart, patience and maturity will serve you well today. Deep conversations with your partner about future plans could strengthen your bond significantly. Single Sagittarians might attract someone with a serious, grounded personality who appreciates your adventurous spirit.",
+        "career": "Your professional life sees steady advancement through disciplined effort and careful planning. Collaborative projects will flourish if you focus on building consensus rather than pushing your own agenda. Business owners should seek advice from experienced mentors before making strategic decisions.",
+        "health": "Pay special attention to your joints and lower back today, as Saturn's energy may manifest as stiffness or minor aches. Regular stretching exercises and gentle yoga poses will provide relief. Your mental clarity improves through meditation or quiet reflection.",
+        "finance": "Financial stability takes precedence over risky ventures today. Focus on clearing old debts and building your emergency fund rather than seeking new investment opportunities. A conservative approach to money management will pay dividends in the coming weeks.",
+        "remedy": "Donate sesame seeds or black gram this evening",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra invokes the blessings of Saturn for discipline and wisdom."
+        },
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "makar",
+      "name_hi": "मकर",
+      "name_en": "Capricorn",
+      "symbol": "♑",
+      "dates": "Dec 22 – Jan 19",
+      "hindi": {
+        "prediction": "शनिवार का दिन मकर राशि के जातकों के लिए संतुलित रहेगा। शनि देव की कृपा से आपकी पुरानी योजनाओं को नई दिशा मिल सकती है। आज धैर्य और अनुशासन आपके सबसे बड़े सहयोगी होंगे। पारिवारिक मामलों में सुधार की संभावना है। सायंकाल के समय कोई महत्वपूर्ण समाचार मिल सकता है।",
+        "love": "प्रेम संबंधों में आज स्पष्टता आएगी। जो जोड़े लंबे समय से किसी मुद्दे पर चर्चा टाल रहे थे, वह आज सुलझ सकता है। अकेले व्यक्तियों को किसी पुराने मित्र से मिलने का अवसर मिल सकता है।",
+        "career": "कार्यक्षेत्र में आज आपकी मेहनत का फल दिखाई देगा। वरिष्ठजनों से सलाह लेना फायदेमंद होगा। नौकरी में स्थिरता आएगी और व्यापारियों के लिए नए संपर्क बनने के योग हैं।",
+        "health": "स्वास्थ्य की दृष्टि से यह दिन सामान्य रहेगा। घुटनों और जोड़ों की देखभाल करें। योगाभ्यास और प्राणायाम से मानसिक शांति मिलेगी।",
+        "finance": "आर्थिक मामलों में सोच-समझकर निर्णय लें। आज कोई पुराना निवेश अच्छा रिटर्न दे सकता है। बड़ी खरीदारी से बचें और बचत पर ध्यान दें।",
+        "remedy": "आज काले तिल का दान करें और शनि मंदिर में दीप जलाएं।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव की कृपा प्राप्त करने के लिए है।"
+        },
+        "lucky_number": 26,
+        "lucky_color": "गहरा नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Saturday brings a balanced energy for Capricorn natives. Lord Shani's influence will help breathe new life into your long-pending plans. Patience and discipline will be your greatest allies today. Family matters are likely to see positive developments. Important news may arrive during the evening hours that could change your perspective on current situations.",
+        "love": "Love relationships will gain clarity today. Couples who have been postponing important discussions will find resolution. Single Capricorns may reconnect with an old friend who could spark new romantic possibilities.",
+        "career": "Your hard work will finally show visible results in your professional sphere. Seeking guidance from seniors will prove beneficial. Job stability improves while business owners can expect new networking opportunities to emerge.",
+        "health": "Health remains stable today with no major concerns. Pay special attention to your knees and joints. Yoga practice and breathing exercises will bring mental peace and physical wellness.",
+        "finance": "Make thoughtful decisions regarding financial matters today. An old investment might provide good returns. Avoid major purchases and focus on building your savings for future security.",
+        "remedy": "Donate black sesame seeds today and light a lamp at a Shani temple.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra invokes the blessings of Lord Shani for prosperity and protection."
+        },
+        "lucky_number": 26,
+        "lucky_color": "Deep Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kumbh",
+      "name_hi": "कुम्भ",
+      "name_en": "Aquarius",
+      "symbol": "♒",
+      "dates": "Jan 20 – Feb 18",
+      "hindi": {
+        "prediction": "शनि के प्रभाव में आज आपके लिए धैर्य और संयम का दिन है। व्यावहारिक सोच आपको सही दिशा दिखाएगी और पुराने मुद्दों का समाधान मिल सकता है। सामाजिक गतिविधियों में भाग लेने से नए अवसर प्राप्त होंगे। दिन का उत्तरार्ध विशेष रूप से उत्पादक रहेगा। अपने अंतर्मन की आवाज सुनें और निर्णय लेने में जल्दबाजी न करें।",
+        "love": "प्रेम संबंधों में गहराई आएगी और आपके साथी के साथ गंभीर बातचीत हो सकती है। एकल व्यक्तियों के लिए किसी बुद्धिमान व्यक्ति से मुलाकात संभव है। पारिवारिक रिश्तों में स्थिरता बनी रहेगी।",
+        "career": "कार्यक्षेत्र में दीर्घकालिक योजनाओं पर फोकस करें और तकनीकी कौशल सुधारने का अच्छा समय है। टीम वर्क में आपकी भूमिका महत्वपूर्ण होगी। नवाचार और रचनात्मकता को प्राथमिकता दें।",
+        "health": "मानसिक स्वास्थ्य पर विशेष ध्यान दें और तनाव कम करने के लिए ध्यान का अभ्यास करें। हड्डियों और जोड़ों की देखभाल करें। शाम की सैर स्वास्थ्य के लिए लाभकारी होगी।",
+        "finance": "निवेश संबंधी निर्णयों में सावधानी बरतें और लंबी अवधि की योजना बनाएं। आज कोई बड़ी खरीदारी न करें। बचत को बढ़ाने के नए तरीकों पर विचार करें।",
+        "remedy": "आज नीले रंग के वस्त्र पहनें और शनि देव को तिल का तेल अर्पित करें।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव को समर्पित है और बाधाओं को दूर करता है।"
+        },
+        "lucky_number": 26,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Under Saturday's Saturn influence, today calls for patience and measured progress. Your innovative thinking will find practical applications, especially in solving long-standing issues. Social connections may bring unexpected opportunities for collaboration. The evening hours promise to be particularly productive for Aquarians. Trust your intuition but ground your decisions in reality and careful consideration.",
+        "love": "Relationships deepen today through meaningful conversations and shared intellectual pursuits. Single Aquarians might connect with someone who challenges your perspectives in a positive way. Family bonds strengthen through mutual understanding and respect.",
+        "career": "Focus on building sustainable systems and improving your technical expertise today. Your unique approach to problem-solving will be recognized by colleagues. Research and development activities show promising results.",
+        "health": "Mental clarity improves through structured relaxation techniques and mindful breathing exercises. Pay attention to circulation and joint flexibility. A gentle yoga session or stretching routine will boost your energy levels significantly.",
+        "finance": "Investment opportunities require thorough research before commitment - avoid impulsive financial decisions. Consider diversifying your portfolio with technology or humanitarian sector options. Review subscription services and eliminate unnecessary expenses.",
+        "remedy": "Wear blue clothing today and offer sesame oil to Lord Saturn for stability and progress.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra is dedicated to Lord Saturn and removes obstacles from your path."
+        },
+        "lucky_number": 26,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "meen",
+      "name_hi": "मीन",
+      "name_en": "Pisces",
+      "symbol": "♓",
+      "dates": "Feb 19 – Mar 20",
+      "hindi": {
+        "prediction": "शनिवार का दिन मीन राशि के लिए आत्मचिंतन और गहरी समझ का होगा। शनि की ऊर्जा आपके अंतर्मन को शांत करेगी और महत्वपूर्ण निर्णय लेने में मदद करेगी। आज आपकी रचनात्मकता चरम पर होगी और कलात्मक गतिविधियों में सफलता मिलेगी। दोपहर के बाद कोई पुराना मित्र संपर्क कर सकता है जो खुशी का कारण बनेगा। सामाजिक कार्यों में भाग लेने से मानसिक संतुष्टि प्राप्त होगी।",
+        "love": "प्रेम संबंधों में गहराई और स्थिरता का अनुभव होगा। पार्टनर के साथ किसी भविष्य की योजना पर चर्चा हो सकती है जो रिश्ते को मजबूत बनाएगी। एकल लोगों के लिए किसी धार्मिक या सामुदायिक स्थान पर नया परिचय संभव है।",
+        "career": "कार्यक्षेत्र में धैर्य और लगन का फल दिखने लगेगा। किसी लंबित प्रोजेक्ट में प्रगति होगी और वरिष्ठों की सराहना मिलेगी। व्यापारियों के लिए नए बाजार की खोज करने का उत्तम समय है।",
+        "health": "मानसिक स्वास्थ्य उत्कृष्ट रहेगा और तनाव में कमी आएगी। हल्की योग या प्राणायाम से शारीरिक ऊर्जा में वृद्धि होगी। आंखों की देखभाल पर विशेष ध्यान दें।",
+        "finance": "बचत की दिशा में सकारात्मक बदलाव देखने को मिलेंगे। किसी पुराने निवेश से अप्रत्याशित लाभ की संभावना है। घरेलू खर्चों में संयम बरतने से अतिरिक्त धन की बचत होगी।",
+        "remedy": "आज नीले वस्त्र पहनकर शिव मंदिर में जल चढ़ाएं।",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "यह मंत्र शनि देव की कृपा प्राप्त करने के लिए है।"
+        },
+        "lucky_number": 26,
+        "lucky_color": "नीला",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Saturday brings a transformative energy for Pisces, with Saturn's influence encouraging deep introspection and meaningful connections. Your intuitive powers will be exceptionally strong today, helping you see through superficial matters to core truths. Creative endeavors will flourish under this contemplative atmosphere, making it perfect for artistic pursuits or writing. An unexpected message from someone from your past could bring pleasant memories flooding back. The evening favors quiet activities that nurture your soul and restore inner balance.",
+        "love": "Relationships take on a more serious and committed tone today, with conversations flowing toward future plans and shared dreams. Your emotional depth will attract others to confide in you, strengthening existing bonds. Singles may find themselves drawn to someone with a quiet, thoughtful nature rather than flashy personalities.",
+        "career": "Professional patience pays off as a long-term project finally shows promising results that catch your supervisor's attention. Your methodical approach to problem-solving will be particularly appreciated today. Those in creative fields may receive recognition for work that seemed to go unnoticed previously.",
+        "health": "Mental clarity reaches new heights while stress levels drop significantly throughout the day. Gentle water-based activities like swimming or even a relaxing bath will rejuvenate your energy. Pay attention to your feet and consider investing in comfortable, supportive footwear.",
+        "finance": "A disciplined approach to spending yields visible results in your savings account balance. An old investment or forgotten asset may resurface with positive news attached. Avoid impulse purchases and focus on building your financial foundation steadily.",
+        "remedy": "Wear blue clothing today and offer water to Lord Shiva at a temple.",
+        "mantra": {
+          "sanskrit": "ॐ शं शनैश्चराय नमः",
+          "meaning": "This mantra invokes Saturn's blessings for discipline and wisdom."
+        },
+        "lucky_number": 26,
+        "lucky_color": "Blue",
+        "rating": 4.0
+      }
+    }
+  ],
+  "panchang": {
+    "tithi": {
+      "hi": "द्वादशी (शुक्ल पक्ष)",
+      "en": "Dwadashi (Shukla Paksha)"
+    },
+    "nakshatra": {
+      "hi": "उत्तराषाढ़",
+      "en": "Uttarashada"
+    },
+    "yoga": {
+      "hi": "शिव",
+      "en": "Shiva"
+    },
+    "karana": {
+      "hi": "गर",
+      "en": "Gara"
+    },
+    "special": {
+      "hi": "",
+      "en": ""
+    }
+  },
+  "story": {
+    "title": {
+      "hi": "कच और देवयानी की कथा",
+      "en": "The Tale of Kacha and Devayani"
+    },
+    "text": {
+      "hi": "गुरु शुक्राचार्य की पुत्री देवयानी अपने पिता के आश्रम में रहती थी। देवताओं के गुरु बृहस्पति ने अपने पुत्र कच को शुक्राचार्य से मृतसंजीवनी विद्या सीखने भेजा। कच ने गुरु की सेवा में अपना जीवन समर्पित कर दिया।\n\nअसुरों को जब पता चला कि कच उनके गुरु से गुप्त विद्या सीख रहा है, तो उन्होंने उसे मार डाला। देवयानी के आग्रह पर शुक्राचार्य ने कच को जिलाया। यह घटना तीन बार हुई। तीसरी बार असुरों ने कच को जलाकर राख को गुरु की मदिरा में मिला दिया।\n\nजब शुक्राचार्य ने कच को जिलाने का मंत्र पढ़ा, तो कच उनके पेट से बोला। गुरु समझ गए कि कच को मृतसंजीवनी विद्या सिखाकर ही अपना जीवन बचाया जा सकता है। इस प्रकार कच ने अपने धैर्य और गुरुभक्ति से दुर्लभ विद्या प्राप्त की।",
+      "en": "Princess Devayani lived in the ashram of her father, Guru Shukracharya. Brihaspati, guru of the devas, sent his son Kacha to learn the sacred Mritasanjeevani vidya from Shukracharya. Kacha devoted himself completely to serving his guru.\n\nWhen the asuras discovered that Kacha was learning their guru's secret knowledge, they killed him. At Devayani's request, Shukracharya revived Kacha using his divine power. This happened three times. The third time, the cunning asuras burned Kacha to ash and mixed it into their guru's wine.\n\nWhen Shukracharya chanted the revival mantra, Kacha spoke from within his guru's stomach. Shukracharya realized that only by teaching Kacha the Mritasanjeevani vidya could he save his own life. When Kacha emerged, he respectfully revived his guru.\n\nThrough unwavering patience and devotion to his guru, Kacha obtained the most precious knowledge. His dedication transformed potential tragedy into divine victory."
+    },
+    "moral": {
+      "hi": "गुरुभक्ति और धैर्य से असंभव कार्य भी संभव हो जाते हैं।",
+      "en": "With devotion to the guru and patience, even impossible tasks become achievable."
+    }
+  },
+  "chinese": {
+    "rat": {
+      "hindi": {
+        "prediction": "आज चूहा राशि के जातकों के लिए कार्यक्षेत्र में नए अवसर दिखाई देंगे। रिश्तों में समझदारी से काम लेने की आवश्यकता है, खासकर पारिवारिक मामलों में। आपकी ऊर्जा आज थोड़ी कम हो सकती है, इसलिए आराम को प्राथमिकता दें। वित्तीय मामलों में सावधानी बरतें और जल्दबाजी में फैसले न लें।",
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.2
+      },
+      "english": {
+        "prediction": "Today brings promising opportunities in your professional sphere, dear Rat. Your natural intelligence and quick thinking will help you navigate workplace challenges effectively. In relationships, practice patience with loved ones as minor misunderstandings may arise. Your energy levels might feel slightly drained today, so prioritize rest and avoid overcommitting to social obligations.",
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.2
+      }
+    },
+    "ox": {
+      "hindi": {
+        "prediction": "आज आपकी मेहनत और धैर्य का फल मिलने का दिन है। कार्यक्षेत्र में नई जिम्मेदारियां मिल सकती हैं जो आपकी क्षमताओं को निखारेंगी। रिश्तों में थोड़ी सावधानी बरतें और जल्दबाजी में कोई निर्णय न लें। आपकी स्थिर प्रकृति आज आपको सफलता दिलाएगी।",
+        "lucky_number": 4,
+        "lucky_color": "हरा",
+        "rating": 3.8
+      },
+      "english": {
+        "prediction": "Today brings recognition for your steady dedication and hard work. New opportunities at work may require you to step up and showcase your reliable nature. In relationships, your practical approach will help resolve any lingering issues, but avoid being too stubborn in discussions. Your natural persistence will pay off, especially in financial matters.",
+        "lucky_number": 4,
+        "lucky_color": "Green",
+        "rating": 3.8
+      }
+    },
+    "tiger": {
+      "hindi": {
+        "prediction": "आज आपकी प्राकृतिक नेतृत्व क्षमता काम में चमकेगी और सहकर्मी आपके विचारों का सम्मान करेंगे। रिश्तों में थोड़ा धैर्य रखें क्योंकि किसी प्रिय व्यक्ति के साथ मतभेद हो सकते हैं। आपकी ऊर्जा का स्तर उच्च है लेकिन शाम तक थकान महसूस कर सकते हैं। नए अवसरों पर विचार करने का अच्छा दिन है।",
+        "lucky_number": 9,
+        "lucky_color": "नारंगी",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Your natural leadership qualities will shine brightly at work today, earning you respect from colleagues and superiors. In relationships, practice patience as there might be minor disagreements with someone close to you. Your energy levels are high in the morning, though you may feel drained by evening. This is an excellent day to consider new opportunities that align with your ambitious nature.",
+        "lucky_number": 9,
+        "lucky_color": "Orange",
+        "rating": 4.0
+      }
+    },
+    "rabbit": {
+      "hindi": {
+        "prediction": "आज खरगोश राशि के लिए करियर में नई संभावनाएं दिखाई देंगी। रिश्तों में धैर्य और समझदारी से काम लें, क्योंकि छोटी बातों को लेकर मतभेद हो सकते हैं। आपकी ऊर्जा का स्तर अच्छा रहेगा, लेकिन शाम के बाद आराम जरूरी है। वित्तीय मामलों में सोच-समझकर निर्णय लें।",
+        "lucky_number": 9,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Today brings fresh opportunities in your professional sphere, dear Rabbit. Your natural diplomacy will be tested in relationships, so approach conversations with extra patience and understanding. Your energy levels are steady but conserve your strength for important tasks. This is an excellent day for creative pursuits and making meaningful connections with like-minded individuals.",
+        "lucky_number": 9,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    "dragon": {
+      "hindi": {
+        "prediction": "आज ड्रैगन राशि के लिए कार्यक्षेत्र में नई संभावनाएं खुलेंगी। रिश्तों में थोड़ी सावधानी बरतें क्योंकि गलतफहमी हो सकती है। आपकी ऊर्जा का स्तर उच्च रहेगा लेकिन अधिक उत्साह में जल्दबाजी न करें। शाम के समय कोई अच्छी खबर मिल सकती है।",
+        "lucky_number": 9,
+        "lucky_color": "सुनहरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Today brings promising opportunities in your professional sphere, Dragon. Be cautious in personal relationships as minor misunderstandings may arise due to miscommunication. Your energy levels will be notably high, but channel this enthusiasm wisely rather than rushing into decisions. The evening hours may bring welcome news that boosts your confidence.",
+        "lucky_number": 9,
+        "lucky_color": "Gold",
+        "rating": 4.0
+      }
+    },
+    "snake": {
+      "hindi": {
+        "prediction": "आज सांप राशि के लिए एक संतुलित दिन है जहाँ आपकी बुद्धिमत्ता और अंतर्ज्ञान का सही उपयोग करना आवश्यक है। कार्यक्षेत्र में नए अवसर दिखाई दे सकते हैं लेकिन जल्दबाजी से बचें और सोच-समझकर निर्णय लें। रिश्तों में गहराई से बातचीत करने का समय है और अपनी भावनाओं को छुपाने के बजाय खुलकर व्यक्त करें। शाम के समय में ध्यान या योग करने से मानसिक शांति मिलेगी।",
+        "lucky_number": 4,
+        "lucky_color": "गहरा हरा",
+        "rating": 3.7
+      },
+      "english": {
+        "prediction": "Today brings a harmonious blend of intuition and practical wisdom for Snake natives. Your analytical nature will serve you well in professional matters, particularly in negotiations or strategic planning sessions. In relationships, someone close to you may seek your counsel - your natural ability to read between the lines will help you provide valuable guidance. This evening, focus on self-reflection and avoid making impulsive financial decisions as Mercury's influence suggests patience will yield better results.",
+        "lucky_number": 4,
+        "lucky_color": "Deep Green",
+        "rating": 3.7
+      }
+    },
+    "horse": {
+      "hindi": {
+        "prediction": "आज आपकी ऊर्जा और उत्साह चरम पर होगा, लेकिन धैर्य रखना आवश्यक है। कार्यक्षेत्र में नई संभावनाएं दिखेंगी परंतु जल्दबाजी में निर्णय न लें। रिश्तों में खुलकर बात करने से पुराने मतभेद सुलझ सकते हैं। शाम के समय मानसिक शांति के लिए प्रकृति के पास समय बिताएं।",
+        "lucky_number": 8,
+        "lucky_color": "हरा",
+        "rating": 3.8
+      },
+      "english": {
+        "prediction": "Your natural charisma and adventurous spirit will attract new opportunities today, but avoid rushing into commitments. At work, a collaborative approach will yield better results than going solo. In relationships, your honest communication will strengthen bonds, especially with those who share your values. Channel your abundant energy into creative pursuits this evening for maximum satisfaction.",
+        "lucky_number": 8,
+        "lucky_color": "Green",
+        "rating": 3.8
+      }
+    },
+    "goat": {
+      "hindi": {
+        "prediction": "आज बकरी राशि के लिए रचनात्मकता और कलात्मक गतिविधियों का दिन है। कार्यक्षेत्र में आपके नवाचार की सराहना होगी और सहयोगियों से प्रशंसा मिलेगी। रिश्तों में कोमलता और समझदारी दिखाने से घर में शांति बनी रहेगी। शाम के समय ध्यान या योग करने से मानसिक ऊर्जा में वृद्धि होगी।",
+        "lucky_number": 6,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "Today brings creative inspiration and artistic opportunities for Goat natives. Your innovative ideas at work will be well-received, earning you recognition from colleagues and superiors. In relationships, your gentle and understanding nature will help resolve any minor tensions at home. Evening meditation or quiet reflection will restore your inner balance and boost your spiritual energy for tomorrow's challenges.",
+        "lucky_number": 6,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    "monkey": {
+      "hindi": {
+        "prediction": "आज आपकी बुद्धिमत्ता और रचनात्मकता चरम पर होगी, जो कार्यक्षेत्र में नए अवसर लेकर आएगी। रिश्तों में थोड़ी सावधानी बरतें क्योंकि आपकी चंचल प्रकृति किसी को गलत संदेश दे सकती है। आर्थिक मामलों में सोच-समझकर निर्णय लें और जल्दबाजी से बचें। आज आपकी ऊर्जा का स्तर अच्छा रहेगा लेकिन संयम बनाए रखना आवश्यक है।",
+        "lucky_number": 9,
+        "lucky_color": "हरा",
+        "rating": 3.8
+      },
+      "english": {
+        "prediction": "Your natural wit and adaptability will shine brightly today, opening doors to exciting professional opportunities. In relationships, your playful nature might be misunderstood, so communicate clearly with loved ones. Financial decisions require careful consideration - avoid impulsive purchases or investments today. Your energy levels will be high, but channel this vitality wisely to avoid burnout later.",
+        "lucky_number": 9,
+        "lucky_color": "Green",
+        "rating": 3.8
+      }
+    },
+    "rooster": {
+      "hindi": {
+        "prediction": "आज मुर्गा राशि वालों के लिए संवाद और स्पष्टता का दिन है। कार्यक्षेत्र में आपकी बारीक नज़र और व्यावहारिकता से महत्वपूर्ण समस्याओं का समाधान निकलेगा। रिश्तों में थोड़ी धैर्य की आवश्यकता है क्योंकि आपकी सीधी बात कुछ लोगों को कड़वी लग सकती है। ऊर्जा का स्तर संतुलित रहेगा लेकिन शाम तक थकान महसूस हो सकती है।",
+        "lucky_number": 14,
+        "lucky_color": "सुनहरा",
+        "rating": 3.8
+      },
+      "english": {
+        "prediction": "Today brings clarity and effective communication for Rooster natives. Your meticulous attention to detail and practical approach will help solve important workplace challenges that others have overlooked. In relationships, exercise patience as your direct communication style might come across as too blunt for sensitive souls. Energy levels remain steady throughout the morning but you may feel drained by evening, so plan accordingly.",
+        "lucky_number": 14,
+        "lucky_color": "Golden",
+        "rating": 3.8
+      }
+    },
+    "dog": {
+      "hindi": {
+        "prediction": "आज कुत्ता राशि के लिए कार्यक्षेत्र में सहयोग और टीमवर्क का दिन है। रिश्तों में ईमानदारी और विश्वास को बनाए रखें, क्योंकि आपकी वफादारी आज विशेष रूप से सराही जाएगी। ऊर्जा का स्तर संतुलित रहेगा, लेकिन शाम के समय थोड़ा आराम जरूरी है। छोटे निर्णयों में अपने अंतर्ज्ञान पर भरोसा करें।",
+        "lucky_number": 9,
+        "lucky_color": "नीला",
+        "rating": 3.7
+      },
+      "english": {
+        "prediction": "Today brings opportunities for Dog signs to showcase their natural leadership and protective instincts in professional settings. Your loyal nature will attract meaningful connections, especially in personal relationships where trust is being rebuilt. Energy levels may fluctuate throughout the day, so pace yourself and avoid overcommitting to social obligations. A practical approach to financial matters will yield positive results by evening.",
+        "lucky_number": 9,
+        "lucky_color": "Blue",
+        "rating": 3.7
+      }
+    },
+    "pig": {
+      "hindi": {
+        "prediction": "आज सूअर राशि के लिए कार्यक्षेत्र में धीरे-धीरे प्रगति का दिन है। रिश्तों में समझदारी और धैर्य से काम लें, क्योंकि छोटी बातों पर विवाद हो सकते हैं। आपकी ऊर्जा का स्तर सामान्य रहेगा, लेकिन शाम तक आप खुद को तरोताजा महसूस करेंगे। आर्थिक मामलों में सोच-समझकर निर्णय लें।",
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.2
+      },
+      "english": {
+        "prediction": "Today brings steady progress in your professional endeavors, dear Pig. Your natural compassion will be tested in relationships, so practice patience when dealing with stubborn personalities. Energy levels may fluctuate throughout the morning, but you'll find renewed vigor by evening. Financial opportunities require careful consideration rather than impulsive decisions.",
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.2
+      }
+    }
+  },
+  "tarot": {
+    "card_of_day": {
+      "number": 11,
+      "hindi": {
+        "name": "न्याय",
+        "meaning": "न्याय का कार्ड संतुलन, निष्पक्षता और सत्य की खोज का प्रतीक है। यह समय है जब आपके पिछले कर्मों का फल मिलने का और सही निर्णय लेने का।",
+        "advice": "आज अपने निर्णयों में निष्पक्षता और संतुलन बनाए रखें।"
+      },
+      "english": {
+        "name": "Justice",
+        "meaning": "Justice represents balance, fairness, and the search for truth in all matters. This card indicates a time when past actions bear fruit and important decisions must be made with clarity and wisdom.",
+        "advice": "Today, approach all decisions with fairness and seek balance in your choices."
+      }
+    },
+    "spread": [
+      {
+        "position": {
+          "hi": "अतीत",
+          "en": "Past"
+        },
+        "number": 4,
+        "hindi": {
+          "name": "सम्राट",
+          "meaning": "अतीत में आपने अनुशासन और दृढ़ता से अपनी नींव मजबूत बनाई है। यह स्थिरता आज भी आपका सहारा है।"
+        },
+        "english": {
+          "name": "The Emperor",
+          "meaning": "Your past has been marked by discipline and strong foundations that you built with determination. This stability continues to support you today."
+        }
+      },
+      {
+        "position": {
+          "hi": "वर्तमान",
+          "en": "Present"
+        },
+        "number": 14,
+        "hindi": {
+          "name": "संयम",
+          "meaning": "वर्तमान में आप धैर्य और संयम से अपने लक्ष्यों की दिशा में काम कर रहे हैं। यह समय संतुलन और मध्यम मार्ग अपनाने का है।"
+        },
+        "english": {
+          "name": "Temperance",
+          "meaning": "Currently, you are working toward your goals with patience and moderation. This is a time for finding balance and taking the middle path in all endeavors."
+        }
+      },
+      {
+        "position": {
+          "hi": "भविष्य",
+          "en": "Future"
+        },
+        "number": 1,
+        "hindi": {
+          "name": "जादूगर",
+          "meaning": "भविष्य में आपके पास नई शुरुआत करने और अपनी इच्छाओं को साकार करने की शक्ति होगी। आपकी क्षमताएं नए अवसर लेकर आएंगी।"
+        },
+        "english": {
+          "name": "The Magician",
+          "meaning": "The future holds the power to manifest your desires and create new beginnings. Your skills and abilities will open doors to exciting opportunities."
+        }
+      }
+    ]
+  },
+  "numerology": [
+    {
+      "number": 1,
+      "planet": {
+        "hi": "सूर्य",
+        "en": "Sun"
+      },
+      "hindi": {
+        "prediction": "आज आपके लिए नेतृत्व और नई शुरुआत का दिन है। कार्यक्षेत्र में आपकी पहल को सराहना मिलेगी और आत्मविश्वास बढ़ेगा।",
+        "lucky_color": "केसरिया",
+        "compatible": 3
+      },
+      "english": {
+        "prediction": "Today brings leadership opportunities and fresh beginnings for you. Your initiatives at work will be appreciated and your confidence will soar.",
+        "lucky_color": "Orange",
+        "compatible": 3
+      }
+    },
+    {
+      "number": 2,
+      "planet": {
+        "hi": "चंद्र",
+        "en": "Moon"
+      },
+      "hindi": {
+        "prediction": "भावनात्मक संतुलन और सहयोग का दिन है। पारस्परिक रिश्तों में मधुरता आएगी और मन को शांति मिलेगी।",
+        "lucky_color": "सफेद",
+        "compatible": 7
+      },
+      "english": {
+        "prediction": "A day of emotional balance and cooperation awaits you. Sweetness will enter your relationships and peace will fill your mind.",
+        "lucky_color": "White",
+        "compatible": 7
+      }
+    },
+    {
+      "number": 3,
+      "planet": {
+        "hi": "गुरु",
+        "en": "Jupiter"
+      },
+      "hindi": {
+        "prediction": "रचनात्मकता और ज्ञान प्राप्ति का शुभ दिन है। शिक्षा या कलात्मक कार्यों में सफलता मिलने की संभावना है।",
+        "lucky_color": "पीला",
+        "compatible": 6
+      },
+      "english": {
+        "prediction": "An auspicious day for creativity and knowledge acquisition. Success is likely in educational or artistic endeavors.",
+        "lucky_color": "Yellow",
+        "compatible": 6
+      }
+    },
+    {
+      "number": 4,
+      "planet": {
+        "hi": "राहु",
+        "en": "Rahu"
+      },
+      "hindi": {
+        "prediction": "आज धैर्य और व्यावहारिकता से काम लें। अपरिचित परिस्थितियों में सावधानी बरतें और जल्दबाजी से बचें।",
+        "lucky_color": "हरा",
+        "compatible": 8
+      },
+      "english": {
+        "prediction": "Work with patience and practicality today. Exercise caution in unfamiliar situations and avoid hasty decisions.",
+        "lucky_color": "Green",
+        "compatible": 8
+      }
+    },
+    {
+      "number": 5,
+      "planet": {
+        "hi": "बुध",
+        "en": "Mercury"
+      },
+      "hindi": {
+        "prediction": "संवाद और यात्रा के लिए अनुकूल दिन है। नई जानकारी मिलेगी और व्यापारिक गतिविधियों में लाभ संभव है।",
+        "lucky_color": "हरा",
+        "compatible": 1
+      },
+      "english": {
+        "prediction": "A favorable day for communication and travel. New information will come your way and profits in business activities are possible.",
+        "lucky_color": "Green",
+        "compatible": 1
+      }
+    },
+    {
+      "number": 6,
+      "planet": {
+        "hi": "शुक्र",
+        "en": "Venus"
+      },
+      "hindi": {
+        "prediction": "प्रेम और कलात्मक गतिविधियों का शुभ दिन है। पारिवारिक खुशी मिलेगी और सुंदरता से जुड़े काम सफल होंगे।",
+        "lucky_color": "गुलाबी",
+        "compatible": 2
+      },
+      "english": {
+        "prediction": "An auspicious day for love and artistic activities. Family happiness will come and beauty-related work will succeed.",
+        "lucky_color": "Pink",
+        "compatible": 2
+      }
+    },
+    {
+      "number": 7,
+      "planet": {
+        "hi": "केतु",
+        "en": "Ketu"
+      },
+      "hindi": {
+        "prediction": "आध्यात्म और अंतर्दृष्टि का दिन है। एकांत में विचार करने से महत्वपूर्ण समाधान मिल सकते हैं।",
+        "lucky_color": "बैंगनी",
+        "compatible": 4
+      },
+      "english": {
+        "prediction": "A day of spirituality and inner insight. Important solutions may emerge from contemplation in solitude.",
+        "lucky_color": "Purple",
+        "compatible": 4
+      }
+    },
+    {
+      "number": 8,
+      "planet": {
+        "hi": "शनि",
+        "en": "Saturn"
+      },
+      "hindi": {
+        "prediction": "कड़ी मेहनत और अनुशासन का फल मिलेगा। धीरे-धीरे प्रगति होगी लेकिन स्थायी सफलता मिलेगी।",
+        "lucky_color": "काला",
+        "compatible": 5
+      },
+      "english": {
+        "prediction": "The fruits of hard work and discipline will be realized. Progress will be gradual but lasting success will come.",
+        "lucky_color": "Black",
+        "compatible": 5
+      }
+    },
+    {
+      "number": 9,
+      "planet": {
+        "hi": "मंगल",
+        "en": "Mars"
+      },
+      "hindi": {
+        "prediction": "ऊर्जा और साहस से भरा दिन है। नए कार्यों की शुरुआत करने का अच्छा समय है और प्रतिस्पर्धा में जीत संभव है।",
+        "lucky_color": "लाल",
+        "compatible": 9
+      },
+      "english": {
+        "prediction": "A day filled with energy and courage. It's a good time to start new tasks and victory in competition is possible.",
+        "lucky_color": "Red",
+        "compatible": 9
+      }
+    }
+  ],
+  "vastu": {
+    "direction": {
+      "hi": "उत्तर-पूर्व",
+      "en": "North-East"
+    },
+    "hindi": {
+      "title": "ईशान कोण में जल तत्व की शुद्धता",
+      "tip": "अपने घर के उत्तर-पूर्व कोने में एक छोटा पानी का बर्तन या कटोरा रखें और उसमें स्वच्छ जल भरकर रोज बदलें। इस पानी में एक चुटकी समुद्री नमक या गंगाजल मिलाकर रख सकते हैं। सुनिश्चित करें कि यह स्थान हमेशा साफ-सुथरा रहे और कोई भारी सामान न हो। यह क्षेत्र प्राकृतिक प्रकाश से भरपूर होना चाहिए।",
+      "benefit": "इससे घर में सकारात्मक ऊर्जा का प्रवाह बढ़ता है और मानसिक शांति मिलती है।"
+    },
+    "english": {
+      "title": "Water Element Purification in Ishaan Corner",
+      "tip": "Place a small water bowl or vessel in the north-east corner of your home and fill it with clean water, changing it daily. You can add a pinch of sea salt or Ganga water to enhance its purifying properties. Ensure this area remains clean and clutter-free with no heavy objects placed here. This zone should receive abundant natural light throughout the day.",
+      "benefit": "This enhances positive energy flow in the home and brings mental peace and clarity."
+    }
+  },
+  "gemstone": {
+    "planet": {
+      "hi": "शनि",
+      "en": "Saturn"
+    },
+    "gemstone": {
+      "hi": "नीलम",
+      "en": "Blue Sapphire"
+    },
+    "hindi": {
+      "why": "आज शनिवार है और शनि ग्रह का दिन है, इसलिए नीलम रत्न विशेष रूप से शुभ है। यह शनि की नकारात्मक ऊर्जा को कम करके सकारात्मक प्रभाव बढ़ाता है।",
+      "wear": "जिन लोगों की कुंडली में शनि कमजोर है या शनि की साढ़ेसाती चल रही है, उन्हें यह पहनना चाहिए। व्यापारी और न्यायिक क्षेत्र के लोगों के लिए भी यह लाभकारी है।",
+      "avoid": "मेष, कर्क, सिंह और वृश्चिक राशि के लोगों को इससे बचना चाहिए।",
+      "mantra": "ॐ शं शनैश्चराय नमः।"
+    },
+    "english": {
+      "why": "Today being Saturday is ruled by Saturn, making Blue Sapphire especially auspicious. It helps reduce negative Saturn influences while amplifying positive energies of this powerful planet.",
+      "wear": "Those with weak Saturn in their horoscope or experiencing Saturn's adverse transit should wear it. Business people and those in legal professions also benefit greatly.",
+      "avoid": "People with Aries, Cancer, Leo and Scorpio ascendants should avoid wearing it.",
+      "mantra": "ॐ शं शनैश्चराय नमः।"
+    }
+  },
+  "transit": {
+    "headline": {
+      "hi": "शुक्र वृष राशि में — प्रेम और वित्त में स्थिरता",
+      "en": "Venus in Taurus — stability in love and finances"
+    },
+    "hindi": {
+      "summary": "शुक्र का अपनी स्वराशि वृष में गोचर एक अत्यंत शुभ समय है। यह समय प्रेम, सुंदरता, और भौतिक सुख-सुविधाओं के लिए अनुकूल है। वित्तीय मामलों में स्थिरता और संपत्ति की वृद्धि के योग बन रहे हैं। कलात्मक कार्यों और रचनात्मक गतिविधियों में सफलता मिल सकती है।",
+      "career": "व्यापार, कला, फैशन और सौंदर्य से जुड़े क्षेत्रों में विशेष लाभ की संभावना है।",
+      "relationships": "प्रेम संबंधों में गहराई और विवाह के लिए यह एक अत्यंत शुभ समय है।",
+      "health": "त्वचा और गले से संबंधित समस्याओं पर ध्यान दें, परंतु समग्र स्वास्थ्य अच्छा रहेगा।"
+    },
+    "english": {
+      "summary": "Venus transiting through its own sign Taurus brings a highly favorable period. This time is excellent for love, beauty, and material comforts in life. Financial stability and growth in assets are strongly indicated during this transit. Artistic endeavors and creative activities will flourish under this beautiful planetary influence.",
+      "career": "Business ventures, arts, fashion, and beauty-related fields will see exceptional growth and profits.",
+      "relationships": "Love relationships deepen with commitment, making this an ideal time for engagements and marriages.",
+      "health": "Pay attention to skin and throat-related issues, though overall health remains robust and positive."
+    }
+  },
+  "muhurat_detail": {
+    "new_work": {
+      "time": "6:00 AM – 7:30 AM",
+      "hi": "नए कार्य के लिए",
+      "en": "For starting new work"
+    },
+    "travel": {
+      "time": "11:00 AM – 12:30 PM",
+      "hi": "यात्रा के लिए",
+      "en": "For travel"
+    },
+    "finance": {
+      "time": "2:00 PM – 3:30 PM",
+      "hi": "धन-लेनदेन के लिए",
+      "en": "For financial transactions"
+    },
+    "medical": {
+      "time": "7:30 AM – 9:00 AM",
+      "hi": "चिकित्सा के लिए",
+      "en": "For medical procedures"
+    },
+    "avoid": {
+      "time": "9:00 AM – 10:30 AM",
+      "hi": "राहु काल — टालें",
+      "en": "Rahu Kaal — avoid"
+    }
+  },
+  "festival_special": null,
+  "generated_at": "2026-04-17T17:55:11.488484"
+}
