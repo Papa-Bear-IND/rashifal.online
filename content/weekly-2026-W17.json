@@ -1,0 +1,486 @@
+{
+  "period": "weekly",
+  "week_label": "20 Apr – 26 Apr 2026",
+  "iso_year": 2026,
+  "iso_week": 17,
+  "start": "2026-04-20",
+  "end": "2026-04-26",
+  "rashis": [
+    {
+      "id": "mesh",
+      "name_hi": "मेष",
+      "name_en": "Aries",
+      "symbol": "♈",
+      "dates": "Mar 21 – Apr 19",
+      "hindi": {
+        "prediction": "इस सप्ताह मेष राशि के जातकों के लिए मंगल ग्रह की शुभ स्थिति के कारण नई शुरुआत का समय है। बुध ग्रह का आपकी द्वितीय भाव में संचार धन संबंधी मामलों में सकारात्मक परिवर्तन लाएगा। शुक्रवार तक आपकी ऊर्जा और उत्साह में वृद्धि होगी। सप्ताह के मध्य में कुछ छोटी बाधाएं आ सकती हैं लेकिन ये अस्थायी होंगी। रविवार को चंद्रमा की अनुकूल स्थिति आपके व्यक्तित्व को निखारेगी। कुल मिलाकर यह सप्ताह प्रगति और विकास के लिए उत्तम है।",
+        "key_days": "सबसे शुभ दिन रविवार और मंगलवार होंगे जब आपका स्वामी ग्रह मंगल बलशाली होगा। बुधवार को थोड़ी सावधानी बरतें क्योंकि कुछ विलंब हो सकते हैं।",
+        "love": "प्रेम जीवन में इस सप्ताह नई उमंग देखने को मिलेगी। शुक्रवार के बाद आपके रिश्तों में मिठास बढ़ेगी और पार्टनर के साथ समझदारी बनेगी। विवाहित जोड़ों के लिए यह समय खुशियों भरा रहेगा।",
+        "career": "कार्यक्षेत्र में नए अवसर प्राप्त हो सकते हैं और आपकी मेहनत का फल मिलना शुरू होगा। व्यापारियों के लिए यह सप्ताह विशेष रूप से लाभकारी है। नई योजनाओं पर काम करना शुभ रहेगा।",
+        "health": "स्वास्थ्य की दृष्टि से यह सप्ताह सामान्य रहेगा। सिर दर्द या छोटी-मोटी परेशानियां हो सकती हैं। नियमित योग और व्यायाम आपको स्वस्थ रखेंगे।",
+        "finance": "आर्थिक स्थिति में सुधार के संकेत मिल रहे हैं। निवेश के लिए यह अच्छा समय है लेकिन जल्दबाजी न करें। पुराने पैसे वापस मिल सकते हैं।",
+        "lucky_number": 9,
+        "lucky_color": "लाल",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings a dynamic phase for Aries natives as Mars, your ruling planet, moves into a favorable position in the fire trine. Mercury's transit through your second house of finances will bring positive developments in money matters by mid-week. Your natural leadership qualities will shine brightly, especially around Friday when Venus forms a supportive aspect. Some minor challenges may surface on Wednesday due to a brief lunar opposition, but these will pass quickly. The weekend promises excellent opportunities for personal growth and new beginnings. Overall, this is a week of forward momentum and exciting possibilities.",
+        "key_days": "Sunday and Tuesday stand out as the most auspicious days when Mars energy peaks, bringing success in all endeavors. Exercise caution on Wednesday as minor delays or miscommunications may occur.",
+        "love": "Romance takes center stage this week with Venus blessing your relationship sector. Single Aries may encounter someone special during weekend social gatherings. Existing partnerships will experience renewed passion and deeper understanding.",
+        "career": "Professional life accelerates with new projects and recognition for past efforts coming your way. Business owners should consider expansion plans as the cosmic climate favors growth. Important meetings scheduled for Friday will yield positive outcomes.",
+        "health": "Energy levels remain high throughout the week, though minor headaches or stress-related issues may surface mid-week. Focus on maintaining regular sleep patterns and incorporating meditation into your routine for optimal wellness.",
+        "finance": "Financial prospects look promising with potential for increased income through new ventures or investments. Avoid impulsive purchases early in the week. A monetary opportunity may present itself through professional networks.",
+        "lucky_number": 9,
+        "lucky_color": "Red",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "vrishabh",
+      "name_hi": "वृषभ",
+      "name_en": "Taurus",
+      "symbol": "♉",
+      "dates": "Apr 20 – May 20",
+      "hindi": {
+        "prediction": "इस सप्ताह वृषभ राशि के लिए शुक्र ग्रह का प्रभाव अधिक सशक्त रहेगा। आपकी जन्म तिथि के आसपास सूर्य का गोचर आपको नई ऊर्जा और आत्मविश्वास प्रदान करेगा। मंगल ग्रह का त्रिकोण योग आपके व्यावसायिक क्षेत्र में सफलता दिलाएगा। सप्ताह के मध्य में चंद्रमा की स्थिति आपके मानसिक स्वास्थ्य को बेहतर बनाएगी। गुरु का आशीर्वाद पारिवारिक रिश्तों में मधुरता लाएगा। शनि की छाया से बचने के लिए धैर्य बनाए रखें।",
+        "key_days": "बुधवार और शुक्रवार आपके लिए सबसे शुभ दिन रहेंगे। सोमवार को सावधानी बरतें क्योंकि छोटी परेशानियां हो सकती हैं।",
+        "love": "प्रेम संबंधों में यह सप्ताह अत्यधिक रोमांचक रहेगा। शुक्र ग्रह की कृपा से आपके रिश्तों में नई मिठास आएगी। विवाहित जोड़ों के लिए यह समय पारस्परिक समझ बढ़ाने का है।",
+        "career": "कार्यक्षेत्र में आपकी मेहनत का फल मिलने का समय है। नए प्रोजेक्ट्स में सफलता की संभावना प्रबल है। सहयोगियों के साथ मिलकर काम करने से बेहतर परिणाम मिलेंगे।",
+        "health": "स्वास्थ्य की दृष्टि से यह सप्ताह संतुलित रहेगा। योग और ध्यान का अभ्यास आपको मानसिक शांति देगा। गले और कंधे के दर्द पर विशेष ध्यान दें।",
+        "finance": "वित्तीय स्थिति में सुधार के संकेत दिख रहे हैं। निवेश संबंधी निर्णय लेने से पहले सलाह अवश्य लें। अनावश्यक खर्चों पर नियंत्रण रखें।",
+        "lucky_number": 6,
+        "lucky_color": "हरा",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings strong Venus influence for Taurus natives, enhancing your natural charm and magnetism. With the Sun transiting near your birth sign, you'll experience renewed vitality and confidence in all endeavors. Mars forms a beneficial trine aspect, boosting your professional prospects and leadership abilities. The Moon's favorable position mid-week will bring emotional stability and mental clarity. Jupiter's blessings will strengthen family bonds and bring harmony to domestic matters. However, Saturn's subtle influence suggests maintaining patience in long-term goals.",
+        "key_days": "Wednesday and Friday emerge as your most auspicious days with maximum planetary support. Exercise caution on Monday as minor obstacles may arise.",
+        "love": "Romance takes center stage this week with Venus showering special blessings on your relationships. Single Taurus individuals may encounter meaningful connections, while committed partners will experience deeper intimacy. Communication flows smoothly, resolving any past misunderstandings.",
+        "career": "Professional life shows tremendous promise with recognition for past efforts finally materializing. New project opportunities align perfectly with your skills and ambitions. Collaborative efforts with colleagues will yield exceptional results and open doors to future advancement.",
+        "health": "Overall health remains stable with gradual improvement in energy levels. Incorporating meditation and gentle yoga will enhance your physical and mental well-being. Pay special attention to throat and shoulder tension, which may require therapeutic attention.",
+        "finance": "Financial prospects show encouraging signs of growth and stability. Investment opportunities may present themselves, but thorough research is essential before committing funds. Control unnecessary expenditures to maintain healthy cash flow throughout the week.",
+        "lucky_number": 6,
+        "lucky_color": "Green",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "mithun",
+      "name_hi": "मिथुन",
+      "name_en": "Gemini",
+      "symbol": "♊",
+      "dates": "May 21 – Jun 20",
+      "hindi": {
+        "prediction": "मिथुन राशि के लिए यह सप्ताह संचार और बौद्धिक गतिविधियों के लिए उत्तम है। बुध ग्रह की अनुकूल स्थिति के कारण नए विचारों और योजनाओं को लेकर उत्साह रहेगा। मंगलवार से गुरुवार तक का समय विशेष रूप से लाभकारी है जब चंद्रमा आपकी राशि से गुजरेगा। शुक्रवार को शनि का प्रभाव थोड़ी बाधाएं ला सकता है लेकिन धैर्य से काम लेना होगा। सप्ताहांत में सामाजिक गतिविधियों में वृद्धि होगी। कुल मिलाकर यह एक संतुलित और प्रगतिशील सप्ताह रहेगा।",
+        "key_days": "बुधवार सबसे शुभ दिन है जब बुध और चंद्रमा का योग आपको अतिरिक्त लाभ दिलाएगा। शुक्रवार को सावधानी बरतें क्योंकि शनि का प्रभाव चुनौतियां ला सकता है।",
+        "love": "प्रेम संबंधों में मधुरता आएगी और पुराने मतभेद सुलझने के आसार हैं। बुधवार को प्रेम प्रसंग में विशेष सफलता मिल सकती है। एकल व्यक्तियों के लिए कोई खास व्यक्ति से मुलाकात हो सकती है।",
+        "career": "कार्यक्षेत्र में नई परियोजनाओं की शुरुआत के लिए अच्छा समय है। आपकी वाक्पटुता और बुद्धिमत्ता का लोहा मानेंगे सहकर्मी। व्यापार में नए संपर्क बनेंगे जो भविष्य में लाभकारी सिद्ध होंगे।",
+        "health": "स्वास्थ्य सामान्यतः अच्छा रहेगा लेकिन श्वसन संबंधी समस्याओं पर ध्यान दें। तनाव को नियंत्रित करने के लिए ध्यान और प्राणायाम का सहारा लें। पर्याप्त नींद लेना आवश्यक है।",
+        "finance": "धन की स्थिति में सुधार के संकेत हैं और पुराने निवेश से लाभ मिल सकता है। गुरुवार के बाद कोई छोटी धनराशि प्राप्त हो सकती है। अनावश्यक खर्चों से बचें और बचत पर ध्यान दें।",
+        "lucky_number": 5,
+        "lucky_color": "पीला",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings excellent opportunities for Gemini natives in communication and intellectual pursuits. Mercury's favorable position enhances your mental agility and brings enthusiasm for new ideas and plans. Tuesday through Thursday will be particularly beneficial as the Moon transits through supportive houses. Friday may present some challenges due to Saturn's influence, requiring patience and careful handling of situations. The weekend promises increased social activities and networking opportunities. Overall, this appears to be a balanced and progressive week with more gains than setbacks.",
+        "key_days": "Wednesday stands out as the most auspicious day when Mercury and Moon form a beneficial conjunction bringing extra advantages. Exercise caution on Friday as Saturn's influence may create obstacles or delays.",
+        "love": "Romance takes a sweeter turn with old disagreements likely to resolve amicably. Wednesday could bring special success in matters of the heart with meaningful conversations. Singles may encounter someone interesting through social or professional circles.",
+        "career": "Professional sphere looks promising for launching new projects or initiatives. Your eloquence and intellectual capabilities will be recognized and appreciated by colleagues and superiors. Business people can expect to form valuable new connections that will prove beneficial in the long run.",
+        "health": "Health remains generally good, though respiratory issues may need attention during this period. Practice meditation and breathing exercises to manage stress levels effectively. Ensure adequate sleep and avoid overexertion, especially during the latter half of the week.",
+        "finance": "Financial situation shows signs of improvement with possible gains from previous investments becoming apparent. A small monetary benefit may come your way after Thursday. Focus on saving and avoid unnecessary expenditures to maintain financial stability.",
+        "lucky_number": 5,
+        "lucky_color": "Yellow",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "kark",
+      "name_hi": "कर्क",
+      "name_en": "Cancer",
+      "symbol": "♋",
+      "dates": "Jun 21 – Jul 22",
+      "hindi": {
+        "prediction": "इस सप्ताह कर्क राशि के जातकों के लिए मिश्रित फल देखे जा रहे हैं। आपके स्वामी चंद्र की स्थिति में परिवर्तन से मानसिक अशांति हो सकती है। गुरु और शुक्र की अनुकूल युति से पारिवारिक मामलों में सुधार होगा। मंगल की प्रतिकूल दशा से वाद-विवाद की स्थिति बन सकती है। सप्ताह के अंत तक स्थितियां आपके अनुकूल होने लगेंगी।",
+        "key_days": "सोमवार और बुधवार आपके लिए अत्यंत शुभ रहेंगे। शुक्रवार को सावधानी की आवश्यकता है।",
+        "love": "प्रेम संबंधों में इस सप्ताह थोड़ी उलझन देखी जा रही है। विवाहित जोड़ों को धैर्य रखना होगा क्योंकि छोटी-मोटी बातों पर मतभेद हो सकते हैं। सप्ताह के अंत में रिश्तों में मिठास वापस आएगी।",
+        "career": "कार्यक्षेत्र में नई चुनौतियां सामने आ सकती हैं लेकिन आपकी मेहनत रंग लाएगी। सहकर्मियों से सहयोग मिलेगा और नए अवसर भी प्राप्त हो सकते हैं। व्यापारिक गतिविधियों में सावधानी बरतें।",
+        "health": "स्वास्थ्य की दृष्टि से यह सप्ताह सामान्य रहेगा। मानसिक तनाव से बचने के लिए योग और ध्यान का सहारा लें। पाचन संबंधी समस्याएं हो सकती हैं इसलिए खान-पान में संयम रखें।",
+        "finance": "आर्थिक स्थिति में सुधार के संकेत मिल रहे हैं। पुराने निवेश से लाभ की संभावना है। बड़े खर्चों से बचें और बचत को प्राथमिकता दें।",
+        "lucky_number": 2,
+        "lucky_color": "सफेद",
+        "rating": 3.0
+      },
+      "english": {
+        "prediction": "This week presents a mixed bag of experiences for Cancer natives. Your ruling planet Moon's changing positions may bring some emotional turbulence early in the week. The favorable conjunction of Jupiter and Venus promises improvements in domestic matters and family relationships. Mars in an adverse position may create unnecessary conflicts and arguments. By the weekend, planetary alignments will shift in your favor, bringing much-needed stability and peace.",
+        "key_days": "Monday and Wednesday are extremely auspicious for all your endeavors. Exercise caution on Friday as challenges may arise.",
+        "love": "Romance takes a complicated turn this week with potential misunderstandings between partners. Married couples should practice patience as minor disagreements may surface over trivial matters. The weekend brings renewed harmony and deeper emotional connection.",
+        "career": "Professional life presents new challenges that will test your resilience and adaptability. Your dedication and hard work will be recognized by superiors, leading to potential advancement opportunities. Business ventures require careful consideration and avoid hasty decisions.",
+        "health": "Health remains generally stable with minor concerns around stress and anxiety. Incorporate meditation and yoga into your daily routine to maintain mental equilibrium. Digestive issues may surface, so maintain a balanced diet and avoid spicy foods.",
+        "finance": "Financial prospects show positive signs of improvement with potential gains from past investments. Avoid major expenditures this week and focus on building your savings. Property-related matters may bring unexpected benefits.",
+        "lucky_number": 2,
+        "lucky_color": "White",
+        "rating": 3.0
+      }
+    },
+    {
+      "id": "singh",
+      "name_hi": "सिंह",
+      "name_en": "Leo",
+      "symbol": "♌",
+      "dates": "Jul 23 – Aug 22",
+      "hindi": {
+        "prediction": "सिंह राशि के लिए यह सप्ताह मिश्रित फलदायक रहेगा। आपके स्वामी सूर्य की स्थिति मेष राशि में होने से आपमें नेतृत्व की भावना प्रबल रहेगी। बुधवार से शुक्रवार तक का समय विशेष रूप से अनुकूल रहेगा। शनि का गोचर आपके 10वें भाव में होने से कैरियर में नई चुनौतियां आ सकती हैं। सप्ताह के अंत में पारिवारिक खुशी के मौके मिलेंगे।",
+        "key_days": "बुधवार (23 अप्रैल) सबसे शुभ दिन रहेगा जब चंद्रमा आपकी राशि में होगा। मंगलवार (22 अप्रैल) को सावधानी बरतें क्योंकि मंगल का प्रभाव चुनौतीपूर्ण हो सकता है।",
+        "love": "प्रेम संबंधों में इस सप्ताह गर्मजोशी रहेगी। शुक्रवार के बाद आपके साथी के साथ मधुर क्षण बिताने के अवसर मिलेंगे। विवाहित लोगों के लिए पारस्परिक समझ बेहतर रहेगी।",
+        "career": "कार्यक्षेत्र में आपकी रचनात्मकता की सराहना होगी। नए प्रोजेक्ट्स की शुरुआत के लिए यह समय उत्तम है। सहकर्मियों से सहयोग मिलेगा लेकिन बॉस के साथ मतभेद हो सकते हैं।",
+        "health": "स्वास्थ्य की दृष्टि से सामान्यतः ठीक रहेंगे लेकिन पेट संबंधी समस्याओं से बचें। योग और प्राणायाम को दिनचर्या में शामिल करें। सप्ताह के मध्य में थकान महसूस हो सकती है।",
+        "finance": "आर्थिक स्थिति में सुधार के संकेत मिल रहे हैं। पुराने निवेश से लाभ हो सकता है। शुक्रवार के बाद किसी बड़ी खरीदारी के लिए अच्छा समय है।",
+        "lucky_number": 3,
+        "lucky_color": "सुनहरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "This week brings a mixed bag of opportunities and challenges for Leo natives. Your ruling planet Sun positioned in Aries will enhance your leadership qualities and confidence levels. The period from Wednesday to Friday appears particularly favorable for important decisions. Saturn's transit through your 10th house may bring some professional hurdles that require patience and persistence. Weekend promises family celebrations and personal achievements that will boost your morale.",
+        "key_days": "Wednesday (April 23rd) stands out as the most auspicious day with Moon transiting through your sign. Exercise caution on Tuesday (April 22nd) as Mars influence might create unnecessary conflicts.",
+        "love": "Romance takes a positive turn this week with enhanced emotional connection with your partner. Post-Friday period looks especially promising for intimate conversations and relationship milestones. Married Leos will experience improved harmony and understanding.",
+        "career": "Your creative abilities will gain recognition in professional circles this week. It's an excellent time to launch new projects or present innovative ideas to superiors. Colleague support is strong, though some disagreements with authority figures are possible mid-week.",
+        "health": "Overall health remains stable but pay attention to digestive issues and maintain a balanced diet. Incorporating regular exercise and stress management techniques will prove beneficial. Energy levels may dip slightly around Wednesday.",
+        "finance": "Financial prospects show encouraging signs of improvement with potential gains from previous investments. A significant purchase planned for the weekend looks favorable. Avoid impulsive spending during the first half of the week.",
+        "lucky_number": 3,
+        "lucky_color": "Golden",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kanya",
+      "name_hi": "कन्या",
+      "name_en": "Virgo",
+      "symbol": "♍",
+      "dates": "Aug 23 – Sep 22",
+      "hindi": {
+        "prediction": "इस सप्ताह कन्या राशि के लिए बुध ग्रह का प्रभाव मिश्रित फल देगा। 22-23 अप्रैल को चंद्रमा का अनुकूल गोचर आपके लिए नई संभावनाएं लेकर आएगा। बृहस्पति की दृष्टि से आपके करियर में सुधार के संकेत हैं। सप्ताह के मध्य में कुछ मानसिक तनाव हो सकता है, लेकिन शुक्रवार के बाद स्थिति बेहतर होगी। व्यावहारिक दृष्टिकोण अपनाकर आप सफलता प्राप्त कर सकेंगे।",
+        "key_days": "मंगलवार 22 अप्रैल सबसे शुभ दिन है जब महत्वपूर्ण निर्णय ले सकते हैं। शनिवार 25 अप्रैल को सावधानी बरतें क्योंकि विवादों की संभावना है।",
+        "love": "प्रेम संबंधों में यह सप्ताह संयम का है। पार्टनर के साथ बातचीत में धैर्य रखें और गलतफहमियों से बचें। विवाहित जोड़ों के लिए सप्ताह का अंत अच्छा रहेगा।",
+        "career": "कार्यक्षेत्र में नई जिम्मेदारियां मिल सकती हैं जो आपकी प्रगति में सहायक होंगी। बॉस या वरिष्ठ अधिकारियों से संबंध सुधरेंगे। मेहनत का फल इस सप्ताह दिखाई देगा।",
+        "health": "स्वास्थ्य की दृष्टि से पेट संबंधी समस्याओं पर ध्यान दें। नियमित भोजन और योग का अभ्यास करें। मानसिक तनाव को कम करने के लिए ध्यान का सहारा लें।",
+        "finance": "आर्थिक मामलों में सुधार की संभावनाएं हैं, लेकिन अनावश्यक खर्चों से बचें। निवेश के लिए यह समय अनुकूल है। पुराने बकाए रुपए वसूल होने के योग हैं।",
+        "lucky_number": 6,
+        "lucky_color": "हरा",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "This week brings a mixed influence from Mercury, your ruling planet, for Virgo natives. The favorable lunar transit on 22-23 April will open new opportunities and bring positive changes. Jupiter's aspect indicates career advancement and growth in professional matters. Mid-week may bring some mental stress, but conditions will improve significantly after Friday. Your practical approach and analytical skills will be your greatest assets this week.",
+        "key_days": "Tuesday, April 22nd is the most auspicious day for making important decisions and starting new ventures. Exercise caution on Saturday, April 25th as conflicts and misunderstandings are likely.",
+        "love": "Romance requires patience and understanding this week. Avoid jumping to conclusions with your partner and focus on clear communication. Married couples will find the weekend particularly harmonious for strengthening their bond.",
+        "career": "Professional life shows promising developments with new responsibilities coming your way. Your relationship with superiors will improve, leading to better recognition. Hard work from previous weeks will start showing tangible results.",
+        "health": "Pay attention to digestive issues and maintain regular eating habits. Incorporate yoga and meditation to manage stress levels effectively. Avoid overexertion and ensure adequate rest for optimal well-being.",
+        "finance": "Financial prospects look encouraging, but avoid unnecessary expenditures. This is a favorable time for strategic investments and long-term planning. Outstanding dues or delayed payments may finally come through.",
+        "lucky_number": 6,
+        "lucky_color": "Green",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "tula",
+      "name_hi": "तुला",
+      "name_en": "Libra",
+      "symbol": "♎",
+      "dates": "Sep 23 – Oct 22",
+      "hindi": {
+        "prediction": "तुला राशि के लिए यह सप्ताह शुक्र के प्रभाव में संतुलन और सामंजस्य का होगा। सप्ताह की शुरुआत में कुछ भ्रम की स्थिति हो सकती है लेकिन बुधवार के बाद स्थितियां साफ होंगी। गुरु का अनुकूल गोचर आपके व्यक्तित्व में नई ऊर्जा लाएगा। रिश्तों में मधुरता बनी रहेगी और नए अवसरों के द्वार खुलेंगे। सप्ताह के अंत तक आर्थिक मामलों में भी सुधार दिखाई देगा।",
+        "key_days": "बुधवार (23 अप्रैल) सबसे शुभ दिन होगा जब महत्वपूर्ण निर्णय ले सकते हैं। सोमवार (21 अप्रैल) को सावधानी बरतें क्योंकि भावनात्मक उतार-चढ़ाव हो सकते हैं।",
+        "love": "प्रेम संबंधों में यह सप्ताह खुशियों भरा रहेगा। विवाहित जोड़ों के बीच आपसी समझ बढ़ेगी और नए रिश्ते शुरू करने वालों के लिए अनुकूल समय है। शुक्रवार को किसी विशेष व्यक्ति से मुलाकात हो सकती है।",
+        "career": "करियर में नई दिशा मिलने के संकेत हैं। कार्यक्षेत्र में आपकी कलात्मक प्रतिभा की सराहना होगी। सहकर्मियों के साथ सहयोग बढ़ेगा और बॉस से प्रशंसा मिल सकती है।",
+        "health": "स्वास्थ्य सामान्यतः अच्छा रहेगा लेकिन गले और त्वचा संबंधी समस्याओं पर ध्यान दें। योग और ध्यान से मानसिक शांति मिलेगी। पर्याप्त आराम और संतुलित आहार लें।",
+        "finance": "धन प्राप्ति के नए स्रोत बन सकते हैं। पुराने निवेश से लाभ होने की संभावना है। सप्ताह के मध्य में कोई महत्वपूर्ण वित्तीय निर्णय लेना पड़ सकता है।",
+        "lucky_number": 6,
+        "lucky_color": "गुलाबी",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings balance and harmony for Libra natives under Venus's benefic influence. The week starts with some confusion but clarity emerges after Wednesday. Jupiter's favorable transit will infuse new energy into your personality and decision-making abilities. Relationships will flourish with sweetness and understanding. New opportunities will present themselves in various aspects of life. Financial matters show improvement towards the weekend.",
+        "key_days": "Wednesday (April 23) emerges as the most auspicious day for important decisions and new beginnings. Exercise caution on Monday (April 21) as emotional fluctuations may create temporary challenges.",
+        "love": "Romance takes center stage this week with delightful developments. Married couples will experience enhanced mutual understanding and deeper connection. Singles may encounter someone special on Friday who could play a significant role in their future.",
+        "career": "Career prospects show promising new directions and creative recognition. Your artistic talents and diplomatic skills will be highly appreciated by colleagues and superiors. Collaborative projects yield excellent results and open doors for advancement.",
+        "health": "Overall health remains stable, but pay attention to throat and skin-related issues. Mental peace through yoga and meditation proves beneficial. Maintain adequate rest and follow a balanced diet for optimal well-being.",
+        "finance": "New sources of income may emerge unexpectedly. Previous investments show signs of yielding profitable returns. A significant financial decision around mid-week requires careful consideration and expert consultation.",
+        "lucky_number": 6,
+        "lucky_color": "Pink",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "vrishchik",
+      "name_hi": "वृश्चिक",
+      "name_en": "Scorpio",
+      "symbol": "♏",
+      "dates": "Oct 23 – Nov 21",
+      "hindi": {
+        "prediction": "वृश्चिक राशि के जातकों के लिए यह सप्ताह मंगल और केतु के प्रभाव में रहेगा। सप्ताह की शुरुआत में कुछ चुनौतियों का सामना करना पड़ सकता है, लेकिन मध्य सप्ताह से स्थिति में सुधार होगा। गुरु का सकारात्मक प्रभाव आपके धन और व्यापारिक मामलों में लाभ दिलाएगा। शुक्रवार से रविवार तक का समय विशेष रूप से शुभ रहेगा। परिवारिक रिश्तों में मधुरता आएगी और नए अवसर मिलने की संभावना है। अपने अंतर्ज्ञान पर भरोसा रखें और धैर्य से काम लें।",
+        "key_days": "शुक्रवार (25 अप्रैल) सबसे शुभ दिन रहेगा जबकि मंगलवार (22 अप्रैल) को सावधानी बरतनी होगी।",
+        "love": "प्रेम जीवन में नई उमंग और रोमांस का अनुभव होगा। पार्टनर के साथ समझ बढ़ेगी और पुराने मतभेद सुलझ सकते हैं। अविवाहित जातकों के लिए नया रिश्ता शुरू होने की संभावना है।",
+        "career": "कार्यक्षेत्र में आपकी गहरी सोच और रणनीतिक दृष्टिकोण सराहा जाएगा। किसी महत्वपूर्ण प्रोजेक्ट में सफलता मिल सकती है। सहकर्मियों का सहयोग प्राप्त होगा और वरिष्ठों की कृपा बनी रहेगी।",
+        "health": "स्वास्थ्य सामान्यतः ठीक रहेगा लेकिन तनाव से बचने की आवश्यकता है। योग और ध्यान का अभ्यास करें। पेट संबंधी समस्याओं से बचने के लिए खानपान में सावधानी बरतें।",
+        "finance": "धन प्राप्ति के नए स्रोत मिल सकते हैं। निवेश के मामले में सोच-समझकर फैसला लें। पुराने धन की वसूली होने की संभावना है और खर्च पर नियंत्रण रखना आवश्यक होगा।",
+        "lucky_number": 9,
+        "lucky_color": "गहरा लाल",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings the intense energy of Mars and Ketu for Scorpio natives, creating a transformative period. The beginning of the week may present some obstacles, but your natural resilience will help you overcome them by mid-week. Jupiter's favorable aspect will enhance your financial prospects and bring opportunities in business ventures. Friday through Sunday promises to be particularly beneficial for all your endeavors. Family relationships will experience warmth and new opportunities may emerge from unexpected sources. Trust your intuitive powers and maintain patience as the planetary energies work in your favor.",
+        "key_days": "Friday (April 25th) will be the most auspicious day for important decisions, while Tuesday (April 22nd) requires extra caution.",
+        "love": "Romance takes on a deeper, more meaningful tone this week. Existing relationships will benefit from enhanced emotional connection and understanding. Single Scorpios may encounter someone who matches their intensity and passion.",
+        "career": "Your strategic thinking and ability to see beneath the surface will be highly valued at work. A significant breakthrough in a long-term project is possible. Leadership opportunities may arise, and your determination will impress superiors.",
+        "health": "Overall health remains stable, but stress management should be a priority. Practice meditation or deep breathing exercises to maintain emotional balance. Pay attention to digestive health and avoid spicy foods mid-week.",
+        "finance": "Financial transformation is indicated with potential gains from investments or hidden sources. Be cautious with major expenditures early in the week. Your research skills will help identify profitable opportunities by weekend.",
+        "lucky_number": 9,
+        "lucky_color": "Deep Red",
+        "rating": 4.0
+      }
+    },
+    {
+      "id": "dhanu",
+      "name_hi": "धनु",
+      "name_en": "Sagittarius",
+      "symbol": "♐",
+      "dates": "Nov 22 – Dec 21",
+      "hindi": {
+        "prediction": "धनु राशि के जातकों के लिए यह सप्ताह मिश्रित फल देने वाला है। गुरु आपके पंचम भाव में गोचर कर रहे हैं जो रचनात्मकता और बुद्धि में वृद्धि दे रहा है। मंगल का प्रभाव कार्यक्षेत्र में नई चुनौतियां लेकर आएगा। सप्ताह के मध्य में शुक्र का अनुकूल योग प्रेम संबंधों में मधुरता लाएगा। अपने स्वास्थ्य पर विशेष ध्यान दें और जल्दबाजी से बचें। व्यापारिक मामलों में सोच-समझकर निर्णय लें।",
+        "key_days": "मंगलवार 22 अप्रैल सबसे शुभ दिन होगा जब आपको महत्वपूर्ण अवसर मिलेंगे। शुक्रवार 25 अप्रैल को सावधानी बरतें क्योंकि विरोधियों से समस्या हो सकती है।",
+        "love": "प्रेम जीवन में इस सप्ताह उतार-चढ़ाव देखने को मिलेंगे। पार्टनर के साथ बातचीत में संयम रखें और अपने विचार स्पष्ट रूप से व्यक्त करें। सप्ताह के अंत में रिश्तों में सुधार की संभावना है।",
+        "career": "कार्यक्षेत्र में नए अवसर आपका इंतजार कर रहे हैं लेकिन कड़ी मेहनत की आवश्यकता होगी। सहकर्मियों से सहयोग मिलेगा और आपकी योग्यता की पहचान होगी। व्यापारिक यात्रा के योग बन रहे हैं।",
+        "health": "स्वास्थ्य के मामले में सामान्य स्थिति रहेगी लेकिन पाचन संबंधी समस्याएं हो सकती हैं। नियमित व्यायाम और योग को अपनी दिनचर्या में शामिल करें। तनाव से बचने के लिए पर्याप्त आराम लें।",
+        "finance": "आर्थिक मामलों में सुधार के संकेत मिल रहे हैं। निवेश के लिए यह उपयुक्त समय है लेकिन जोखिम भरे कार्यों से बचें। पुराने ऋण वापसी की संभावना है।",
+        "lucky_number": 9,
+        "lucky_color": "पीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "This week brings mixed results for Sagittarius natives as Jupiter continues its transit through your 5th house, enhancing creativity and intellectual pursuits. Mars influences will bring new challenges in your professional sphere that require careful handling. Mid-week Venus forms favorable aspects, bringing sweetness to romantic relationships. Your ruling planet Jupiter's benefic rays will guide you toward spiritual growth and wisdom. However, avoid hasty decisions and pay special attention to health matters during this period.",
+        "key_days": "Tuesday, April 22nd emerges as the most auspicious day when significant opportunities will present themselves. Exercise caution on Friday, April 25th as conflicts with opponents or competitors may arise.",
+        "love": "Your love life experiences fluctuations this week with emotional highs and lows. Communication with your partner requires patience and clarity to avoid misunderstandings. The weekend promises reconciliation and renewed harmony in relationships.",
+        "career": "Professional opportunities await but demand dedicated effort and perseverance. Colleagues will offer valuable support, and your expertise gains recognition from superiors. Business travel or expansion plans show promising developments.",
+        "health": "Health remains generally stable though digestive issues may surface. Incorporate regular exercise and yoga into your daily routine for optimal wellness. Adequate rest is essential to manage stress levels effectively.",
+        "finance": "Financial prospects show signs of improvement with potential gains from previous investments. This proves favorable for new investment ventures, though avoid high-risk speculation. Recovery of old debts appears likely.",
+        "lucky_number": 9,
+        "lucky_color": "Yellow",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "makar",
+      "name_hi": "मकर",
+      "name_en": "Capricorn",
+      "symbol": "♑",
+      "dates": "Dec 22 – Jan 19",
+      "hindi": {
+        "prediction": "मकर राशि के जातकों के लिए यह सप्ताह मिश्रित फल लेकर आ रहा है। शनि महाराज आपकी राशि में स्थित होकर धैर्य और कड़ी मेहनत का संदेश दे रहे हैं। गुरु का प्रभाव आपके करियर क्षेत्र में सकारात्मक बदलाव लाएगा। 22 अप्रैल को शुक्रवार विशेष रूप से लाभकारी रहेगा। सप्ताह के अंत तक आपको अपने लक्ष्यों में स्पष्टता मिलेगी। पारिवारिक मामलों में सावधानी बरतें।",
+        "key_days": "22 अप्रैल (शुक्रवार) सबसे शुभ दिन होगा जबकि 24 अप्रैल (रविवार) को सूर्य की स्थिति के कारण चुनौतियों का सामना करना पड़ सकता है।",
+        "love": "प्रेम संबंधों में थोड़ी सी गलतफहमी हो सकती है लेकिन धैर्य रखने से समस्या का समाधान निकलेगा। विवाहित जोड़ों के लिए यह सप्ताह रोमांस से भरपूर रहेगा। शुक्रवार को प्रणय निवेदन के लिए उत्तम दिन है।",
+        "career": "कार्यक्षेत्र में नई जिम्मेदारियां मिल सकती हैं जो भविष्य में लाभकारी सिद्ध होंगी। बॉस या उच्चाधिकारियों से बातचीत में सावधानी रखें। शनिवार के दिन किसी महत्वपूर्ण प्रोजेक्ट पर काम शुरू करना शुभ रहेगा।",
+        "health": "स्वास्थ्य के मामले में सामान्यतः अच्छा समय है लेकिन घुटनों और जोड़ों की समस्या हो सकती है। योग और प्राणायाम को दिनचर्या में शामिल करें। पानी का सेवन बढ़ाएं और तनाव से बचें।",
+        "finance": "आर्थिक स्थिति में सुधार के संकेत मिल रहे हैं। कोई पुराना निवेश लाभ दे सकता है। नए निवेश से पहले विशेषज्ञ की सलाह लें और जल्दबाजी न करें।",
+        "lucky_number": 8,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "Capricorn natives can expect a week of steady progress with mixed outcomes. Saturn, your ruling planet, positioned in your sign emphasizes patience and persistent effort. Jupiter's favorable transit brings positive changes in your professional sphere. Friday, April 22nd stands out as particularly beneficial for important decisions. The weekend may bring clarity regarding long-term goals. Be cautious in family matters as minor tensions could arise towards the end of the week.",
+        "key_days": "Friday, April 22nd emerges as the most auspicious day for new ventures, while Sunday, April 24th may present challenges due to Sun's unfavorable position.",
+        "love": "Romance takes a gentle upward turn this week with opportunities for deeper connections. Married couples will find renewed harmony in their relationship. Single Capricorns should watch for meaningful encounters around mid-week.",
+        "career": "Professional life shows promise with potential recognition for past efforts coming your way. A senior colleague may offer valuable guidance that could shape your career path. Avoid making hasty decisions regarding job changes during this period.",
+        "health": "Overall health remains stable but pay attention to bone and joint-related issues typical of your earth sign. Regular exercise and calcium-rich diet will be beneficial. Stress management through meditation is highly recommended.",
+        "finance": "Financial prospects look encouraging with possible returns from previous investments. An unexpected monetary gain through property or fixed assets is indicated. Avoid speculation and stick to traditional investment methods.",
+        "lucky_number": 8,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "kumbh",
+      "name_hi": "कुम्भ",
+      "name_en": "Aquarius",
+      "symbol": "♒",
+      "dates": "Jan 20 – Feb 18",
+      "hindi": {
+        "prediction": "कुम्भ राशि के जातकों के लिए यह सप्ताह मिश्रित फल लेकर आ रहा है। शनि देव आपके राशि स्वामी होने के नाते इस सप्ताह आपको धैर्य और स्थिरता का पाठ पढ़ाएंगे। सप्ताह के मध्य में बुध और शुक्र की युति से कार्यक्षेत्र में नई संभावनाएं बनेंगी। मंगलवार और बुधवार का समय विशेष रूप से अनुकूल रहेगा। शुक्रवार को चंद्रमा की स्थिति के कारण कुछ मानसिक तनाव हो सकता है। सप्ताह का अंत नए विचारों और योजनाओं के साथ होगा।",
+        "key_days": "मंगलवार 22 अप्रैल सबसे शुभ दिन होगा जब नए कार्यों की शुरुआत के लिए अनुकूल समय मिलेगा। शुक्रवार 25 अप्रैल को सावधानी बरतें क्योंकि यह दिन चुनौतीपूर्ण हो सकता है।",
+        "love": "प्रेम संबंधों में इस सप्ताह स्थिरता आएगी। विवाहित जोड़ों के लिए समय अनुकूल है और पारस्परिक समझ बढ़ेगी। सप्ताह के अंत में किसी पुराने मित्र से मिलने की संभावना है।",
+        "career": "कार्यक्षेत्र में रचनात्मकता का प्रभाव दिखेगा और आपके अभिनव विचार सराहना पाएंगे। बुधवार के बाद कोई महत्वपूर्ण परियोजना में सफलता मिल सकती है। वरिष्ठों से मार्गदर्शन प्राप्त होगा।",
+        "health": "स्वास्थ्य के मामले में सावधानी बरतने की आवश्यकता है, विशेषकर श्वसन संबंधी समस्याओं से बचें। योग और प्राणायाम का अभ्यास लाभकारी होगा। पर्याप्त नींद लेना आवश्यक है।",
+        "finance": "वित्तीय स्थिति में सुधार के संकेत मिल रहे हैं। निवेश के मामले में सोच-समझकर निर्णय लें। सप्ताह के मध्य में कोई पुराना बकाया पैसा वापस मिल सकता है।",
+        "lucky_number": 11,
+        "lucky_color": "नीला",
+        "rating": 3.5
+      },
+      "english": {
+        "prediction": "This week brings a mixed bag of results for Aquarius natives. Saturn, your ruling planet, will teach you lessons in patience and stability throughout this period. A favorable conjunction between Mercury and Venus mid-week will create new opportunities in your professional sphere. Tuesday and Wednesday appear particularly promising with beneficial planetary alignments. Friday may bring some mental stress due to Moon's challenging position. The week concludes with fresh ideas and innovative plans taking shape in your mind.",
+        "key_days": "Tuesday, April 22nd stands out as the most auspicious day, perfect for launching new initiatives and important decisions. Exercise caution on Friday, April 25th as it may present some challenging situations.",
+        "love": "Love relationships will experience greater stability this week with improved understanding between partners. Married couples can expect harmonious times ahead with deeper emotional connections. A chance encounter with an old friend towards the weekend might rekindle pleasant memories.",
+        "career": "Your professional life will showcase your creative abilities, with innovative ideas gaining recognition from colleagues and superiors. After Wednesday, expect breakthrough success in an important project you've been working on. Guidance from senior mentors will prove invaluable for your career growth.",
+        "health": "Health requires careful attention, particularly regarding respiratory issues that may arise. Practice of yoga and pranayama will prove highly beneficial for your overall well-being. Ensure you get adequate sleep to maintain your energy levels throughout the busy week.",
+        "finance": "Financial indicators show promising signs of improvement in your monetary situation. Investment decisions should be made with careful consideration and proper research. Mid-week may bring recovery of some pending money or delayed payments.",
+        "lucky_number": 11,
+        "lucky_color": "Blue",
+        "rating": 3.5
+      }
+    },
+    {
+      "id": "meen",
+      "name_hi": "मीन",
+      "name_en": "Pisces",
+      "symbol": "♓",
+      "dates": "Feb 19 – Mar 20",
+      "hindi": {
+        "prediction": "इस सप्ताह मीन राशि के जातकों के लिए गुरु ग्रह का प्रभाव अत्यंत शुभ रहेगा। सप्ताह की शुरुआत में आध्यात्मिक गतिविधियों में रुचि बढ़ेगी और नए अवसर मिलेंगे। मध्य सप्ताह में मंगल का प्रभाव कार्यक्षेत्र में सफलता दिलाएगा। शुक्रवार को चंद्रमा का शुभ योग प्रेम संबंधों में मधुरता लाएगा। सप्ताहांत में पारिवारिक खुशियों का माहौल रहेगा। कुल मिलाकर यह एक संतुलित और प्रगतिशील सप्ताह होगा।",
+        "key_days": "गुरुवार (24 अप्रैल) सबसे शुभ दिन होगा जब महत्वपूर्ण निर्णय लेने चाहिए। मंगलवार (22 अप्रैल) को सावधानी बरतें क्योंकि शनि का प्रतिकूल प्रभाव हो सकता है।",
+        "love": "प्रेम जीवन में इस सप्ताह रोमांस की लहर आएगी। विवाहित जोड़ों के बीच समझदारी बढ़ेगी और पुराने मतभेद सुलझेंगे। अविवाहित लोगों को नया प्रेम मिल सकता है, विशेषकर शुक्रवार के बाद।",
+        "career": "कार्यक्षेत्र में नई जिम्मेदारियां मिल सकती हैं जो भविष्य के लिए लाभकारी होंगी। रचनात्मक कार्यों में विशेष सफलता मिलेगी। सहकर्मियों का सहयोग प्राप्त होगा और बॉस से प्रशंसा मिलने की संभावना है।",
+        "health": "स्वास्थ्य की दृष्टि से यह सप्ताह मिश्रित फल देगा। सप्ताह के मध्य में तनाव या सिरदर्द की समस्या हो सकती है। पर्याप्त नींद लें और योग-ध्यान को दिनचर्या में शामिल करें।",
+        "finance": "आर्थिक स्थिति में सुधार के संकेत मिलेंगे। पुराना निवेश लाभ दे सकता है और नई आय के स्रोत खुलेंगे। शुक्रवार के बाद किसी बड़ी खरीदारी का योग बन रहा है।",
+        "lucky_number": 9,
+        "lucky_color": "समुद्री नीला",
+        "rating": 4.0
+      },
+      "english": {
+        "prediction": "This week brings Jupiter's benevolent influence for Pisces natives, creating opportunities for spiritual and material growth. The week begins with heightened intuition and psychic abilities guiding important decisions. Mid-week Mars transit energizes your career sector, bringing recognition and new projects. Venus forms a beautiful trine on Friday, enhancing romantic connections and artistic pursuits. Weekend planetary alignments favor family gatherings and emotional healing. Overall, this is a transformative week that balances inner wisdom with outer achievements.",
+        "key_days": "Thursday (April 24th) emerges as the most auspicious day for making important life decisions and signing contracts. Tuesday (April 22nd) requires caution due to a challenging Saturn aspect affecting communication.",
+        "love": "Romance takes a dreamy, idealistic turn this week with Venus highlighting your relationship sector. Existing partnerships experience renewed passion and deeper emotional connection. Single Pisceans may encounter a soulmate-type connection, particularly after Friday's lunar influence.",
+        "career": "Professional life receives a significant boost from Jupiter's favorable position in your career house. Creative projects gain momentum and recognition from superiors. A new opportunity or promotion may present itself mid-week, requiring quick decision-making.",
+        "health": "Health requires balanced attention this week as Neptune's influence may cause energy fluctuations. Pay special attention to sleep patterns and avoid overindulgence. Water-based activities and meditation will prove especially beneficial for maintaining vitality.",
+        "finance": "Financial waters look promising with Jupiter blessing your money sector. An old investment may mature or provide unexpected returns. Property-related gains are indicated, and Friday onwards shows potential for significant purchases or financial commitments.",
+        "lucky_number": 9,
+        "lucky_color": "Sea Blue",
+        "rating": 4.0
+      }
+    }
+  ],
+  "chinese": {
+    "rat": {
+      "hindi": {
+        "prediction": "इस सप्ताह चूहा राशि के लिए करियर में नई संभावनाएं खुलेंगी और आपकी मेहनत का फल मिलेगा। प्रेम जीवन में मधुरता आएगी और रिश्तों में समझदारी बढ़ेगी। स्वास्थ्य की दृष्टि से सावधानी बरतें और नियमित व्यायाम करें। धन संबंधी मामलों में सोच-समझकर निर्णय लें और बचत पर ध्यान दें।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Rat natives, with your hard work finally paying off in tangible ways. Love life will experience sweetness and deeper understanding between partners, making relationships more harmonious. Health requires attention - maintain regular exercise routines and avoid stress-related issues. Financial matters need careful consideration, so make thoughtful decisions and focus on building your savings for future security."
+      }
+    },
+    "ox": {
+      "hindi": {
+        "prediction": "इस सप्ताह आपके करियर में नई संभावनाएं नजर आएंगी और आपकी मेहनत का फल मिलने लगेगा। प्रेम जीवन में समझदारी से काम लें और किसी भी जल्दबाजी से बचें। स्वास्थ्य की दृष्टि से यह सप्ताह अनुकूल है, लेकिन अधिक परिश्रम से बचें। वित्तीय मामलों में सावधानी बरतें और नए निवेश से पहले अच्छी तरह सोच-विचार करें। सप्ताह के अंत तक आपको अपने प्रयासों का सकारात्मक परिणाम देखने को मिलेगा।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Ox natives, with your persistent efforts finally showing results. In matters of love, exercise patience and avoid making hasty decisions that could complicate relationships. Health remains stable throughout the week, though you should avoid overexertion and maintain a balanced routine. Financial matters require careful consideration, especially before making any new investments or major purchases. By the weekend, you'll likely see positive outcomes from your recent hard work and dedication."
+      }
+    },
+    "tiger": {
+      "hindi": {
+        "prediction": "इस सप्ताह बाघ राशि के जातकों के लिए करियर में नई संभावनाएं खुलेंगी और आपकी मेहनत का फल मिलेगा। प्रेम संबंधों में मधुरता बनी रहेगी और साथी के साथ समझ बढ़ेगी। स्वास्थ्य के मामले में सावधानी बरतें और तनाव से बचें। वित्तीय स्थिति में सुधार होगा लेकिन अनावश्यक खर्च से बचें। कुल मिलाकर यह सप्ताह आपके लिए संतुष्टिजनक रहेगा।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Tiger natives, with recognition for your hard work and dedication. Your romantic relationships will flourish with improved understanding and harmony with your partner. Health requires attention, so avoid stress and maintain a balanced routine. Financial prospects look favorable, but be cautious about unnecessary expenditures. Overall, this week will bring satisfaction and positive developments in multiple areas of your life."
+      }
+    },
+    "rabbit": {
+      "hindi": {
+        "prediction": "इस सप्ताह खरगोश राशि वालों के लिए करियर में नई संभावनाएं खुलेंगी और आपको अपनी मेहनत का फल मिलेगा। प्रेम जीवन में मधुरता बनी रहेगी और साझीदार के साथ समझदारी बढ़ेगी। स्वास्थ्य की दृष्टि से यह सप्ताह अच्छा रहेगा, लेकिन तनाव से बचने का प्रयास करें। आर्थिक मामलों में सुधार होगा और नए निवेश के अवसर मिल सकते हैं।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Rabbit natives, with your hard work finally paying off in tangible ways. Your love life will experience harmony and deeper understanding with your partner, making it an ideal time for romantic gestures. Health remains stable overall, though you should manage stress levels and maintain work-life balance. Financial prospects look bright with potential investment opportunities emerging, so stay alert for new ventures that align with your goals."
+      }
+    },
+    "dragon": {
+      "hindi": {
+        "prediction": "इस सप्ताह ड्रैगन राशि के लिए करियर में नई संभावनाएं दिखाई देंगी और आपकी मेहनत का फल मिलेगा। प्रेम संबंधों में मधुरता आएगी और आपके साथी के साथ समझदारी बढ़ेगी। स्वास्थ्य के मामले में सावधानी बरतें और नियमित व्यायाम करें। व्यापारिक मामलों में सोच-समझकर निर्णय लें क्योंकि यह समय लाभकारी है। धन संबंधी योजनाओं पर विचार करने का उत्तम समय है।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Dragons, with your hard work finally paying off in meaningful ways. Romance flows smoothly as understanding deepens between you and your partner, creating harmony in relationships. Health requires attention, so maintain regular exercise routines and avoid overexertion during this busy period. Business decisions should be made carefully as this is a favorable time for financial growth. Consider long-term investment plans as the stars align for monetary success."
+      }
+    },
+    "snake": {
+      "hindi": {
+        "prediction": "इस सप्ताह साँप राशि के जातकों के लिए करियर में नई संभावनाएं खुलेंगी और आपके कौशल की सराहना होगी। प्रेम संबंधों में थोड़ी सावधानी बरतें क्योंकि गलतफहमियां हो सकती हैं। स्वास्थ्य के मामले में तनाव से बचें और पर्याप्त आराम लें। बुधवार के बाद आर्थिक स्थिति में सुधार देखने को मिलेगा। सप्ताहांत में पारिवारिक खुशी और मित्रों के साथ अच्छा समय बिताएंगे।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Snake natives, with your skills and expertise gaining recognition from superiors. In matters of love, exercise patience and clear communication to avoid misunderstandings with your partner. Health requires attention as stress levels may rise, so prioritize adequate rest and relaxation. Financial prospects improve significantly after Wednesday, bringing relief from recent monetary concerns. The weekend promises joyful family moments and quality time with close friends."
+      }
+    },
+    "horse": {
+      "hindi": {
+        "prediction": "इस सप्ताह घोड़ा राशि के लिए करियर में नए अवसर मिल सकते हैं और आपकी मेहनत का फल दिखाई देगा। प्रेम जीवन में कुछ उतार-चढ़ाव हो सकते हैं, इसलिए धैर्य बनाए रखें और समझदारी से काम लें। स्वास्थ्य के मामले में सावधानी बरतें और तनाव से बचने की कोशिश करें। व्यायाम और योग को अपनी दिनचर्या में शामिल करना लाभकारी होगा। आर्थिक मामलों में सतर्कता बरतें और बड़े निवेश से बचें।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Horse natives, with your hard work finally showing results and recognition from superiors. In matters of love, expect some emotional turbulence that requires patience and understanding with your partner or potential romantic interests. Health needs attention as stress levels may rise, so incorporate regular exercise and meditation into your daily routine for better well-being. Financial stability improves gradually, but avoid making major investments or expenditures during this period. Focus on maintaining work-life balance to ensure sustained success in all areas."
+      }
+    },
+    "goat": {
+      "hindi": {
+        "prediction": "इस सप्ताह आपके करियर में नई संभावनाएं दिखाई देंगी और आपको एक महत्वपूर्ण परियोजना में सफलता मिल सकती है। प्रेम जीवन में कुछ मिश्रित अनुभव हो सकते हैं, लेकिन धैर्य रखने से रिश्ते में सुधार होगा। स्वास्थ्य के मामले में आपको अपनी दिनचर्या पर विशेष ध्यान देना होगा और तनाव से बचना चाहिए। सप्ताह के अंत तक आपकी वित्तीय स्थिति में सुधार के संकेत मिलेंगे।"
+      },
+      "english": {
+        "prediction": "This week brings promising opportunities in your career, with potential success in an important project that could advance your professional standing. Your love life may experience some mixed emotions, but patience and understanding will help strengthen your relationships. Health-wise, you need to pay special attention to your daily routine and avoid unnecessary stress to maintain your well-being. By the weekend, you'll see positive signs of improvement in your financial situation, making it a favorable time for planning future investments."
+      }
+    },
+    "monkey": {
+      "hindi": {
+        "prediction": "इस सप्ताह बंदर राशि के लिए करियर में नई संभावनाएं दिखाई दे सकती हैं। आपकी बुद्धि और चतुराई का फायदा उठाकर आप महत्वपूर्ण फैसले ले सकते हैं। प्रेम जीवन में कुछ मिश्रित परिस्थितियां हो सकती हैं, लेकिन धैर्य रखने से रिश्ते में सुधार होगा। स्वास्थ्य की दृष्टि से आपको तनाव से बचने की जरूरत है। सप्ताह के अंत तक आर्थिक स्थिति में सुधार के संकेत मिल सकते हैं।"
+      },
+      "english": {
+        "prediction": "This week brings promising opportunities for Monkey signs in their professional life, with your natural wit and intelligence leading to important breakthroughs. Your career may see unexpected developments that require quick thinking and adaptability. In matters of love, communication will be key to resolving any misunderstandings with your partner or potential romantic interests. Health-wise, focus on maintaining mental balance and avoid overexertion, especially midweek. Financial prospects look favorable towards the weekend, making it an ideal time for investment decisions."
+      }
+    },
+    "rooster": {
+      "hindi": {
+        "prediction": "इस सप्ताह आपके करियर में नई संभावनाएं दिखाई देंगी और आपकी मेहनत का फल मिलेगा। प्रेम संबंधों में थोड़ी सी गलतफहमी हो सकती है, लेकिन धैर्य रखने से सब ठीक हो जाएगा। स्वास्थ्य के मामले में आपको अपने खान-पान पर विशेष ध्यान देना होगा। मंगलवार और गुरुवार आपके लिए विशेष रूप से शुभ रहेंगे। अपने आत्मविश्वास को बनाए रखें और सकारात्मक सोच के साथ आगे बढ़ें।"
+      },
+      "english": {
+        "prediction": "This week brings promising opportunities in your career sector, with your hard work finally paying off in tangible ways. In matters of love, minor misunderstandings may arise, but patience and open communication will resolve any issues smoothly. Your health requires extra attention, particularly regarding your diet and eating habits. Tuesday and Thursday will prove to be especially auspicious days for important decisions and new ventures. Maintain your confidence and approach challenges with a positive mindset for the best results."
+      }
+    },
+    "dog": {
+      "hindi": {
+        "prediction": "इस सप्ताह कुत्ता राशि के लोगों के लिए करियर में नई संभावनाएं खुलेंगी और आपकी मेहनत का फल मिलेगा। प्रेम जीवन में कुछ उतार-चढ़ाव हो सकते हैं, लेकिन धैर्य रखने से सब कुछ ठीक हो जाएगा। स्वास्थ्य की दृष्टि से यह सप्ताह अच्छा रहेगा, लेकिन तनाव से बचने की कोशिश करें। सप्ताह के अंत में आपको कोई खुशखबरी मिल सकती है। धन के मामले में सावधानी बरतें और अनावश्यक खर्चों से बचें।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Dog sign natives, with your hard work finally paying off. Your love life may experience some fluctuations, but patience will help resolve any misunderstandings with your partner. Health-wise, you'll feel energetic and strong, though it's important to manage stress levels effectively. The weekend holds potential for receiving good news that could boost your spirits significantly. Be cautious with financial decisions and avoid unnecessary expenditures to maintain stability."
+      }
+    },
+    "pig": {
+      "hindi": {
+        "prediction": "इस सप्ताह सूअर राशि वालों के लिए करियर में नई संभावनाएं दिखाई देंगी और आपकी मेहनत को पहचान मिलेगी। प्रेम जीवन में कुछ उतार-चढ़ाव हो सकते हैं लेकिन धैर्य रखने से रिश्ते में मिठास वापस आएगी। स्वास्थ्य की दृष्टि से यह सप्ताह अच्छा रहेगा, केवल तनाव को नियंत्रित रखने की आवश्यकता है। वित्तीय मामलों में सोच-समझकर निर्णय लें और अनावश्यक खर्च से बचें।"
+      },
+      "english": {
+        "prediction": "This week brings promising career opportunities for Pig sign natives, with your hard work finally receiving the recognition it deserves. Love life may experience some fluctuations, but patience and understanding will restore harmony in your relationships. Health outlook remains positive overall, though managing stress levels should be your priority. Financial matters require careful consideration, so avoid impulsive spending and focus on practical investments that align with your long-term goals."
+      }
+    }
+  },
+  "tarot": {
+    "card_of_week": {
+      "number": 8,
+      "hindi": {
+        "name": "शक्ति",
+        "meaning": "इस सप्ताह आपकी आंतरिक शक्ति और धैर्य की परीक्षा होगी। कार्यक्षेत्र में चुनौतियों का सामना करते समय अपने आत्मविश्वास और दृढ़ता को बनाए रखें। रिश्तों में कोमलता और समझदारी से काम लें, क्योंकि आपका धैर्य ही सबसे बड़ी ताकत है। व्यक्तिगत विकास के लिए यह समय है कि आप अपने डर पर काबू पाएं और अपनी वास्तविक क्षमताओं को पहचानें। आपके भीतर वह शक्ति है जो किसी भी बाधा को पार कर सकती है।",
+        "advice": "अपनी भावनाओं को नियंत्रित करें और प्रेम के साथ अपनी शक्ति का उपयोग करें।"
+      },
+      "english": {
+        "name": "Strength",
+        "meaning": "This week calls for you to tap into your inner courage and gentle power. In your professional life, challenges may arise that require not force, but patient determination and quiet confidence to overcome. Your relationships will benefit from your compassionate approach and ability to remain calm under pressure. Personal growth comes through learning to master your fears and impulses rather than being controlled by them. You possess a quiet strength that can move mountains when applied with wisdom and love.",
+        "advice": "Trust in your inner wisdom and approach all situations with courage tempered by compassion."
+      }
+    }
+  },
+  "nifty": {
+    "hindi": {
+      "outlook": "20-26 अप्रैल 2026 के सप्ताह में बुध और शुक्र के अनुकूल संयोजन से बाजार में मिश्रित लेकिन सकारात्मक रुझान दिखेगा। मंगल की स्थिति से मध्यावधि निवेशकों के लिए अच्छे अवसर मिल सकते हैं। गुरु के प्रभाव से निफ्टी में स्थिरता बनी रहेगी। सप्ताह के अंत तक बाजार में तेजी का माहौल देखने को मिल सकता है।",
+      "favorable_sectors": "शुक्र और बुध के सकारात्मक प्रभाव से बैंकिंग, आईटी और फार्मा सेक्टर अच्छा प्रदर्शन कर सकते हैं। धातु और रियल एस्टेट क्षेत्र में भी तेजी की संभावना है।",
+      "volatile_days": "मंगलवार (22 अप्रैल) और गुरुवार (24 अप्रैल) सबसे अधिक अस्थिर दिन हो सकते हैं क्योंकि इन दिनों मंगल और राहु का प्रभाव प्रबल होगा। इन दिनों बाजार में तेज उतार-चढ़ाव देखने को मिल सकता है।",
+      "disclaimer": "यह केवल ज्योतिषीय दृष्टिकोण है, निवेश सलाह नहीं। कृपया किसी भी निवेश से पहले प्रमाणित वित्तीय सलाहकार से परामर्श करें।"
+    },
+    "english": {
+      "outlook": "The week of April 20-26, 2026 shows a favorable planetary alignment with Venus and Mercury creating positive momentum for Indian markets. Mars positioned favorably suggests good opportunities for medium-term investors, while Jupiter's influence may bring stability to Nifty movements. The overall trend appears cautiously optimistic with potential for steady gains. Expect improved sentiment towards the weekend as planetary energies align more harmoniously.",
+      "favorable_sectors": "Banking, IT, and pharmaceutical sectors look particularly promising due to Mercury and Venus influences. Metal and real estate sectors may also benefit from positive Mars energy during this period.",
+      "volatile_days": "Tuesday (April 22) and Thursday (April 24) appear most volatile due to Mars-Rahu influences creating market turbulence. These days may witness sharp intraday movements and increased trading volumes.",
+      "disclaimer": "This is an astrological perspective only, not investment advice. Always consult a qualified financial advisor before any investment."
+    }
+  },
+  "generated_at": "2026-04-19T17:09:35.236585"
+}
